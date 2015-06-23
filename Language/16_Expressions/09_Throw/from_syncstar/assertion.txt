@@ -1,0 +1,3 @@
+Let f be the immediately enclosing function.
+If f is marked sync* then a dynamically enclosing exception handler encloses
+the call to moveNext() that initiated the evaluation of the throw expression.

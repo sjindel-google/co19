@@ -1,0 +1,3 @@
+If f is marked async*, then a fresh instance s implementing the built-in
+class Stream is associated with the invocation and immediately returned. When
+s is listened to, execution of the body of f will begin.

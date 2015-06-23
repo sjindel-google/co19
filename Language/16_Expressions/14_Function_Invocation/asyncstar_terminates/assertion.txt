@@ -1,0 +1,7 @@
+When f [which is marked async*] terminates:
+• If the current return value is defined then, if s has been canceled then its
+cancellation future is completed with null.
+• If the current exception x is defined:
+– x is added to s.
+– If s has been canceled then its cancellation future is completed with x as an error.
+• s is closed.

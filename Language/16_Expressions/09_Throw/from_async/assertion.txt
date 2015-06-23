@@ -1,0 +1,4 @@
+Let f be the immediately enclosing function.
+If f is asynchronous then if there is a dynamically enclosing exception
+handler h introduced by the current activation, control is transferred to
+h, otherwise f terminates.

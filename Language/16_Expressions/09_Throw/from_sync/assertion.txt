@@ -1,0 +1,4 @@
+Let f be the immediately enclosing function.
+If f is synchronous (9), control is transferred to the nearest dynamically
+enclosing exception handler.
+
