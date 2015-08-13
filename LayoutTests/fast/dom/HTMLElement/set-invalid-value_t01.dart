@@ -22,7 +22,7 @@ main() {
   shouldThrow(() {
     document.getElementById('div').contentEditable = 'abc';
   }, (e) => e is DomException && e.name == DomException.SYNTAX);
-  shouldBe(document.getElementById("div").getAttribute("contentEditable"), "true");
+  shouldBe(document.getElementById("div").getAttribute("contentEditable"), "false");
   shouldBe(document.getElementById("div").contentEditable, "true");
   shouldBe(document.getElementById("div").isContentEditable, true);
   var div = document.getElementById('div');
@@ -32,7 +32,7 @@ main() {
   shouldThrow(() {
     document.getElementById('div').contentEditable = '';
   }, (e) => e is DomException && e.name == DomException.SYNTAX);
-  shouldBe(document.getElementById("div").getAttribute("contentEditable"), "true");
+  shouldBe(document.getElementById("div").getAttribute("contentEditable"), "false");
   shouldBe(document.getElementById("div").contentEditable, "true");
   shouldBe(document.getElementById("div").isContentEditable, true);
   shouldBe(div.getComputedStyle().getPropertyValue("-webkit-user-modify"),
