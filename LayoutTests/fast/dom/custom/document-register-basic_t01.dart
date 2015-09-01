@@ -36,14 +36,11 @@ main() {
 
   document.register('x-foo', Foo);
 
-  debug('Bad prototype: prototype is already a built-in interface prototype object');
-  shouldThrow(() => document.register("x-bad-a", HtmlElement));
+  debug('Register dart:dom base element');
+  document.register("x-foo-element", HtmlElement);
 
-  /*
-  // This is allowed in dart, see issue 18683
-  debug('Bad prototype: prototype is already a Custom Element interface prototype object');
-  shouldThrow(() => document.register("x-bad-b", Foo));
-  */
+  debug('Bad tag: x-foo tag is already registered');
+  shouldThrow(() => document.register("x-foo", HtmlElement));
 
   debug('Constructor initiated instantiation');
   var createdFoo = new Foo();
