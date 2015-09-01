@@ -35,11 +35,16 @@ main() {
     ''', treeSanitizer: new NullTreeSanitizer());
 
   document.register('x-foo', Foo);
+  document.register("x-foo-2", Foo);
 
   debug('Register dart:dom base element');
   document.register("x-foo-element", HtmlElement);
 
+  debug('Bad Custom Element: Extending a non element');
+  shouldThrow(() => document.register("x-bad-node", Node));
+
   debug('Bad tag: x-foo tag is already registered');
+  shouldThrow(() => document.register("x-foo", Foo));
   shouldThrow(() => document.register("x-foo", HtmlElement));
 
   debug('Constructor initiated instantiation');
