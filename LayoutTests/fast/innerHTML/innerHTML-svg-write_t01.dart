@@ -20,24 +20,24 @@ main() {
   ''', treeSanitizer: new NullTreeSanitizer());
 
   var svg = document.getElementsByTagName('svg')[0];
-
+ 
   svg.innerHtml = "<rect/>";
   shouldBeEqualToString(svg.innerHtml, '<rect></rect>');
   shouldBeEqualToString(svg.firstChild.namespaceUri, 'http://www.w3.org/2000/svg');
 
-  svg.innerHtml = "<radialgradient><stop/></radialgradient>";
-  shouldBeEqualToString(svg.innerHtml, '<radialGradient><stop></stop></radialGradient>');
+  svg.innerHtml = "<foreignobject><svg/></foreignobject>";
+  shouldBeEqualToString(svg.innerHtml, '<foreignObject><svg></svg></foreignObject>');
   shouldBeEqualToString(svg.firstChild.namespaceUri, 'http://www.w3.org/2000/svg');
   shouldBeEqualToString(svg.firstChild.firstChild.namespaceUri, 'http://www.w3.org/2000/svg');
 
-  svg.innerHtml = "<textpath><a>x<set></textpath>";
-  shouldBeEqualToString(svg.innerHtml, '<textPath><a>x<set></set></a></textPath>');
+  svg.innerHtml = "<foreignobject><p>x</foreignobject>";
+  shouldBeEqualToString(svg.innerHtml, '<foreignObject><p>x</p></foreignObject>');
   shouldBeEqualToString(svg.firstChild.namespaceUri, 'http://www.w3.org/2000/svg');
-  shouldBeEqualToString(svg.firstChild.firstChild.namespaceUri, 'http://www.w3.org/2000/svg');
+  shouldBeEqualToString(svg.firstChild.firstChild.namespaceUri, 'http://www.w3.org/1999/xhtml');
 
-  svg.innerHtml = "<missing-glyph><text>x</missing-glyph>";
-  shouldBeEqualToString(svg.innerHtml, '<missing-glyph><text>x</text></missing-glyph>');
-  shouldBeEqualToString(svg.firstChild.namespaceUri, 'http://www.w3.org/2000/svg');
-  shouldBeEqualToString(svg.firstChild.firstChild.namespaceUri, 'http://www.w3.org/2000/svg');
+  //svg.outerHtml = "<svg><circle/></svg>";
+  //svg = document.getElementsByTagName('svg')[0];
+  //shouldBeEqualToString(svg.innerHtml, '<circle></circle>');
+  //shouldBeEqualToString(svg.firstChild.namespaceUri, 'http://www.w3.org/2000/svg');
 }
 

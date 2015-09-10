@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion
- * @description
+ * @assertion 
+ * @description 
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testharness.dart";
 
 const String htmlEL2 = r'''
 <p>The following is a test for parsing ruby &lt;rp&gt; and &lt;rt&gt; elements. According to HTML5 spec, end-tags for both are optional if followed by another &lt;rp&gt; or &lt;rt&gt;. However, they should NOT be auto-closed by other inline elements, such as &lt;span&gt;.</p>
@@ -25,6 +24,6 @@ void test(e) {
 }
 
 void main() {
-    document.body.appendHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
+    document.body.appendHtml(htmlEL2);
     window.onLoad.listen(test);
 }

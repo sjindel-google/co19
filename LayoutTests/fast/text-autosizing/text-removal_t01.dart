@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion
- * @description
+ * @assertion 
+ * @description 
  */
 import "dart:html";
 import "../../../Utils/expect.dart";
-import "../../testharness.dart";
 
 const String htmlEL1 = r'''
 <meta name="viewport" content="width=800">
@@ -36,7 +35,7 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.head.appendHtml(htmlEL1, treeSanitizer: new NullTreeSanitizer());
+    document.head.appendHtml(htmlEL1);
     document.body.appendHtml(htmlEL2);
     var forceLayout1 = document.body.offsetTop;
     var span1 = document.getElementById('span1');

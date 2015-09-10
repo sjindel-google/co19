@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion
+ * @assertion 
  * @description Whitespace in <angle> attribute values
  */
 import "dart:html";
@@ -22,12 +22,15 @@ const String htmlEL2 = r'''
 ''';
 
 void main() {
-    document.body.setInnerHtml(htmlEL2, treeSanitizer: new NullTreeSanitizer());
-
+    document.body.appendHtml(htmlEL2);
+        var svg = document.querySelector("svg");
+    
+    // test length values
     var EPSILON = Math.pow(2, -24); // float epsilon
     var whitespace = [ "", " ", "   ", "\r\n\t ", "\f" ];
     var garbage = [ "a", "e", "foo", ")90" ];
-
+    var validunits = [ "", "em", "ex", "px", "in", "cm", "mm", "pt", "pc", "%" ];
+    
     testType("<angle>",
              document.querySelector("marker"),
              "orient",
@@ -45,6 +48,6 @@ void main() {
                  assert_approx_equals(elm.orientAngle.baseVal.value,
                  expected, EPSILON); }
               );
-
+    
     checkTestFailures();
 }
