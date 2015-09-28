@@ -16,35 +16,34 @@
  */
 
 import 'dart:html';
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
+import 'package:unittest/unittest.dart' as unittest;
+import 'package:unittest/html_individual_config.dart';
 import '../../testcommon.dart';
 
 main() {
-  var d = document;
 
-  var invoked = false;
+  useHtmlIndividualConfiguration();
+  unittest.test("focus retargeting", () {
+    var d = document;
 
-  var roots = createTestMediaPlayer(d);
+    var invoked = false;
 
-  roots.playerShadowRoot.querySelector('.volume-slider').focus();
+    var roots = createTestMediaPlayer(d);
 
-  asyncStart();
+    roots.playerShadowRoot.querySelector('.volume-slider').focus();
 
-  //expected result of what relative target should be see
-  //see at http://www.w3.org/TR/shadow-dom/#event-retargeting-example
+    //expected result of what relative target should be see
+    //see at http://www.w3.org/TR/shadow-dom/#event-retargeting-example
 
-  //For #volume-slider relative target is #volume-slider
-  roots.playerShadowRoot.querySelector('.volume-slider')
-    .addEventListener('blur', (event) {
-      invoked = true;
-      assert_equals(event.target.getAttribute('id'), 'volume-slider',
-        'Wrong target');
-      asyncEnd();
-    }, false);
+    //For #volume-slider relative target is #volume-slider
+    roots.playerShadowRoot.querySelector('.volume-slider')
+      .addEventListener('blur', unittest.expectAsync((event) {
+        invoked = true;
+        unittest.expect(event.target.getAttribute('id'), 'volume-slider',
+            reason: 'Wrong target');
+      }));
 
-  // move focus out of shadow tree. blur should be fired
-  d.querySelector('#outside-control').focus();
-
-  assert_true(invoked, 'Event listener was not invoked');
+    // move focus out of shadow tree. blur should be fired
+    d.querySelector('#outside-control').focus();
+  });
 }
