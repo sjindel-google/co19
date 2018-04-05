@@ -17,6 +17,7 @@ run_process() async {
   await stdin.first.then((_) async {
     try {
       await stdin.first;
+      exit(99);
     } catch (e) {
       exit(e is StateError ? 0 : 99);
     }

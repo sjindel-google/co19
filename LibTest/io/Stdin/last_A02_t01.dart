@@ -4,18 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<bool> any(bool test(T element))
- * Completes the [Future] when the answer is known.
- * @description Checks that that [Future] is not completed while the answer is
- * unknown
+ * @assertion Future<T> last
+ * Returns the last element of the stream.
+ * @description Checks that last entered line is returned
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
-import "dart:async";
 import "dart:io";
 
-run_process() async {
-  await stdin.any((x) => false).then((x) { exit(99); });
+run_process() {
+  stdin.last.then((List<int> l) { print(new String.fromCharCodes(l)); });
 }
 
 run_main() async {
@@ -25,17 +23,16 @@ run_main() async {
 
   await Process.start(executable, [eScript, "test"], runInShell: true).then(
       (Process process) async {
-    process.stdin.writeln("1");
-    process.stdin.writeln("2");
-    process.stdin.writeln("3");
-    process.stdin.writeln("4");
-    process.stdin.flush();
-    await new Future.delayed(new Duration(seconds: 2)).then((_) async {
-      process.kill();
-      await process.exitCode.then((code) async {
-        Expect.notEquals(99, code);
-        called++;
-      });
+    process.stdin.writeln("Testme");
+    process.stdin.close();
+    await process.stderr.toList().then((errors){
+      Expect.isTrue(errors.isEmpty);
+    });
+    await process.stdout.toList().then((out) {
+      String res = SYSTEM_ENCODING.decode(out[0]);
+      // Get rid from possible new line symbols here
+      Expect.equals("Testme", res.trimRight());
+      called++;
     });
   });
   Expect.equals(1, called);

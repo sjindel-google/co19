@@ -28,10 +28,10 @@ run_main() async {
   await Process.start(executable, [eScript, "test"], runInShell: true).then(
       (Process process) async {
     process.stdin.writeln("1");
+    process.stdin.flush();
     await new Future.delayed(new Duration(seconds: 2)).then((_) async {
       process.kill();
       await process.exitCode.then((code) async {
-        stdout.writeln(code);
         Expect.notEquals(99, code);
         called++;
       });

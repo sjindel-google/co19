@@ -4,10 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<bool> isEmpty
- * Internally the method cancels its subscription after the first element. This
- * means that single-subscription (non-broadcast) streams are closed and cannot
- * be reused after a call to this getter.
+ * @assertion Future<T> last
+ * If this stream is empty (a [done] event occurs before the first data event),
+ * the resulting future completes with a [StateError].
  * @description Checks that [StateError] occurs if the stream is empty
  * @author iarkh@unipro.ru
  */
@@ -15,14 +14,12 @@ import "../../../Utils/expect.dart";
 import "dart:io";
 
 run_process() async {
-  await stdin.isEmpty.then((_) async {
-    try {
-      await stdin.isEmpty;
-      exit(99);
-    } catch (e) {
-      exit(e is StateError ? 0 : 99);
-    }
-  });
+  try {
+    await stdin.last;
+    exit(99);
+  } catch (e) {
+    exit(e is StateError ? 0 : 99);
+  }
 }
 
 run_main() async {
@@ -32,7 +29,7 @@ run_main() async {
 
   await Process.start(executable, [eScript, "test"], runInShell: true).then(
       (Process process) async {
-    process.stdin.writeln("1");
+    process.stdin.close();
     await process.exitCode.then((int code) async {
       Expect.equals(0, code);
       called++;

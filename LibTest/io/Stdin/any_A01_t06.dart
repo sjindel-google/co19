@@ -5,17 +5,15 @@
  */
 /**
  * @assertion Future<bool> any(bool test(T element))
- * Completes the [Future] when the answer is known.
- * @description Checks that that [Future] is not completed while the answer is
- * unknown
+ * Checks whether [test] accepts any element provided by this stream.
+ * @description Checks that [any] returns [true] if [test] returns [true]
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
-import "dart:async";
 import "dart:io";
 
 run_process() async {
-  await stdin.any((x) => false).then((x) { exit(99); });
+  await stdin.any((x) => false).then((x) { exit(x ? 99 : 0); });
 }
 
 run_main() async {
@@ -25,17 +23,11 @@ run_main() async {
 
   await Process.start(executable, [eScript, "test"], runInShell: true).then(
       (Process process) async {
-    process.stdin.writeln("1");
-    process.stdin.writeln("2");
-    process.stdin.writeln("3");
-    process.stdin.writeln("4");
-    process.stdin.flush();
-    await new Future.delayed(new Duration(seconds: 2)).then((_) async {
-      process.kill();
-      await process.exitCode.then((code) async {
-        Expect.notEquals(99, code);
-        called++;
-      });
+    process.stdin.writeln("Testme");
+    process.stdin.close();
+    await process.exitCode.then((int code) async {
+      Expect.equals(0, code);
+      called++;
     });
   });
   Expect.equals(1, called);
