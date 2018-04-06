@@ -4,22 +4,18 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<T> first
- * If this stream is empty (a [done] event occurs before the first data event),
- * the resulting future completes with a [StateError].
- * @description [StateError] occurs if the stream is empty
+ * @assertion Future<bool> isEmpty
+ * Stops listening to the stream after the first element has been received.
+ * @description Checks that listening to [stdin] is stopped after the [isEmpty]
+ * call.
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:io";
 
 run_process() async {
-  await stdin.first.then((_) async {
-    try {
-      await stdin.first;
-    } catch (e) {
-      exit(e is StateError ? 0 : 99);
-    }
+  await stdin.isEmpty.then((_) async {
+    try { stdin.listen((_) { exit(99); }); } catch (e) { exit(0); }
   });
 }
 
@@ -27,11 +23,10 @@ run_main() async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
-
   await Process.start(executable, [eScript, "test"], runInShell: true).then(
       (Process process) async {
-    process.stdin.writeln("1");
-    await process.exitCode.then((int code) async {
+    process.stdin.write("123");
+    await process.exitCode.then((code) {
       Expect.equals(0, code);
       called++;
     });
@@ -39,7 +34,4 @@ run_main() async {
   Expect.equals(1, called);
 }
 
-main(List<String> args) {
-  args.length > 0 ? run_process() : run_main();
-}
-
+main(List<String> args) { args.length > 0 ? run_process() : run_main(); }
