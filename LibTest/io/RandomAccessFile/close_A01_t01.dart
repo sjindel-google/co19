@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<RandomAccessFile> close()
- * Closes the file. Returns a Future<RandomAccessFile> that completes with this
- * RandomAccessFile when it has been closed.
+ * @assertion Future<void> close()
+ * Closes the file. Returns a Future that completes when it has been closed.
  *
- * @description Checks that method close returns Future<RandomAccessFile> that
- * completes with this RandomAccessFile.
+ * @description Checks that method close returns Future<void> that completes
+ * when the file has been closed.
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -27,7 +26,12 @@ main() {
     var clf = rf.close();
     Expect.isTrue(clf is Future);
     clf.then((f) {
-      Expect.isTrue(f == rf);
+      try {
+        rf.readIntoSync([0, 0]);
+        Expect.fail('should not be here');
+      } on Exception catch (e) {
+        Expect.isTrue(e is FileSystemException);
+      }
       asyncEnd();
     }).whenComplete(() {
       file.delete();
