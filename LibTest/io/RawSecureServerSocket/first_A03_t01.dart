@@ -41,6 +41,7 @@ check(InternetAddress address) {
     }).whenComplete(() {
       if (v1 != null && v2 != null) {
         Expect.equals(v1, v2);
+        asyncEnd();
       }
     });
 

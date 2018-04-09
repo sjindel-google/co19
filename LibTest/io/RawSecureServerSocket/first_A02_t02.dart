@@ -13,7 +13,8 @@
  * means that single-subscription (non-broadcast) streams are closed and cannot
  * be reused after a call to this getter.
  *
- * @description Checks that the [first] returns the first element of this.
+ * @description Checks that the [first] returns the first element of this that
+ * is not equal to the last element of this.
  * @author ngl@unipro.ru
  */
 import "dart:io";
@@ -44,6 +45,7 @@ check(InternetAddress address) {
     }).whenComplete(() {
       if (v1 != null && v2 != null) {
         Expect.notEquals(v1, v2);
+        asyncEnd();
       }
     });
 

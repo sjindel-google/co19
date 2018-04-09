@@ -4,10 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<RawSecureSocket> last
- * The last element of this stream.
+ * @assertion Future<RawSecureSocket> single
+ * The single element of this stream.
+ * . . .
+ * If this is empty or has more than one element, the returned future completes
+ * with an error.
  *
- * @description Checks that [last] returns the last element of this.
+ * @description Checks that if this has more than one element, the returned
+ * future completes with an error.
  * @author ngl@unipro.ru
  */
 import "dart:io";
@@ -33,9 +37,10 @@ check(InternetAddress address) {
   asyncStart();
   RawSecureServerSocket.bind(address, 0, serverContext).then((server) {
     Stream<RawSecureSocket> bs = server.asBroadcastStream();
-    bs.last.then((value) {
-      Expect.equals(sList[1], value);
-    }).whenComplete(() {
+    bs.single.then((event) {
+      Expect.fail('Future should be completed with Error');
+    }, onError: (error) {
+      Expect.isTrue(error is StateError);
       asyncEnd();
     });
 
@@ -78,7 +83,7 @@ check(InternetAddress address) {
             throw "Unexpected event $event";
         }
       }).onDone(() {
-        if (closed == 2) {
+        if (closed == 1) {
           server.close();
         }
       });

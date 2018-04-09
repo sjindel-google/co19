@@ -28,27 +28,15 @@ SecurityContext clientContext = new SecurityContext()
 check(InternetAddress address) {
   const messageSize = 10;
   List<int> expected = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  var v1 = null;
-  var v2 = null;
+  List<RawSecureSocket> sList = [null, null];
+  int sli = 0;
   var closed = 0;
   asyncStart();
   RawSecureServerSocket.bind(address, 0, serverContext).then((server) {
     Stream<RawSecureSocket> bs = server.asBroadcastStream();
     bs.single.then((value) {
-      v1 = value;
-    }).whenComplete(() {
-      if (v1 != null && v2 != null) {
-        Expect.equals(v1, v2);
-      }
-    });
-
-    bs.single.then((value) {
-      v2 = value;
-    }).whenComplete(() {
-      if (v1 != null && v2 != null) {
-        Expect.equals(v1, v2);
-        asyncEnd();
-      }
+      Expect.equals(sList[0], value);
+      asyncEnd();
     });
 
     bs.listen((client) {
@@ -56,6 +44,7 @@ check(InternetAddress address) {
       int bytesWritten = 0;
       List<int> data = new List<int>(messageSize);
       client.writeEventsEnabled = false;
+      sList[sli++] = client;
       client.listen((event) {
         switch (event) {
           case RawSocketEvent.READ:
