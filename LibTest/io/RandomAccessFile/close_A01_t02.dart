@@ -4,12 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<RandomAccessFile> close()
- * Closes the file. Returns a Future<RandomAccessFile> that completes with this
- * RandomAccessFile when it has been closed.
+ * @assertion Future<void> close()
+ * Closes the file. Returns a Future that completes when it has been closed.
  *
- * @description Checks that method close() returns Future<RandomAccessFile> that
- * completes with this RandomAccessFile and getting length synchronously of this
+ * @description Checks that method close() returns Future<void> that completes
+ * when the file has been closed, and getting length synchronously of this
  * closed file throws FileSystemException.
  * @author ngl@unipro.ru
  */
