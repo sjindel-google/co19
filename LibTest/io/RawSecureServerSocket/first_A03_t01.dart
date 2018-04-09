@@ -20,12 +20,12 @@ import "../../../Utils/async_utils.dart";
 String localFile(path) => Platform.script.resolve(path).toFilePath();
 
 SecurityContext serverContext = new SecurityContext()
-  ..useCertificateChain(localFile('certificates/server_chain.pem'))
-  ..usePrivateKey(localFile('certificates/server_key.pem'),
+  ..useCertificateChain(localFile('../certificates/server_chain.pem'))
+  ..usePrivateKey(localFile('../certificates/server_key.pem'),
       password: 'co19test');
 
 SecurityContext clientContext = new SecurityContext()
-  ..setTrustedCertificates(localFile('certificates/trusted_certs.pem'));
+  ..setTrustedCertificates(localFile('../certificates/trusted_certs.pem'));
 
 check(InternetAddress address) {
   const messageSize = 10;
