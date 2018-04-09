@@ -83,7 +83,6 @@ check(InternetAddress address) {
             throw "Unexpected event $event";
         }
       }).onDone(() {
-    //    Expect.equals(sList[0], firstValue);
         if (closed == 2) {
           server.close();
         } else {
