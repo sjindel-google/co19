@@ -23,9 +23,6 @@ main() {
   Expect.isTrue(int.parse("0") == 0);
   Expect.isTrue(int.parse("-0") == 0);
   
-  Expect.isTrue(int.parse("9223372036854775808") == 9223372036854775808); //maximum int64 + 1
-  Expect.isTrue(int.parse("-9223372036854775809") == -9223372036854775809); //minimum int64 - 1
-  
   Expect.isTrue(int.parse("10") == 10);
   Expect.isTrue(int.parse("0x10") == 16);
   Expect.isTrue(int.parse("0xA") == 10);
@@ -34,4 +31,7 @@ main() {
   Expect.isTrue(int.parse(" 12") == 12);
   Expect.isTrue(int.parse("12 ") == 12);
   Expect.isTrue(int.parse("\n\t 12    ") == 12);
+
+  Expect.isTrue(int.parse("9223372036854775807") == 9223372036854775807);
+  Expect.isTrue(int.parse("-9223372036854775808") == -9223372036854775808);
 }
