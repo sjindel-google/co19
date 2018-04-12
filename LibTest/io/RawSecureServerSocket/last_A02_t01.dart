@@ -1,20 +1,13 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  Future<RawSecureSocket> first
- * The first element of the stream.
+ * @assertion Future<RawSecureSocket> last
+ * The last element of this stream.
  *
- * Stops listening to the stream after the first element has been received.
- *
- * Internally the method cancels its subscription after the first element. This
- * means that single-subscription (non-broadcast) streams are closed and cannot
- * be reused after a call to this getter.
- *
- * @description Checks that the [first] returns the first element of this that
- * is not equal to the last element of this.
+ * @description Checks that [last] returns the last element of this.
  * @author ngl@unipro.ru
  */
 import "dart:io";
@@ -34,28 +27,16 @@ SecurityContext clientContext = new SecurityContext()
 check(InternetAddress address) {
   const messageSize = 10;
   List<int> expected = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  var v1 = null;
-  var v2 = null;
+  List<RawSecureSocket> sList = [null, null];
+  int sli = 0;
   var closed = 0;
   asyncStart();
   RawSecureServerSocket.bind(address, 0, serverContext).then((server) {
     Stream<RawSecureSocket> bs = server.asBroadcastStream();
-    bs.first.then((value) {
-      v1 = value;
-    }).whenComplete(() {
-      if (v1 != null && v2 != null) {
-        Expect.notEquals(v1, v2);
-        asyncEnd();
-      }
-    });
-
     bs.last.then((value) {
-      v2 = value;
+      Expect.equals(sList[1], value);
     }).whenComplete(() {
-      if (v1 != null && v2 != null) {
-        Expect.notEquals(v1, v2);
-        asyncEnd();
-      }
+      asyncEnd();
     });
 
     bs.listen((client) {
@@ -63,6 +44,7 @@ check(InternetAddress address) {
       int bytesWritten = 0;
       List<int> data = new List<int>(messageSize);
       client.writeEventsEnabled = false;
+      sList[sli++] = client;
       client.listen((event) {
         switch (event) {
           case RawSocketEvent.READ:

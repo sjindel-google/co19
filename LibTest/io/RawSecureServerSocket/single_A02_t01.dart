@@ -1,20 +1,14 @@
 /*
- * Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2017, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  Future<RawSecureSocket> first
- * The first element of the stream.
+ * @assertion Future<RawSecureSocket> single
+ * The single element of this stream.
  *
- * Stops listening to the stream after the first element has been received.
- *
- * Internally the method cancels its subscription after the first element. This
- * means that single-subscription (non-broadcast) streams are closed and cannot
- * be reused after a call to this getter.
- *
- * @description Checks that the [first] returns the first element of this that
- * is not equal to the last element of this.
+ * @description Checks that [single] returns the future that completes with
+ * the single element of this socket.
  * @author ngl@unipro.ru
  */
 import "dart:io";
@@ -34,28 +28,15 @@ SecurityContext clientContext = new SecurityContext()
 check(InternetAddress address) {
   const messageSize = 10;
   List<int> expected = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  var v1 = null;
-  var v2 = null;
+  List<RawSecureSocket> sList = [null, null];
+  int sli = 0;
   var closed = 0;
   asyncStart();
   RawSecureServerSocket.bind(address, 0, serverContext).then((server) {
     Stream<RawSecureSocket> bs = server.asBroadcastStream();
-    bs.first.then((value) {
-      v1 = value;
-    }).whenComplete(() {
-      if (v1 != null && v2 != null) {
-        Expect.notEquals(v1, v2);
-        asyncEnd();
-      }
-    });
-
-    bs.last.then((value) {
-      v2 = value;
-    }).whenComplete(() {
-      if (v1 != null && v2 != null) {
-        Expect.notEquals(v1, v2);
-        asyncEnd();
-      }
+    bs.single.then((value) {
+      Expect.equals(sList[0], value);
+      asyncEnd();
     });
 
     bs.listen((client) {
@@ -63,6 +44,7 @@ check(InternetAddress address) {
       int bytesWritten = 0;
       List<int> data = new List<int>(messageSize);
       client.writeEventsEnabled = false;
+      sList[sli++] = client;
       client.listen((event) {
         switch (event) {
           case RawSocketEvent.READ:
@@ -96,51 +78,49 @@ check(InternetAddress address) {
             throw "Unexpected event $event";
         }
       }).onDone(() {
-        if (closed == 2) {
+        if (closed == 1) {
           server.close();
         }
       });
     });
 
-    for (int i = 1; i <= 2; i++) {
-      RawSocket.connect(server.address, server.port).then((socket) {
-        RawSecureSocket.secure(socket, context: clientContext).then((client) {
-          var completer = new Completer();
-          int bytesRead = 0;
-          int bytesWritten = 0;
-          List<int> dataSent = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-          List<int> dataReceived = new List<int>(dataSent.length);
-          client.listen((event) {
-            switch (event) {
-              case RawSocketEvent.READ:
-                Expect.isTrue(client.available() > 0);
-                var buffer = client.read();
-                if (buffer != null) {
-                  dataReceived.setRange(
-                      bytesRead, bytesRead + buffer.length, buffer);
-                  bytesRead += buffer.length;
-                }
-                break;
-              case RawSocketEvent.WRITE:
-                Expect.isTrue(bytesRead == 0);
-                bytesWritten += client.write(
-                    dataSent, bytesWritten, dataSent.length - bytesWritten);
-                if (bytesWritten < dataSent.length) {}
-                break;
-              case RawSocketEvent.READ_CLOSED:
-                Expect.listEquals(expected, dataReceived);
-                completer.complete(client);
-                break;
-              default:
-                throw "Unexpected event $event";
-            }
-          });
-          completer.future.then((_) {
-            socket.close();
-          });
+    RawSocket.connect(server.address, server.port).then((socket) {
+      RawSecureSocket.secure(socket, context: clientContext).then((client) {
+        var completer = new Completer();
+        int bytesRead = 0;
+        int bytesWritten = 0;
+        List<int> dataSent = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        List<int> dataReceived = new List<int>(dataSent.length);
+        client.listen((event) {
+          switch (event) {
+            case RawSocketEvent.READ:
+              Expect.isTrue(client.available() > 0);
+              var buffer = client.read();
+              if (buffer != null) {
+                dataReceived.setRange(
+                    bytesRead, bytesRead + buffer.length, buffer);
+                bytesRead += buffer.length;
+              }
+              break;
+            case RawSocketEvent.WRITE:
+              Expect.isTrue(bytesRead == 0);
+              bytesWritten += client.write(
+                  dataSent, bytesWritten, dataSent.length - bytesWritten);
+              if (bytesWritten < dataSent.length) {}
+              break;
+            case RawSocketEvent.READ_CLOSED:
+              Expect.listEquals(expected, dataReceived);
+              completer.complete(client);
+              break;
+            default:
+              throw "Unexpected event $event";
+          }
+        });
+        completer.future.then((_) {
+          socket.close();
         });
       });
-    }
+    });
   });
 }
 
