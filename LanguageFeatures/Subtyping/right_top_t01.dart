@@ -7,7 +7,7 @@
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
  * Right Top: T1 is a top type (i.e. Object, dynamic, or void).
- * @description Check that if T0 is a subtype of a type T1, if T1 is Object.
+ * @description Check that a type T0 is a subtype of a type T1, if T1 is Object.
  * @author ngl@unipro.ru
  */
 
