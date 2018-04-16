@@ -42,7 +42,7 @@ class Y0<X, Y> extends B0<X, Y> {}
 class Y1<X, Y> extends B1<X, Y> {}
 
 typedef U0 T0<X0 extends B0,X1 extends B1>(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4});
-typedef U1 T1<Y0 extends B0,Y1 extends B1>(S0 y0, S1 y1, {S2 x2, S3 y3});
+typedef U1 T1<Y0 extends B0,Y1 extends B1>(S0 y0, S1 y1, {S2 x2, S3 y3}); // y3, while should be x3
 
 class Z0 extends B0 {}
 class Z1 extends B1 {}
