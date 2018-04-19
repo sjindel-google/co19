@@ -46,6 +46,7 @@ typedef U1 T1<Y0 extends B0,Y1 extends B1>(S0 y0, S1 y1, {S2 x2, S3 x3});
 class CompareTypes<X extends Y, Y> {}
 
 main() {
-  List<T1> t = new List<T0>();
-  new CompareTypes<T0, T1>();
+  U0 Function<Y0, Y1>() t0;
+  T1 t = new T0();
+  //new CompareTypes<T0, T1>();
 }
