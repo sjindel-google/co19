@@ -53,6 +53,7 @@ main() {
   List<T1<Z0, Z1>> t2 = new List<T0<Z0, Z1>>();
   List<T1> t3 = new List<T0<Z0, Z1>>();
 
+
   new CompareTypes<T0, T1>();
   new CompareTypes<T0<Z0, Z1>, T1<Z0, Z1>>();
   new CompareTypes<T0, T1<Z0, Z1>>();
