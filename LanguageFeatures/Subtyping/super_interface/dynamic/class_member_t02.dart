@@ -11,13 +11,13 @@
  * @description Check that if type T0 is an interface type with super-interfaces
  * S0,...Sn and and Si <: T1 for some i then instance of T0 can be assigned to
  * the T1 variable. Test that instance of T0 can assigned to a class member of
- * type T1. S0 extends T1
+ * type T1. S1 extends T1
  * @author sgrekhov@unipro.ru
  */
 class T1 {}
 
-abstract class S0 extends T1 {}
-abstract class S1 {}
+abstract class S0 {}
+abstract class S1 extends T1 {}
 abstract class S2 {}
 
 abstract class T0 implements S0, S1, S2  {}
