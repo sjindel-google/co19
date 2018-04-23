@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 // Check whether the file is may be locked with an exclusive lock.
 checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
   var expected = 'OS Error:';
-  var arguments = []
+  var arguments = new List<String>()
     ..add(Platform.script.resolve('lock_check_2_lib.dart').toFilePath())
     ..add(path)
     ..add(mode == FileLock.EXCLUSIVE ? 'EXCLUSIVE' : 'SHARED')
