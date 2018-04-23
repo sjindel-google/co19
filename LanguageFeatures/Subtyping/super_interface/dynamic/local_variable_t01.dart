@@ -34,6 +34,10 @@ test() {
   T1 t11 = forgetType(t0);
   T1 t12 = foo(t0);
   T1 t13 = foo(new T());
+  t10 = forgetType(t0);
+  t11 = forgetType(t0);
+  t12 = forgetType(t0);
+  t13 = forgetType(t0);
 }
 
 class C {
@@ -44,6 +48,10 @@ class C {
     T1 t11 = forgetType(t0);
     T1 t12 = foo(t0);
     T1 t13 = foo(new T());
+    t10 = forgetType(t0);
+    t11 = forgetType(t0);
+    t12 = forgetType(t0);
+    t13 = forgetType(t0);
   }
 
   test() {
@@ -52,6 +60,10 @@ class C {
     T1 t11 = forgetType(t0);
     T1 t12 = foo(t0);
     T1 t13 = foo(new T());
+    t10 = forgetType(t0);
+    t11 = forgetType(t0);
+    t12 = forgetType(t0);
+    t13 = forgetType(t0);
   }
 }
 
@@ -61,6 +73,10 @@ main() {
   T1 t11 = forgetType(t0);
   T1 t12 = foo(t0);
   T1 t13 = foo(new T());
+  t10 = forgetType(t0);
+  t11 = forgetType(t0);
+  t12 = forgetType(t0);
+  t13 = forgetType(t0);
 
   bar() {
     T0 t0 = new T();
@@ -68,6 +84,10 @@ main() {
     T1 t11 = forgetType(t0);
     T1 t12 = foo(t0);
     T1 t13 = foo(new T());
+    t10 = forgetType(t0);
+    t11 = forgetType(t0);
+    t12 = forgetType(t0);
+    t13 = forgetType(t0);
   }
 
   test();
