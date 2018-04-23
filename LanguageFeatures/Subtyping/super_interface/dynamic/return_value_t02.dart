@@ -10,15 +10,16 @@
  * - and Si <: T1 for some i
  * @description Check that if type T0 is an interface type with super-interfaces
  * S0,...Sn and and Si <: T1 for some i then instance of T0 can be assigned to
- * the T1 variable. Test that instance of T1 cannot be assigned to a class
- * member of type T0. Test setting class member in main()
- * @compile-error
+ * the T1 variable. Test that instance of T0 can be be used as a return value of
+ * type T1. Test the case when S1 extends T1
  * @author sgrekhov@unipro.ru
  */
+import "return_value_lib.dart" as l;
+
 class T1 {}
 
-abstract class S0 extends T1 {}
-abstract class S1 {}
+abstract class S0 {}
+abstract class S1 extends T1 {}
 abstract class S2 {}
 
 abstract class T0 implements S0, S1, S2  {}
@@ -27,11 +28,14 @@ class T implements T0 {}
 
 dynamic forgetType(dynamic d) => d;
 
-class C {
-  T0 m;
-}
+T1 f1(dynamic t) => forgetType(t);
+T1 f2({dynamic t}) => forgetType(t);
+T1 f3([dynamic t]) => forgetType(t);
 
 main() {
-  C c = new C();
-  c.m = forgetType(new T1());
+  T1 t0 = new T();
+  dynamic d1 = f1(t0);
+  dynamic d2 = f2(t: t0);
+  dynamic d3 = f3(t0);
+  dynamic d4 = l.f(new l.T());
 }

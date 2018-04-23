@@ -26,7 +26,7 @@ class T implements T0 {}
 
 dynamic forgetType(dynamic d) => d;
 
-T0 foo(T1 t1) => forgetType(t1);
+T1 foo(T1 t1) => forgetType(t1);
 
 class C1 {
   static staticTest() {
@@ -109,5 +109,6 @@ main() {
 
   test();
   bar();
+  new C1().test();
   C1.staticTest();
 }

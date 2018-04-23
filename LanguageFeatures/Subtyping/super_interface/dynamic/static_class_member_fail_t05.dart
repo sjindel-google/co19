@@ -10,11 +10,11 @@
  * - and Si <: T1 for some i
  * @description Check that if type T0 is an interface type with super-interfaces
  * S0,...Sn and and Si <: T1 for some i then instance of T0 can be assigned to
- * the T1 variable. Test that instance of T1 cannot be assigned to a class
- * member of type T0. Test setting class member in main()
- * @compile-error
+ * the T1 variable. Test that instance of T0 cannot be assigned to a static
+ * class member of type T1 and TypeError is thrown
  * @author sgrekhov@unipro.ru
  */
+import "../../../../Utils/expect.dart";
 class T1 {}
 
 abstract class S0 extends T1 {}
@@ -28,10 +28,9 @@ class T implements T0 {}
 dynamic forgetType(dynamic d) => d;
 
 class C {
-  T0 m;
+  static T0 s;
 }
 
 main() {
-  C c = new C();
-  c.m = forgetType(new T1());
+  Expect.throws(() {C.s = forgetType(new T1());}, (e) => e is TypeError);
 }

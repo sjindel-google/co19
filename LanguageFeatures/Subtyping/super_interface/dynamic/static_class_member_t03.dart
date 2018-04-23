@@ -28,12 +28,12 @@ class T implements T0 {}
 
 dynamic forgetType(dynamic d) => d;
 
-T0 foo(T1 t1) => forgetType(t1);
+T1 foo(T1 t1) => forgetType(t1);
 
 class C {
   static T1 t10, t11, t12, t13;
 
-  static test() {
+  static staticTest() {
     T0 t0 = new T();
     t10 = forgetType(new T());
     t11 = forgetType(t0);
@@ -41,7 +41,7 @@ class C {
     t13 = foo(new T());
   }
 
-  tst() {
+  test() {
     T0 t0 = new T();
     t10 = forgetType(new T());
     t11 = forgetType(t0);
@@ -56,7 +56,7 @@ test() {
   C.t11 = forgetType(t0);
   C.t12 = foo(t0);
   C.t13 = foo(new T());
-  C.test();
+  C.staticTest();
 }
 
 main() {
@@ -65,7 +65,7 @@ main() {
   C.t11 = forgetType(t0);
   C.t12 = foo(t0);
   C.t13 = foo(new T());
-  C.test();
+  C.staticTest();
 
   bar() {
     T0 t0 = new T();
@@ -73,10 +73,10 @@ main() {
     C.t11 = forgetType(t0);
     C.t12 = foo(t0);
     C.t13 = foo(new T());
-    C.test();
+    C.staticTest();
   }
 
   test();
   bar();
-  new C().tst();
+  new C().test();
 }

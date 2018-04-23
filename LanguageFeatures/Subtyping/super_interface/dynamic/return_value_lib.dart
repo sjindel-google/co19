@@ -6,7 +6,7 @@
 /**
  * @author sgrekhov@unipro.ru
  */
-library library_variable_lib;
+library return_value_lib;
 
 class T1 {}
 
@@ -16,9 +16,8 @@ abstract class S2 {}
 
 abstract class T0 implements S0, S1, S2  {}
 
-class T2 implements S1, S2  {}
-
 class T implements T0 {}
 
-T0 libraryVariableT0;
-T1 libraryVariableT1;
+dynamic forgetType(dynamic d) => d;
+
+T1 f(dynamic t) => forgetType(t);

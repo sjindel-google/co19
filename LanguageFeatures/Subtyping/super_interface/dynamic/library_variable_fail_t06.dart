@@ -10,28 +10,15 @@
  * - and Si <: T1 for some i
  * @description Check that if type T0 is an interface type with super-interfaces
  * S0,...Sn and and Si <: T1 for some i then instance of T0 can be assigned to
- * the T1 variable. Test that instance of T1 cannot be assigned to a class
- * member of type T0. Test setting class member in main()
+ * the T1 variable. Test that if there is no i, such that Si <: T1, then T0
+ * is not subtype of T1
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
-class T1 {}
-
-abstract class S0 extends T1 {}
-abstract class S1 {}
-abstract class S2 {}
-
-abstract class T0 implements S0, S1, S2  {}
-
-class T implements T0 {}
+import "library_variable_lib.dart";
 
 dynamic forgetType(dynamic d) => d;
 
-class C {
-  T0 m;
-}
-
 main() {
-  C c = new C();
-  c.m = forgetType(new T1());
+  libraryVariableT1 = forgetType(new T2());
 }

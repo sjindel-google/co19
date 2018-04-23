@@ -18,7 +18,7 @@ import "library_variable_lib.dart";
 
 dynamic forgetType(dynamic d) => d;
 
-T0 foo(T1 t1) => forgetType(t1);
+T1 foo(T1 t1) => forgetType(t1);
 
 test() {
   T0 t0 = new T();

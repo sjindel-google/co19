@@ -10,8 +10,8 @@
  * - and Si <: T1 for some i
  * @description Check that if type T0 is an interface type with super-interfaces
  * S0,...Sn and and Si <: T1 for some i then instance of T0 can be assigned to
- * the T1 variable. Test that instance of T1 cannot assigned to a class member
- * of type T0 and TypeError is thrown
+ * the T1 variable. Test that instance of T1 cannot be assigned to a class
+ * member of type T0 and TypeError is thrown
  * @author sgrekhov@unipro.ru
  */
 import "../../../../Utils/expect.dart";

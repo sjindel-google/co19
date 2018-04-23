@@ -10,8 +10,8 @@
  * - and Si <: T1 for some i
  * @description Check that if type T0 is an interface type with super-interfaces
  * S0,...Sn and and Si <: T1 for some i then instance of T0 can be assigned to
- * the T1 variable. Test that instance of T1 cannot be assigned to a class
- * member of type T0. Test setting class member in main()
+ * the T1 variable. Test that instance of T0 cannot be assigned to a static
+ * class member of type T1. Test setting static class member in main()
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
@@ -28,10 +28,9 @@ class T implements T0 {}
 dynamic forgetType(dynamic d) => d;
 
 class C {
-  T0 m;
+  static T0 s;
 }
 
 main() {
-  C c = new C();
-  c.m = forgetType(new T1());
+  C.s = forgetType(new T1());
 }

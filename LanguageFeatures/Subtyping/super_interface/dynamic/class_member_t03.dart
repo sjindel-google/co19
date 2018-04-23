@@ -17,7 +17,7 @@
 class T1 {}
 
 abstract class S0 {}
-abstract class S1 extends T1 {}
+abstract class S1 {}
 abstract class S2 extends SS2 {}
 
 class SS2 extends Object with T1 {}
@@ -28,7 +28,7 @@ class T implements T0 {}
 
 dynamic forgetType(dynamic d) => d;
 
-T0 foo(T1 t1) => forgetType(t1);
+T1 foo(T1 t1) => forgetType(t1);
 
 class C1 {
   static staticTest() {
@@ -111,5 +111,6 @@ main() {
 
   test();
   bar();
+  new C1().test();
   C1.staticTest();
 }

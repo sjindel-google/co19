@@ -10,14 +10,16 @@
  * - and Si <: T1 for some i
  * @description Check that if type T0 is an interface type with super-interfaces
  * S0,...Sn and and Si <: T1 for some i then instance of T0 can be assigned to
- * the T1 variable. Test that instance of T1 cannot be assigned to a class
- * member of type T0. Test setting class member in main()
- * @compile-error
+ * the T1 variable. Test that if there is no i, such that Si <: T1, then T0
+ * is not subtype of T1
  * @author sgrekhov@unipro.ru
  */
+import "../../../../Utils/expect.dart";
+import "return_value_lib.dart" as l;
+
 class T1 {}
 
-abstract class S0 extends T1 {}
+abstract class S0 {}
 abstract class S1 {}
 abstract class S2 {}
 
@@ -27,11 +29,19 @@ class T implements T0 {}
 
 dynamic forgetType(dynamic d) => d;
 
-class C {
-  T0 m;
-}
+T1 f1(dynamic t) => forgetType(t);
+T1 f2({dynamic t}) => forgetType(t);
+T1 f3([dynamic t]) => forgetType(t);
 
 main() {
-  C c = new C();
-  c.m = forgetType(new T1());
+  T0 t0 = new T();
+  Expect.throws(() {f1(t0);}, (e) => e is TypeError);
+  Expect.throws(() {f2(t: t0);}, (e) => e is TypeError);
+  Expect.throws(() {f3(t0);}, (e) => e is TypeError);
+  Expect.throws(() {l.f(t0);}, (e) => e is TypeError);
+
+  Expect.throws(() {f1("");}, (e) => e is TypeError);
+  Expect.throws(() {f2(t: "");}, (e) => e is TypeError);
+  Expect.throws(() {f3("");}, (e) => e is TypeError);
+  Expect.throws(() {l.f("");}, (e) => e is TypeError);
 }
