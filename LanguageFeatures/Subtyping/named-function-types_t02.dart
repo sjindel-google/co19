@@ -46,7 +46,15 @@ typedef U1 T1<Y0 extends B0,Y1 extends B1>(S0 y0, S1 y1, {S2 x2, S3 x3});
 class Z0 extends B0 {}
 class Z1 extends B1 {}
 
+class CompareTypes<X extends Y, Y> {}
+
 main() {
   List<T1> t1 = new List<T0>();
   List<T1<Z0, Z1>> t2 = new List<T0<Z0, Z1>>();
+  List<T1> t3 = new List<T0<Z0, Z1>>();
+
+
+  new CompareTypes<T0, T1>();
+  new CompareTypes<T0<Z0, Z1>, T1<Z0, Z1>>();
+  new CompareTypes<T0, T1<Z0, Z1>>();
 }

@@ -32,7 +32,7 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
     case FileLock.BLOCKING_EXCLUSIVE:
       loc_mode = 'BLOCKING_EXCLUSIVE';
   }
-  var arguments = []
+  var arguments = new List<String>()
     ..add(Platform.script.resolve('lock_check_3_lib.dart').toFilePath())
     ..add(path)
     ..add(loc_mode)

@@ -16,12 +16,14 @@ import "../../../Utils/expect.dart";
 checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
   // Client process returns either 'LOCK FAILED' or 'LOCK SUCCEEDED'.
   var expected = locked ? 'LOCK FAILED' : 'LOCK SUCCEEDED';
-  var arguments = []
+  var arguments = new List<String>()
     ..add(Platform.script.resolve('lock_check_1_lib.dart').toFilePath())
     ..add(path)
     ..add(mode == FileLock.EXCLUSIVE ? 'EXCLUSIVE' : 'SHARED')
     ..add('$start')
     ..add('$end');
+
+
   return Process
       .run(Platform.executable, arguments)
       .then((ProcessResult result) {
