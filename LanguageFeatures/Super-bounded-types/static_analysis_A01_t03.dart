@@ -19,7 +19,7 @@
  * application of the usual covariance rule: [C<D> <: C<Object>] because
  * [D <: Object]. We need this relaxation of the rules in order to be able to
  * define which violations of the declared bounds are admissible.
- * @description Checks that assigning [Object] as a bound of super-bounded type
+ * @description Checks that assigning [void] as a bound of super-bounded type
  * does not cause compile error.
  * @author iarkh@unipro.ru
  * @issue #32903
@@ -28,7 +28,8 @@
 
 class C<X extends C<X>> {}
 class D extends C<D> {}
+
 main() {
   D d = new D();
-  C<Object> c = d;
+  C<void> c = d;
 }
