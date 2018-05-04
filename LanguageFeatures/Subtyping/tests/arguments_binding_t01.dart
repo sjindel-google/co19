@@ -17,38 +17,75 @@ positionalArgumentsFunc1(T1 t1, [T1 t2]) {}
 namedArgumentsFunc2<X>(X t1, {X t2}) {}
 positionalArgumentsFunc2<X>(X t1, [X t2]) {}
 
-class ArgumentsBindingTestClass1 {
+class ArgumentsBindingClass1 {
+  ArgumentsBindingClass1(T1 t1) {}
+
+  ArgumentsBindingClass1.named(T1 t1, {T1 t2}) {}
+  ArgumentsBindingClass1.positional(T1 t1, [T1 t2]) {}
+
   static namedArgumentsStaticMethod(T1 t1, {T1 t2}) {}
   static positionalArgumentsStaticMethod(T1 t1, [T1 t2]) {}
 
   namedArgumentsMethod(T1 t1, {T1 t2}) {}
   positionalArgumentsMethod(T1 t1, [T1 t2]) {}
+
+  set testSetter(T1 val) {}
 }
 
-class ArgumentsBindingTestClass2<X> {
+class ArgumentsBindingClass2<X> {
+  ArgumentsBindingClass2(X t1) {}
+
+  ArgumentsBindingClass2.named(X t1, {X t2}) {}
+  ArgumentsBindingClass2.positional(X t1, [X t2]) {}
+
   namedArgumentsMethod(X t1, {X t2}) {}
   positionalArgumentsMethod(X t1, [X t2]){}
+
+  set testSetter(X val) {}
 }
 
 testArgumentBinding() {
+  // test functions
   namedArgumentsFunc1(forgetType(t0Instance), t2: forgetType(t0Instance));
   positionalArgumentsFunc1(forgetType(t0Instance), forgetType(t0Instance));
 
+  // test generic functions
   namedArgumentsFunc2<T1>(forgetType(t0Instance), t2: forgetType(t0Instance));
   positionalArgumentsFunc2<T1>(forgetType(t0Instance), forgetType(t0Instance));
 
-  new ArgumentsBindingTestClass1().namedArgumentsMethod(forgetType(t0Instance),
+  // test class constructors
+  ArgumentsBindingClass1 instance1 =
+      new ArgumentsBindingClass1(forgetType(t0Instance));
+  instance1 = new ArgumentsBindingClass1.named(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  new ArgumentsBindingTestClass1().positionalArgumentsMethod(
+  instance1 = new ArgumentsBindingClass1.positional(forgetType(t0Instance),
+      forgetType(t0Instance));
+
+  // tests methods and setters
+  instance1.namedArgumentsMethod(forgetType(t0Instance),
+      t2: forgetType(t0Instance));
+  instance1.positionalArgumentsMethod(forgetType(t0Instance),
+      forgetType(t0Instance));
+  instance1.testSetter = forgetType(t0Instance);
+
+  // test static methods
+  ArgumentsBindingClass1.namedArgumentsStaticMethod(forgetType(t0Instance),
+      t2: forgetType(t0Instance));
+  ArgumentsBindingClass1.positionalArgumentsStaticMethod(
       forgetType(t0Instance), forgetType(t0Instance));
 
-  ArgumentsBindingTestClass1.namedArgumentsStaticMethod(forgetType(t0Instance),
+  // test generic class constructors
+  ArgumentsBindingClass2<T1> instance2 =
+      new ArgumentsBindingClass2(forgetType(t0Instance));
+  instance2 = new ArgumentsBindingClass2.named(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  ArgumentsBindingTestClass1.positionalArgumentsStaticMethod(
-      forgetType(t0Instance), forgetType(t0Instance));
+  instance2 = new ArgumentsBindingClass2.positional(forgetType(t0Instance),
+      forgetType(t0Instance));
 
-  new ArgumentsBindingTestClass2<T1>().namedArgumentsMethod(
+  // test generic class methods and setters
+  instance2.namedArgumentsMethod(
       forgetType(t0Instance), t2: forgetType(t0Instance));
-  new ArgumentsBindingTestClass2<T1>().positionalArgumentsMethod(
+  instance2.positionalArgumentsMethod(
       forgetType(t0Instance), forgetType(t0Instance));
+  instance1.testSetter = forgetType(t0Instance);
 }
