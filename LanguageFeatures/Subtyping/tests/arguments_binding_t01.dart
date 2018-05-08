@@ -23,6 +23,13 @@ class ArgumentsBindingClass1 {
   ArgumentsBindingClass1.named(T1 t1, {T1 t2}) {}
   ArgumentsBindingClass1.positional(T1 t1, [T1 t2]) {}
 
+  factory ArgumentsBindingClass1.fNamed(T1 t1, {T1 t2}) {
+    return new ArgumentsBindingClass1.named(t1, t2: t2);
+  }
+  factory ArgumentsBindingClass1.fPositional(T1 t1, [T1 t2]) {
+    return new ArgumentsBindingClass1.positional(t1, t2);
+  }
+
   static namedArgumentsStaticMethod(T1 t1, {T1 t2}) {}
   static positionalArgumentsStaticMethod(T1 t1, [T1 t2]) {}
 
@@ -37,6 +44,13 @@ class ArgumentsBindingClass2<X> {
 
   ArgumentsBindingClass2.named(X t1, {X t2}) {}
   ArgumentsBindingClass2.positional(X t1, [X t2]) {}
+
+  factory ArgumentsBindingClass2.fNamed(X t1, {X t2}) {
+    return new ArgumentsBindingClass2.named(t1, t2: t2);
+  }
+  factory ArgumentsBindingClass2.fPositional(X t1, [X t2]) {
+    return new ArgumentsBindingClass2.positional(t1, t2);
+  }
 
   namedArgumentsMethod(X t1, {X t2}) {}
   positionalArgumentsMethod(X t1, [X t2]){}
@@ -56,6 +70,10 @@ testArgumentBinding() {
   // test class constructors
   ArgumentsBindingClass1 instance1 =
       new ArgumentsBindingClass1(forgetType(t0Instance));
+  instance1 = new ArgumentsBindingClass1.fNamed(forgetType(t0Instance),
+      t2: forgetType(t0Instance));
+  instance1 = new ArgumentsBindingClass1.fPositional(forgetType(t0Instance),
+      forgetType(t0Instance));
   instance1 = new ArgumentsBindingClass1.named(forgetType(t0Instance),
       t2: forgetType(t0Instance));
   instance1 = new ArgumentsBindingClass1.positional(forgetType(t0Instance),
@@ -77,6 +95,10 @@ testArgumentBinding() {
   // test generic class constructors
   ArgumentsBindingClass2<T1> instance2 =
       new ArgumentsBindingClass2(forgetType(t0Instance));
+  instance2 = new ArgumentsBindingClass2.fNamed(forgetType(t0Instance),
+      t2: forgetType(t0Instance));
+  instance2 = new ArgumentsBindingClass2.fPositional(forgetType(t0Instance),
+      forgetType(t0Instance));
   instance2 = new ArgumentsBindingClass2.named(forgetType(t0Instance),
       t2: forgetType(t0Instance));
   instance2 = new ArgumentsBindingClass2.positional(forgetType(t0Instance),

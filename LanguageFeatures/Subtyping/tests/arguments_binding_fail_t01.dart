@@ -23,6 +23,13 @@ class ArgumentsBindingClass1 {
   ArgumentsBindingClass1.named(T1 t1, {T1 t2}) {}
   ArgumentsBindingClass1.positional(T1 t1, [T1 t2]) {}
 
+  factory ArgumentsBindingClass1.fNamed(T1 t1, {T1 t2}) {
+    return new ArgumentsBindingClass1.named(t1, t2: t2);
+  }
+  factory ArgumentsBindingClass1.fPositional(T1 t1, [T1 t2]) {
+    return new ArgumentsBindingClass1.positional(t1, t2);
+  }
+
   static namedArgumentsStaticMethod(T1 t1, {T1 t2}) {}
   static positionalArgumentsStaticMethod(T1 t1, [T1 t2]) {}
 
@@ -37,6 +44,13 @@ class ArgumentsBindingClass2<X> {
 
   ArgumentsBindingClass2.named(X t1, {X t2}) {}
   ArgumentsBindingClass2.positional(X t1, [X t2]) {}
+
+  factory ArgumentsBindingClass2.fNamed(X t1, {X t2}) {
+    return new ArgumentsBindingClass2.named(t1, t2: t2);
+  }
+  factory ArgumentsBindingClass2.fPositional(X t1, [X t2]) {
+    return new ArgumentsBindingClass2.positional(t1, t2);
+  }
 
   namedArgumentsMethod(X t1, {X t2}) {}
   positionalArgumentsMethod(X t1, [X t2]){}
@@ -68,13 +82,35 @@ testArgumentBindingFail() {
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBindingClass1.named(forgetType(t0Instance),
-        t2: forgetType(t0Instance));
+    new ArgumentsBindingClass1.named(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBindingClass1.positional(forgetType(t0Instance),
-        forgetType(t0Instance));
+    new ArgumentsBindingClass1.named(t1Instance, t2: forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClass1.positional(forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClass1.positional(t1Instance, forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClass1.fNamed(forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClass1.fNamed(t1Instance, t2: forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClass1.fPositional(forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClass1.fPositional(t1Instance, forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   // Test instance methods and setters
@@ -145,14 +181,38 @@ testArgumentBindingFail() {
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBindingClass2<T1>.named(forgetType(t0Instance),
-        t2: forgetType(t0Instance));
+    new ArgumentsBindingClass2<T1>.named(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBindingClass2<T1>.positional(forgetType(t0Instance),
+    new ArgumentsBindingClass2<T1>.named(t1Instance, t2: forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClass2<T1>.positional(forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClass2<T1>.positional(t1Instance,
         forgetType(t0Instance));
   }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClass2<T1>.fNamed(forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClass2<T1>.fNamed(t1Instance, t2: forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClass2<T1>.fPositional(forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new ArgumentsBindingClass2<T1>.fPositional(t1Instance, forgetType(t0Instance));
+  }, (e) => e is TypeError);
+
 
   // Test instance methods and setters
   Expect.throws(() {
