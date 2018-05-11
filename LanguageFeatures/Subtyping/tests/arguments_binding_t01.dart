@@ -17,17 +17,21 @@ positionalArgumentsFunc1(T1 t1, [T1 t2]) {}
 namedArgumentsFunc2<X>(X t1, {X t2}) {}
 positionalArgumentsFunc2<X>(X t1, [X t2]) {}
 
-class ArgumentsBindingClass1 {
-  ArgumentsBindingClass1(T1 t1) {}
+class ArgumentsBindingSuper {
+  ArgumentsBindingSuper(T1 t) {}
+}
 
-  ArgumentsBindingClass1.named(T1 t1, {T1 t2}) {}
-  ArgumentsBindingClass1.positional(T1 t1, [T1 t2]) {}
+class ArgumentsBindingClass extends ArgumentsBindingSuper {
+  ArgumentsBindingClass(T1 t1) : super(t1) {}
 
-  factory ArgumentsBindingClass1.fNamed(T1 t1, {T1 t2}) {
-    return new ArgumentsBindingClass1.named(t1, t2: t2);
+  ArgumentsBindingClass.named(T1 t1, {T1 t2}) : super(t1) {}
+  ArgumentsBindingClass.positional(T1 t1, [T1 t2]) : super(t1) {}
+
+  factory ArgumentsBindingClass.fNamed(T1 t1, {T1 t2}) {
+    return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass1.fPositional(T1 t1, [T1 t2]) {
-    return new ArgumentsBindingClass1.positional(t1, t2);
+  factory ArgumentsBindingClass.fPositional(T1 t1, [T1 t2]) {
+    return new ArgumentsBindingClass.positional(t1, t2);
   }
 
   static namedArgumentsStaticMethod(T1 t1, {T1 t2}) {}
@@ -39,17 +43,21 @@ class ArgumentsBindingClass1 {
   set testSetter(T1 val) {}
 }
 
-class ArgumentsBindingClass2<X> {
-  ArgumentsBindingClass2(X t1) {}
+class ArgumentsBindingSuperGen<X> {
+  ArgumentsBindingSuperGen(X t) {}
+}
 
-  ArgumentsBindingClass2.named(X t1, {X t2}) {}
-  ArgumentsBindingClass2.positional(X t1, [X t2]) {}
+class ArgumentsBindingGen<X> extends ArgumentsBindingSuperGen<X> {
+  ArgumentsBindingGen(X t1) : super(t1) {}
 
-  factory ArgumentsBindingClass2.fNamed(X t1, {X t2}) {
-    return new ArgumentsBindingClass2.named(t1, t2: t2);
+  ArgumentsBindingGen.named(X t1, {X t2}) : super(t1) {}
+  ArgumentsBindingGen.positional(X t1, [X t2]) : super(t1) {}
+
+  factory ArgumentsBindingGen.fNamed(X t1, {X t2}) {
+    return new ArgumentsBindingGen.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass2.fPositional(X t1, [X t2]) {
-    return new ArgumentsBindingClass2.positional(t1, t2);
+  factory ArgumentsBindingGen.fPositional(X t1, [X t2]) {
+    return new ArgumentsBindingGen.positional(t1, t2);
   }
 
   namedArgumentsMethod(X t1, {X t2}) {}
@@ -68,15 +76,15 @@ testArgumentBinding() {
   positionalArgumentsFunc2<T1>(forgetType(t0Instance), forgetType(t0Instance));
 
   // test class constructors
-  ArgumentsBindingClass1 instance1 =
-      new ArgumentsBindingClass1(forgetType(t0Instance));
-  instance1 = new ArgumentsBindingClass1.fNamed(forgetType(t0Instance),
+  ArgumentsBindingClass instance1 =
+      new ArgumentsBindingClass(forgetType(t0Instance));
+  instance1 = new ArgumentsBindingClass.fNamed(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance1 = new ArgumentsBindingClass1.fPositional(forgetType(t0Instance),
+  instance1 = new ArgumentsBindingClass.fPositional(forgetType(t0Instance),
       forgetType(t0Instance));
-  instance1 = new ArgumentsBindingClass1.named(forgetType(t0Instance),
+  instance1 = new ArgumentsBindingClass.named(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance1 = new ArgumentsBindingClass1.positional(forgetType(t0Instance),
+  instance1 = new ArgumentsBindingClass.positional(forgetType(t0Instance),
       forgetType(t0Instance));
 
   // tests methods and setters
@@ -87,21 +95,21 @@ testArgumentBinding() {
   instance1.testSetter = forgetType(t0Instance);
 
   // test static methods
-  ArgumentsBindingClass1.namedArgumentsStaticMethod(forgetType(t0Instance),
+  ArgumentsBindingClass.namedArgumentsStaticMethod(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  ArgumentsBindingClass1.positionalArgumentsStaticMethod(
+  ArgumentsBindingClass.positionalArgumentsStaticMethod(
       forgetType(t0Instance), forgetType(t0Instance));
 
   // test generic class constructors
-  ArgumentsBindingClass2<T1> instance2 =
-      new ArgumentsBindingClass2(forgetType(t0Instance));
-  instance2 = new ArgumentsBindingClass2.fNamed(forgetType(t0Instance),
+  ArgumentsBindingGen<T1> instance2 =
+      new ArgumentsBindingGen(forgetType(t0Instance));
+  instance2 = new ArgumentsBindingGen.fNamed(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance2 = new ArgumentsBindingClass2.fPositional(forgetType(t0Instance),
+  instance2 = new ArgumentsBindingGen.fPositional(forgetType(t0Instance),
       forgetType(t0Instance));
-  instance2 = new ArgumentsBindingClass2.named(forgetType(t0Instance),
+  instance2 = new ArgumentsBindingGen.named(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance2 = new ArgumentsBindingClass2.positional(forgetType(t0Instance),
+  instance2 = new ArgumentsBindingGen.positional(forgetType(t0Instance),
       forgetType(t0Instance));
 
   // test generic class methods and setters

@@ -16,7 +16,7 @@
  */
 library co19_subtype_tests;
 import "common.dart";
-part "tests/return_value_t01.lib.dart";
+part "tests/return_value_t01.dart";
 part "tests/arguments_binding_t01.dart";
 part "tests/class_member_t01.dart";
 
@@ -34,7 +34,7 @@ T0 t0Instance = new T();
 T1 t1Instance = new T1();
 
 main() {
-  testReturnValue();
   testArgumentBinding();
   testClassMember();
+  testReturnValue();
 }

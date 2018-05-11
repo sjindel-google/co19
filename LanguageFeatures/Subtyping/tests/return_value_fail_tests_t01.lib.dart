@@ -11,17 +11,31 @@
  */
 part of co19_subtype_tests;
 
-T1 f1(dynamic t) => forgetType(t);
-T1 f2({dynamic t}) => forgetType(t);
-T1 f3([dynamic t]) => forgetType(t);
+T1 returnValueFunc() => forgetType(t0Instance);
+
+class ReturnValueTest {
+  static T1 staticTestMethod() => forgetType(t0Instance);
+
+  T1 testMethod() => forgetType(t0Instance);
+
+  T1 get testGetter => forgetType(t0Instance);
+}
+
+class ReturnValueGen<X> {
+  X testMethod() => forgetType(t0Instance);
+  X get testGetter => forgetType(t0Instance);
+}
 
 testReturnValueFail() {
-  T0 t0 = new T();
-  Expect.throws(() {f1(t0);}, (e) => e is TypeError);
-  Expect.throws(() {f2(t: t0);}, (e) => e is TypeError);
-  Expect.throws(() {f3(t0);}, (e) => e is TypeError);
+  T1 returnValueLocalFunc() => forgetType(t0Instance);
 
-  Expect.throws(() {f1("");}, (e) => e is TypeError);
-  Expect.throws(() {f2(t: "");}, (e) => e is TypeError);
-  Expect.throws(() {f3("");}, (e) => e is TypeError);
+  Expect.throws(() {returnValueFunc();}, (e) => e is TypeError);
+  Expect.throws(() {returnValueLocalFunc();}, (e) => e is TypeError);
+  Expect.throws(() {ReturnValueTest.staticTestMethod();}, (e) => e is TypeError);
+
+  Expect.throws(() {new ReturnValueTest().testMethod();}, (e) => e is TypeError);
+  Expect.throws(() {new ReturnValueTest().testGetter;}, (e) => e is TypeError);
+
+  Expect.throws(() {new ReturnValueGen<T1>().testMethod();}, (e) => e is TypeError);
+  Expect.throws(() {new ReturnValueGen<T1>().testGetter;}, (e) => e is TypeError);
 }
