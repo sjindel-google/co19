@@ -11,24 +11,24 @@
  */
 part of co19_subtype_tests;
 
-class ClassMemberTest1 {
+class ClassMember1_t01 {
   static T1 s = forgetType(t0Instance);
   T1 m = forgetType(t0Instance);
   T1 _p = forgetType(t0Instance);
 
-  ClassMemberTest1() {
+  ClassMember1_t01() {
     s = forgetType(t0Instance);
     m = forgetType(t0Instance);
     _p = forgetType(t0Instance);
   }
 
-  ClassMemberTest1.named(T1 value) {
+  ClassMember1_t01.named(T1 value) {
     s = value;
     m = value;
     _p = value;
   }
 
-  ClassMemberTest1.short(this.m, this._p);
+  ClassMember1_t01.short(this.m, this._p);
 
   test() {
     s = forgetType(t0Instance);
@@ -53,21 +53,21 @@ class ClassMemberTest1 {
   static T1 get staticGetter => forgetType(t0Instance);
 }
 
-class ClassMemberTest2<X> {
+class ClassMember2_t01<X> {
   X m;
   X _p;
 
-  ClassMemberTest2() {
+  ClassMember2_t01() {
     m = forgetType(t0Instance);
     _p = forgetType(t0Instance);
   }
 
-  ClassMemberTest2.named(X value) {
+  ClassMember2_t01.named(X value) {
     m = value;
     _p = value;
   }
 
-  ClassMemberTest2.short(this.m, this._p);
+  ClassMember2_t01.short(this.m, this._p);
 
   test(X v) {
     m = v;
@@ -82,24 +82,24 @@ class ClassMemberTest2<X> {
 }
 
 testClassMember() {
-  ClassMemberTest1 c1 = new ClassMemberTest1();
-  c1 = new ClassMemberTest1.short(forgetType(t0Instance),
+  ClassMember1_t01 c1 = new ClassMember1_t01();
+  c1 = new ClassMember1_t01.short(forgetType(t0Instance),
       forgetType(t0Instance));
-  c1 = new ClassMemberTest1.named(forgetType(t0Instance));
+  c1 = new ClassMember1_t01.named(forgetType(t0Instance));
   c1.m = forgetType(t0Instance);
   c1.test();
   c1.setter = forgetType(t0Instance);
   c1.getter;
 
-  ClassMemberTest1.s = forgetType(t0Instance);
-  ClassMemberTest1.staticTest();
-  ClassMemberTest1.staticSetter = forgetType(t0Instance);
-  ClassMemberTest1.staticGetter;
+  ClassMember1_t01.s = forgetType(t0Instance);
+  ClassMember1_t01.staticTest();
+  ClassMember1_t01.staticSetter = forgetType(t0Instance);
+  ClassMember1_t01.staticGetter;
 
-  ClassMemberTest2<T1> c2 = new ClassMemberTest2<T1>();
-  c2 = new ClassMemberTest2<T1>.short(forgetType(t0Instance),
+  ClassMember2_t01<T1> c2 = new ClassMember2_t01<T1>();
+  c2 = new ClassMember2_t01<T1>.short(forgetType(t0Instance),
       forgetType(t0Instance));
-  c2 = new ClassMemberTest2<T1>.named(forgetType(t0Instance));
+  c2 = new ClassMember2_t01<T1>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(t0Instance);
   c2.getter;

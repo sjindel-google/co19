@@ -17,15 +17,11 @@ positionalArgumentsFunc1(T1 t1, [T1 t2]) {}
 namedArgumentsFunc2<X>(X t1, {X t2}) {}
 positionalArgumentsFunc2<X>(X t1, [X t2]) {}
 
-class ArgumentsBindingSuper {
-  ArgumentsBindingSuper(T1 t) {}
-}
+class ArgumentsBindingClass {
+  ArgumentsBindingClass(T1 t1) {}
 
-class ArgumentsBindingClass extends ArgumentsBindingSuper {
-  ArgumentsBindingClass(T1 t1) : super(t1) {}
-
-  ArgumentsBindingClass.named(T1 t1, {T1 t2}) : super(t1) {}
-  ArgumentsBindingClass.positional(T1 t1, [T1 t2]) : super(t1) {}
+  ArgumentsBindingClass.named(T1 t1, {T1 t2}) {}
+  ArgumentsBindingClass.positional(T1 t1, [T1 t2]) {}
 
   factory ArgumentsBindingClass.fNamed(T1 t1, {T1 t2}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
@@ -43,15 +39,11 @@ class ArgumentsBindingClass extends ArgumentsBindingSuper {
   set testSetter(T1 val) {}
 }
 
-class ArgumentsBindingSuperGen<X> {
-  ArgumentsBindingSuperGen(X t) {}
-}
+class ArgumentsBindingGen<X>  {
+  ArgumentsBindingGen(X t1) {}
 
-class ArgumentsBindingGen<X> extends ArgumentsBindingSuperGen<X> {
-  ArgumentsBindingGen(X t1) : super(t1) {}
-
-  ArgumentsBindingGen.named(X t1, {X t2}) : super(t1) {}
-  ArgumentsBindingGen.positional(X t1, [X t2]) : super(t1) {}
+  ArgumentsBindingGen.named(X t1, {X t2}) {}
+  ArgumentsBindingGen.positional(X t1, [X t2]) {}
 
   factory ArgumentsBindingGen.fNamed(X t1, {X t2}) {
     return new ArgumentsBindingGen.named(t1, t2: t2);
