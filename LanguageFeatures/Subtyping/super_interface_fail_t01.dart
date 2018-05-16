@@ -15,10 +15,14 @@
 library co19_subtype_tests;
 import "common.dart";
 import "../../Utils/expect.dart";
-part "tests/return_value_fail_tests_t01.lib.dart";
-part "tests/arguments_binding_fail_t01.dart";
-part "tests/class_member_fail_t01.dart";
 
+part "tests/arguments_binding_fail_t01.dart";
+part "tests/arguments_binding_fail_t02.dart";
+part "tests/arguments_binding_fail_t03.dart";
+part "tests/class_member_fail_t01.dart";
+part "tests/class_member_fail_t02.dart";
+part "tests/class_member_fail_t03.dart";
+part "tests/return_value_fail_tests_t01.lib.dart";
 class T1 {}
 
 // Missing subtype relation to T1
@@ -35,6 +39,10 @@ T1 t1Instance = new T1();
 
 main() {
   testArgumentBindingFail();
+  testArgumentBindingFail2();
+  testArgumentBindingFail3();
   testClassMemberFail();
+  testClassMemberFail2();
+  testClassMemberFail3();
   testReturnValueFail();
 }

@@ -23,7 +23,7 @@ class ArgumentsBindingMixin1_t03 {
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
 
-  test(T1 t1, T1 t2) {
+  test(dynamic t1, dynamic t2) {
     superTest(t1);
     superTestPositioned(t1);
     superTestPositioned(t2, t1);
@@ -47,7 +47,7 @@ class ArgumentsBindingMixin2_t03<X> {
 
 class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X> {
 
-  test(X t1, X t2) {
+  test(dynamic t1, dynamic t2) {
     superTest(t1);
     superTestPositioned(t1);
     superTestPositioned(t2, t1);

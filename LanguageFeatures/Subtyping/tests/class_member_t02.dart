@@ -14,11 +14,11 @@ part of co19_subtype_tests;
 class ClassMemberSuper1_t02 {
   T1 m;
 
-  ClassMemberSuper1_t02(T1 value) {
+  ClassMemberSuper1_t02(dynamic value) {
     m = value;
   }
 
-  ClassMemberSuper1_t02.named(T1 value) {
+  ClassMemberSuper1_t02.named(dynamic value) {
     m = value;
   }
 
@@ -44,11 +44,11 @@ class ClassMember1_t02 extends ClassMemberSuper1_t02 {
 class ClassMemberSuper2_t02<X> {
   X m;
 
-  ClassMemberSuper2_t02(X value) {
+  ClassMemberSuper2_t02(dynamic value) {
     m = value;
   }
 
-  ClassMemberSuper2_t02.named(X value) {
+  ClassMemberSuper2_t02.named(dynamic value) {
     m = value;
   }
 
@@ -79,9 +79,9 @@ testClassMember2() {
   c1.test();
   c1.superSetter = forgetType(t0Instance);
 
-  ClassMember2_t02<T1> c2 = new ClassMember2_t02();
-  c2 = new ClassMember2_t02.short();
-  c2 = new ClassMember2_t02.named();
+  ClassMember2_t02<T1> c2 = new ClassMember2_t02<T1>();
+  c2 = new ClassMember2_t02<T1>.short();
+  c2 = new ClassMember2_t02<T1>.named();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);
