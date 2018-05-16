@@ -15,6 +15,7 @@
  * @author sgrekhov@unipro.ru
  */
 library co19_subtype_tests;
+
 import "common.dart";
 part "tests/arguments_binding_t01.dart";
 part "tests/arguments_binding_t02.dart";
@@ -23,6 +24,7 @@ part "tests/class_member_t01.dart";
 part "tests/class_member_t02.dart";
 part "tests/class_member_t03.dart";
 part "tests/return_value_t01.dart";
+part "tests/global_variable_t01.dart";
 
 class T1 {}
 
@@ -45,4 +47,5 @@ main() {
   testClassMember2();
   testClassMember3();
   testReturnValue();
+  testGlobalVariable();
 }

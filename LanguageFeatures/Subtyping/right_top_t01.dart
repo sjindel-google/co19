@@ -10,7 +10,35 @@
  * @description Check that a type T0 is a subtype of a type T1, if T1 is Object.
  * @author ngl@unipro.ru
  */
+library co19_subtype_tests;
 
+import "common.dart";
+part "tests/arguments_binding_t01.dart";
+part "tests/arguments_binding_t02.dart";
+part "tests/arguments_binding_t03.dart";
+part "tests/class_member_t01.dart";
+part "tests/class_member_t02.dart";
+part "tests/class_member_t03.dart";
+part "tests/return_value_t01.dart";
+
+class T1 {}
+class T0 extends T1 {}
+
+T0 t0Instance = new T0();
+Object t1Instance = new Object();
+
+main() {
+  testArgumentBinding();
+  //testArgumentBinding2();
+  //testArgumentBinding3();
+  testClassMember();
+  //testClassMember2();
+  //testClassMember3();
+  testReturnValue();
+}
+
+
+/*
 class A {
 }
 class B extends A {
@@ -30,3 +58,4 @@ main() {
   List<void> list11 = new List<Object>();
   List<Object> list12 = new List<void>();
 }
+*/
