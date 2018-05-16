@@ -8,54 +8,21 @@
  * when:
  * Right Top: T1 is a top type (i.e. Object, dynamic, or void).
  * @description Check that a type T0 is a subtype of a type T1, if T1 is Object.
+ * Class CompareTypes<X extends Y, Y> {} is used to check assertion.
  * @author ngl@unipro.ru
  */
-library co19_subtype_tests;
 
-import "common.dart";
-part "tests/arguments_binding_t01.dart";
-part "tests/arguments_binding_t02.dart";
-part "tests/arguments_binding_t03.dart";
-part "tests/class_member_t01.dart";
-part "tests/class_member_t02.dart";
-part "tests/class_member_t03.dart";
-part "tests/return_value_t01.dart";
-
-class T1 {}
-class T0 extends T1 {}
-
-T0 t0Instance = new T0();
-Object t1Instance = new Object();
-
-main() {
-  testArgumentBinding();
-  //testArgumentBinding2();
-  //testArgumentBinding3();
-  testClassMember();
-  //testClassMember2();
-  //testClassMember3();
-  testReturnValue();
-}
-
-
-/*
 class A {
 }
 class B extends A {
 }
+class CompareTypes<X extends Y, Y> {}
 
 main() {
-  List<num> list1 = new List<Object>();
-  List<Object> list2 = new List<num>();
-  List<B> list3 = new List<Object>();
-  List<Object> list4 = new List<B>();
-  List<A> list5 = new List<Object>();
-  List<Object> list6 = new List<A>();
-  List<Null> list7 = new List<Object>();
-  List<Object> list8 = new List<Null>();
-  List<dynamic> list9 = new List<Object>();
-  List<Object> list10 = new List<dynamic>();
-  List<void> list11 = new List<Object>();
-  List<Object> list12 = new List<void>();
+  new CompareTypes<num, Object>();
+  new CompareTypes<B, Object>();
+  new CompareTypes<A, Object>();
+  new CompareTypes<Null, Object>();
+  new CompareTypes<dynamic, Object>();
+  new CompareTypes<void, Object>();
 }
-*/

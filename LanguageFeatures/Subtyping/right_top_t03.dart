@@ -8,6 +8,7 @@
  * when:
  * Right Top: T1 is a top type (i.e. Object, dynamic, or void).
  * @description Check that a type T0 is a subtype of a type T1, if T1 is void.
+ * Class CompareTypes<X extends Y, Y> {} is used to check assertion.
  * @author ngl@unipro.ru
  */
 
@@ -15,18 +16,13 @@ class A {
 }
 class B extends A {
 }
+class CompareTypes<X extends Y, Y> {}
 
 main() {
-  List<num> list1 = new List<void>();
-  List<void> list2 = new List<num>();
-  List<B> list3 = new List<void>();
-  List<void> list4 = new List<B>();
-  List<A> list5 = new List<void>();
-  List<void> list6 = new List<A>();
-  List<Object> list7 = new List<void>();
-  List<void> list8 = new List<Object>();
-  List<dynamic> list9 = new List<void>();
-  List<void> list10 = new List<dynamic>();
-  List<Null> list11 = new List<void>();
-  List<void> list12 = new List<Null>();
+  new CompareTypes<num, void>();
+  new CompareTypes<B, void>();
+  new CompareTypes<A, void>();
+  new CompareTypes<Object, void>();
+  new CompareTypes<dynamic, void>();
+  new CompareTypes<Null, void>();
 }
