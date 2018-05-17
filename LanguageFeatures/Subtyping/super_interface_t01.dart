@@ -25,6 +25,7 @@ part "tests/class_member_t02.dart";
 part "tests/class_member_t03.dart";
 part "tests/return_value_t01.dart";
 part "tests/global_variable_t01.dart";
+part "tests/local_variable_t01.dart";
 
 class T1 {}
 
@@ -48,4 +49,5 @@ main() {
   testClassMember3();
   testReturnValue();
   testGlobalVariable();
+  testLocalVariable();
 }

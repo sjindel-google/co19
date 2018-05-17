@@ -24,6 +24,7 @@ part "tests/class_member_fail_t02.dart";
 part "tests/class_member_fail_t03.dart";
 part "tests/return_value_fail_t01.dart";
 part "tests/global_variable_fail_t01.dart";
+part "tests/local_variable_fail_t01.dart";
 class T1 {}
 
 // Missing subtype relation to T1
@@ -47,4 +48,5 @@ main() {
   testClassMemberFail3();
   testReturnValueFail();
   testGlobalVariableFail();
+  testLocalVariableFail();
 }
