@@ -7,7 +7,6 @@
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
  * Left Bottom: T0 is Null.
-
  * @description Check that if type T0 is Null then T0 is a subtype of a type T1.
  * @author ngl@unipro.ru
  */
