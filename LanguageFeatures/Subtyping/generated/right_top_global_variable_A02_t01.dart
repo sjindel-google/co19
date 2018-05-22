@@ -8,7 +8,7 @@
  * when:
  * Right Top: T1 is a top type (i.e. Object, dynamic, or void)
  * @description Check that if type T1 is a dynamic then instance of
- * T0 can be assigned to the T1 variable.
+ * T0 can be used as T1 variable.
  * @author sgrekhov@unipro.ru
  */
 
@@ -17,7 +17,7 @@ import "../utils/common.dart";
 class T0 {}
 
 T0 t0Instance = new T0();
-dynamic t1Instance = null;
+dynamic t1Instance = 3.14;
 
 
 

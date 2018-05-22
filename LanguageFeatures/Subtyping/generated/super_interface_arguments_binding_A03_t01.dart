@@ -9,8 +9,8 @@
  * Super-Interface: T0 is an interface type with super-interfaces S0,...Sn
  * - and Si <: T1 for some i
  * @description Check that if type T0 is an interface type with super-interfaces
- * S0,...Sn and and Si <: T1 for some i then instance of T0 can be assigned to
- * the T1 variable. Test the case when Si is not direct child of T1
+ * S0,...Sn and and Si <: T1 for some i then instance of T0 can be used as T1
+ * variable. Test the case when Si is not direct child of T1
  * @author sgrekhov@unipro.ru
  */
 import "../utils/common.dart";
