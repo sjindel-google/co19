@@ -6,7 +6,7 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * ype Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
+ * Type Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
  * variables X0 & S0 and T1 is X0.
  * @description Check that if a type T0 is a promoted type variables X0 & S0
  * and T1 is X0, then a type T0 is a subtype of a type T1.
