@@ -9,8 +9,8 @@
  * Interface Compositionality: T0 is an interface type
  * C0<S0, ..., Sk> and T1 is C0<U0, ..., Uk> and each Si <: Ui
  * @description Check that if type T0 is an interface type
- * C0<S0, ..., Sk> and T1 is C0<U0, ..., Uk> and each Si <: Ui then instance of
- * T0 can be assigned to the T1 variable.
+ * C0<S0, ..., Sk> and T1 is C0<U0, ..., Uk> and each Si <: Ui then T0 is a
+ * subtype of T1
  * @author sgrekhov@unipro.ru
  */
 

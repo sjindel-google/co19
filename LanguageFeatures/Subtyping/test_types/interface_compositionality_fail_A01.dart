@@ -9,12 +9,13 @@
  * Interface Compositionality: T0 is an interface type
  * C0<S0, ..., Sk> and T1 is C0<U0, ..., Uk> and each Si <: Ui
  * @description Check that if type T0 is an interface type
- * C0<S0, ..., Sk> and T1 is C0<U0, ..., Uk> and each Si <: Ui then T0 is a
- * subtype of T1
+ * C0<S0, ..., Sk> and T1 is C0<U0, ..., Uk> and not all of Si <: Ui then T0 is
+ * not a subtype of T1
  * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
+import "../../../Utils/expect.dart";
 
 abstract class U0 {}
 abstract class U1 {}
@@ -22,44 +23,13 @@ abstract class U2 {}
 
 abstract class S0 extends U0 {}
 abstract class S1 extends U1 {}
-abstract class S2 extends U2 {}
+// no subtype relation between S2 and U2
+abstract class S2 {}
 
 class C0<X, Y, Z> {}
 
 C0<S0, S1, S2> t0Instance = new C0<S0, S1, S2>();
 C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
 
-
-
-
-class LocalVariableTest {
-
-  LocalVariableTest() {
-    C0<U0, U1, U2> t1 = forgetType(t0Instance);
-    t1 = forgetType(t0Instance);
-  }
-
-  static staticTest() {
-    C0<U0, U1, U2> t1 = forgetType(t0Instance);
-    t1 = forgetType(t0Instance);
-  }
-
-  test() {
-    C0<U0, U1, U2> t1 = forgetType(t0Instance);
-    t1 = forgetType(t0Instance);
-  }
-}
-
-main() {
-  foo() {
-    C0<U0, U1, U2> t1 = forgetType(t0Instance);
-    t1 = forgetType(t0Instance);
-  }
-
-  C0<U0, U1, U2> t1 = forgetType(t0Instance);
-  t1 = forgetType(t0Instance);
-  foo();
-  LocalVariableTest x = new LocalVariableTest();
-  x.test();
-  LocalVariableTest.staticTest();
-}
+//# @T0 = C0<S0, S1, S2>
+//# @T1 = C0<U0, U1, U2>
