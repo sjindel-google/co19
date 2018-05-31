@@ -7,23 +7,21 @@
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
  * Reflexivity: T0 and T1 are the same type.
- * @description Check that if type T1 and T0 are both void then instance of
+ * @description Check that if type T1 and T0 are both Null then instance of
  * T0 can be as T1 variable.
  * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
-void getVoid() {}
-
-var t0Instance = getVoid();
-var t1Instance = getVoid();
+Null t0Instance = null;
+Null t1Instance = null;
 
 
 
 
 class ClassMemberSuper1_t02 {
-  void m;
+  Null m;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;
@@ -35,7 +33,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(void val) {}
+  void set superSetter(Null val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
@@ -90,9 +88,9 @@ main() {
   c1.test();
   c1.superSetter = forgetType(t0Instance);
 
-  ClassMember2_t02<void> c2 = new ClassMember2_t02<void>();
-  c2 = new ClassMember2_t02<void>.short();
-  c2 = new ClassMember2_t02<void>.named();
+  ClassMember2_t02<Null> c2 = new ClassMember2_t02<Null>();
+  c2 = new ClassMember2_t02<Null>.short();
+  c2 = new ClassMember2_t02<Null>.named();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

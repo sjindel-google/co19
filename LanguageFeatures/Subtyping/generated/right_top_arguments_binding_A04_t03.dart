@@ -7,27 +7,27 @@
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
  * Right Top: T1 is a top type (i.e. Object, dynamic, or void)
- * @description Check that if type T1 is an Object and T0 is a dynamic then
+ * @description Check that if type T1 is a dynamic and T0 is an Object then
  * instance of T0 can be used as T1 variable.
  * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
-dynamic t0Instance = "";
-Object t1Instance = new Object();
+Object t0Instance = new Object();
+dynamic t1Instance = 2018;
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  Object m;
+  dynamic m;
 
-  void superTest(Object val) {}
-  void superTestPositioned(Object val, [Object val2]) {}
-  void superTestNamed(Object val, {Object val2}) {}
-  Object get superGetter => m;
-  void set superSetter(Object val) {}
+  void superTest(dynamic val) {}
+  void superTestPositioned(dynamic val, [dynamic val2]) {}
+  void superTestNamed(dynamic val, {dynamic val2}) {}
+  dynamic get superGetter => m;
+  void set superSetter(dynamic val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -80,7 +80,7 @@ main() {
   c1.superSetter = forgetType(t0Instance);
   c1.superGetter;
 
-  ArgumentsBinding2_t03<Object> c2 = new ArgumentsBinding2_t03<Object>();
+  ArgumentsBinding2_t03<dynamic> c2 = new ArgumentsBinding2_t03<dynamic>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestPositioned(forgetType(t0Instance));

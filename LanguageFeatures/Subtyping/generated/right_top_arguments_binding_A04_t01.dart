@@ -7,45 +7,45 @@
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
  * Right Top: T1 is a top type (i.e. Object, dynamic, or void)
- * @description Check that if type T1 is an Object and T0 is a dynamic then
+ * @description Check that if type T1 is a dynamic and T0 is an Object then
  * instance of T0 can be used as T1 variable.
  * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
-dynamic t0Instance = "";
-Object t1Instance = new Object();
+Object t0Instance = new Object();
+dynamic t1Instance = 2018;
 
 
 
 
-namedArgumentsFunc1(Object t1, {Object t2}) {}
-positionalArgumentsFunc1(Object t1, [Object t2]) {}
+namedArgumentsFunc1(dynamic t1, {dynamic t2}) {}
+positionalArgumentsFunc1(dynamic t1, [dynamic t2]) {}
 
 namedArgumentsFunc2<X>(X t1, {X t2}) {}
 positionalArgumentsFunc2<X>(X t1, [X t2]) {}
 
 class ArgumentsBindingClass {
-  ArgumentsBindingClass(Object t1) {}
+  ArgumentsBindingClass(dynamic t1) {}
 
-  ArgumentsBindingClass.named(Object t1, {Object t2}) {}
-  ArgumentsBindingClass.positional(Object t1, [Object t2]) {}
+  ArgumentsBindingClass.named(dynamic t1, {dynamic t2}) {}
+  ArgumentsBindingClass.positional(dynamic t1, [dynamic t2]) {}
 
-  factory ArgumentsBindingClass.fNamed(Object t1, {Object t2}) {
+  factory ArgumentsBindingClass.fNamed(dynamic t1, {dynamic t2}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(Object t1, [Object t2]) {
+  factory ArgumentsBindingClass.fPositional(dynamic t1, [dynamic t2]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(Object t1, {Object t2}) {}
-  static positionalArgumentsStaticMethod(Object t1, [Object t2]) {}
+  static namedArgumentsStaticMethod(dynamic t1, {dynamic t2}) {}
+  static positionalArgumentsStaticMethod(dynamic t1, [dynamic t2]) {}
 
-  namedArgumentsMethod(Object t1, {Object t2}) {}
-  positionalArgumentsMethod(Object t1, [Object t2]) {}
+  namedArgumentsMethod(dynamic t1, {dynamic t2}) {}
+  positionalArgumentsMethod(dynamic t1, [dynamic t2]) {}
 
-  set testSetter(Object val) {}
+  set testSetter(dynamic val) {}
 }
 
 class ArgumentsBindingGen<X>  {
@@ -73,8 +73,8 @@ main() {
   positionalArgumentsFunc1(forgetType(t0Instance), forgetType(t0Instance));
 
   // test generic functions
-  namedArgumentsFunc2<Object>(forgetType(t0Instance), t2: forgetType(t0Instance));
-  positionalArgumentsFunc2<Object>(forgetType(t0Instance), forgetType(t0Instance));
+  namedArgumentsFunc2<dynamic>(forgetType(t0Instance), t2: forgetType(t0Instance));
+  positionalArgumentsFunc2<dynamic>(forgetType(t0Instance), forgetType(t0Instance));
 
   // test class constructors
   ArgumentsBindingClass instance1 =
@@ -102,7 +102,7 @@ main() {
       forgetType(t0Instance), forgetType(t0Instance));
 
   // test generic class constructors
-  ArgumentsBindingGen<Object> instance2 =
+  ArgumentsBindingGen<dynamic> instance2 =
       new ArgumentsBindingGen(forgetType(t0Instance));
   instance2 = new ArgumentsBindingGen.fNamed(forgetType(t0Instance),
       t2: forgetType(t0Instance));

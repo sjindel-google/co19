@@ -7,23 +7,21 @@
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
  * Reflexivity: T0 and T1 are the same type.
- * @description Check that if type T1 and T0 are both void then instance of
+ * @description Check that if type T1 and T0 are both Null then instance of
  * T0 can be as T1 variable.
  * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
-void getVoid() {}
-
-var t0Instance = getVoid();
-var t1Instance = getVoid();
+Null t0Instance = null;
+Null t1Instance = null;
 
 
 
 
 class ClassMemberMixin1_t03 {
-  void m;
+  Null m;
 
   void set superSetter(dynamic val) {}
 }
@@ -53,7 +51,7 @@ main() {
   c1.test();
   c1.superSetter = forgetType(t0Instance);
 
-  ClassMember2_t03<void> c2 = new ClassMember2_t03<void>();
+  ClassMember2_t03<Null> c2 = new ClassMember2_t03<Null>();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

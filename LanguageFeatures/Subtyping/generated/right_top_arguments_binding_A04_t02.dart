@@ -7,32 +7,32 @@
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
  * Right Top: T1 is a top type (i.e. Object, dynamic, or void)
- * @description Check that if type T1 is an Object and T0 is a dynamic then
+ * @description Check that if type T1 is a dynamic and T0 is an Object then
  * instance of T0 can be used as T1 variable.
  * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
-dynamic t0Instance = "";
-Object t1Instance = new Object();
+Object t0Instance = new Object();
+dynamic t1Instance = 2018;
 
 
 
 
 class ArgumentsBindingSuper1_t02 {
-  Object m;
+  dynamic m;
 
-  ArgumentsBindingSuper1_t02(Object value) {}
-  ArgumentsBindingSuper1_t02.named(Object value, {Object val2}) {}
-  ArgumentsBindingSuper1_t02.positional(Object value, [Object val2]) {}
+  ArgumentsBindingSuper1_t02(dynamic value) {}
+  ArgumentsBindingSuper1_t02.named(dynamic value, {dynamic val2}) {}
+  ArgumentsBindingSuper1_t02.positional(dynamic value, [dynamic val2]) {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
-  void superTest(Object val) {}
-  void superTestPositioned(Object val, [Object val2]) {}
-  void superTestNamed(Object val, {Object val2}) {}
-  Object get superGetter => m;
-  void set superSetter(Object val) {}
+  void superTest(dynamic val) {}
+  void superTestPositioned(dynamic val, [dynamic val2]) {}
+  void superTestNamed(dynamic val, {dynamic val2}) {}
+  dynamic get superGetter => m;
+  void set superSetter(dynamic val) {}
 }
 
 class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
@@ -107,13 +107,13 @@ main() {
   c1.superSetter = forgetType(t0Instance);
   c1.superGetter;
 
-  ArgumentsBinding2_t02<Object> c2 =
-      new ArgumentsBinding2_t02<Object>(forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<Object>.c1(forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<Object>.c2(t1Instance, forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<Object>.c3(forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<Object>.c4(t1Instance, forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<Object>.c5(forgetType(t0Instance));
+  ArgumentsBinding2_t02<dynamic> c2 =
+      new ArgumentsBinding2_t02<dynamic>(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<dynamic>.c1(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<dynamic>.c2(t1Instance, forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<dynamic>.c3(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<dynamic>.c4(t1Instance, forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<dynamic>.c5(forgetType(t0Instance));
 
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));

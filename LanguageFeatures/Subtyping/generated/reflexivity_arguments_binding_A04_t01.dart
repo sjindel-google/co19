@@ -7,47 +7,45 @@
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
  * Reflexivity: T0 and T1 are the same type.
- * @description Check that if type T1 and T0 are both void then instance of
+ * @description Check that if type T1 and T0 are both Null then instance of
  * T0 can be as T1 variable.
  * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
-void getVoid() {}
-
-var t0Instance = getVoid();
-var t1Instance = getVoid();
+Null t0Instance = null;
+Null t1Instance = null;
 
 
 
 
-namedArgumentsFunc1(void t1, {void t2}) {}
-positionalArgumentsFunc1(void t1, [void t2]) {}
+namedArgumentsFunc1(Null t1, {Null t2}) {}
+positionalArgumentsFunc1(Null t1, [Null t2]) {}
 
 namedArgumentsFunc2<X>(X t1, {X t2}) {}
 positionalArgumentsFunc2<X>(X t1, [X t2]) {}
 
 class ArgumentsBindingClass {
-  ArgumentsBindingClass(void t1) {}
+  ArgumentsBindingClass(Null t1) {}
 
-  ArgumentsBindingClass.named(void t1, {void t2}) {}
-  ArgumentsBindingClass.positional(void t1, [void t2]) {}
+  ArgumentsBindingClass.named(Null t1, {Null t2}) {}
+  ArgumentsBindingClass.positional(Null t1, [Null t2]) {}
 
-  factory ArgumentsBindingClass.fNamed(void t1, {void t2}) {
+  factory ArgumentsBindingClass.fNamed(Null t1, {Null t2}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(void t1, [void t2]) {
+  factory ArgumentsBindingClass.fPositional(Null t1, [Null t2]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(void t1, {void t2}) {}
-  static positionalArgumentsStaticMethod(void t1, [void t2]) {}
+  static namedArgumentsStaticMethod(Null t1, {Null t2}) {}
+  static positionalArgumentsStaticMethod(Null t1, [Null t2]) {}
 
-  namedArgumentsMethod(void t1, {void t2}) {}
-  positionalArgumentsMethod(void t1, [void t2]) {}
+  namedArgumentsMethod(Null t1, {Null t2}) {}
+  positionalArgumentsMethod(Null t1, [Null t2]) {}
 
-  set testSetter(void val) {}
+  set testSetter(Null val) {}
 }
 
 class ArgumentsBindingGen<X>  {
@@ -75,8 +73,8 @@ main() {
   positionalArgumentsFunc1(forgetType(t0Instance), forgetType(t0Instance));
 
   // test generic functions
-  namedArgumentsFunc2<void>(forgetType(t0Instance), t2: forgetType(t0Instance));
-  positionalArgumentsFunc2<void>(forgetType(t0Instance), forgetType(t0Instance));
+  namedArgumentsFunc2<Null>(forgetType(t0Instance), t2: forgetType(t0Instance));
+  positionalArgumentsFunc2<Null>(forgetType(t0Instance), forgetType(t0Instance));
 
   // test class constructors
   ArgumentsBindingClass instance1 =
@@ -104,7 +102,7 @@ main() {
       forgetType(t0Instance), forgetType(t0Instance));
 
   // test generic class constructors
-  ArgumentsBindingGen<void> instance2 =
+  ArgumentsBindingGen<Null> instance2 =
       new ArgumentsBindingGen(forgetType(t0Instance));
   instance2 = new ArgumentsBindingGen.fNamed(forgetType(t0Instance),
       t2: forgetType(t0Instance));

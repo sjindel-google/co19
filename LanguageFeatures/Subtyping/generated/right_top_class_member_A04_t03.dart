@@ -7,21 +7,21 @@
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
  * Right Top: T1 is a top type (i.e. Object, dynamic, or void)
- * @description Check that if type T1 is an Object and T0 is a dynamic then
+ * @description Check that if type T1 is a dynamic and T0 is an Object then
  * instance of T0 can be used as T1 variable.
  * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
-dynamic t0Instance = "";
-Object t1Instance = new Object();
+Object t0Instance = new Object();
+dynamic t1Instance = 2018;
 
 
 
 
 class ClassMemberMixin1_t03 {
-  Object m;
+  dynamic m;
 
   void set superSetter(dynamic val) {}
 }
@@ -51,7 +51,7 @@ main() {
   c1.test();
   c1.superSetter = forgetType(t0Instance);
 
-  ClassMember2_t03<Object> c2 = new ClassMember2_t03<Object>();
+  ClassMember2_t03<dynamic> c2 = new ClassMember2_t03<dynamic>();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

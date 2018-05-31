@@ -7,29 +7,27 @@
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
  * Reflexivity: T0 and T1 are the same type.
- * @description Check that if type T1 and T0 are both void then instance of
+ * @description Check that if type T1 and T0 are both Null then instance of
  * T0 can be as T1 variable.
  * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
-void getVoid() {}
-
-var t0Instance = getVoid();
-var t1Instance = getVoid();
+Null t0Instance = null;
+Null t1Instance = null;
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  void m;
+  Null m;
 
-  void superTest(void val) {}
-  void superTestPositioned(void val, [void val2]) {}
-  void superTestNamed(void val, {void val2}) {}
-  void get superGetter => m;
-  void set superSetter(void val) {}
+  void superTest(Null val) {}
+  void superTestPositioned(Null val, [Null val2]) {}
+  void superTestNamed(Null val, {Null val2}) {}
+  Null get superGetter => m;
+  void set superSetter(Null val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -82,7 +80,7 @@ main() {
   c1.superSetter = forgetType(t0Instance);
   c1.superGetter;
 
-  ArgumentsBinding2_t03<void> c2 = new ArgumentsBinding2_t03<void>();
+  ArgumentsBinding2_t03<Null> c2 = new ArgumentsBinding2_t03<Null>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestPositioned(forgetType(t0Instance));

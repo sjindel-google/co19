@@ -7,25 +7,23 @@
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
  * Reflexivity: T0 and T1 are the same type.
- * @description Check that if type T1 and T0 are both void then instance of
+ * @description Check that if type T1 and T0 are both Null then instance of
  * T0 can be as T1 variable.
  * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
-void getVoid() {}
-
-var t0Instance = getVoid();
-var t1Instance = getVoid();
+Null t0Instance = null;
+Null t1Instance = null;
 
 
 
 
 class ClassMember1_t01 {
-  static void s = forgetType(t0Instance);
-  void m = forgetType(t0Instance);
-  void _p = forgetType(t0Instance);
+  static Null s = forgetType(t0Instance);
+  Null m = forgetType(t0Instance);
+  Null _p = forgetType(t0Instance);
 
   ClassMember1_t01() {
     s = forgetType(t0Instance);
@@ -33,7 +31,7 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  ClassMember1_t01.named(void value) {
+  ClassMember1_t01.named(Null value) {
     s = value;
     m = value;
     _p = value;
@@ -47,21 +45,21 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  set setter(void val) {
+  set setter(Null val) {
     _p = val;
   }
 
-  void get getter => forgetType(_p);
+  Null get getter => forgetType(_p);
 
   static staticTest() {
     s = forgetType(t0Instance);
   }
 
-  static set staticSetter(void val) {
+  static set staticSetter(Null val) {
     s = val;
   }
 
-  static void get staticGetter => forgetType(t0Instance);
+  static Null get staticGetter => forgetType(t0Instance);
 }
 
 class ClassMember2_t01<X> {
@@ -89,7 +87,7 @@ class ClassMember2_t01<X> {
     _p = val;
   }
 
-  void get getter => forgetType(_p);
+  Null get getter => forgetType(_p);
 }
 
 main() {
@@ -107,10 +105,10 @@ main() {
   ClassMember1_t01.staticSetter = forgetType(t0Instance);
   ClassMember1_t01.staticGetter;
 
-  ClassMember2_t01<void> c2 = new ClassMember2_t01<void>();
-  c2 = new ClassMember2_t01<void>.short(forgetType(t0Instance),
+  ClassMember2_t01<Null> c2 = new ClassMember2_t01<Null>();
+  c2 = new ClassMember2_t01<Null>.short(forgetType(t0Instance),
       forgetType(t0Instance));
-  c2 = new ClassMember2_t01<void>.named(forgetType(t0Instance));
+  c2 = new ClassMember2_t01<Null>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;

@@ -7,27 +7,23 @@
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
  * Right Top: T1 is a top type (i.e. Object, dynamic, or void)
- * @description Check that if type T1 is a void then instance of
- * T0 can be used as T1 variable.
+ * @description Check that if type T1 is an Object and T0 is a dynamic then
+ * instance of T0 can be used as T1 variable.
  * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
-class T0 {}
-
-void getVoid() {}
-
-T0 t0Instance = new T0();
-var t1Instance = getVoid();
+dynamic t0Instance = "";
+Object t1Instance = new Object();
 
 
 
 
 class ClassMember1_t01 {
-  static void s = forgetType(t0Instance);
-  void m = forgetType(t0Instance);
-  void _p = forgetType(t0Instance);
+  static Object s = forgetType(t0Instance);
+  Object m = forgetType(t0Instance);
+  Object _p = forgetType(t0Instance);
 
   ClassMember1_t01() {
     s = forgetType(t0Instance);
@@ -35,7 +31,7 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  ClassMember1_t01.named(void value) {
+  ClassMember1_t01.named(Object value) {
     s = value;
     m = value;
     _p = value;
@@ -49,21 +45,21 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  set setter(void val) {
+  set setter(Object val) {
     _p = val;
   }
 
-  void get getter => forgetType(_p);
+  Object get getter => forgetType(_p);
 
   static staticTest() {
     s = forgetType(t0Instance);
   }
 
-  static set staticSetter(void val) {
+  static set staticSetter(Object val) {
     s = val;
   }
 
-  static void get staticGetter => forgetType(t0Instance);
+  static Object get staticGetter => forgetType(t0Instance);
 }
 
 class ClassMember2_t01<X> {
@@ -91,7 +87,7 @@ class ClassMember2_t01<X> {
     _p = val;
   }
 
-  void get getter => forgetType(_p);
+  Object get getter => forgetType(_p);
 }
 
 main() {
@@ -109,10 +105,10 @@ main() {
   ClassMember1_t01.staticSetter = forgetType(t0Instance);
   ClassMember1_t01.staticGetter;
 
-  ClassMember2_t01<void> c2 = new ClassMember2_t01<void>();
-  c2 = new ClassMember2_t01<void>.short(forgetType(t0Instance),
+  ClassMember2_t01<Object> c2 = new ClassMember2_t01<Object>();
+  c2 = new ClassMember2_t01<Object>.short(forgetType(t0Instance),
       forgetType(t0Instance));
-  c2 = new ClassMember2_t01<void>.named(forgetType(t0Instance));
+  c2 = new ClassMember2_t01<Object>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;
