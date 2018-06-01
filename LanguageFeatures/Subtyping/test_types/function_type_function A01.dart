@@ -6,16 +6,20 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Reflexivity: T0 and T1 are the same type.
- * @description Check that if type T1 and T0 are both Object then T0 is a
- * subtype of a type T1
+ * Function Type/Function: T0 is a function type and T1 is Function
+ * @description Check that if type T0 is a function type and T1 is Function then
+ * T0 is a subtype of T1
  * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
-Object t0Instance = new Object();
-Object t1Instance = new Object();
+typedef void functionType();
 
-//# @T0 = Object
-//# @T1 = Object
+void f() {}
+
+functionType t0Instance = f;
+Function t1Instance = null;
+
+//# @T0 = T0
+//# @T1 = Function

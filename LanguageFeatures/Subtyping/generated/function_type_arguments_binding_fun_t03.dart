@@ -6,36 +6,32 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Type Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
- * variables X0 & S0 and T1 is X0.
- * @description Check that if a type T0 is a type variable X0 and and T1 is X0,
- * then a type T0 is a subtype of a type T1.
- * @author ngl@unipro.ru
+ * Function Type/Function: T0 is a function type and T1 is Function
+ * @description Check that if type T0 is a function type and T1 is Function then
+ * T0 is a subtype of T1
+ * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
+typedef void functionType();
 
-class X0 {}
-class S0 extends X0 {}
-class C<T> {}
+void f() {}
 
-
-C<X0> t0Instance = new C<X0>();
-C<X0> t1Instance = new C<X0>();
-
+functionType t0Instance = f;
+Function t1Instance = null;
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  C<X0> m;
+  Function m;
 
-  void superTest(C<X0> val) {}
-  void superTestPositioned(C<X0> val, [C<X0> val2]) {}
-  void superTestNamed(C<X0> val, {C<X0> val2}) {}
-  C<X0> get superGetter => m;
-  void set superSetter(C<X0> val) {}
+  void superTest(Function val) {}
+  void superTestPositioned(Function val, [Function val2]) {}
+  void superTestNamed(Function val, {Function val2}) {}
+  Function get superGetter => m;
+  void set superSetter(Function val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -88,7 +84,7 @@ main() {
   c1.superSetter = forgetType(t0Instance);
   c1.superGetter;
 
-  ArgumentsBinding2_t03<C<X0>> c2 = new ArgumentsBinding2_t03<C<X0>>();
+  ArgumentsBinding2_t03<Function> c2 = new ArgumentsBinding2_t03<Function>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestPositioned(forgetType(t0Instance));

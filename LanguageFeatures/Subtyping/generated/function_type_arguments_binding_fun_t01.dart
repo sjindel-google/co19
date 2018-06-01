@@ -6,54 +6,50 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Type Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
- * variables X0 & S0 and T1 is X0.
- * @description Check that if a type T0 is a type variable X0 and and T1 is X0,
- * then a type T0 is a subtype of a type T1.
- * @author ngl@unipro.ru
+ * Function Type/Function: T0 is a function type and T1 is Function
+ * @description Check that if type T0 is a function type and T1 is Function then
+ * T0 is a subtype of T1
+ * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
+typedef void functionType();
 
-class X0 {}
-class S0 extends X0 {}
-class C<T> {}
+void f() {}
 
-
-C<X0> t0Instance = new C<X0>();
-C<X0> t1Instance = new C<X0>();
+functionType t0Instance = f;
+Function t1Instance = null;
 
 
 
 
-
-namedArgumentsFunc1(C<X0> t1, {C<X0> t2}) {}
-positionalArgumentsFunc1(C<X0> t1, [C<X0> t2]) {}
+namedArgumentsFunc1(Function t1, {Function t2}) {}
+positionalArgumentsFunc1(Function t1, [Function t2]) {}
 
 namedArgumentsFunc2<X>(X t1, {X t2}) {}
 positionalArgumentsFunc2<X>(X t1, [X t2]) {}
 
 class ArgumentsBindingClass {
-  ArgumentsBindingClass(C<X0> t1) {}
+  ArgumentsBindingClass(Function t1) {}
 
-  ArgumentsBindingClass.named(C<X0> t1, {C<X0> t2}) {}
-  ArgumentsBindingClass.positional(C<X0> t1, [C<X0> t2]) {}
+  ArgumentsBindingClass.named(Function t1, {Function t2}) {}
+  ArgumentsBindingClass.positional(Function t1, [Function t2]) {}
 
-  factory ArgumentsBindingClass.fNamed(C<X0> t1, {C<X0> t2}) {
+  factory ArgumentsBindingClass.fNamed(Function t1, {Function t2}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(C<X0> t1, [C<X0> t2]) {
+  factory ArgumentsBindingClass.fPositional(Function t1, [Function t2]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(C<X0> t1, {C<X0> t2}) {}
-  static positionalArgumentsStaticMethod(C<X0> t1, [C<X0> t2]) {}
+  static namedArgumentsStaticMethod(Function t1, {Function t2}) {}
+  static positionalArgumentsStaticMethod(Function t1, [Function t2]) {}
 
-  namedArgumentsMethod(C<X0> t1, {C<X0> t2}) {}
-  positionalArgumentsMethod(C<X0> t1, [C<X0> t2]) {}
+  namedArgumentsMethod(Function t1, {Function t2}) {}
+  positionalArgumentsMethod(Function t1, [Function t2]) {}
 
-  set testSetter(C<X0> val) {}
+  set testSetter(Function val) {}
 }
 
 class ArgumentsBindingGen<X>  {
@@ -81,8 +77,8 @@ main() {
   positionalArgumentsFunc1(forgetType(t0Instance), forgetType(t0Instance));
 
   // test generic functions
-  namedArgumentsFunc2<C<X0>>(forgetType(t0Instance), t2: forgetType(t0Instance));
-  positionalArgumentsFunc2<C<X0>>(forgetType(t0Instance), forgetType(t0Instance));
+  namedArgumentsFunc2<Function>(forgetType(t0Instance), t2: forgetType(t0Instance));
+  positionalArgumentsFunc2<Function>(forgetType(t0Instance), forgetType(t0Instance));
 
   // test class constructors
   ArgumentsBindingClass instance1 =
@@ -110,7 +106,7 @@ main() {
       forgetType(t0Instance), forgetType(t0Instance));
 
   // test generic class constructors
-  ArgumentsBindingGen<C<X0>> instance2 =
+  ArgumentsBindingGen<Function> instance2 =
       new ArgumentsBindingGen(forgetType(t0Instance));
   instance2 = new ArgumentsBindingGen.fNamed(forgetType(t0Instance),
       t2: forgetType(t0Instance));

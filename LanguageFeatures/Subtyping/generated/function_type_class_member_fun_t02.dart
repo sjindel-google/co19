@@ -6,30 +6,26 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Type Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
- * variables X0 & S0 and T1 is X0.
- * @description Check that if a type T0 is a promoted type variables X0 & S0
- * and T1 is X0, then a type T0 is a subtype of a type T1.
- * @author ngl@unipro.ru
+ * Function Type/Function: T0 is a function type and T1 is Function
+ * @description Check that if type T0 is a function type and T1 is Function then
+ * T0 is a subtype of T1
+ * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
+typedef void functionType();
 
-class X0 {}
-class S0 extends X0 {}
-class C<T> {}
+void f() {}
 
-
-C<S0> t0Instance = new C<S0>();
-C<X0> t1Instance = new C<X0>();
-
+functionType t0Instance = f;
+Function t1Instance = null;
 
 
 
 
 class ClassMemberSuper1_t02 {
-  C<X0> m;
+  Function m;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;
@@ -41,7 +37,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(C<X0> val) {}
+  void set superSetter(Function val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
@@ -96,9 +92,9 @@ main() {
   c1.test();
   c1.superSetter = forgetType(t0Instance);
 
-  ClassMember2_t02<C<X0>> c2 = new ClassMember2_t02<C<X0>>();
-  c2 = new ClassMember2_t02<C<X0>>.short();
-  c2 = new ClassMember2_t02<C<X0>>.named();
+  ClassMember2_t02<Function> c2 = new ClassMember2_t02<Function>();
+  c2 = new ClassMember2_t02<Function>.short();
+  c2 = new ClassMember2_t02<Function>.named();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

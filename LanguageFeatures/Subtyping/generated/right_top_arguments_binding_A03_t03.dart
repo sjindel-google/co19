@@ -8,7 +8,7 @@
  * when:
  * Right Top: T1 is a top type (i.e. Object, dynamic, or void)
  * @description Check that if type T1 is an Object and T0 is a dynamic then
- * instance of T0 can be used as T1 variable.
+ * T0 is a subtype of a type T1.
  * @author sgrekhov@unipro.ru
  */
 

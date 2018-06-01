@@ -7,8 +7,8 @@
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
  * Reflexivity: T0 and T1 are the same type.
- * @description Check that if type T1 and T0 are both Object then instance of
- * T0 can be as T1 variable.
+ * @description Check that if type T1 and T0 are both Object then T0 is a
+ * subtype of a type T1
  * @author sgrekhov@unipro.ru
  */
 

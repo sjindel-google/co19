@@ -6,32 +6,28 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Type Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
- * variables X0 & S0 and T1 is X0.
- * @description Check that if a type T0 is a type variable X0 and and T1 is X0,
- * then a type T0 is a subtype of a type T1.
- * @author ngl@unipro.ru
+ * Function Type/Function: T0 is a function type and T1 is Function
+ * @description Check that if type T0 is a function type and T1 is Function then
+ * T0 is a subtype of T1
+ * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
+typedef void functionType();
 
-class X0 {}
-class S0 extends X0 {}
-class C<T> {}
+void f() {}
 
-
-C<X0> t0Instance = new C<X0>();
-C<X0> t1Instance = new C<X0>();
-
+functionType t0Instance = f;
+Function t1Instance = null;
 
 
 
 
 class ClassMember1_t01 {
-  static C<X0> s = forgetType(t0Instance);
-  C<X0> m = forgetType(t0Instance);
-  C<X0> _p = forgetType(t0Instance);
+  static Function s = forgetType(t0Instance);
+  Function m = forgetType(t0Instance);
+  Function _p = forgetType(t0Instance);
 
   ClassMember1_t01() {
     s = forgetType(t0Instance);
@@ -39,7 +35,7 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  ClassMember1_t01.named(C<X0> value) {
+  ClassMember1_t01.named(Function value) {
     s = value;
     m = value;
     _p = value;
@@ -53,21 +49,21 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  set setter(C<X0> val) {
+  set setter(Function val) {
     _p = val;
   }
 
-  C<X0> get getter => forgetType(_p);
+  Function get getter => forgetType(_p);
 
   static staticTest() {
     s = forgetType(t0Instance);
   }
 
-  static set staticSetter(C<X0> val) {
+  static set staticSetter(Function val) {
     s = val;
   }
 
-  static C<X0> get staticGetter => forgetType(t0Instance);
+  static Function get staticGetter => forgetType(t0Instance);
 }
 
 class ClassMember2_t01<X> {
@@ -95,7 +91,7 @@ class ClassMember2_t01<X> {
     _p = val;
   }
 
-  C<X0> get getter => forgetType(_p);
+  Function get getter => forgetType(_p);
 }
 
 main() {
@@ -113,10 +109,10 @@ main() {
   ClassMember1_t01.staticSetter = forgetType(t0Instance);
   ClassMember1_t01.staticGetter;
 
-  ClassMember2_t01<C<X0>> c2 = new ClassMember2_t01<C<X0>>();
-  c2 = new ClassMember2_t01<C<X0>>.short(forgetType(t0Instance),
+  ClassMember2_t01<Function> c2 = new ClassMember2_t01<Function>();
+  c2 = new ClassMember2_t01<Function>.short(forgetType(t0Instance),
       forgetType(t0Instance));
-  c2 = new ClassMember2_t01<C<X0>>.named(forgetType(t0Instance));
+  c2 = new ClassMember2_t01<Function>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;

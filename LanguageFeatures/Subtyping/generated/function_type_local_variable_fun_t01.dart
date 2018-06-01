@@ -6,24 +6,20 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Type Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
- * variables X0 & S0 and T1 is X0.
- * @description Check that if a type T0 is a promoted type variables X0 & S0
- * and T1 is X0, then a type T0 is a subtype of a type T1.
- * @author ngl@unipro.ru
+ * Function Type/Function: T0 is a function type and T1 is Function
+ * @description Check that if type T0 is a function type and T1 is Function then
+ * T0 is a subtype of T1
+ * @author sgrekhov@unipro.ru
  */
 
 import "../utils/common.dart";
 
+typedef void functionType();
 
-class X0 {}
-class S0 extends X0 {}
-class C<T> {}
+void f() {}
 
-
-C<S0> t0Instance = new C<S0>();
-C<X0> t1Instance = new C<X0>();
-
+functionType t0Instance = f;
+Function t1Instance = null;
 
 
 
@@ -31,28 +27,28 @@ C<X0> t1Instance = new C<X0>();
 class LocalVariableTest {
 
   LocalVariableTest() {
-    C<X0> t1 = forgetType(t0Instance);
+    Function t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
   static staticTest() {
-    C<X0> t1 = forgetType(t0Instance);
+    Function t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
   test() {
-    C<X0> t1 = forgetType(t0Instance);
+    Function t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   foo() {
-    C<X0> t1 = forgetType(t0Instance);
+    Function t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
-  C<X0> t1 = forgetType(t0Instance);
+  Function t1 = forgetType(t0Instance);
   t1 = forgetType(t0Instance);
   foo();
   LocalVariableTest x = new LocalVariableTest();
