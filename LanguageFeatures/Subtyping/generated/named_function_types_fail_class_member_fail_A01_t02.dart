@@ -44,10 +44,13 @@ class Y0 extends B0 {}
 class Y1 extends B1 {}
 
 typedef U0 T0<X0 extends B0, X1 extends B1>(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4});
-typedef U1 T1<Y0 extends B0, Y1 extends B1>(S0 y0, S1 y1, {S2 x2, S3 у3}); // y3 not x3
+typedef U1 T1<Y0 extends B0, Y1 extends B1>(S0 y0, S1 y1, {S2 x2, S3 y3}); // y3 is not x3
 
-U0 t0Instance<X0, X1>(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4}) => null;
-U1 t1Instance<Y0, Y1>(S0 y0, S1 y1, {S2 x2, S3 x3}) => null;
+U0 t0<X0, X1>(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4}) => null;
+U1 t1<Y0, Y1>(S0 y0, S1 y1, {S2 x2, S3 y3}) => null;
+
+T0 t0Instance = t0;
+T1 t1Instance = t1;
 
 
 

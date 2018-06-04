@@ -16,7 +16,7 @@ import "../utils/common.dart";
 
 typedef void T0<X>();
 
-void t0Instancef<X>() {}
+void t0Instance<X>() {}
 Function t1Instance = null;
 
 //# @T0 = T0
