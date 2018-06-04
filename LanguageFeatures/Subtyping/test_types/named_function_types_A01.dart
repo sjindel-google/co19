@@ -17,44 +17,36 @@
  * and B0i[Z0/X0, ..., Zk/Xk] === B1i[Z0/Y0, ..., Zk/Yk] for i in 0...k
  * where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
  * @description Check that if T0 and T1 satisfies the rules above, then T0 is
- * subtype of T1. Test parametrized types
+ * subtype of T1
  * @author sgrekhov@unipro.ru
  */
-class U0<X, Y> extends U1<X, Y> {}
-class U1<X, Y> {}
-class B0<X, Y> {}
-class B1<X, Y> {}
-class V0<X, Y> {}
-class V1<X, Y> {}
-class V2<X, Y> {}
-class V3<X, Y> {}
-class V4<X, Y> {}
-class S0<X, Y> extends V0<X, Y> {}
-class S1<X, Y> extends V1<X, Y> {}
-class S2<X, Y> extends V2<X, Y> {}
-class S3<X, Y> extends V3<X, Y> {}
+import "../utils/common.dart";
 
-class X0<X, Y> extends B0<X, Y> {}
-class X1<X, Y> extends B1<X, Y> {}
+class U0 extends U1 {}
+class U1 {}
+class B0 {}
+class B1 {}
+class V0 {}
+class V1 {}
+class V2 {}
+class V3 {}
+class V4 {}
+class S0 extends V0 {}
+class S1 extends V1 {}
+class S2 extends V2 {}
+class S3 extends V3 {}
 
-class Y0<X, Y> extends B0<X, Y> {}
-class Y1<X, Y> extends B1<X, Y> {}
+class X0 extends B0 {}
+class X1 extends B1 {}
 
-typedef U0 T0<X0 extends B0,X1 extends B1>(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4});
-typedef U1 T1<Y0 extends B0,Y1 extends B1>(S0 y0, S1 y1, {S2 x2, S3 x3});
+class Y0 extends B0 {}
+class Y1 extends B1 {}
 
-class Z0 extends B0 {}
-class Z1 extends B1 {}
+typedef U0 T0<X0 extends B0, X1 extends B1>(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4});
+typedef U1 T1<Y0 extends B0, Y1 extends B1>(S0 y0, S1 y1, {S2 x2, S3 x3});
 
-class CompareTypes<X extends Y, Y> {}
+U0 t0Instance<X0, X1>(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4}) => null;
+U1 t1Instance<Y0, Y1>(S0 y0, S1 y1, {S2 x2, S3 x3}) => null;
 
-main() {
-  List<T1> t1 = new List<T0>();
-  List<T1<Z0, Z1>> t2 = new List<T0<Z0, Z1>>();
-  List<T1> t3 = new List<T0<Z0, Z1>>();
-
-
-  new CompareTypes<T0, T1>();
-  new CompareTypes<T0<Z0, Z1>, T1<Z0, Z1>>();
-  new CompareTypes<T0, T1<Z0, Z1>>();
-}
+//# @T0 = T0
+//# @T1 = T1

@@ -17,11 +17,9 @@ import "../utils/common.dart";
 
 class C {}
 
-typedef void functionType<X>();
+typedef void T0<X>();
 
-void f<X>() => new C();
-
-functionType t0Instance = f;
+void t0Instance<X>() => new C();
 Function t1Instance = null;
 
 

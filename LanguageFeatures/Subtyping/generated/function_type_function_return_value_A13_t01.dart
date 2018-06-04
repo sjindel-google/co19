@@ -16,11 +16,9 @@ import "../utils/common.dart";
 
 class C {}
 
-typedef void functionType<X>(C c);
+typedef void T0<X>(C c);
 
-void f<X>(C c) {}
-
-functionType t0Instance = f;
+void t0Instance<X>(C c) {}
 Function t1Instance = null;
 
 
@@ -53,6 +51,6 @@ main() {
   new ReturnValueTest().testMethod();
   new ReturnValueTest().testGetter;
 
-  new ReturnValueGen<functionType>().testMethod();
-  new ReturnValueGen<functionType>().testGetter;
+  new ReturnValueGen<T0>().testMethod();
+  new ReturnValueGen<T0>().testGetter;
 }

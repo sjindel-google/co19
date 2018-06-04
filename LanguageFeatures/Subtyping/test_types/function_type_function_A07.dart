@@ -16,12 +16,10 @@ import "../utils/common.dart";
 
 class C {}
 
-typedef C functionType(C c, [dynamic d]);
+typedef C T0(C c, [dynamic d]);
 
-C f(C c, [dynamic d]) => c;
-
-functionType t0Instance = f;
+C t0Instance(C c, [dynamic d]) => c;
 Function t1Instance = null;
 
-//# @T0 = functionType
+//# @T0 = T0
 //# @T1 = Function

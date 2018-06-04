@@ -16,10 +16,13 @@
  * and U0[Z0/X0, ..., Zk/Xk] <: U1[Z0/Y0, ..., Zk/Yk]
  * and B0i[Z0/X0, ..., Zk/Xk] === B1i[Z0/Y0, ..., Zk/Yk] for i in 0...k
  * where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
- * @description Check that if T0 and T1 satisfies the rules above, then T0 is
- * subtype of T1
+ * @description Check that if {yn+1, ... , yq} is not subsetof {xn+1, ... , xm},
+ * then T0 is not a subtype of T1
  * @author sgrekhov@unipro.ru
  */
+import "../utils/common.dart";
+import "../../../Utils/expect.dart";
+
 class U0 extends U1 {}
 class U1 {}
 class B0 {}
@@ -40,13 +43,59 @@ class X1 extends B1 {}
 class Y0 extends B0 {}
 class Y1 extends B1 {}
 
-typedef U0 T0<X0 extends B0,X1 extends B1>(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4});
-typedef U1 T1<Y0 extends B0,Y1 extends B1>(S0 y0, S1 y1, {S2 x2, S3 x3});
+typedef U0 T0<X0 extends B0, X1 extends B1>(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4});
+typedef U1 T1<Y0 extends B0, Y1 extends B1>(S0 y0, S1 y1, {S2 x2, S3 у3}); // y3 not x3
 
-class CompareTypes<X extends Y, Y> {}
+U0 t0Instance<X0, X1>(V0 x0, V1 x1, {V2 x2, V3 x3, V4 x4}) => null;
+U1 t1Instance<Y0, Y1>(S0 y0, S1 y1, {S2 x2, S3 x3}) => null;
+
+
+
+
+class LocalVariableTest {
+
+  LocalVariableTest() {
+    T1 t1 = null;
+    t1 = forgetType(t0Instance);
+  }
+
+  LocalVariableTest.valid() {}
+
+  static staticTest() {
+    T1 t1 = null;
+    t1 = forgetType(t0Instance);
+  }
+
+  test() {
+    T1 t1 = null;
+    t1 = forgetType(t0Instance);
+  }
+}
 
 main() {
-  U0 Function<Y0, Y1>() t0;
-  T1 t = new T0();
-  //new CompareTypes<T0, T1>();
+  bar () {
+    T1 t1 = null;
+    t1 = forgetType(t0Instance);
+  }
+
+  Expect.throws(() {
+    T1 t1 = null;
+    t1 = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    bar();
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new LocalVariableTest();
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    new LocalVariableTest.valid().test();
+  }, (e) => e is TypeError);
+
+  Expect.throws(() {
+    LocalVariableTest.staticTest();
+  }, (e) => e is TypeError);
 }

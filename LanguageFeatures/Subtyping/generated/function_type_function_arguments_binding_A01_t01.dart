@@ -14,11 +14,9 @@
 
 import "../utils/common.dart";
 
-typedef void functionType();
+typedef void T0();
 
-void f() {}
-
-functionType t0Instance = f;
+void t0Instance() {}
 Function t1Instance = null;
 
 

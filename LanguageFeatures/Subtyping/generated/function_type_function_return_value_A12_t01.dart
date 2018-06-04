@@ -17,11 +17,9 @@ import "../utils/common.dart";
 
 class C {}
 
-typedef C functionType<X extends C>();
+typedef C T0<X extends C>();
 
-C f<X extends C>() => new C();
-
-functionType t0Instance = f;
+C t0Instance<X extends C>() => new C();
 Function t1Instance = null;
 
 
@@ -54,6 +52,6 @@ main() {
   new ReturnValueTest().testMethod();
   new ReturnValueTest().testGetter;
 
-  new ReturnValueGen<functionType>().testMethod();
-  new ReturnValueGen<functionType>().testGetter;
+  new ReturnValueGen<T0>().testMethod();
+  new ReturnValueGen<T0>().testGetter;
 }
