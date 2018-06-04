@@ -17,8 +17,9 @@ import "../utils/common.dart";
 class C {}
 
 typedef C T0<X>(C c, {X x});
+C t0Func<X>(C c, {X x}) => c;
 
-C t0Instance<X>(C c, {X x}) => c;
+T0<C> t0Instance = t0Func;
 Function t1Instance = null;
 
 

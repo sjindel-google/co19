@@ -18,8 +18,9 @@ import "../utils/common.dart";
 class C {}
 
 typedef C T0<X extends C>();
+C t0Func<X extends C>() => new C();
 
-C t0Instance<X extends C>() => new C();
+T0<C> t0Instance = t0Func;
 Function t1Instance = null;
 
 
