@@ -23,5 +23,5 @@ void t0Func<X>() => new C();
 T0<C> t0Instance = t0Func;
 Function t1Instance = null;
 
-//# @T0 = T0
+//# @T0 = T0<C>
 //# @T1 = Function

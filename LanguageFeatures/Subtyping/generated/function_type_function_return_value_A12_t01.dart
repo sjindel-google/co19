@@ -53,6 +53,6 @@ main() {
   new ReturnValueTest().testMethod();
   new ReturnValueTest().testGetter;
 
-  new ReturnValueGen<T0>().testMethod();
-  new ReturnValueGen<T0>().testGetter;
+  new ReturnValueGen<T0<C>>().testMethod();
+  new ReturnValueGen<T0<C>>().testGetter;
 }
