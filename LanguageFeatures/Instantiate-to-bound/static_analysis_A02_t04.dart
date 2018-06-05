@@ -10,7 +10,7 @@
  * bounds [B1 .. Bk] with types [T1 .. Tk]. For [i] in [1 .. k], let [Si] denote
  * the result of performing instantiate to bound on the type in the bound, [Ti];
  * in the case where [Bi] is omitted, let [Si] be dynamic.
- * @description Checks that omitting of the  type argument for [Function} causes
+ * @description Checks that omitting of the  type argument for [Function] causes
  * usage of [dynamic].
  * @author iarkh@unipro.ru
  */
