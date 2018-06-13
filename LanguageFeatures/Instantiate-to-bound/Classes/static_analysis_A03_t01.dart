@@ -27,11 +27,9 @@ class Z<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> {}
 
 main() {
    A a = new A();
-   Expect.isTrue(a is A);
    Expect.isTrue(a is A<dynamic>);
 
    B b = new B();
-   Expect.isTrue(b is B);
    Expect.isTrue(b is B<dynamic, dynamic>);
 
    C c = new C();
@@ -39,19 +37,15 @@ main() {
    Expect.isTrue(c is C<dynamic, dynamic, dynamic>);
 
    D d = new D();
-   Expect.isTrue(d is D);
    Expect.isTrue(d is D<dynamic, dynamic, dynamic, dynamic>);
 
    E e = new E();
-   Expect.isTrue(e is E);
    Expect.isTrue(e is E<dynamic, dynamic, dynamic, dynamic, dynamic>);
 
    F f = new F();
-   Expect.isTrue(f is F);
    Expect.isTrue(f is F<dynamic, dynamic, dynamic, dynamic, dynamic, dynamic>);
 
    Z z = new Z();
-   Expect.isTrue(z is Z);
    Expect.isTrue(z is Z<dynamic, dynamic, dynamic, dynamic, dynamic, dynamic,
        dynamic, dynamic, dynamic, dynamic>);
 }

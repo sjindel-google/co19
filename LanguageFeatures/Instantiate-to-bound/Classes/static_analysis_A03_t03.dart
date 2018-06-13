@@ -27,7 +27,7 @@ main() {
    Expect.isTrue(b is Map<String, int>);
    Expect.isTrue(b is Map<dynamic, dynamic>);  // super-bounded type
    Expect.isTrue(b is Map<String, dynamic>);  // super-bounded type
-   Expect.isTrue(b is Map<dynamic, int>);  // super-bounded type
+   Expect.isTrue(b is Map<dynamic, int>);     // super-bounded type
 
    Expect.isFalse(b is Map<String, String>);
    Expect.isFalse(b is Map<int, dynamic>);

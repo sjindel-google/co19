@@ -45,13 +45,9 @@
  * @description Checks that instantiate-to-bound process passes OK
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
-
 class G<X1 extends X2, X2 extends X3, X3 extends G<X1, X2, X3>> {}
 
 main() {
   G g1 = new G<Null, Null, Null> ();
-  Expect.isTrue(g1 is G);
   G g2 = new G<Null, Null, G<Null, Null, Null>> ();
-  Expect.isTrue(g2 is G);
 }

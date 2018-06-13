@@ -16,7 +16,6 @@
  * @description Checks that declaration of the function variable with
  * simple-bounded type argument does not cause compile error
  * @author iarkh@unipro.ru
- * @compile-error
  */
 
 typedef F<X> = X Function();

@@ -13,7 +13,6 @@
  * @author iarkh@unipro.ru
  * @compile-error
  */
-import "../../../Utils/expect.dart";
 
 class G<X1 extends X2, X2 extends X3, X3 extends G<X1, X2, X3>> {}
 

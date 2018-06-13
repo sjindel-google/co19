@@ -23,7 +23,6 @@
  * does not cause compile error in case of several type parameters.
  * @author iarkh@unipro.ru
  * @issue #32903
- * @issue #32906
  */
 
 class C<X extends C<X, Y>, Y extends C<X, Y>> {}

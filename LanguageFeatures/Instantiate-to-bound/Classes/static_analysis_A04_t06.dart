@@ -48,28 +48,18 @@
 import "../../../Utils/expect.dart";
 
 class A<X> {}
-class B<X> extends A<X> {}
+class B<X> {}
 
-class G<X1, X2 extends A<X1>> {}
+class G<X extends A<B>, X1 extends B<X>> {}
 
 main() {
+  G g = new G();
+  Expect.isTrue(g is G<A<B<dynamic>>, B<A<B<dynamic>>>>);
 
-  G g1 = new G();
-  Expect.isTrue(g1 is G<dynamic, A>);
-
-  G<A<dynamic>, B<Null>> g2 = new G();
-  Expect.isTrue(g2 is G);
-  Expect.isTrue(g2 is G<dynamic, A>);
-
-  G<A<Object>, B<Null>> g3 = new G();
-  Expect.isTrue(g3 is G);
-  Expect.isTrue(g3 is G<dynamic, A>);
-
-  G<A<String>, B<Null>> g4 = new G();
-  Expect.isTrue(g4 is G);
-  Expect.isTrue(g4 is G<dynamic, A>);
-
-  G<A<dynamic>, B<A<dynamic>>> g5 = new G();
-  Expect.isTrue(g5 is G);
-  Expect.isTrue(g5 is G<dynamic, A>);
+  G g1 = new G<A<B<dynamic>>, B<A<B<dynamic>>>> ();
+  G g2 = new G<A<B<dynamic>>, B<A<Null>>>();
+  G g3 = new G<A<B<Null>>, B<A<Null>>>();
+  G g4 = new G<A<B<A<B<dynamic>>>>, B<A<Null>>>();
+  G g5 = new G<A<B<A<B<A<B<dynamic>>>>>>, B<A<Null>>>();
+  G g6 = new G<A<B<A<B<A<B<dynamic>>>>>>, B<A<B<A<B<A<B<dynamic>>>>>>>> ();
 }
