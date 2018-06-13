@@ -29,6 +29,7 @@ main() {
   List<FileSystemEntity> testCases = testCasesDir.listSync();
   List<FileSystemEntity> testTypes = testTypesDir.listSync();
 
+  int generatedCount = 0;
   for (int i = 0; i < testTypes.length; i++) {
     File testType = testTypes[i];
     bool isFailTest = isFail(testType);
@@ -61,8 +62,10 @@ main() {
           removeReplacements(testTypeText) + testCaseText;
       File generatedTest = getGeneratedTestFile(testType, testCase);
       generatedTest.writeAsStringSync(generatedTestText);
+      generatedCount++;
     }
   }
+  print("$generatedCount tests generated successfully");
 }
 
 Map<String, String> findReplacements(String text) {
