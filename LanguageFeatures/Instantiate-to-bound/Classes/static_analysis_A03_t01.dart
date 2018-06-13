@@ -15,7 +15,7 @@
  * @author iarkh@unipro.ru
  */
 
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
 class A<T> {}
 class B<T1, T2> {}

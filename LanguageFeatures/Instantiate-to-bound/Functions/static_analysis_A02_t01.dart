@@ -15,13 +15,30 @@
  * @author iarkh@unipro.ru
  */
 
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
 
-typedef F<X> = X Function();
+typedef F<X> = List<X> Function();
 
-func() { return null; }
+List          f1() { return null; }
+List<int>     f2() { return null; }
+List<String>  f3() { return null; }
+List<dynamic> f4() { return null; }
+List<Object>  f5() { return null; }
+List<void>    f6() { return null; }
+List<Null>    f7() { return null; }
+
+void check(Function f) {
+   F xxx = f;
+   Expect.isTrue(xxx is F);
+   Expect.isTrue(xxx is F<dynamic>);
+}
 
 main() {
-  F xxx = func;
-  Expect.isTrue(xxx is F<dynamic>);
+  check(f1);
+  check(f2);
+  check(f3);
+  check(f4);
+  check(f5);
+  check(f6);
+  check(f7);
 }

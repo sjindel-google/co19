@@ -10,22 +10,22 @@
  * bounds [B1 .. Bk] with types [T1 .. Tk]. For [i] in [1 .. k], let [Si] denote
  * the result of performing instantiate to bound on the type in the bound, [Ti];
  * in the case where [Bi] is omitted, let [Si] be dynamic.
- * @description Checks that omitted argument type during the [List] object
- * creation results to creating an object with [dynamic] type parameter.
+ * @description Checks that omitted type argument for [Function] corresponds to
+ * the declaration in [typedef].
  * @author iarkh@unipro.ru
+ * @Issue 33261
  */
 
-import "../../Utils/expect.dart";
+import "../../../Utils/expect.dart";
+
+typedef F<X extends int> = void Function(X);
+
+void func(x) {}
 
 main() {
-   List a = new List();
-   Expect.isTrue(a is List);
-   Expect.isTrue(a is List<dynamic>);
-   Expect.isFalse(a is List<int>);
-
-   List<String> b = new List();
-   Expect.isTrue(b is List);
-   Expect.isTrue(b is List<String>);
-   Expect.isTrue(b is List<dynamic>); // super-bounded type?
-   Expect.isFalse(b is List<int>);
+  var xxx = func;
+  Expect.isTrue(xxx is F);
+  Expect.isTrue(xxx is F<dynamic>);
+  Expect.isTrue(xxx is F<int>);
+  Expect.isFalse(xxx is F<String>);
 }
