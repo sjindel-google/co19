@@ -21,7 +21,6 @@
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 class LocalStreamConsumer<T> implements StreamConsumer<T> {
   int _addStreamFutureCompleted = 0;

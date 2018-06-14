@@ -11,7 +11,7 @@
  */
 library fold_A01_t01;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void check<T,S>(Stream<T> s, S initialValue, S combine(S previous, T element),
     S expected) {

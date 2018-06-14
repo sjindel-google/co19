@@ -9,7 +9,6 @@
 import "dart:html";
 import "dart:typed_data";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   var array = new Uint8List.fromList([65, 245, 246, 247, 248, 249, 250, 251,

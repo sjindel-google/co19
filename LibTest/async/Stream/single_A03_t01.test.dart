@@ -13,7 +13,7 @@
  * @author ngl@unipro.ru
  */
 library single_A03_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
   AsyncExpect.error(1, create([1,2,3], isError: (_) => true).single);

@@ -29,9 +29,7 @@
  * @author a.semenov@unipro.ru
  */
 import "dart:isolate";
-import "dart:math";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 import "IsolateUtil.dart";
 
 test() async {

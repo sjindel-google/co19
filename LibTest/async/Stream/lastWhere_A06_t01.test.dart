@@ -23,7 +23,7 @@
  */
 library lastWhere_A06_t01;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   Stream s = create([1,2,3]);

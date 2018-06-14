@@ -9,7 +9,6 @@
  * @description Checks the state an event is fired when the request is aborted.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {

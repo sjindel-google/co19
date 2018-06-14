@@ -8,9 +8,9 @@
  * @description Checks that this method decodes stream to UTF-8 string
  * @author sgrekhov@unipro.ru
  */
+import "dart:async";
 import "dart:convert";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 Future check(String str) async {
   Utf8Codec codec = new Utf8Codec();

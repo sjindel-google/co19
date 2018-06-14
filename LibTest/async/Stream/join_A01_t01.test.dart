@@ -12,7 +12,7 @@
  */
 library join_A01_t01;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   List iterable = [1, null, false, true, 'string', #symbol, (x) => x++];

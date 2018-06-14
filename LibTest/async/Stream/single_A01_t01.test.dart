@@ -10,7 +10,7 @@
  * @author kaigorodov
  */
 library single_A01_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.value(123, create([123]).single);

@@ -9,7 +9,7 @@
  * @description Checks that click event happens when click() is called.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var body = document.body;

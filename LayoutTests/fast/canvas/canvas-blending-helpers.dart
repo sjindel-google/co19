@@ -9,7 +9,6 @@
 import "dart:html";
 import "dart:math" as Math;
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 var blendModes = ["source-over", "multiply", "screen", "overlay", "darken",
     "lighten", "color-dodge", "color-burn", "hard-light", "soft-light",

@@ -10,7 +10,7 @@
  * @author a.semenov@unipto.ru
  */
 library length_A01_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 List<List<int>> BYTES = new List.generate(
     10,

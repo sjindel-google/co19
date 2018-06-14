@@ -7,7 +7,6 @@
  * @description The test should not crash.
  */
 import "dart:html";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {

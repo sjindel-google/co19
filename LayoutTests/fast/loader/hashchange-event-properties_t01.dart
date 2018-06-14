@@ -8,8 +8,7 @@
  * @description Tests that hashchange events have the expected newURL and oldURL properties. 
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
+import "../../testcommon.dart";
 
 String hashOf(String url) {
     int hashIndex = url.lastIndexOf('#');

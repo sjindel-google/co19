@@ -9,7 +9,7 @@
  * @description Checks that focus event happens when focus() is called.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var body = document.body;

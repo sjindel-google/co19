@@ -15,7 +15,6 @@
  * Checks that paused listener will buffer events internally.
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 main() {

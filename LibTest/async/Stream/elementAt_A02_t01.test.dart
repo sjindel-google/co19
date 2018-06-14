@@ -13,7 +13,7 @@
  */
 library elementAt_A02_t01;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
   for (int k=0; k<10; k++) {

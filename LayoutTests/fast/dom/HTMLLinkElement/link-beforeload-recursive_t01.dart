@@ -9,7 +9,6 @@
  * loads its final (innermost) style sheet
  */
 import "dart:html";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 

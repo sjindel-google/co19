@@ -25,7 +25,6 @@
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
-import '../../Utils/async_utils.dart';
 
 class A {
   Stream<int> a1() async* {

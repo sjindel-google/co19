@@ -35,7 +35,6 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 String command;
 List<String> args;

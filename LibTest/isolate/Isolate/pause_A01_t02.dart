@@ -20,7 +20,7 @@
  */
 import "dart:isolate";
 import "dart:math";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 // indefinitely running isolate
 entryPoint(SendPort sendPort){

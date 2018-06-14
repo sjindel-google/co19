@@ -1,8 +1,4 @@
-library async_utils;
-
-import "dart:async";
-export "dart:async";
-import "expect.dart";
+part of Expect;
 
 const ONE_MS = const Duration(milliseconds: 1);
 

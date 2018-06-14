@@ -12,7 +12,6 @@
  * @todo move from LibTest to Language
  */
 
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import 'DeferredLibrary_A01_t01.lib.dart' deferred as lazy;

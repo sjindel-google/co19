@@ -9,7 +9,6 @@
  * @description Checks that added listener works.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 const myType = "myType";

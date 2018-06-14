@@ -36,7 +36,7 @@
  */
 library firstWhere_A03_t04;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void check(Stream<int> s, bool test(int element)) {
   Error expected = new CastError();

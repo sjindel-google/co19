@@ -12,7 +12,7 @@
  * @author a.semenov@unipro.ru
  */
 import "dart:io";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 import "../http_utils.dart";
 
 const List<int> BYTES = const [1, 2, 3];

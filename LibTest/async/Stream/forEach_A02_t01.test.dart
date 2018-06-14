@@ -13,7 +13,7 @@
  */
 library forEach_A02_t01;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void check(Stream s, Object expectedError) {
   AsyncExpect.error(expectedError, s.forEach((element) {}));

@@ -12,7 +12,7 @@
  */
 library transform_A01_t02;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 List<int> input = [1, 2, 3, 4, 5];
 List<int> expected = [1, 2, 3, 6, 5, 10];

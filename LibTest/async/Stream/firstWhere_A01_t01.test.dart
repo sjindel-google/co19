@@ -36,7 +36,7 @@
  */
 library firstWhere_A01_t01;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void check(Stream<int> s, bool test(int element), Object expected) {
   AsyncExpect.value(expected, s.firstWhere(test));

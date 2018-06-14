@@ -13,7 +13,7 @@
  * @description Checks that the Future completes with a floating point value
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {

@@ -12,7 +12,7 @@
  * @author kaigorodov
  */
 library singleWhere_A02_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.error((e) => e is Error, create([1, 2, 3]).singleWhere((int e) => true));

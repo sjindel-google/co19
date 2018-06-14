@@ -10,7 +10,7 @@
  * @author kaigorodov
  */
 library reduce_A01_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.value(10, create([1, 2, 3, 4]).reduce((int p, int e) => p + e));

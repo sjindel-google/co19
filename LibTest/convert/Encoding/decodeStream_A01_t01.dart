@@ -8,9 +8,9 @@
  * @description Checks that this method decodes stream to proper string
  * @author sgrekhov@unipro.ru
  */
+import "dart:async";
 import "dart:convert";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 Future check(Encoding encoding, String str) async {
   List<int> data = encoding.encode(str);

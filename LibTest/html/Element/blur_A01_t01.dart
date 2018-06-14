@@ -9,7 +9,7 @@
  * @description Checks that blur event happens when blur() is called.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   var body = document.body;

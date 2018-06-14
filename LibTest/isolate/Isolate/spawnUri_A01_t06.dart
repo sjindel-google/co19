@@ -39,7 +39,7 @@
 
 import "dart:isolate";
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 // Due to issue #26738 it is necessary to keep initial isolate alive,
 // so the started isolate could proceed.

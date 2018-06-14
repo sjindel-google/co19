@@ -13,7 +13,6 @@
  */
 library elementAt_A01_t03;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 const int INDEX = 10;

@@ -24,7 +24,7 @@
  * @description Checks that the method works with "GET".
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "dart:async";
 import "../../../UtilsHtml/expect.dart";
 
 main() {

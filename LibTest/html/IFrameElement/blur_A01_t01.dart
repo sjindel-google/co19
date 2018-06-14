@@ -10,7 +10,7 @@
  * @needsreview timeout
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   IFrameElement x = new IFrameElement();

@@ -30,7 +30,6 @@ import "dart:io";
 import 'dart:async';
 import "dart:convert";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 test() async {
   HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);

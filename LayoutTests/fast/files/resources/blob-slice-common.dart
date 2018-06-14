@@ -2,7 +2,6 @@ library blob_slice_common;
 
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 var sliceTestCases;
 var blob, file; // Populated by runTests() in individual tests.

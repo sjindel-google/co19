@@ -18,7 +18,7 @@
  */
 library asyncMap_A01_t03;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void check<T,E>(Stream<T> s1, List<E> expected) {
   int len = expected.length;

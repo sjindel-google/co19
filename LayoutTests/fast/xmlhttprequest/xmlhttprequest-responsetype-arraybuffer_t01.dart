@@ -10,8 +10,6 @@
  */
 import "dart:html";
 import "dart:typed_data";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 import "../../testcommon.dart";
 
 HttpRequest xhr;

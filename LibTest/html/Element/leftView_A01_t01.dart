@@ -10,7 +10,7 @@
  * the live document.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 class Foo extends HtmlElement {
   Foo.created() : super.created();

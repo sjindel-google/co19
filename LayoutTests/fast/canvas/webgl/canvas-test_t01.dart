@@ -11,7 +11,7 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "../../../../Utils/async_utils.dart";
+
 
 runAfterDisplay(callback) {
     window.requestAnimationFrame((_) {

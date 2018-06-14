@@ -33,7 +33,6 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   if (Platform.isWindows) {

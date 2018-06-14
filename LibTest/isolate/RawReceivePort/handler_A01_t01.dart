@@ -15,7 +15,6 @@
 
 import "dart:async";
 import "dart:isolate";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 RawReceivePort receivePort = new RawReceivePort(receiveHandler);

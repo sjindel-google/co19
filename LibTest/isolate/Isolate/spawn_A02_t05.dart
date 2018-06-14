@@ -30,7 +30,6 @@
  */
 import "dart:isolate";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 entryPointNoArgs() {
   print("entryPointNoArgs is called");

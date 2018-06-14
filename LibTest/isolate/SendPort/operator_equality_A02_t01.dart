@@ -13,8 +13,7 @@
  * @author a.semenov@unipro.ru
  */
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
-
+import "dart:async";
 import "dart:isolate";
 
 void entryPoint(List<SendPort> sendPort) {

@@ -11,7 +11,6 @@
  * @description Checks that response headers are retrieved.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 void check(String allHeaders) {

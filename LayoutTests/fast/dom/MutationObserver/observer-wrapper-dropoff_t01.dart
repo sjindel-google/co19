@@ -8,7 +8,6 @@
  * the callback even if JS has lost references.
  */
 import "dart:html";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {

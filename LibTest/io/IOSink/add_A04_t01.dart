@@ -12,7 +12,6 @@
  * @author sgrekhov@unipro.ru
  */
 
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";

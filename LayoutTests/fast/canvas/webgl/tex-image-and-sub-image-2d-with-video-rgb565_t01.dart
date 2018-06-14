@@ -11,7 +11,6 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import "../../../testcommon.dart";
 import "resources/tex-image-and-sub-image-2d-with-video.dart";
-import "../../../../Utils/async_utils.dart";
 import "pwd.dart";
 
 main() {

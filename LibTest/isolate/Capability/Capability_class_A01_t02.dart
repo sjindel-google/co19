@@ -17,7 +17,6 @@
  */
 import "dart:isolate";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 import "../../core/Object/allTests.lib.dart" as object;
 
 void entryPoint(SendPort sendPort) {

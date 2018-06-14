@@ -30,7 +30,6 @@
  */
 import "dart:isolate";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 entryPoint2Args(message1, message2) {
   print("message1: $message1 message2: $message2");

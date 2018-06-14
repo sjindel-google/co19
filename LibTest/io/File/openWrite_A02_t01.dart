@@ -26,7 +26,6 @@ import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   Encoding encoding = Encoding.getByName("iso-8859-1");

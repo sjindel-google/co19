@@ -17,7 +17,7 @@
  * @author a.semenov@unipro.ru
  */
 library skip_A03_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
   AsyncExpect.events([], [1,2,3], create([1, 2, 3], isError: (_) => true).skip(0));

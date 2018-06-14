@@ -36,7 +36,6 @@
  */
 import "dart:isolate";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 void main(List<String> args, SendPort replyPort) {
   int n = args.length == 0 ? 10 : int.parse(args[0]);

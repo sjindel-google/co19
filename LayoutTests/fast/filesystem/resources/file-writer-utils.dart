@@ -2,7 +2,6 @@ library file_writer_utils;
 
 import "dart:html";
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 var fileEntryForCleanup;  // Set as soon as we have one.
 

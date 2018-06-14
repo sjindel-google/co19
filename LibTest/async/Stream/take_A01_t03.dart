@@ -15,7 +15,6 @@
  * @author kaigorodov
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 int eventCount = 2; // the length of the source stream

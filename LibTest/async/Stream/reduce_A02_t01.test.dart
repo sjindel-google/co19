@@ -11,7 +11,7 @@
  * @author a.semenov@unipro.ru
  */
 library reduce_A02_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.error("a", create([1, 2, 3]).reduce((p,e) => throw "a"));

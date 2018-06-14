@@ -20,7 +20,6 @@
 library asBroadcastStream_A04_t02;
 import "dart:async";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 void test(CreateStreamFunction create) {
   Stream s = create([1, 2, 3, 4, 5]);

@@ -8,7 +8,6 @@
  * @description
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../testharness.dart";
 
 const String htmlEL1 = r'''

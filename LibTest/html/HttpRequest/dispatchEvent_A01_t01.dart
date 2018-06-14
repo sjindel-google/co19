@@ -9,7 +9,6 @@
  * @description Checks that an event is diapatched.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 const eventType = 'keydown';

@@ -8,7 +8,6 @@
  * HTMLImageElement properties work correctly.
  */
 import "dart:html";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 
