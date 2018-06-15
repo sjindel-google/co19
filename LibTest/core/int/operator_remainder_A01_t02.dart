@@ -38,15 +38,15 @@ main() {
   check(double.INFINITY, -1, double.INFINITY);
   check(1, 1, double.NEGATIVE_INFINITY);
   check(double.INFINITY, -1, double.NEGATIVE_INFINITY);
-  check(0x1000000000000000000000, 0x1000000000000000000000, double.INFINITY);
-  check(double.INFINITY, -0x1000000000000000000000, double.INFINITY);
-  check(0x1000000000000000000000, 0x1000000000000000000000,
+  check(0x1000000000000000, 0x1000000000000000, double.INFINITY);
+  check(double.INFINITY, -0x1000000000000000, double.INFINITY);
+  check(0x1000000000000000, 0x1000000000000000,
       double.NEGATIVE_INFINITY);
-  check(double.INFINITY, -0x1000000000000000000000, double.NEGATIVE_INFINITY);
+  check(double.INFINITY, -0x1000000000000000, double.NEGATIVE_INFINITY);
   
   Expect.isTrue((1 % double.NAN).isNaN);
-  Expect.isTrue((0x1000000000000000000000 % double.NAN).isNaN);
-  Expect.isTrue(((-0x1000000000000000000000) % double.NAN).isNaN);
+  Expect.isTrue((0x1000000000000000 % double.NAN).isNaN);
+  Expect.isTrue(((-0x1000000000000000) % double.NAN).isNaN);
 }
 
 void check(num ex, int a, double b) {

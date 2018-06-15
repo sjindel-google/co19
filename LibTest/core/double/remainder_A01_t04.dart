@@ -39,7 +39,7 @@ final List values = const [
 ];
 
 main() {
-  values.forEach((double d) {
+  values.forEach((d) {
     Expect.equals(d, d.remainder(inf));
     Expect.equals(-d, (-d).remainder(inf));
     Expect.equals(d, d.remainder(-inf));

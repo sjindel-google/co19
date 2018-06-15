@@ -19,5 +19,5 @@ main() {
   Expect.isFalse(2147483648 == true);
   Expect.isFalse(-2147483647 == false);
   Expect.isFalse(-4294967295 == "");
-  Expect.isFalse(10000018446744073709551616 == new Object());
+  Expect.isFalse(1844674407370955161 == new Object());
 }

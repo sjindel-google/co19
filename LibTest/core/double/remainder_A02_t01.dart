@@ -39,7 +39,7 @@ final List values = const [
 ];
 
 main()  {
-  values.forEach((double val) {
+  values.forEach((val) {
     Expect.throws(() {val.remainder(null);}, (e) => e is Error);
   });
 }

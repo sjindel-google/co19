@@ -47,7 +47,7 @@ checkNaN(d) {
 }
 
 main() {
-  Constants.VALUES.forEach((double d) {
+  Constants.VALUES.forEach((d) {
     checkNaN(Constants.INF.remainder(d));
     checkNaN((-Constants.INF).remainder(d));
     checkNaN(Constants.INF.remainder(-d));

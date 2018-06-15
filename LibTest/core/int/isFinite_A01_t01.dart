@@ -15,6 +15,6 @@ import "../../../Utils/expect.dart";
 main() {
   Expect.isTrue(0.isFinite);
   Expect.isTrue(123456.isFinite);
-  Expect.isTrue(80000000000000000000000000000000000000000000000000.isFinite);
-  Expect.isTrue((-80000000000000000000000000000000000000000000000000).isFinite);
+  Expect.isTrue(8000000000000000000.isFinite);
+  Expect.isTrue((-8000000000000000000).isFinite);
 }

@@ -46,7 +46,7 @@ checkNaN(d) {
 }
 
 main() {
-  values.forEach((double d) {
+  values.forEach((d) {
     checkNaN(nan.remainder(d));
     checkNaN(nan.remainder(-d));
     checkNaN(d.remainder(nan));

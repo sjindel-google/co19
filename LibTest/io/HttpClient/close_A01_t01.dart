@@ -18,6 +18,7 @@
  * @issue 31492
  */
 import "dart:io";
+import "dart:async";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 

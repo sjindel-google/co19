@@ -15,6 +15,7 @@
  */
 import "dart:async";
 import "dart:io";
+import "../../../Utils/expect.dart";
 
 void check(List<int> data) {
   ZLibEncoder encoder = new ZLibEncoder();

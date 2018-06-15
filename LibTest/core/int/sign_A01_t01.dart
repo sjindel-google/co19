@@ -17,8 +17,8 @@ main() {
   Expect.equals(0, 0.sign);
   Expect.equals(1, 1.sign);
   Expect.equals(1, 123456789.sign);
-  Expect.equals(1, 80000000000000000000000000000000000000000000000000.sign);
+  Expect.equals(1, 800000000000000.sign);
   Expect.equals(-1, -1.sign);
   Expect.equals(-1, -123456789.sign);
-  Expect.equals(-1, (-80000000000000000000000000000000000000000000000000).sign);
+  Expect.equals(-1, (-8000000000000000000).sign);
 }

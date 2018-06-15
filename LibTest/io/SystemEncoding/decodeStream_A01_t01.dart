@@ -10,6 +10,7 @@
  */
 import "dart:async";
 import "dart:io";
+import "../../../Utils/expect.dart";
 
 void check(SystemEncoding systemEncoding, List<List<int>> input, String expected) {
   Stream<List<int>> byteStream = new Stream.fromIterable(input);
