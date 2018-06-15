@@ -19,20 +19,15 @@ import "../utils/common.dart";
 
 class C1 {}
 class S0 implements Future<C1> {
-  // factory S0(FutureOr<C1> computation()) =>  computation();
-  asStream() => null;//new Stream.fromFuture(new Completer().future);
-  catchError(Function onError, { bool test(Object error) }) => null;//onError();
-  then<S0>(FutureOr<S0> onValue(C1 value), { Function onError }) => null;
-  //    onValue(new C1());
-  timeout(Duration timeLimit, { FutureOr<C1> onTimeout() }) => null;//onTimeout();
-  whenComplete(FutureOr action()) => null;//action();
+  asStream() => null;
+  catchError(Function onError, {bool test(Object error)}) => null;
+  then<S0>(FutureOr<S0> onValue(C1 value), {Function onError}) => null;
+  timeout(Duration timeLimit, {FutureOr<C1> onTimeout()}) => null;
+  whenComplete(FutureOr action()) => null;
 }
 
-//FutureOr computation() async => new C1();
-//FutureOr com() async => new S0();
 FutureOr<S0> t0Instance = new S0();
 Future<C1> t1Instance = new Future.value(new C1());
 
 //# @T0 = FutureOr<S0>
 //# @T1 = Future<C1>
-
