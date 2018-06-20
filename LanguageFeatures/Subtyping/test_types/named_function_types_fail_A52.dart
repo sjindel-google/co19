@@ -66,17 +66,14 @@ typedef U<A, List, int> T1<X extends B0, Y extends B0>(  //Y extends B0, not B1
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
     {S2<C, List<String>, int> x2, S3<C, List<String>, int> x3});
 
-U<C, List<String>, int> t0Func<X, Y>(
+U<C, List<String>, int> t0Instance<X, Y>(
         V0<A, List, num> x0, V1<A, List, num> x1,
         {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
     null;
-U<A, List, int> t1Func<X, Y>(
+U<A, List, int> t1Instance<X, Y>(
         S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
         {S2<C, List<String>, int> x2, S3<C, List<String>, int> x3}) =>
     null;
-
-T0<X0<C, List<String>, int>, X1<C, List<String>, int>> t0Instance = t0Func;
-T1<X0<A, List, num>, X0<A, List, num>> t1Instance = t1Func;
 
 //# @T0 = T0<X0<C, List<String>, int>, X1<C, List<String>, int>>
 //# @T1 = T1<X0<A, List, num>, X0<A, List, num>>
