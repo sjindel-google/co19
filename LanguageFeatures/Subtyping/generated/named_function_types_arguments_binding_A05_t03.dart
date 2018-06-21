@@ -50,33 +50,36 @@ class Y0<X, Y, Z> extends B0<X, Y, Z> {}
 
 class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
-typedef U<C, List<String>, int> T0<X extends B0, Y extends B1>(
+typedef T0 = U<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
     {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4});
-typedef U<A, List, num> T1<X extends B0, Y extends B1>(
+typedef T1 = U<A, List, num> Function<X extends B0, Y extends B1>(
     V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
     {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3});
 
-U<C, List<String>, int> t0Instance<X, Y>(
+U<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
         {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
     null;
-U<A, List, num> t1Instance<X, Y>(
+U<A, List, num> t1Func<X extends B0, Y extends B1>(
         V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
         {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3}) =>
     null;
+
+T0 t0Instance = t0Func;
+T1 t1Instance = t1Func;
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  T1<X0<A, List, num>, X1<A, List, num>> m;
+  T1 m;
 
-  void superTest(T1<X0<A, List, num>, X1<A, List, num>> val) {}
-  void superTestPositioned(T1<X0<A, List, num>, X1<A, List, num>> val, [T1<X0<A, List, num>, X1<A, List, num>> val2]) {}
-  void superTestNamed(T1<X0<A, List, num>, X1<A, List, num>> val, {T1<X0<A, List, num>, X1<A, List, num>> val2}) {}
-  T1<X0<A, List, num>, X1<A, List, num>> get superGetter => m;
-  void set superSetter(T1<X0<A, List, num>, X1<A, List, num>> val) {}
+  void superTest(T1 val) {}
+  void superTestPositioned(T1 val, [T1 val2]) {}
+  void superTestNamed(T1 val, {T1 val2}) {}
+  T1 get superGetter => m;
+  void set superSetter(T1 val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -129,7 +132,7 @@ main() {
   c1.superSetter = forgetType(t0Instance);
   c1.superGetter;
 
-  ArgumentsBinding2_t03<T1<X0<A, List, num>, X1<A, List, num>>> c2 = new ArgumentsBinding2_t03<T1<X0<A, List, num>, X1<A, List, num>>>();
+  ArgumentsBinding2_t03<T1> c2 = new ArgumentsBinding2_t03<T1>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestPositioned(forgetType(t0Instance));

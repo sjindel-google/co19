@@ -42,21 +42,24 @@ class V3<X, Y, Z> {}
 
 class V4<X, Y, Z> {}
 
-typedef U<C, List<String>, int> T0<X extends B0, Y extends B1>(
+typedef T0 = U<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
     {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4});
-typedef U<A, List, num> T1<X extends B0, Y extends B1>(
+typedef T1 = U<A, List, num> Function<X extends B0, Y extends B1>(
     V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
     {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3});
 
-U<C, List<String>, int> t0Instance<X, Y>(
+U<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
         {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
     null;
-U<A, List, num> t1Instance<X, Y>(
+U<A, List, num> t1Func<X extends B0, Y extends B1>(
         V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
         {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3}) =>
     null;
+
+T0 t0Instance = t0Func;
+T1 t1Instance = t1Func;
 
 
 
@@ -64,28 +67,28 @@ U<A, List, num> t1Instance<X, Y>(
 class LocalVariableTest {
 
   LocalVariableTest() {
-    T1<B0<A, List, num>, B1<A, List, num>> t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
   static staticTest() {
-    T1<B0<A, List, num>, B1<A, List, num>> t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
   test() {
-    T1<B0<A, List, num>, B1<A, List, num>> t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   foo() {
-    T1<B0<A, List, num>, B1<A, List, num>> t1 = forgetType(t0Instance);
+    T1 t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
-  T1<B0<A, List, num>, B1<A, List, num>> t1 = forgetType(t0Instance);
+  T1 t1 = forgetType(t0Instance);
   t1 = forgetType(t0Instance);
   foo();
   LocalVariableTest x = new LocalVariableTest();

@@ -60,27 +60,30 @@ class Y0<X, Y, Z> extends B0<X, Y, Z> {}
 
 class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
-typedef U0<C, List<String>, int> T0<X extends B0, Y extends B1>(
+typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
     {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4});
-typedef U1<A, List, num> T1<X extends B0, Y extends B1>(
+typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
     {S2<C, List<String>, int> x2, S3<C, List<String>, int> x3});
 
-U0<C, List<String>, int> t0Instance<X, Y>(
+U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
         {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
     null;
-U1<A, List, num> t1Instance<X, Y>(
+U1<A, List, num> t1Func<X extends B0, Y extends B1>(
         S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
         {S2<C, List<String>, int> x2, S3<C, List<String>, int> x3}) =>
     null;
+
+T0 t0Instance = t0Func;
+T1 t1Instance = t1Func;
 
 
 
 
 class ClassMemberMixin1_t03 {
-  T1<X0<A, List, num>, X1<A, List, num>> m;
+  T1 m;
 
   void set superSetter(dynamic val) {}
 }
@@ -110,7 +113,7 @@ main() {
   c1.test();
   c1.superSetter = forgetType(t0Instance);
 
-  ClassMember2_t03<T1<X0<A, List, num>, X1<A, List, num>>> c2 = new ClassMember2_t03<T1<X0<A, List, num>, X1<A, List, num>>>();
+  ClassMember2_t03<T1> c2 = new ClassMember2_t03<T1>();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

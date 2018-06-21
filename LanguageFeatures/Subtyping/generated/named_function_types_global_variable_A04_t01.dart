@@ -60,21 +60,24 @@ class Y0<X, Y, Z> extends B0<X, Y, Z> {}
 
 class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
-typedef U0<Null, Null, Null> T0<X extends B0, Y extends B1>(
+typedef T0 = U0<Null, Null, Null> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
     {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4});
-typedef U1<A, List, num> T1<X extends B0, Y extends B1>(
+typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
     S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
     {S2<Null, Null, Null> x2, S3<Null, Null, Null> x3});
 
-U0<Null, Null, Null> t0Instance<X, Y>(
+U0<Null, Null, Null> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
         {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
     null;
-U1<A, List, num> t1Instance<X, Y>(
+U1<A, List, num> t1Func<X extends B0, Y extends B1>(
         S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
         {S2<Null, Null, Null> x2, S3<Null, Null, Null> x3}) =>
     null;
+
+T0 t0Instance = t0Func;
+T1 t1Instance = t1Func;
 
 
 

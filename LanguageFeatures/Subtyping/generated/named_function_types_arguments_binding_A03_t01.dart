@@ -60,51 +60,54 @@ class Y0<X, Y, Z> extends B0<X, Y, Z> {}
 
 class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
-typedef U0<C, List<String>, int> T0<X extends B0, Y extends B1>(
+typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<dynamic, void, Object> x0, V1<dynamic, void, Object> x1,
     {V2<dynamic, void, Object> x2, V3<dynamic, void, Object> x3, V4<dynamic, void, Object> x4});
-typedef U1<dynamic, void, Object> T1<X extends B0, Y extends B1>(
+typedef T1 = U1<dynamic, void, Object> Function<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
     {S2<C, List<String>, int> x2, S3<C, List<String>, int> x3});
 
-U0<C, List<String>, int> t0Instance<X, Y>(
+U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<dynamic, void, Object> x0, V1<dynamic, void, Object> x1,
         {V2<dynamic, void, Object> x2, V3<dynamic, void, Object> x3, V4<dynamic, void, Object> x4}) =>
     null;
-U1<dynamic, void, Object> t1Instance<X, Y>(
+U1<dynamic, void, Object> t1Func<X extends B0, Y extends B1>(
         S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
         {S2<C, List<String>, int> x2, S3<C, List<String>, int> x3}) =>
     null;
 
+T0 t0Instance = t0Func;
+T1 t1Instance = t1Func;
 
 
 
-namedArgumentsFunc1(T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t1, {T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t2}) {}
-positionalArgumentsFunc1(T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t1, [T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t2]) {}
+
+namedArgumentsFunc1(T1 t1, {T1 t2}) {}
+positionalArgumentsFunc1(T1 t1, [T1 t2]) {}
 
 namedArgumentsFunc2<X>(X t1, {X t2}) {}
 positionalArgumentsFunc2<X>(X t1, [X t2]) {}
 
 class ArgumentsBindingClass {
-  ArgumentsBindingClass(T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t1) {}
+  ArgumentsBindingClass(T1 t1) {}
 
-  ArgumentsBindingClass.named(T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t1, {T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t2}) {}
-  ArgumentsBindingClass.positional(T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t1, [T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t2]) {}
+  ArgumentsBindingClass.named(T1 t1, {T1 t2}) {}
+  ArgumentsBindingClass.positional(T1 t1, [T1 t2]) {}
 
-  factory ArgumentsBindingClass.fNamed(T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t1, {T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t2}) {
+  factory ArgumentsBindingClass.fNamed(T1 t1, {T1 t2}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t1, [T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t2]) {
+  factory ArgumentsBindingClass.fPositional(T1 t1, [T1 t2]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t1, {T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t2}) {}
-  static positionalArgumentsStaticMethod(T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t1, [T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t2]) {}
+  static namedArgumentsStaticMethod(T1 t1, {T1 t2}) {}
+  static positionalArgumentsStaticMethod(T1 t1, [T1 t2]) {}
 
-  namedArgumentsMethod(T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t1, {T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t2}) {}
-  positionalArgumentsMethod(T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t1, [T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> t2]) {}
+  namedArgumentsMethod(T1 t1, {T1 t2}) {}
+  positionalArgumentsMethod(T1 t1, [T1 t2]) {}
 
-  set testSetter(T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>> val) {}
+  set testSetter(T1 val) {}
 }
 
 class ArgumentsBindingGen<X>  {
@@ -132,8 +135,8 @@ main() {
   positionalArgumentsFunc1(forgetType(t0Instance), forgetType(t0Instance));
 
   // test generic functions
-  namedArgumentsFunc2<T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>>>(forgetType(t0Instance), t2: forgetType(t0Instance));
-  positionalArgumentsFunc2<T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>>>(forgetType(t0Instance), forgetType(t0Instance));
+  namedArgumentsFunc2<T1>(forgetType(t0Instance), t2: forgetType(t0Instance));
+  positionalArgumentsFunc2<T1>(forgetType(t0Instance), forgetType(t0Instance));
 
   // test class constructors
   ArgumentsBindingClass instance1 =
@@ -161,7 +164,7 @@ main() {
       forgetType(t0Instance), forgetType(t0Instance));
 
   // test generic class constructors
-  ArgumentsBindingGen<T1<X0<dynamic, void, Object>, X1<dynamic, void, Object>>> instance2 =
+  ArgumentsBindingGen<T1> instance2 =
       new ArgumentsBindingGen(forgetType(t0Instance));
   instance2 = new ArgumentsBindingGen.fNamed(forgetType(t0Instance),
       t2: forgetType(t0Instance));

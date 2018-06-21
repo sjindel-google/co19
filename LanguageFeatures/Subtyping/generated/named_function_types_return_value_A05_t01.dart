@@ -50,33 +50,36 @@ class Y0<X, Y, Z> extends B0<X, Y, Z> {}
 
 class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
-typedef U<C, List<String>, int> T0<X extends B0, Y extends B1>(
+typedef T0 = U<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
     {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4});
-typedef U<A, List, num> T1<X extends B0, Y extends B1>(
+typedef T1 = U<A, List, num> Function<X extends B0, Y extends B1>(
     V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
     {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3});
 
-U<C, List<String>, int> t0Instance<X, Y>(
+U<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
         {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
     null;
-U<A, List, num> t1Instance<X, Y>(
+U<A, List, num> t1Func<X extends B0, Y extends B1>(
         V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
         {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3}) =>
     null;
 
+T0 t0Instance = t0Func;
+T1 t1Instance = t1Func;
 
 
 
-T1<X0<A, List, num>, X1<A, List, num>> returnValueFunc() => forgetType(t0Instance);
+
+T1 returnValueFunc() => forgetType(t0Instance);
 
 class ReturnValueTest {
-  static T1<X0<A, List, num>, X1<A, List, num>> staticTestMethod() => forgetType(t0Instance);
+  static T1 staticTestMethod() => forgetType(t0Instance);
 
-  T1<X0<A, List, num>, X1<A, List, num>> testMethod() => forgetType(t0Instance);
+  T1 testMethod() => forgetType(t0Instance);
 
-  T1<X0<A, List, num>, X1<A, List, num>> get testGetter => forgetType(t0Instance);
+  T1 get testGetter => forgetType(t0Instance);
 }
 
 class ReturnValueGen<X> {
@@ -86,7 +89,7 @@ class ReturnValueGen<X> {
 
 
 main() {
-  T1<X0<A, List, num>, X1<A, List, num>> returnValueLocalFunc() => forgetType(t0Instance);
+  T1 returnValueLocalFunc() => forgetType(t0Instance);
 
   returnValueFunc();
   returnValueLocalFunc();
@@ -96,6 +99,6 @@ main() {
   new ReturnValueTest().testMethod();
   new ReturnValueTest().testGetter;
 
-  new ReturnValueGen<T0<X0<C, List<String>, int>, X1<C, List<String>, int>>>().testMethod();
-  new ReturnValueGen<T0<X0<C, List<String>, int>, X1<C, List<String>, int>>>().testGetter;
+  new ReturnValueGen<T0>().testMethod();
+  new ReturnValueGen<T0>().testGetter;
 }
