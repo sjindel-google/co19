@@ -12,7 +12,7 @@
  *   or T0 is X0 and X0 has bound S0 and S0 <: T1
  *   or T0 is X0 & S0 and S0 <: T1
  * @description Check that if a type T1 is FutureOr<S1> and a type T0 is not
- * a subtype of types Future<S1> and S1, then a type T0 is not a subtype of a
+ * a subtype of types Future<S1> or S1, then a type T0 is not a subtype of a
  * type T1.
  * @author ngl@unipro.ru
  */
