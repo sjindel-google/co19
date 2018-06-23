@@ -13,7 +13,7 @@
  * @issue #30920
  */
 library last_A03_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(var create) {
   AsyncExpect.error(

@@ -10,7 +10,6 @@
  * @description Checks that readyState is changed every time an event is fired.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {

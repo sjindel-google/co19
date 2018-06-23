@@ -13,7 +13,6 @@
  * patch for bug 3652.
  */
 import "dart:html";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 

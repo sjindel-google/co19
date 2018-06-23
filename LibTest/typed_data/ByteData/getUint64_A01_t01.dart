@@ -21,7 +21,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var u64 = new Uint64List.fromList([
-    0, 1, 9223372036854775807, 18446744073709551615, 12, 54, 100, 23, 98,
+    0, 1, 9223372036854775807, 1844674407370955161, 12, 54, 100, 23, 98,
     23, 43, 15, 3
   ]);
   var u32 = new Uint32List.fromList(
@@ -36,7 +36,7 @@ main() {
 
   var byteDataFromU32 = new ByteData.view(u32.buffer);
   var expectedBigEndian = [8908655946015829239, 72366452581892895];
-  var expectedLittleEndian = [17864778068345201019, 2270883744532922625];
+  var expectedLittleEndian = [-581966005364350597, 2270883744532922625];
   for (int i = 0; i < byteDataFromU32.lengthInBytes / bytesInElement; ++i) {
     Expect.equals(expectedBigEndian[i],
         byteDataFromU32.getUint64(i * bytesInElement, Endianness.BIG_ENDIAN));

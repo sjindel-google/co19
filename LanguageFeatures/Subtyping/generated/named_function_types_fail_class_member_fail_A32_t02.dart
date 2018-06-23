@@ -62,30 +62,30 @@ class Y0<X, Y, Z> extends B0<X, Y, Z> {}
 
 class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
-typedef U0<C, List<String>, int> T0<X extends B0, Y extends B1>(
+typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
     {V2<A, List, double> x2, V3<A, List, num> x3, V4<A, List, num> x4}); // S2<C, List<String>, int> is not a subtype of V2<A, List, double>
-typedef U1<A, List, num> T1<X extends B0, Y extends B1>(
+typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
     {S2<C, List<String>, int> x2, S3<C, List<String>, int> x3});
 
-U0<C, List<String>, int> t0Func<X, Y>(
+U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
         {V2<A, List, double> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
     null;
-U1<A, List, num> t1Func<X, Y>(
+U1<A, List, num> t1Func<X extends B0, Y extends B1>(
         S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
         {S2<C, List<String>, int> x2, S3<C, List<String>, int> x3}) =>
     null;
 
-T0<X0<C, List<String>, int>, X1<C, List<String>, int>> t0Instance = t0Func;
-T1<X0<A, List, num>, X1<A, List, num>> t1Instance = t1Func;
+T0 t0Instance = t0Func;
+T1 t1Instance = t1Func;
 
 
 
 
 class ClassMemberSuper1_t02 {
-  T1<X0<A, List, num>, X1<A, List, num>> m;
+  T1 m;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;
@@ -97,7 +97,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(T1<X0<A, List, num>, X1<A, List, num>> val) {}
+  void set superSetter(T1 val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
@@ -171,19 +171,19 @@ main() {
     new ClassMember1_t02.valid().test2();
   }, (e) => e is TypeError);
 
-  Expect.throws(() {new ClassMember2_t02<T1<X0<A, List, num>, X1<A, List, num>>>();}, (e) => e is TypeError);
-  Expect.throws(() {new ClassMember2_t02<T1<X0<A, List, num>, X1<A, List, num>>>.short();}, (e) => e is TypeError);
-  Expect.throws(() {new ClassMember2_t02<T1<X0<A, List, num>, X1<A, List, num>>>.named();}, (e) => e is TypeError);
+  Expect.throws(() {new ClassMember2_t02<T1>();}, (e) => e is TypeError);
+  Expect.throws(() {new ClassMember2_t02<T1>.short();}, (e) => e is TypeError);
+  Expect.throws(() {new ClassMember2_t02<T1>.named();}, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t02<T1<X0<A, List, num>, X1<A, List, num>>>.valid().m = forgetType(t0Instance);
+    new ClassMember2_t02<T1>.valid().m = forgetType(t0Instance);
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t02<T1<X0<A, List, num>, X1<A, List, num>>>.valid().superSetter = forgetType(t0Instance);
+    new ClassMember2_t02<T1>.valid().superSetter = forgetType(t0Instance);
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t02<T1<X0<A, List, num>, X1<A, List, num>>>.valid().test1();
+    new ClassMember2_t02<T1>.valid().test1();
   }, (e) => e is TypeError);
   Expect.throws(() {
-    new ClassMember2_t02<T1<X0<A, List, num>, X1<A, List, num>>>.valid().test2();
+    new ClassMember2_t02<T1>.valid().test2();
   }, (e) => e is TypeError);
 }

@@ -62,24 +62,24 @@ class Y0<X, Y, Z> extends B0<X, Y, Z> {}
 
 class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
-typedef U0<C, List<String>, int> T0<X extends B0, Y extends B1>(
+typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
     {V2<A, List, double> x2, V3<A, List, num> x3, V4<A, List, num> x4}); // S2<C, List<String>, int> is not a subtype of V2<A, List, double>
-typedef U1<A, List, num> T1<X extends B0, Y extends B1>(
+typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
     {S2<C, List<String>, int> x2, S3<C, List<String>, int> x3});
 
-U0<C, List<String>, int> t0Func<X, Y>(
+U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
         {V2<A, List, double> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
     null;
-U1<A, List, num> t1Func<X, Y>(
+U1<A, List, num> t1Func<X extends B0, Y extends B1>(
         S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
         {S2<C, List<String>, int> x2, S3<C, List<String>, int> x3}) =>
     null;
 
-T0<X0<C, List<String>, int>, X1<C, List<String>, int>> t0Instance = t0Func;
-T1<X0<A, List, num>, X1<A, List, num>> t1Instance = t1Func;
+T0 t0Instance = t0Func;
+T1 t1Instance = t1Func;
 
 
 
@@ -87,31 +87,31 @@ T1<X0<A, List, num>, X1<A, List, num>> t1Instance = t1Func;
 class LocalVariableTest {
 
   LocalVariableTest() {
-    T1<X0<A, List, num>, X1<A, List, num>> t1 = null;
+    T1 t1 = null;
     t1 = forgetType(t0Instance);
   }
 
   LocalVariableTest.valid() {}
 
   static staticTest() {
-    T1<X0<A, List, num>, X1<A, List, num>> t1 = null;
+    T1 t1 = null;
     t1 = forgetType(t0Instance);
   }
 
   test() {
-    T1<X0<A, List, num>, X1<A, List, num>> t1 = null;
+    T1 t1 = null;
     t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   bar () {
-    T1<X0<A, List, num>, X1<A, List, num>> t1 = null;
+    T1 t1 = null;
     t1 = forgetType(t0Instance);
   }
 
   Expect.throws(() {
-    T1<X0<A, List, num>, X1<A, List, num>> t1 = null;
+    T1 t1 = null;
     t1 = forgetType(t0Instance);
   }, (e) => e is TypeError);
 

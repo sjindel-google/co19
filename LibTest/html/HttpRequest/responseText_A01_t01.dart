@@ -9,7 +9,7 @@
  * @description Checks that the property is not empty in case of success.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "dart:async";
 import "../../../UtilsHtml/expect.dart";
 
 main() {

@@ -10,7 +10,6 @@
  * @description Checks that MIME type is overriden.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 const desired = "text/plain";

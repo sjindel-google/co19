@@ -9,7 +9,6 @@
 import "dart:html";
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   var extension;

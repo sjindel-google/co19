@@ -8,7 +8,7 @@
  * does not cause an assertion to fail.
  */
 import "dart:html";
-import "../../../../Utils/async_utils.dart";
+import "../../../testcommon.dart";
 
 main() {
   var s0 = new ScriptElement();

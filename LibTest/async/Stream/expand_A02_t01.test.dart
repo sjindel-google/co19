@@ -13,7 +13,6 @@
  */
 library expand_A02_t01;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check<T,S>(Stream<T> stream, Iterable<S> convert(T event)) {

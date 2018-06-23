@@ -16,9 +16,9 @@
  * @description Checks that this method transforms stream's events
  * @author sgrekhov@unipro.ru
  */
+import "dart:async";
 import "dart:convert";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 Future check(String str, String expected) async {
   HtmlEscape converter = new HtmlEscape();

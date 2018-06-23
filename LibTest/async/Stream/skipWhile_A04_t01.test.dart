@@ -19,7 +19,7 @@
  * @author a.semenov@unipro.ru
  */
 library skipWhile_A04_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.data([], create([]).skipWhile((e) => throw "a"));

@@ -16,7 +16,6 @@
  */
 library pipe_A03_t02;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 class TestStreamConsumer<T> implements StreamConsumer<T> {

@@ -10,7 +10,6 @@
  * @author kaigorodov
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 import "IsolateStream.dart" as IsolateStream;
 
@@ -30,4 +29,3 @@ main() {
   check([1,2,3]);
   check(["1",2,null]);
 }
-

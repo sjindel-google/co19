@@ -9,7 +9,7 @@
  * @author a.semenov@unipro.ru
  */
 library allTests_A02;
-import '../../../Utils/async_utils.dart';
+import "../../../Utils/expect.dart";
 
 import "any_A02_t01.test.dart" as any_A02_t01;
 

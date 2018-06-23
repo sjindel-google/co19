@@ -18,7 +18,7 @@
  */
 library timeout_A02_t01;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   int count = 0;

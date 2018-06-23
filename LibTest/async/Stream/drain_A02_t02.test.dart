@@ -11,7 +11,7 @@
  * @author kaigorodov
  */
 library drain_A02_t02;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.value(null, create([]).drain());

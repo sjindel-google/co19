@@ -19,7 +19,7 @@
  */
 library asBroadcastStream_A01_t01;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s0, List<T> data) {
   Stream<T> s1 = s0.asBroadcastStream();

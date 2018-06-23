@@ -50,32 +50,32 @@ class Y0<X, Y, Z> extends B0<X, Y, Z> {}
 
 class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
-typedef U<C, List<String>, int> T0<X extends B0, Y extends B1>(
+typedef T0 = U<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
     {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4});
-typedef U<A, List, num> T1<X extends B0, Y extends B1>(
+typedef T1 = U<A, List, num> Function<X extends B0, Y extends B1>(
     V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
     {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3});
 
-U<C, List<String>, int> t0Func<X, Y>(
+U<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
         {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
     null;
-U<A, List, num> t1Func<X, Y>(
+U<A, List, num> t1Func<X extends B0, Y extends B1>(
         V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
         {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3}) =>
     null;
 
-T0<X0<C, List<String>, int>, X1<C, List<String>, int>> t0Instance = t0Func;
-T1<X0<A, List, num>, X1<A, List, num>> t1Instance = t1Func;
+T0 t0Instance = t0Func;
+T1 t1Instance = t1Func;
 
 
 
 
 class ClassMember1_t01 {
-  static T1<X0<A, List, num>, X1<A, List, num>> s = forgetType(t0Instance);
-  T1<X0<A, List, num>, X1<A, List, num>> m = forgetType(t0Instance);
-  T1<X0<A, List, num>, X1<A, List, num>> _p = forgetType(t0Instance);
+  static T1 s = forgetType(t0Instance);
+  T1 m = forgetType(t0Instance);
+  T1 _p = forgetType(t0Instance);
 
   ClassMember1_t01() {
     s = forgetType(t0Instance);
@@ -83,7 +83,7 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  ClassMember1_t01.named(T1<X0<A, List, num>, X1<A, List, num>> value) {
+  ClassMember1_t01.named(T1 value) {
     s = value;
     m = value;
     _p = value;
@@ -97,21 +97,21 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  set setter(T1<X0<A, List, num>, X1<A, List, num>> val) {
+  set setter(T1 val) {
     _p = val;
   }
 
-  T1<X0<A, List, num>, X1<A, List, num>> get getter => forgetType(_p);
+  T1 get getter => forgetType(_p);
 
   static staticTest() {
     s = forgetType(t0Instance);
   }
 
-  static set staticSetter(T1<X0<A, List, num>, X1<A, List, num>> val) {
+  static set staticSetter(T1 val) {
     s = val;
   }
 
-  static T1<X0<A, List, num>, X1<A, List, num>> get staticGetter => forgetType(t0Instance);
+  static T1 get staticGetter => forgetType(t0Instance);
 }
 
 class ClassMember2_t01<X> {
@@ -139,7 +139,7 @@ class ClassMember2_t01<X> {
     _p = val;
   }
 
-  T1<X0<A, List, num>, X1<A, List, num>> get getter => forgetType(_p);
+  T1 get getter => forgetType(_p);
 }
 
 main() {
@@ -157,10 +157,10 @@ main() {
   ClassMember1_t01.staticSetter = forgetType(t0Instance);
   ClassMember1_t01.staticGetter;
 
-  ClassMember2_t01<T1<X0<A, List, num>, X1<A, List, num>>> c2 = new ClassMember2_t01<T1<X0<A, List, num>, X1<A, List, num>>>();
-  c2 = new ClassMember2_t01<T1<X0<A, List, num>, X1<A, List, num>>>.short(forgetType(t0Instance),
+  ClassMember2_t01<T1> c2 = new ClassMember2_t01<T1>();
+  c2 = new ClassMember2_t01<T1>.short(forgetType(t0Instance),
       forgetType(t0Instance));
-  c2 = new ClassMember2_t01<T1<X0<A, List, num>, X1<A, List, num>>>.named(forgetType(t0Instance));
+  c2 = new ClassMember2_t01<T1>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;

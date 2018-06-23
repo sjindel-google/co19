@@ -22,7 +22,6 @@
  * @author kaigorodov
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check1(Iterable data, bool test(int element), var expected) {

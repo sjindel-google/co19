@@ -43,41 +43,41 @@ class V3<X, Y, Z> {}
 
 class V4<X, Y, Z> {}
 
-typedef U<C, List<String>, int> T0<X extends B0, Y extends B1>(
+typedef T0 = U<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
     {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4});
-typedef U<A, List, num> T1<X extends B0, Y extends B0>( // Y extends B0, not B1
+typedef T1 = U<A, List, num> Function<X extends B0, Y extends B0>( // Y extends B0, not B1
     V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
     {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3});
 
-U<C, List<String>, int> t0Func<X, Y>(
+U<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
         {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
     null;
-U<A, List, num> t1Func<X, Y>(
+U<A, List, num> t1Func<X extends B0, Y extends B0>(
         V0<C, List<String>, int> y0, V1<C, List<String>, int> y1,
         {V2<C, List<String>, int> x2, V3<C, List<String>, int> x3}) =>
     null;
 
-T0<B0<C, List<String>, int>, B1<C, List<String>, int>> t0Instance = t0Func;
-T1<B0<A, List, num>, B0<A, List, num>> t1Instance = t1Func;
+T0 t0Instance = t0Func;
+T1 t1Instance = t1Func;
 
 
 
 
 class ArgumentsBindingSuper1_t02 {
-  T1<B0<A, List, num>, B0<A, List, num>> m;
+  T1 m;
 
-  ArgumentsBindingSuper1_t02(T1<B0<A, List, num>, B0<A, List, num>> value) {}
-  ArgumentsBindingSuper1_t02.named(T1<B0<A, List, num>, B0<A, List, num>> value, {T1<B0<A, List, num>, B0<A, List, num>> val2}) {}
-  ArgumentsBindingSuper1_t02.positional(T1<B0<A, List, num>, B0<A, List, num>> value, [T1<B0<A, List, num>, B0<A, List, num>> val2]) {}
+  ArgumentsBindingSuper1_t02(T1 value) {}
+  ArgumentsBindingSuper1_t02.named(T1 value, {T1 val2}) {}
+  ArgumentsBindingSuper1_t02.positional(T1 value, [T1 val2]) {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
-  void superTest(T1<B0<A, List, num>, B0<A, List, num>> val) {}
-  void superTestPositioned(T1<B0<A, List, num>, B0<A, List, num>> val, [T1<B0<A, List, num>, B0<A, List, num>> val2]) {}
-  void superTestNamed(T1<B0<A, List, num>, B0<A, List, num>> val, {T1<B0<A, List, num>, B0<A, List, num>> val2}) {}
-  T1<B0<A, List, num>, B0<A, List, num>> get superGetter => forgetType(t0Instance);
-  void set superSetter(T1<B0<A, List, num>, B0<A, List, num>> val) {}
+  void superTest(T1 val) {}
+  void superTestPositioned(T1 val, [T1 val2]) {}
+  void superTestNamed(T1 val, {T1 val2}) {}
+  T1 get superGetter => forgetType(t0Instance);
+  void set superSetter(T1 val) {}
 }
 
 class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
@@ -348,61 +348,61 @@ main() {
 
   // test generic class constructors
   Expect.throws(() {
-    new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>(forgetType(t0Instance));
+    new ArgumentsBinding2_t02<T1>(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>.c1(forgetType(t0Instance));
+    new ArgumentsBinding2_t02<T1>.c1(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>.c2(t1Instance, forgetType(t0Instance));
+    new ArgumentsBinding2_t02<T1>.c2(t1Instance, forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>.c3(forgetType(t0Instance));
+    new ArgumentsBinding2_t02<T1>.c3(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>.c4(t1Instance, forgetType(t0Instance));
+    new ArgumentsBinding2_t02<T1>.c4(t1Instance, forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>.c5(forgetType(t0Instance));
+    new ArgumentsBinding2_t02<T1>.c5(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   // test generic class members
   Expect.throws(() {
-    new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>.valid().superTest(forgetType(t0Instance));
+    new ArgumentsBinding2_t02<T1>.valid().superTest(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>.valid().superTest(forgetType(t0Instance));
+    new ArgumentsBinding2_t02<T1>.valid().superTest(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>.valid().superTestPositioned(forgetType(t0Instance));
+    new ArgumentsBinding2_t02<T1>.valid().superTestPositioned(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>.valid().superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
+    new ArgumentsBinding2_t02<T1>.valid().superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>.valid().superTestNamed(forgetType(t0Instance));
+    new ArgumentsBinding2_t02<T1>.valid().superTestNamed(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>.valid().superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
+    new ArgumentsBinding2_t02<T1>.valid().superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>.valid().superSetter = forgetType(t0Instance);
+    new ArgumentsBinding2_t02<T1>.valid().superSetter = forgetType(t0Instance);
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>.valid().superGetter;
+    new ArgumentsBinding2_t02<T1>.valid().superGetter;
   }, (e) => e is TypeError);
 
-  new ArgumentsBinding2_t02<T1<B0<A, List, num>, B0<A, List, num>>>.valid().test();
+  new ArgumentsBinding2_t02<T1>.valid().test();
 }

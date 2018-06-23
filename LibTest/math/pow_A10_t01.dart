@@ -19,6 +19,6 @@ import "../../Utils/expect.dart";
 main() {
   Expect.equals(.0, Math.pow(.0, 111));
   Expect.equals(.0, Math.pow(.0, 111.0));
-  Expect.equals(.0, Math.pow(.0, 9223372036854775809));
+  Expect.equals(.0, Math.pow(.0, 922337203685477580));
   Expect.equals(.0, Math.pow(.0, double.INFINITY));
 }

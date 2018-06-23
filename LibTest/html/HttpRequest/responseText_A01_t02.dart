@@ -10,7 +10,6 @@
  * @needsreview #16757
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {

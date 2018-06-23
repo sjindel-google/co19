@@ -15,7 +15,7 @@
  * @author kaigorodov
  */
 library isEmpty_A01_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.value(true, create([]).isEmpty);

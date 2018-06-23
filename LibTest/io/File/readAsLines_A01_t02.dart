@@ -16,7 +16,6 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 import "../file_utils.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   File file = getTempFileSync();

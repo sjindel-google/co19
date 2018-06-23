@@ -26,8 +26,8 @@
  * @author ngl@unipro.ru
  */
 import "dart:io";
+import "dart:async";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   List expected = [

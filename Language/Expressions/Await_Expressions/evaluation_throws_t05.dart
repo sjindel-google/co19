@@ -15,7 +15,7 @@
  * @compile-error
  * @author a.semenov@unipro.ru
  */
-import '../../../Utils/async_utils.dart';
+import '../../../Utils/expect.dart';
 
 test() async {
   await f();

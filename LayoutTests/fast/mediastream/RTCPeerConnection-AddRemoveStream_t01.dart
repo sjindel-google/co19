@@ -8,8 +8,7 @@
  * @description Tests RTCPeerConnection [add|remove]Stream.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
+import "../../testcommon.dart";
 
 RtcPeerConnection pc;
 MediaStream stream;

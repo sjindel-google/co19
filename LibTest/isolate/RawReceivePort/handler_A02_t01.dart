@@ -15,7 +15,6 @@
 
 import "dart:async";
 import "dart:isolate";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 Duration _500MS = new Duration(milliseconds:500);

@@ -20,7 +20,7 @@ main() {
   check(1);
   check(-1);
   check(0);
-  check(0x10000000000000000);
+  check(0x1000000000000000);
 }
 
 void check(int x) {

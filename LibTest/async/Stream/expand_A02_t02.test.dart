@@ -12,7 +12,6 @@
  */
 library expand_A02_t02;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 void check<T,S>(Stream<T> s, Iterable<S>convert(T value), List<S> expected) {

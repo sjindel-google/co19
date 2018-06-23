@@ -8,9 +8,9 @@
  * @description Checks that this method decodes stream to ASCII string
  * @author sgrekhov@unipro.ru
  */
+import "dart:async";
 import "dart:convert";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 Future check(String str) async {
   AsciiCodec codec = new AsciiCodec();

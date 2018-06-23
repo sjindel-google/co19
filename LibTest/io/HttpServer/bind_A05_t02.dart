@@ -23,7 +23,7 @@
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 test() async {
   asyncStart();

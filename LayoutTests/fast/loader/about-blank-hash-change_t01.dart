@@ -9,8 +9,6 @@
  */
 import "dart:html";
 import "../../testharness.dart";
-import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 const String htmlEL2 = r'''
 <p>This test tests parsing of hash fragments in about:blank URLs. Chromium had

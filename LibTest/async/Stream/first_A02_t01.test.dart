@@ -14,7 +14,7 @@
  * @author kaigorodov
  */
 library first_A02_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.error((e) => e is StateError, create([]).first);

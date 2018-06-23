@@ -14,7 +14,6 @@
  */
 import "dart:html";
 import "dart:async";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {

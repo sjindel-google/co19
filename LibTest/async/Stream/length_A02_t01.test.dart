@@ -12,7 +12,7 @@
  * @author a.semenov@unipro.ru
  */
 library length_A02_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamWithErrorsFunction create) {
   AsyncExpect.error(1, create([1], isError:(_) => true).length);

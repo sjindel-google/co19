@@ -1,8 +1,4 @@
-library async_utils;
-
-import "dart:async";
-export "dart:async";
-import "expect.dart";
+part of Expect;
 
 const ONE_MS = const Duration(milliseconds: 1);
 
@@ -11,7 +7,7 @@ typedef CreateStreamWithErrorsFunction =
     Stream<T> Function<T>(Iterable<T> values, {bool Function(T element) isError});
 
 Duration durationMs(delay) {
-  return delay == null ? Duration.ZERO : ONE_MS * delay;
+  return delay == null ? Duration.zero : ONE_MS * delay;
 }
 
 Future runLater(void action(), [int delay = 0]) {
@@ -168,7 +164,7 @@ class AsyncExpect {
       if (expected is List) {
         Expect.listEquals(expected, value, reason);
       } else if (expected is Set) {
-        Expect.setEquals(expected as Set, value as Iterable, reason);
+        Expect.setEquals(expected, value as Iterable, reason);
       } else {
         Expect.equals(expected, value, reason);
       }

@@ -14,7 +14,6 @@
  */
 import 'dart:async';
 import '../../Utils/expect.dart';
-import '../../Utils/async_utils.dart';
 
 Future foo1() async => 1;
 

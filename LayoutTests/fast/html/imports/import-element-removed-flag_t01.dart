@@ -8,8 +8,6 @@
  * https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/imports/index.html#dfn-element-removed-flag.
  */
 import "dart:html";
-import "../../../../Utils/expect.dart";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 import "pwd.dart";
 

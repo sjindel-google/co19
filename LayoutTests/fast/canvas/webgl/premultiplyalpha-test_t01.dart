@@ -11,7 +11,6 @@ import "dart:web_gl" as wgl;
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
 import "resources/webgl-test-utils.dart" as wtu;
-import "../../../../Utils/async_utils.dart";
 
 class _Test {
   var creationAttributes;

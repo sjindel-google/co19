@@ -9,7 +9,7 @@
  * @description Checks that status text is "200 OK" for successful request.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "dart:async";
 import "../../../UtilsHtml/expect.dart";
 
 main() {

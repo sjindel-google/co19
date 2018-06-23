@@ -20,7 +20,6 @@
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 check([bool no_write_events = false]) {
   asyncStart();

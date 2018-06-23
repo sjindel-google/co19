@@ -11,7 +11,6 @@
  * @description Checks that a stackTrace can be passed to completeError.
  * @author ilya
  */
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 import "dart:async";

@@ -12,7 +12,7 @@
  * @author kaigorodov
  */
 library elementAt_A03_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.error((e) => e is RangeError, create([]).elementAt(1));

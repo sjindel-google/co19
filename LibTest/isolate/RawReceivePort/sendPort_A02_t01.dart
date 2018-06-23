@@ -14,7 +14,6 @@
  */
 
 import "dart:isolate";
-import "../../../Utils/async_utils.dart";
 import "../../../Utils/expect.dart";
 
 const int ISOLATE_COUNT = 10;

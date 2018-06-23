@@ -23,7 +23,6 @@
  */
 import 'dart:async';
 import '../../../../Utils/expect.dart';
-import '../../../../Utils/async_utils.dart';
 
 Future test2() async {
   await for (int i in [1, 2, 3]) {

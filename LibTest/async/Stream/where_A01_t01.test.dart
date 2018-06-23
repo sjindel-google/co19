@@ -13,7 +13,7 @@
  * @author kaigorodov
  */
 library where_A01_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.data([], create([]).where((e) => true));

@@ -14,8 +14,8 @@
  * @issue 30429
  */
 import "dart:io";
+import "dart:async";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 import "../file_utils.dart";
 
 main() {

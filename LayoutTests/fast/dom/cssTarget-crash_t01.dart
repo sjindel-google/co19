@@ -10,7 +10,6 @@
 import "dart:html";
 import "dart:math";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   document.body.setInnerHtml('''

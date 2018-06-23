@@ -12,7 +12,7 @@
  * @author a.semenov@unipro.ru
  */
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 main() {
   AsyncExpect.events([], [], new Stream.fromFutures([]));

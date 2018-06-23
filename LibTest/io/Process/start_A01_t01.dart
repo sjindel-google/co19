@@ -30,7 +30,6 @@
 import "dart:convert";
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   String executable = Platform.resolvedExecutable;

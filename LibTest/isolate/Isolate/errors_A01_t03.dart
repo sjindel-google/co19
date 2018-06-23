@@ -17,8 +17,7 @@
  *
  * @author a.semenov@unipro.ru
  */
-import "dart:isolate";
-import "../../../Utils/async_utils.dart";
+import "dart:async";
 import "../../../Utils/expect.dart";
 import "IsolateUtil.dart";
 

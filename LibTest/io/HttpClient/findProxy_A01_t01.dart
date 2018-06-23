@@ -37,7 +37,6 @@ import "dart:io";
 import 'dart:async';
 import "dart:convert";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 test() async {
   bool findProxyCalled = false;

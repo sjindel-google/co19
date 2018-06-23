@@ -22,7 +22,7 @@
  */
 library asyncMap_A03_t02;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   Stream<String> stream1 = create(["a", "b", "c"]);

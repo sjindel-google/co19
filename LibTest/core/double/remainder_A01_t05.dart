@@ -42,7 +42,7 @@ checkNaN(d) {
 }
 
 main() {
-  values.forEach((double d) {
+  values.forEach((d) {
     checkNaN(d.remainder(0));
     checkNaN((-d).remainder(0));
   });

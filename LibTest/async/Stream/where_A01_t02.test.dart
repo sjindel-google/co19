@@ -14,7 +14,7 @@
  */
 library where_A01_t02;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> s, bool test(T event),
            List<T> expectedData, List expectedErrors) {

@@ -9,7 +9,6 @@
  * @issue #16937
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 const text = "Hi there!";

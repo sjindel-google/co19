@@ -22,7 +22,7 @@
  */
 import "dart:async";
 import "dart:io";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 import "../file_utils.dart";
 import "lock_check_3_lib.dart";
 

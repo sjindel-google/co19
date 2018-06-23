@@ -5,7 +5,6 @@ import 'dart:html';
 import 'dart:web_gl' as wgl;
 import 'webgl-test.dart';
 import 'webgl-test-utils.dart' as wtu;
-import "../../../../../Utils/async_utils.dart";
 import "../../../../testcommon.dart";
 
 generateTest(pixelFormat, pixelType, pathToTestRoot, prologue) {

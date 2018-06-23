@@ -11,7 +11,6 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   document.body.appendHtml('<canvas id="webgl-canvas" width="32px" ' +

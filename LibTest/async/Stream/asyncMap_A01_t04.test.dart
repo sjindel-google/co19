@@ -18,7 +18,7 @@
  */
 library asyncMap_A01_t04;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void check<T>(Stream<T> stream, List<T> expected) {
   AsyncExpect.data(

@@ -10,6 +10,7 @@ import 'dart:math' as Math;
 import 'dart:html';
 import 'dart:async';
 import "../Utils/expect.dart";
+export "../Utils/expect.dart";
 
 const String testSuiteRoot = "/root_dart/tests/co19/src/LayoutTests";
 const NaN = double.NAN;

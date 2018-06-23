@@ -22,7 +22,7 @@
  * @author a.semenov@unipro
  */
 library lastWhere_A05_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   AsyncExpect.error("a", create([1, 2, 3]).lastWhere((e) => throw "a"));

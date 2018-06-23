@@ -17,7 +17,6 @@
  */
 import "dart:isolate";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 import "IsolateUtil.dart";
 
 test() async {

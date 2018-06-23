@@ -36,7 +36,7 @@
  */
 library firstWhere_A03_t03;
 import "dart:async";
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(CreateStreamFunction create) {
   Error expected = new Error();

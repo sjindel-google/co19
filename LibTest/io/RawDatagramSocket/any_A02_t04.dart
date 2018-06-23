@@ -17,7 +17,6 @@
 import "dart:async";
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 check(RawSocketEvent expectedEvent, [bool no_write_events = false]) {
   var expectedEvent = RawSocketEvent.READ_CLOSED;

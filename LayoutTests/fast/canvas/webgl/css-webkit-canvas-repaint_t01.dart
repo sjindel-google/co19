@@ -10,7 +10,6 @@ import "dart:html";
 import "dart:web_gl" as wgl;
 import 'dart:typed_data';
 import "../../../testcommon.dart";
-import "../../../../Utils/async_utils.dart";
 
 main() {
   var gl;

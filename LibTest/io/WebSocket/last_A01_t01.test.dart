@@ -10,7 +10,7 @@
  * @author a.semenov@unipro.ru
  */
 library last_A01_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(var create) {
   AsyncExpect.value("123", create(["123"]).then((s) => s.last));

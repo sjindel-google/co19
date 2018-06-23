@@ -8,7 +8,7 @@
  * parts.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
+import "../../testcommon.dart";
 import "resources/blob-slice-common.dart";
 
 main() {

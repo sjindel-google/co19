@@ -8,8 +8,6 @@
  * @description This tests that storage methods throw exceptions with reasonable messages inside 'data:' URLs.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
-import "../../../Utils/expect.dart";
 import "../../testharness.dart";
 
 const String htmlEL2 = r'''

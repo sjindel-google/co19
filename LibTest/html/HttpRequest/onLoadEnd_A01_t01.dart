@@ -9,7 +9,6 @@
  * @description Checks that only single event is fired.
  */
 import "dart:html";
-import "../../../Utils/async_utils.dart";
 import "../../../UtilsHtml/expect.dart";
 
 main() {

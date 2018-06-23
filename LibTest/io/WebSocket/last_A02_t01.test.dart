@@ -12,7 +12,7 @@
  * @author a.semenov@unipro.ru
  */
 library last_A02_t01;
-import "../../../Utils/async_utils.dart";
+import "../../../Utils/expect.dart";
 
 void test(var create) {
   AsyncExpect.error((e) => e is StateError, create([]).then((s) => s.last));

@@ -22,7 +22,6 @@
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
-import "../../../Utils/async_utils.dart";
 
 test() async {
   String helloWorld = 'Hello, test world!';

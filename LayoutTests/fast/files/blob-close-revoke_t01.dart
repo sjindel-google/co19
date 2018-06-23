@@ -9,7 +9,6 @@
 import "dart:html";
 import "dart:typed_data";
 import "../../testcommon.dart";
-import "../../../Utils/async_utils.dart";
 
 main() {
   base64ToUint8Array(a)

@@ -8,7 +8,6 @@
  * expected.
  */
 import "dart:html";
-import "../../../../Utils/async_utils.dart";
 import "../../../testcommon.dart";
 
 main() {

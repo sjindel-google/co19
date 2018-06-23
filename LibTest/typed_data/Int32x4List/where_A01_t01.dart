@@ -24,7 +24,7 @@ equal(o1, o2) {
   return o1.x == o2.x && o1.y == o2.y && o1.z == o2.z && o1.w == o2.w;
 }
 
-check(list, test(e)) {
+check(list, bool test(Int32x4 e)) {
   var l = new Int32x4List.fromList(list);
   var res = l.where(test);
   var count = 0;
@@ -40,7 +40,6 @@ check(list, test(e)) {
 
 main() {
   var list = [i32x4(0), i32x4(1), i32x4(2), i32x4(6), i32x4(4), i32x4(5)];
-  check([], (e) => true);
   check([i32x4(6)], (e) => false);
   check(list, (e) => true);
   check(list, (e) => false);

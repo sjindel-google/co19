@@ -60,54 +60,54 @@ class Y0<X, Y, Z> extends B0<X, Y, Z> {}
 
 class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
-typedef U0<Null, Null, Null> T0<X extends B0, Y extends B1>(
+typedef T0 = U0<Null, Null, Null> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, V1<A, List, num> x1,
     {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4});
-typedef U1<A, List, num> T1<X extends B0, Y extends B1>(
+typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
     S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
     {S2<Null, Null, Null> x2, S3<Null, Null, Null> x3});
 
-U0<Null, Null, Null> t0Func<X, Y>(
+U0<Null, Null, Null> t0Func<X extends B0, Y extends B1>(
         V0<A, List, num> x0, V1<A, List, num> x1,
         {V2<A, List, num> x2, V3<A, List, num> x3, V4<A, List, num> x4}) =>
     null;
-U1<A, List, num> t1Func<X, Y>(
+U1<A, List, num> t1Func<X extends B0, Y extends B1>(
         S0<Null, Null, Null> y0, S1<Null, Null, Null> y1,
         {S2<Null, Null, Null> x2, S3<Null, Null, Null> x3}) =>
     null;
 
-T0<X0<Null, Null, Null>, X1<Null, Null, Null>> t0Instance = t0Func;
-T1<X0<A, List, num>, X1<A, List, num>> t1Instance = t1Func;
+T0 t0Instance = t0Func;
+T1 t1Instance = t1Func;
 
 
 
 
-namedArgumentsFunc1(T1<X0<A, List, num>, X1<A, List, num>> t1, {T1<X0<A, List, num>, X1<A, List, num>> t2}) {}
-positionalArgumentsFunc1(T1<X0<A, List, num>, X1<A, List, num>> t1, [T1<X0<A, List, num>, X1<A, List, num>> t2]) {}
+namedArgumentsFunc1(T1 t1, {T1 t2}) {}
+positionalArgumentsFunc1(T1 t1, [T1 t2]) {}
 
 namedArgumentsFunc2<X>(X t1, {X t2}) {}
 positionalArgumentsFunc2<X>(X t1, [X t2]) {}
 
 class ArgumentsBindingClass {
-  ArgumentsBindingClass(T1<X0<A, List, num>, X1<A, List, num>> t1) {}
+  ArgumentsBindingClass(T1 t1) {}
 
-  ArgumentsBindingClass.named(T1<X0<A, List, num>, X1<A, List, num>> t1, {T1<X0<A, List, num>, X1<A, List, num>> t2}) {}
-  ArgumentsBindingClass.positional(T1<X0<A, List, num>, X1<A, List, num>> t1, [T1<X0<A, List, num>, X1<A, List, num>> t2]) {}
+  ArgumentsBindingClass.named(T1 t1, {T1 t2}) {}
+  ArgumentsBindingClass.positional(T1 t1, [T1 t2]) {}
 
-  factory ArgumentsBindingClass.fNamed(T1<X0<A, List, num>, X1<A, List, num>> t1, {T1<X0<A, List, num>, X1<A, List, num>> t2}) {
+  factory ArgumentsBindingClass.fNamed(T1 t1, {T1 t2}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(T1<X0<A, List, num>, X1<A, List, num>> t1, [T1<X0<A, List, num>, X1<A, List, num>> t2]) {
+  factory ArgumentsBindingClass.fPositional(T1 t1, [T1 t2]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(T1<X0<A, List, num>, X1<A, List, num>> t1, {T1<X0<A, List, num>, X1<A, List, num>> t2}) {}
-  static positionalArgumentsStaticMethod(T1<X0<A, List, num>, X1<A, List, num>> t1, [T1<X0<A, List, num>, X1<A, List, num>> t2]) {}
+  static namedArgumentsStaticMethod(T1 t1, {T1 t2}) {}
+  static positionalArgumentsStaticMethod(T1 t1, [T1 t2]) {}
 
-  namedArgumentsMethod(T1<X0<A, List, num>, X1<A, List, num>> t1, {T1<X0<A, List, num>, X1<A, List, num>> t2}) {}
-  positionalArgumentsMethod(T1<X0<A, List, num>, X1<A, List, num>> t1, [T1<X0<A, List, num>, X1<A, List, num>> t2]) {}
+  namedArgumentsMethod(T1 t1, {T1 t2}) {}
+  positionalArgumentsMethod(T1 t1, [T1 t2]) {}
 
-  set testSetter(T1<X0<A, List, num>, X1<A, List, num>> val) {}
+  set testSetter(T1 val) {}
 }
 
 class ArgumentsBindingGen<X>  {
@@ -135,8 +135,8 @@ main() {
   positionalArgumentsFunc1(forgetType(t0Instance), forgetType(t0Instance));
 
   // test generic functions
-  namedArgumentsFunc2<T1<X0<A, List, num>, X1<A, List, num>>>(forgetType(t0Instance), t2: forgetType(t0Instance));
-  positionalArgumentsFunc2<T1<X0<A, List, num>, X1<A, List, num>>>(forgetType(t0Instance), forgetType(t0Instance));
+  namedArgumentsFunc2<T1>(forgetType(t0Instance), t2: forgetType(t0Instance));
+  positionalArgumentsFunc2<T1>(forgetType(t0Instance), forgetType(t0Instance));
 
   // test class constructors
   ArgumentsBindingClass instance1 =
@@ -164,7 +164,7 @@ main() {
       forgetType(t0Instance), forgetType(t0Instance));
 
   // test generic class constructors
-  ArgumentsBindingGen<T1<X0<A, List, num>, X1<A, List, num>>> instance2 =
+  ArgumentsBindingGen<T1> instance2 =
       new ArgumentsBindingGen(forgetType(t0Instance));
   instance2 = new ArgumentsBindingGen.fNamed(forgetType(t0Instance),
       t2: forgetType(t0Instance));
