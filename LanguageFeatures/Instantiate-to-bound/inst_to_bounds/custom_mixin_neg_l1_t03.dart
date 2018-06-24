@@ -42,7 +42,7 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that ctypes are checked coddectly for mixins.
+ * @description Checks that types are checked correctly for mixins.
  * @Issue 33585
  * @compile-error
  * @author iarkh@unipro.ru

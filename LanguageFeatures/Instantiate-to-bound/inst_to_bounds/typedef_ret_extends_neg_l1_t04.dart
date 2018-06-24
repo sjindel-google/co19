@@ -42,17 +42,12 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that types are checked correctly for mixins.
- * @Issue 33585
+ * @description Checks that return value type is checked correctly for functions.
+ * @Issue 33597
  * @compile-error
  * @author iarkh@unipro.ru
  */
-class A {}
-class B{}
 
-class M<X extends A> {}
-class O<X> extends Object with M<X> {}
-
-main() {
-  O o = new O<B>();
-}
+typedef F<X extends int> = X Function();
+F<List>  myvariable;
+main() {}
