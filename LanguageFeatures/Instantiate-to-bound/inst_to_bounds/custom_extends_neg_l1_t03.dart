@@ -42,18 +42,9 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bound process passes OK if several
- * classes depends on each other and dependent parameter is not row
+ * @description Checks that class cannot extend itself.
+ * @compile-error
  * @author iarkh@unipro.ru
  */
-import "../../../Utils/expect.dart";
-
-class A<X extends B> {}
-
-class B<X extends C> {}
-
-class C<X extends A<Null>> {}
-
-main() {
-  C c = new C();
-}
+class C extends C {}
+main() {}
