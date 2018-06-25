@@ -115,11 +115,13 @@ main() {
   ClassMember1_t01.staticSetter = forgetType(t0Instance);
   ClassMember1_t01.staticGetter;
 
-  ClassMember2_t01<S1> c2 = new ClassMember2_t01<S1>();
-  c2 = new ClassMember2_t01<S1>.short(forgetType(t0Instance),
-      forgetType(t0Instance));
-  c2 = new ClassMember2_t01<S1>.named(forgetType(t0Instance));
-  c2.m = forgetType(t0Instance);
-  c2.test(forgetType(t0Instance));
-  c2.getter;
+  if (!isGenericFunctionType<S1>()) {
+    ClassMember2_t01<S1> c2 = new ClassMember2_t01<S1>();
+    c2 = new ClassMember2_t01<S1>.short(forgetType(t0Instance),
+    forgetType(t0Instance));
+    c2 = new ClassMember2_t01<S1>.named(forgetType(t0Instance));
+    c2.m = forgetType(t0Instance);
+    c2.test(forgetType(t0Instance));
+    c2.getter;
+  }
 }

@@ -187,21 +187,23 @@ main() {
     new ClassMemberTestPrivate.short(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ClassMemberTestGenericPublic<T1>(t0Instance);
-  }, (e) => e is TypeError);
+  if (!isGenericFunctionType<T1>()) {
+    Expect.throws(() {
+      new ClassMemberTestGenericPublic<T1>(t0Instance);
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ClassMemberTestGenericPublic<T1>.short(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ClassMemberTestGenericPublic<T1>.short(forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ClassMemberTestGenericPrivate<T1>(t0Instance);
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ClassMemberTestGenericPrivate<T1>(t0Instance);
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ClassMemberTestGenericPrivate<T1>.short(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ClassMemberTestGenericPrivate<T1>.short(forgetType(t0Instance));
+    }, (e) => e is TypeError);
+  }
 
   // Test class variables
   Expect.throws(() {
@@ -221,13 +223,15 @@ main() {
     new ClassMemberTestPrivate.validConstructor().setter = t0Instance;
   }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ClassMemberTestGenericPublic<T1>.validConstructor().setter = t0Instance;
-  }, (e) => e is TypeError);
+  if (!isGenericFunctionType<T1>()) {
+    Expect.throws(() {
+      new ClassMemberTestGenericPublic<T1>.validConstructor().setter = t0Instance;
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ClassMemberTestGenericPrivate<T1>.validConstructor().setter = t0Instance;
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ClassMemberTestGenericPrivate<T1>.validConstructor().setter = t0Instance;
+    }, (e) => e is TypeError);
+  }
 
   // Test methods
   Expect.throws(() {
@@ -238,22 +242,26 @@ main() {
     new ClassMemberTestPrivate.validConstructor().test(t0Instance);
   }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ClassMemberTestGenericPublic<T1>.validConstructor().test(t0Instance);
-  }, (e) => e is TypeError);
+  if (!isGenericFunctionType<T1>()) {
+    Expect.throws(() {
+      new ClassMemberTestGenericPublic<T1>.validConstructor().test(t0Instance);
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ClassMemberTestGenericPrivate<T1>.validConstructor().test(t0Instance);
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ClassMemberTestGenericPrivate<T1>.validConstructor().test(t0Instance);
+    }, (e) => e is TypeError);
+  }
 
   // Test getters
   Expect.throws(() {
     new ClassMemberTestPublic.validConstructor().getter;
   }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ClassMemberTestGenericPublic<T1>.validConstructor().getter;
-  }, (e) => e is TypeError);
+  if (!isGenericFunctionType<T1>()) {
+    Expect.throws(() {
+      new ClassMemberTestGenericPublic<T1>.validConstructor().getter;
+    }, (e) => e is TypeError);
+  }
 
   // Test static stuff
   Expect.throws(() {

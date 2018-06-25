@@ -57,8 +57,10 @@ main() {
   c1.test();
   c1.superSetter = forgetType(t0Instance);
 
-  ClassMember2_t03<Function> c2 = new ClassMember2_t03<Function>();
-  c2.m = forgetType(t0Instance);
-  c2.test();
-  c2.superSetter = forgetType(t0Instance);
+  if (!isGenericFunctionType<Function>()) {
+    ClassMember2_t03<Function> c2 = new ClassMember2_t03<Function>();
+    c2.m = forgetType(t0Instance);
+    c2.test();
+    c2.superSetter = forgetType(t0Instance);
+  }
 }

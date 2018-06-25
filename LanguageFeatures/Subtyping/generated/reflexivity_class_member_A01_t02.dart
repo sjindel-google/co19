@@ -90,10 +90,12 @@ main() {
   c1.test();
   c1.superSetter = forgetType(t0Instance);
 
-  ClassMember2_t02<T> c2 = new ClassMember2_t02<T>();
-  c2 = new ClassMember2_t02<T>.short();
-  c2 = new ClassMember2_t02<T>.named();
-  c2.m = forgetType(t0Instance);
-  c2.test();
-  c2.superSetter = forgetType(t0Instance);
+  if (!isGenericFunctionType<T>()) {
+    ClassMember2_t02<T> c2 = new ClassMember2_t02<T>();
+    c2 = new ClassMember2_t02<T>.short();
+    c2 = new ClassMember2_t02<T>.named();
+    c2.m = forgetType(t0Instance);
+    c2.test();
+    c2.superSetter = forgetType(t0Instance);
+  }
 }

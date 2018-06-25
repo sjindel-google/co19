@@ -117,19 +117,21 @@ main() {
     new ClassMember1_t02.valid().test2();
   }, (e) => e is TypeError);
 
-  Expect.throws(() {new ClassMember2_t02<FutureOr<S1>>();}, (e) => e is TypeError);
-  Expect.throws(() {new ClassMember2_t02<FutureOr<S1>>.short();}, (e) => e is TypeError);
-  Expect.throws(() {new ClassMember2_t02<FutureOr<S1>>.named();}, (e) => e is TypeError);
-  Expect.throws(() {
-    new ClassMember2_t02<FutureOr<S1>>.valid().m = forgetType(t0Instance);
-  }, (e) => e is TypeError);
-  Expect.throws(() {
-    new ClassMember2_t02<FutureOr<S1>>.valid().superSetter = forgetType(t0Instance);
-  }, (e) => e is TypeError);
-  Expect.throws(() {
-    new ClassMember2_t02<FutureOr<S1>>.valid().test1();
-  }, (e) => e is TypeError);
-  Expect.throws(() {
-    new ClassMember2_t02<FutureOr<S1>>.valid().test2();
-  }, (e) => e is TypeError);
+  if (!isGenericFunctionType<FutureOr<S1>>()) {
+    Expect.throws(() {new ClassMember2_t02<FutureOr<S1>>();}, (e) => e is TypeError);
+    Expect.throws(() {new ClassMember2_t02<FutureOr<S1>>.short();}, (e) => e is TypeError);
+    Expect.throws(() {new ClassMember2_t02<FutureOr<S1>>.named();}, (e) => e is TypeError);
+    Expect.throws(() {
+      new ClassMember2_t02<FutureOr<S1>>.valid().m = forgetType(t0Instance);
+    }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ClassMember2_t02<FutureOr<S1>>.valid().superSetter = forgetType(t0Instance);
+    }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ClassMember2_t02<FutureOr<S1>>.valid().test1();
+    }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ClassMember2_t02<FutureOr<S1>>.valid().test2();
+    }, (e) => e is TypeError);
+  }
 }

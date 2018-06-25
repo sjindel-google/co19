@@ -52,6 +52,8 @@ main() {
   new ReturnValueTest().testMethod();
   new ReturnValueTest().testGetter;
 
-  new ReturnValueGen<T0<C>>().testMethod();
-  new ReturnValueGen<T0<C>>().testGetter;
+  if (!isGenericFunctionType<Function>()) {
+    new ReturnValueGen<T0<C>>().testMethod();
+    new ReturnValueGen<T0<C>>().testGetter;
+  }
 }

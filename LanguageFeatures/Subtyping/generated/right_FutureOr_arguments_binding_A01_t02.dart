@@ -121,20 +121,22 @@ main() {
   c1.superSetter = forgetType(t0Instance);
   c1.superGetter;
 
-  ArgumentsBinding2_t02<FutureOr<S1>> c2 =
-      new ArgumentsBinding2_t02<FutureOr<S1>>(forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c1(forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c2(t1Instance, forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c3(forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c4(t1Instance, forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c5(forgetType(t0Instance));
+  if (!isGenericFunctionType<FutureOr<S1>>()) {
+    ArgumentsBinding2_t02<FutureOr<S1>> c2 =
+    new ArgumentsBinding2_t02<FutureOr<S1>>(forgetType(t0Instance));
+    c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c1(forgetType(t0Instance));
+    c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c2(t1Instance, forgetType(t0Instance));
+    c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c3(forgetType(t0Instance));
+    c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c4(t1Instance, forgetType(t0Instance));
+    c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c5(forgetType(t0Instance));
 
-  c2.test(forgetType(t0Instance), t1Instance);
-  c2.superTest(forgetType(t0Instance));
-  c2.superTestPositioned(forgetType(t0Instance));
-  c2.superTestPositioned(t1Instance, forgetType(t0Instance));
-  c2.superTestNamed(forgetType(t0Instance));
-  c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
-  c2.superSetter = forgetType(t0Instance);
-  c2.superGetter;
+    c2.test(forgetType(t0Instance), t1Instance);
+    c2.superTest(forgetType(t0Instance));
+    c2.superTestPositioned(forgetType(t0Instance));
+    c2.superTestPositioned(t1Instance, forgetType(t0Instance));
+    c2.superTestNamed(forgetType(t0Instance));
+    c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
+    c2.superSetter = forgetType(t0Instance);
+    c2.superGetter;
+  }
 }

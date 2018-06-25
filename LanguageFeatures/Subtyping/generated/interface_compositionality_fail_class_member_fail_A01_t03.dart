@@ -82,16 +82,18 @@ main() {
     new ClassMember1_t03().test2();
   }, (e) => e is TypeError);
 
-  Expect.throws(() {
+  if (!isGenericFunctionType<C0<U0, U1, U2>>()) {
+    Expect.throws(() {
     new ClassMember2_t03<C0<U0, U1, U2>>().m = forgetType(t0Instance);
-  }, (e) => e is TypeError);
-  Expect.throws(() {
+    }, (e) => e is TypeError);
+    Expect.throws(() {
     new ClassMember2_t03<C0<U0, U1, U2>>().superSetter = forgetType(t0Instance);
-  }, (e) => e is TypeError);
-  Expect.throws(() {
+    }, (e) => e is TypeError);
+    Expect.throws(() {
     new ClassMember2_t03<C0<U0, U1, U2>>().test1();
-  }, (e) => e is TypeError);
-  Expect.throws(() {
+    }, (e) => e is TypeError);
+    Expect.throws(() {
     new ClassMember2_t03<C0<U0, U1, U2>>().test2();
-  }, (e) => e is TypeError);
+    }, (e) => e is TypeError);
+  }
 }

@@ -101,22 +101,24 @@ main() {
   ArgumentsBindingClass.positionalArgumentsStaticMethod(
       forgetType(t0Instance), forgetType(t0Instance));
 
-  // test generic class constructors
-  ArgumentsBindingGen<Object> instance2 =
-      new ArgumentsBindingGen(forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen.fNamed(forgetType(t0Instance),
-      t2: forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen.fPositional(forgetType(t0Instance),
-      forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen.named(forgetType(t0Instance),
-      t2: forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen.positional(forgetType(t0Instance),
-      forgetType(t0Instance));
+  if (!isGenericFunctionType<Object>()) {
+    // test generic class constructors
+    ArgumentsBindingGen<Object> instance2 =
+        new ArgumentsBindingGen<Object>(forgetType(t0Instance));
+    instance2 = new ArgumentsBindingGen<Object>.fNamed(forgetType(t0Instance),
+        t2: forgetType(t0Instance));
+    instance2 = new ArgumentsBindingGen<Object>.fPositional(forgetType(t0Instance),
+        forgetType(t0Instance));
+    instance2 = new ArgumentsBindingGen<Object>.named(forgetType(t0Instance),
+        t2: forgetType(t0Instance));
+    instance2 = new ArgumentsBindingGen<Object>.positional(forgetType(t0Instance),
+        forgetType(t0Instance));
 
-  // test generic class methods and setters
-  instance2.namedArgumentsMethod(
-      forgetType(t0Instance), t2: forgetType(t0Instance));
-  instance2.positionalArgumentsMethod(
-      forgetType(t0Instance), forgetType(t0Instance));
-  instance1.testSetter = forgetType(t0Instance);
+    // test generic class methods and setters
+    instance2.namedArgumentsMethod(forgetType(t0Instance),
+      t2: forgetType(t0Instance));
+    instance2.positionalArgumentsMethod(forgetType(t0Instance),
+        forgetType(t0Instance));
+    instance2.testSetter = forgetType(t0Instance);
+  }
 }

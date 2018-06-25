@@ -202,73 +202,74 @@ main() {
     positionalArgumentsFunc2<FutureOr<S1>>(t1Instance, forgetType(t0Instance));
   }, (e) => e is TypeError);
 
+  // Test generics
   // Test constructors
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<FutureOr<S1>>(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+  if (!isGenericFunctionType<FutureOr<S1>>()) {
+    Expect.throws(() {
+      new ArgumentsBindingClassGen<FutureOr<S1>>(forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<FutureOr<S1>>.named(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBindingClassGen<FutureOr<S1>>.named(forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<FutureOr<S1>>.named(t1Instance, t2: forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBindingClassGen<FutureOr<S1>>.named(t1Instance, t2: forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<FutureOr<S1>>.positional(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBindingClassGen<FutureOr<S1>>.positional(forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<FutureOr<S1>>.positional(t1Instance,
-        forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBindingClassGen<FutureOr<S1>>.positional(t1Instance, forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<FutureOr<S1>>.fNamed(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBindingClassGen<FutureOr<S1>>.fNamed(forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<FutureOr<S1>>.fNamed(t1Instance, t2: forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBindingClassGen<FutureOr<S1>>.fNamed(t1Instance, t2: forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<FutureOr<S1>>.fPositional(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBindingClassGen<FutureOr<S1>>.fPositional(forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<FutureOr<S1>>.fPositional(t1Instance, forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBindingClassGen<FutureOr<S1>>.fPositional(t1Instance, forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
 
-  // Test instance methods and setters
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<FutureOr<S1>>(t1Instance).namedArgumentsMethod(
-        forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    // Test instance methods and setters
+    Expect.throws(() {
+      new ArgumentsBindingClassGen<FutureOr<S1>>(t1Instance).namedArgumentsMethod(
+      forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<FutureOr<S1>>(t1Instance).namedArgumentsMethod(t1Instance,
-        t2: forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBindingClassGen<FutureOr<S1>>(t1Instance).namedArgumentsMethod(t1Instance,
+      t2: forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<FutureOr<S1>>(t1Instance).positionalArgumentsMethod(
-        forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBindingClassGen<FutureOr<S1>>(t1Instance).positionalArgumentsMethod(
+      forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<FutureOr<S1>>(t1Instance).positionalArgumentsMethod(t1Instance,
-        forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBindingClassGen<FutureOr<S1>>(t1Instance).positionalArgumentsMethod(t1Instance,
+      forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBindingClassGen<FutureOr<S1>>(t1Instance).testSetter = forgetType(t0Instance);
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBindingClassGen<FutureOr<S1>>(t1Instance).testSetter = forgetType(t0Instance);
+    }, (e) => e is TypeError);
+  }
 
   // Test superclass constructor call
   Expect.throws(() {
     new ArgumentsBindingDesc(t0Instance);
   }, (e) => e is TypeError);
-
 }

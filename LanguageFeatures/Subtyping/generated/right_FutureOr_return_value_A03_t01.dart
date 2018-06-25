@@ -63,6 +63,8 @@ main() {
   new ReturnValueTest().testMethod();
   new ReturnValueTest().testGetter;
 
-  new ReturnValueGen<X0>().testMethod();
-  new ReturnValueGen<X0>().testGetter;
+  if (!isGenericFunctionType<Future<S1>>()) {
+    new ReturnValueGen<X0>().testMethod();
+    new ReturnValueGen<X0>().testGetter;
+  }
 }

@@ -315,63 +315,65 @@ main() {
 
   new ArgumentsBinding1_t02.valid().test();
 
-  // test generic class constructors
-  Expect.throws(() {
-    new ArgumentsBinding2_t02<C0<U0, U1, U2>>(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+  if (!isGenericFunctionType<C0<U0, U1, U2>>()) {
+    // test generic class constructors
+    Expect.throws(() {
+      new ArgumentsBinding2_t02<C0<U0, U1, U2>>(forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBinding2_t02<C0<U0, U1, U2>>.c1(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBinding2_t02<C0<U0, U1, U2>>.c1(forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBinding2_t02<C0<U0, U1, U2>>.c2(t1Instance, forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBinding2_t02<C0<U0, U1, U2>>.c2(t1Instance, forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBinding2_t02<C0<U0, U1, U2>>.c3(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBinding2_t02<C0<U0, U1, U2>>.c3(forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBinding2_t02<C0<U0, U1, U2>>.c4(t1Instance, forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBinding2_t02<C0<U0, U1, U2>>.c4(t1Instance, forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBinding2_t02<C0<U0, U1, U2>>.c5(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBinding2_t02<C0<U0, U1, U2>>.c5(forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  // test generic class members
-  Expect.throws(() {
-    new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superTest(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    // test generic class members
+    Expect.throws(() {
+      new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superTest(forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superTest(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superTest(forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superTestPositioned(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superTestPositioned(forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superTestNamed(forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superTestNamed(forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superSetter = forgetType(t0Instance);
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superSetter = forgetType(t0Instance);
+    }, (e) => e is TypeError);
 
-  Expect.throws(() {
-    new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superGetter;
-  }, (e) => e is TypeError);
+    Expect.throws(() {
+      new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().superGetter;
+    }, (e) => e is TypeError);
 
-  new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().test();
+    new ArgumentsBinding2_t02<C0<U0, U1, U2>>.valid().test();
+  }
 }

@@ -47,6 +47,8 @@ main() {
   new ReturnValueTest().testMethod();
   new ReturnValueTest().testGetter;
 
-  new ReturnValueGen<Null>().testMethod();
-  new ReturnValueGen<Null>().testGetter;
+  if (!isGenericFunctionType<Null>()) {
+    new ReturnValueGen<Null>().testMethod();
+    new ReturnValueGen<Null>().testGetter;
+  }
 }

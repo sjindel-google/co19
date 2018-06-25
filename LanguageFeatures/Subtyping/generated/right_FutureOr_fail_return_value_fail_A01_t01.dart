@@ -55,6 +55,8 @@ main() {
   Expect.throws(() {new ReturnValueTest().testMethod();}, (e) => e is TypeError);
   Expect.throws(() {new ReturnValueTest().testGetter;}, (e) => e is TypeError);
 
-  Expect.throws(() {new ReturnValueGen<FutureOr<S1>>().testMethod();}, (e) => e is TypeError);
-  Expect.throws(() {new ReturnValueGen<FutureOr<S1>>().testGetter;}, (e) => e is TypeError);
+  if (!isGenericFunctionType<FutureOr<S1>>()) {
+    Expect.throws(() {new ReturnValueGen<FutureOr<S1>>().testMethod();}, (e) => e is TypeError);
+    Expect.throws(() {new ReturnValueGen<FutureOr<S1>>().testGetter;}, (e) => e is TypeError);
+  }
 }

@@ -102,10 +102,12 @@ main() {
   c1.test();
   c1.superSetter = forgetType(t0Instance);
 
-  ClassMember2_t02<FutureOr<S1>> c2 = new ClassMember2_t02<FutureOr<S1>>();
-  c2 = new ClassMember2_t02<FutureOr<S1>>.short();
-  c2 = new ClassMember2_t02<FutureOr<S1>>.named();
-  c2.m = forgetType(t0Instance);
-  c2.test();
-  c2.superSetter = forgetType(t0Instance);
+  if (!isGenericFunctionType<FutureOr<S1>>()) {
+    ClassMember2_t02<FutureOr<S1>> c2 = new ClassMember2_t02<FutureOr<S1>>();
+    c2 = new ClassMember2_t02<FutureOr<S1>>.short();
+    c2 = new ClassMember2_t02<FutureOr<S1>>.named();
+    c2.m = forgetType(t0Instance);
+    c2.test();
+    c2.superSetter = forgetType(t0Instance);
+  }
 }

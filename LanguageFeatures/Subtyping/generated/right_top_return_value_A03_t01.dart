@@ -47,6 +47,8 @@ main() {
   new ReturnValueTest().testMethod();
   new ReturnValueTest().testGetter;
 
-  new ReturnValueGen<dynamic>().testMethod();
-  new ReturnValueGen<dynamic>().testGetter;
+  if (!isGenericFunctionType<Object>()) {
+    new ReturnValueGen<dynamic>().testMethod();
+    new ReturnValueGen<dynamic>().testGetter;
+  }
 }
