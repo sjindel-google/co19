@@ -44,7 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that typedef cannot reference itself directly.
  * @compile-error
- * @Issue 33184
+ * @Issue 33625
  */
 
 typedef F<X> = X Function();
