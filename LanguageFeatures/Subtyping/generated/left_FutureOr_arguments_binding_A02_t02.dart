@@ -11,7 +11,7 @@
  *   and S0 <: T1
  * @description Check that if a type T0 is FutureOr<S0> and Future<S0> and S0
  * are subtypes of a type T1, then a type T0 is a subtype of a type T1. Case
- * when an instance of T0 is an instance of S0 type.
+ * when an instance of T0 is an instance of Future<S0> type.
  * @author ngl@unipro.ru
  */
 
@@ -21,14 +21,19 @@ import "../utils/common.dart";
 class C1 {}
 class S0 extends C1 {}
 
-FutureOr<S0> t0Instance = new S0();
+FutureOr<S0> t0Instance = new Future.value(new S0());
 FutureOr<C1> t1Instance = new Future.value(new C1());
 
 
 
 
-class ArgumentsBindingMixin1_t03 {
+class ArgumentsBindingSuper1_t02 {
   FutureOr<C1> m;
+
+  ArgumentsBindingSuper1_t02(FutureOr<C1> value) {}
+  ArgumentsBindingSuper1_t02.named(FutureOr<C1> value, {FutureOr<C1> val2}) {}
+  ArgumentsBindingSuper1_t02.positional(FutureOr<C1> value, [FutureOr<C1> val2]) {}
+  ArgumentsBindingSuper1_t02.short(this.m);
 
   void superTest(FutureOr<C1> val) {}
   void superTestPositioned(FutureOr<C1> val, [FutureOr<C1> val2]) {}
@@ -37,7 +42,13 @@ class ArgumentsBindingMixin1_t03 {
   void set superSetter(FutureOr<C1> val) {}
 }
 
-class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
+class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
+  ArgumentsBinding1_t02(dynamic t1) : super(t1) {}
+  ArgumentsBinding1_t02.c1(dynamic t1) : super.named(t1) {}
+  ArgumentsBinding1_t02.c2(dynamic t1, dynamic t2) : super.named(t1, val2: t2) {}
+  ArgumentsBinding1_t02.c3(dynamic t1) : super.positional(t1) {}
+  ArgumentsBinding1_t02.c4(dynamic t1, dynamic t2) : super.positional(t1, t2) {}
+  ArgumentsBinding1_t02.c5(dynamic t1) : super.short(t1) {}
 
   test(dynamic t1, dynamic t2) {
     superTest(t1);
@@ -51,8 +62,13 @@ class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
   }
 }
 
-class ArgumentsBindingMixin2_t03<X> {
+class ArgumentsBindingSuper2_t02<X> {
   X m;
+
+  ArgumentsBindingSuper2_t02(X value) {}
+  ArgumentsBindingSuper2_t02.named(X value, {X val2}) {}
+  ArgumentsBindingSuper2_t02.positional(X value, [X val2]) {}
+  ArgumentsBindingSuper2_t02.short(this.m);
 
   void superTest(X val) {}
   void superTestPositioned(X val, [X val2]) {}
@@ -61,9 +77,15 @@ class ArgumentsBindingMixin2_t03<X> {
   void set superSetter(X val) {}
 }
 
-class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X> {
+class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
+  ArgumentsBinding2_t02(X t1) : super(t1) {}
+  ArgumentsBinding2_t02.c1(dynamic t1) : super.named(t1) {}
+  ArgumentsBinding2_t02.c2(dynamic t1, dynamic t2) : super.named(t1, val2: t2) {}
+  ArgumentsBinding2_t02.c3(dynamic t1) : super.positional(t1) {}
+  ArgumentsBinding2_t02.c4(dynamic t1, dynamic t2) : super.positional(t1, t2) {}
+  ArgumentsBinding2_t02.c5(dynamic t1) : super.short(t1) {}
 
-  test(dynamic t1, dynamic t2) {
+  test(X t1, X t2) {
     superTest(t1);
     superTestPositioned(t1);
     superTestPositioned(t2, t1);
@@ -76,7 +98,12 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X>
 }
 
 main() {
-  ArgumentsBinding1_t03 c1 = new ArgumentsBinding1_t03();
+  ArgumentsBinding1_t02 c1 = new ArgumentsBinding1_t02(forgetType(t0Instance));
+  c1 = new ArgumentsBinding1_t02.c1(forgetType(t0Instance));
+  c1 = new ArgumentsBinding1_t02.c2(t1Instance, forgetType(t0Instance));
+  c1 = new ArgumentsBinding1_t02.c3(forgetType(t0Instance));
+  c1 = new ArgumentsBinding1_t02.c4(t1Instance, forgetType(t0Instance));
+  c1 = new ArgumentsBinding1_t02.c5(forgetType(t0Instance));
 
   c1.test(forgetType(t0Instance), t1Instance);
   c1.superTest(forgetType(t0Instance));
@@ -96,7 +123,14 @@ main() {
 }
 
 void testGenerics() {
-  ArgumentsBinding2_t03<FutureOr<C1>> c2 = new ArgumentsBinding2_t03<FutureOr<C1>>();
+  ArgumentsBinding2_t02<FutureOr<C1>> c2 =
+  new ArgumentsBinding2_t02<FutureOr<C1>>(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<FutureOr<C1>>.c1(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<FutureOr<C1>>.c2(t1Instance, forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<FutureOr<C1>>.c3(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<FutureOr<C1>>.c4(t1Instance, forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<FutureOr<C1>>.c5(forgetType(t0Instance));
+
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestPositioned(forgetType(t0Instance));

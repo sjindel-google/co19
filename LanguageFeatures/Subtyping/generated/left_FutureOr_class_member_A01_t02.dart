@@ -10,7 +10,8 @@
  *   and Future<S0> <: T1
  *   and S0 <: T1
  * @description Check that if a type T0 is FutureOr<S0> and Future<S0> and S0
- * are subtypes of a type T1, then a type T0 is a subtype of a type T1.
+ * are subtypes of a type T1, then a type T0 is a subtype of a type T1. Case
+ * when an instance of T0 is an instance of S0 type.
  * @author ngl@unipro.ru
  */
 
@@ -18,22 +19,16 @@ import "dart:async";
 import "../utils/common.dart";
 
 class C1 {}
-class S0 implements Future<C1> {
-  asStream() => null;
-  catchError(Function onError, {bool test(Object error)}) => null;
-  then<S0>(FutureOr<S0> onValue(C1 value), {Function onError}) => null;
-  timeout(Duration timeLimit, {FutureOr<C1> onTimeout()}) => null;
-  whenComplete(FutureOr action()) => null;
-}
+class S0 extends C1 {}
 
 FutureOr<S0> t0Instance = new S0();
-Future<C1> t1Instance = new Future.value(new C1());
+FutureOr<C1> t1Instance = new Future.value(new C1());
 
 
 
 
 class ClassMemberSuper1_t02 {
-  Future<C1> m;
+  FutureOr<C1> m;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;
@@ -45,7 +40,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(Future<C1> val) {}
+  void set superSetter(FutureOr<C1> val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
@@ -109,9 +104,9 @@ main() {
 }
 
 void testGenerics() {
-  ClassMember2_t02<Future<C1>> c2 = new ClassMember2_t02<Future<C1>>();
-  c2 = new ClassMember2_t02<Future<C1>>.short();
-  c2 = new ClassMember2_t02<Future<C1>>.named();
+  ClassMember2_t02<FutureOr<C1>> c2 = new ClassMember2_t02<FutureOr<C1>>();
+  c2 = new ClassMember2_t02<FutureOr<C1>>.short();
+  c2 = new ClassMember2_t02<FutureOr<C1>>.named();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

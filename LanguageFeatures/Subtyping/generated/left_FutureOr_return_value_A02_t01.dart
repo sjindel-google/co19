@@ -11,7 +11,7 @@
  *   and S0 <: T1
  * @description Check that if a type T0 is FutureOr<S0> and Future<S0> and S0
  * are subtypes of a type T1, then a type T0 is a subtype of a type T1. Case
- * when an instance of T0 is an instance of S0 type.
+ * when an instance of T0 is an instance of Future<S0> type.
  * @author ngl@unipro.ru
  */
 
@@ -21,42 +21,38 @@ import "../utils/common.dart";
 class C1 {}
 class S0 extends C1 {}
 
-FutureOr<S0> t0Instance = new S0();
+FutureOr<S0> t0Instance = new Future.value(new S0());
 FutureOr<C1> t1Instance = new Future.value(new C1());
 
 
 
 
-class ClassMemberMixin1_t03 {
-  FutureOr<C1> m;
+FutureOr<C1> returnValueFunc() => forgetType(t0Instance);
 
-  void set superSetter(dynamic val) {}
+class ReturnValueTest {
+  static FutureOr<C1> staticTestMethod() => forgetType(t0Instance);
+
+  FutureOr<C1> testMethod() => forgetType(t0Instance);
+
+  FutureOr<C1> get testGetter => forgetType(t0Instance);
 }
 
-class ClassMember1_t03 extends Object with ClassMemberMixin1_t03 {
-  test() {
-    m = forgetType(t0Instance);
-    superSetter = forgetType(t0Instance);
-  }
+class ReturnValueGen<X> {
+  X testMethod() => forgetType(t0Instance);
+  X get testGetter => forgetType(t0Instance);
 }
 
-class ClassMemberMixin2_t03<X> {
-  X m;
-  void set superSetter(dynamic val) {}
-}
-
-class ClassMember2_t03<X> extends Object with ClassMemberMixin2_t03<X> {
-  test() {
-    m = forgetType(t0Instance);
-    superSetter = forgetType(t0Instance);
-  }
-}
 
 main() {
-  ClassMember1_t03 c1 = new ClassMember1_t03();
-  c1.m = forgetType(t0Instance);
-  c1.test();
-  c1.superSetter = forgetType(t0Instance);
+  FutureOr<C1> returnValueLocalFunc() => forgetType(t0Instance);
+
+  returnValueFunc();
+  returnValueLocalFunc();
+
+  ReturnValueTest.staticTestMethod();
+
+  new ReturnValueTest().testMethod();
+  new ReturnValueTest().testGetter;
 
   // Generic function types cannot be used as a type parameter, so test
   // generics only if it is not a generic function type and in a separate
@@ -67,8 +63,6 @@ main() {
 }
 
 void testGenerics() {
-  ClassMember2_t03<FutureOr<C1>> c2 = new ClassMember2_t03<FutureOr<C1>>();
-  c2.m = forgetType(t0Instance);
-  c2.test();
-  c2.superSetter = forgetType(t0Instance);
+  new ReturnValueGen<FutureOr<C1>>().testMethod();
+  new ReturnValueGen<FutureOr<C1>>().testGetter;
 }
