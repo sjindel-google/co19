@@ -77,10 +77,17 @@ main() {
   c1.test();
   c1.superSetter = forgetType(t0Instance);
 
-  if (!isGenericFunctionType<T1>()) {
-    ClassMember2_t03<T1> c2 = new ClassMember2_t03<T1>();
-    c2.m = forgetType(t0Instance);
-    c2.test();
-    c2.superSetter = forgetType(t0Instance);
+  // Generic function types cannot be used as a type parameter, so test
+  // generics only if it is not a generic function type and in a separate
+  // function to avoid compile-time error
+  if (!isGenericFunctionType) {
+    testGenerics();
   }
+}
+
+void testGenerics() {
+  ClassMember2_t03<T1> c2 = new ClassMember2_t03<T1>();
+  c2.m = forgetType(t0Instance);
+  c2.test();
+  c2.superSetter = forgetType(t0Instance);
 }

@@ -52,8 +52,15 @@ main() {
   Expect.throws(() {new ReturnValueTest().testMethod();}, (e) => e is TypeError);
   Expect.throws(() {new ReturnValueTest().testGetter;}, (e) => e is TypeError);
 
-  if (!isGenericFunctionType<Future<S0>>()) {
-    Expect.throws(() {new ReturnValueGen<Future<S0>>().testMethod();}, (e) => e is TypeError);
-    Expect.throws(() {new ReturnValueGen<Future<S0>>().testGetter;}, (e) => e is TypeError);
+  // Generic function types cannot be used as a type parameter, so test
+  // generics only if it is not a generic function type and in a separate
+  // function to avoid compile-time error
+  if (!isGenericFunctionType) {
+    testGenerics();
   }
+}
+
+void testGenerics() {
+  Expect.throws(() {new ReturnValueGen<Future<S0>>().testMethod();}, (e) => e is TypeError);
+  Expect.throws(() {new ReturnValueGen<Future<S0>>().testGetter;}, (e) => e is TypeError);
 }

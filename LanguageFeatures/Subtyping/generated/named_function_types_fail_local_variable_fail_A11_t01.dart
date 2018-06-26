@@ -46,7 +46,6 @@ T1 t1Instance = t1Func;
 
 
 
-
 class LocalVariableTest {
 
   LocalVariableTest() {

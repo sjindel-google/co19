@@ -62,7 +62,7 @@ U<A, List, num> t1Func<X extends B0, Y extends B1>(
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-
+bool isGenericFunctionType = true;
 
 
 
@@ -114,18 +114,25 @@ main() {
     new ClassMember1_t03().test2();
   }, (e) => e is TypeError);
 
-  if (!isGenericFunctionType<T1>()) {
-    Expect.throws(() {
-    new ClassMember2_t03<T1>().m = forgetType(t0Instance);
-    }, (e) => e is TypeError);
-    Expect.throws(() {
-    new ClassMember2_t03<T1>().superSetter = forgetType(t0Instance);
-    }, (e) => e is TypeError);
-    Expect.throws(() {
-    new ClassMember2_t03<T1>().test1();
-    }, (e) => e is TypeError);
-    Expect.throws(() {
-    new ClassMember2_t03<T1>().test2();
-    }, (e) => e is TypeError);
+  // Generic function types cannot be used as a type parameter, so test
+  // generics only if it is not a generic function type and in a separate
+  // function to avoid compile-time error
+  if (!isGenericFunctionType) {
+    testGenerics();
   }
+}
+
+void testGenerics() {
+  Expect.throws(() {
+    new ClassMember2_t03<T1>().m = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t03<T1>().superSetter = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t03<T1>().test1();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t03<T1>().test2();
+  }, (e) => e is TypeError);
 }

@@ -46,7 +46,6 @@ T1 t1Instance = t1Func;
 
 
 
-
 T1 returnValueFunc() => forgetType(t0Instance);
 
 class ReturnValueTest {
@@ -72,8 +71,15 @@ main() {
   Expect.throws(() {new ReturnValueTest().testMethod();}, (e) => e is TypeError);
   Expect.throws(() {new ReturnValueTest().testGetter;}, (e) => e is TypeError);
 
-  if (!isGenericFunctionType<T1>()) {
-    Expect.throws(() {new ReturnValueGen<T1>().testMethod();}, (e) => e is TypeError);
-    Expect.throws(() {new ReturnValueGen<T1>().testGetter;}, (e) => e is TypeError);
+  // Generic function types cannot be used as a type parameter, so test
+  // generics only if it is not a generic function type and in a separate
+  // function to avoid compile-time error
+  if (!isGenericFunctionType) {
+    testGenerics();
   }
+}
+
+void testGenerics() {
+  Expect.throws(() {new ReturnValueGen<T1>().testMethod();}, (e) => e is TypeError);
+  Expect.throws(() {new ReturnValueGen<T1>().testGetter;}, (e) => e is TypeError);
 }

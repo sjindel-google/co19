@@ -121,21 +121,28 @@ main() {
     new ClassMember1_t02.valid().test2();
   }, (e) => e is TypeError);
 
-  if (!isGenericFunctionType<C0<U0, U1, U2>>()) {
-    Expect.throws(() {new ClassMember2_t02<C0<U0, U1, U2>>();}, (e) => e is TypeError);
-    Expect.throws(() {new ClassMember2_t02<C0<U0, U1, U2>>.short();}, (e) => e is TypeError);
-    Expect.throws(() {new ClassMember2_t02<C0<U0, U1, U2>>.named();}, (e) => e is TypeError);
-    Expect.throws(() {
-      new ClassMember2_t02<C0<U0, U1, U2>>.valid().m = forgetType(t0Instance);
-    }, (e) => e is TypeError);
-    Expect.throws(() {
-      new ClassMember2_t02<C0<U0, U1, U2>>.valid().superSetter = forgetType(t0Instance);
-    }, (e) => e is TypeError);
-    Expect.throws(() {
-      new ClassMember2_t02<C0<U0, U1, U2>>.valid().test1();
-    }, (e) => e is TypeError);
-    Expect.throws(() {
-      new ClassMember2_t02<C0<U0, U1, U2>>.valid().test2();
-    }, (e) => e is TypeError);
+  // Generic function types cannot be used as a type parameter, so test
+  // generics only if it is not a generic function type and in a separate
+  // function to avoid compile-time error
+  if (!isGenericFunctionType) {
+    testGenerics();
   }
+}
+
+void testGenerics() {
+  Expect.throws(() {new ClassMember2_t02<C0<U0, U1, U2>>();}, (e) => e is TypeError);
+  Expect.throws(() {new ClassMember2_t02<C0<U0, U1, U2>>.short();}, (e) => e is TypeError);
+  Expect.throws(() {new ClassMember2_t02<C0<U0, U1, U2>>.named();}, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<C0<U0, U1, U2>>.valid().m = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<C0<U0, U1, U2>>.valid().superSetter = forgetType(t0Instance);
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<C0<U0, U1, U2>>.valid().test1();
+  }, (e) => e is TypeError);
+  Expect.throws(() {
+    new ClassMember2_t02<C0<U0, U1, U2>>.valid().test2();
+  }, (e) => e is TypeError);
 }

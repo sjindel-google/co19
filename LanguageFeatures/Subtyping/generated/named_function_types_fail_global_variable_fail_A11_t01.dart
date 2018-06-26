@@ -46,7 +46,6 @@ T1 t1Instance = t1Func;
 
 
 
-
 class GlobalVariableTest {
   GlobalVariableTest() {
     t1Instance = forgetType(t0Instance);

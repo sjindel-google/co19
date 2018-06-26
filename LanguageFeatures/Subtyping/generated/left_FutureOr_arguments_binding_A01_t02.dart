@@ -119,22 +119,29 @@ main() {
   c1.superSetter = forgetType(t0Instance);
   c1.superGetter;
 
-  if (!isGenericFunctionType<Future<C1>>()) {
-    ArgumentsBinding2_t02<Future<C1>> c2 =
-    new ArgumentsBinding2_t02<Future<C1>>(forgetType(t0Instance));
-    c2 = new ArgumentsBinding2_t02<Future<C1>>.c1(forgetType(t0Instance));
-    c2 = new ArgumentsBinding2_t02<Future<C1>>.c2(t1Instance, forgetType(t0Instance));
-    c2 = new ArgumentsBinding2_t02<Future<C1>>.c3(forgetType(t0Instance));
-    c2 = new ArgumentsBinding2_t02<Future<C1>>.c4(t1Instance, forgetType(t0Instance));
-    c2 = new ArgumentsBinding2_t02<Future<C1>>.c5(forgetType(t0Instance));
-
-    c2.test(forgetType(t0Instance), t1Instance);
-    c2.superTest(forgetType(t0Instance));
-    c2.superTestPositioned(forgetType(t0Instance));
-    c2.superTestPositioned(t1Instance, forgetType(t0Instance));
-    c2.superTestNamed(forgetType(t0Instance));
-    c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
-    c2.superSetter = forgetType(t0Instance);
-    c2.superGetter;
+  // Generic function types cannot be used as a type parameter, so test
+  // generics only if it is not a generic function type and in a separate
+  // function to avoid compile-time error
+  if (!isGenericFunctionType) {
+    testGenerics();
   }
+}
+
+void testGenerics() {
+  ArgumentsBinding2_t02<Future<C1>> c2 =
+  new ArgumentsBinding2_t02<Future<C1>>(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Future<C1>>.c1(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Future<C1>>.c2(t1Instance, forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Future<C1>>.c3(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Future<C1>>.c4(t1Instance, forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<Future<C1>>.c5(forgetType(t0Instance));
+
+  c2.test(forgetType(t0Instance), t1Instance);
+  c2.superTest(forgetType(t0Instance));
+  c2.superTestPositioned(forgetType(t0Instance));
+  c2.superTestPositioned(t1Instance, forgetType(t0Instance));
+  c2.superTestNamed(forgetType(t0Instance));
+  c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
+  c2.superSetter = forgetType(t0Instance);
+  c2.superGetter;
 }

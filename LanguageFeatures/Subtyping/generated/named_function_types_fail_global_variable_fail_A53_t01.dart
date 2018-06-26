@@ -61,7 +61,7 @@ U<A, List, num> t1Func<X extends B0, Y extends B0>(
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-
+bool isGenericFunctionType = true;
 
 
 

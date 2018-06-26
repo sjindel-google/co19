@@ -59,8 +59,15 @@ main() {
   new ReturnValueTest().testMethod();
   new ReturnValueTest().testGetter;
 
-  if (!isGenericFunctionType<C0<U0, U1, U2>>()) {
-    new ReturnValueGen<C0<S0, S1, S2>>().testMethod();
-    new ReturnValueGen<C0<S0, S1, S2>>().testGetter;
+  // Generic function types cannot be used as a type parameter, so test
+  // generics only if it is not a generic function type and in a separate
+  // function to avoid compile-time error
+  if (!isGenericFunctionType) {
+    testGenerics();
   }
+}
+
+void testGenerics() {
+  new ReturnValueGen<C0<U0, U1, U2>>().testMethod();
+  new ReturnValueGen<C0<U0, U1, U2>>().testGetter;
 }
