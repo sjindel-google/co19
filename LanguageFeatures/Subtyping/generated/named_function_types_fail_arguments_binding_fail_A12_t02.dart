@@ -52,7 +52,7 @@ U1 t1Func<X extends B0, Y extends B1>(S0 y0, S1 y1, {S2 x2, S3 x3, S4 x4, V4 x5}
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-
+bool isGenericFunctionType = true;
 
 
 
@@ -337,6 +337,15 @@ main() {
 
   new ArgumentsBinding1_t02.valid().test();
 
+  // Generic function types cannot be used as a type parameter, so test
+  // generics only if it is not a generic function type and in a separate
+  // function to avoid compile-time error
+  if (!isGenericFunctionType) {
+    testGenerics();
+  }
+}
+
+void testGenerics() {
   // test generic class constructors
   Expect.throws(() {
     new ArgumentsBinding2_t02<T1>(forgetType(t0Instance));

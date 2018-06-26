@@ -43,6 +43,5 @@ U1 t1Func(S0 y0, S1 y1, {S2 x2, S3 y3}) => null;
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-
 //# @T0 = T0
 //# @T1 = T1

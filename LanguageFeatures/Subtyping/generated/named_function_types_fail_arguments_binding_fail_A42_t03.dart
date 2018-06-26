@@ -77,7 +77,7 @@ U<A, List, double> t1Func<X extends B0, Y extends B1>(
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-
+bool isGenericFunctionType = true;
 
 
 
@@ -307,6 +307,15 @@ main() {
 
   new ArgumentsBinding1_t03().test();
 
+  // Generic function types cannot be used as a type parameter, so test
+  // generics only if it is not a generic function type and in a separate
+  // function to avoid compile-time error
+  if (!isGenericFunctionType) {
+    testGenerics();
+  }
+}
+
+void testGenerics() {
   // test generic class members
   Expect.throws(() {
     new ArgumentsBinding2_t03<T1>().superTest(forgetType(t0Instance));
@@ -322,7 +331,7 @@ main() {
 
   Expect.throws(() {
     new ArgumentsBinding2_t03<T1>().superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
-  }, (e) => e is TypeError);
+    }, (e) => e is TypeError);
 
   Expect.throws(() {
     new ArgumentsBinding2_t03<T1>().superTestNamed(forgetType(t0Instance));

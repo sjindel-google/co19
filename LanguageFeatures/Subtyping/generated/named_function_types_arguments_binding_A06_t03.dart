@@ -60,7 +60,7 @@ U<A, List, num> t1Func<X extends B0, Y extends B1>(
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-
+bool isGenericFunctionType = true;
 
 
 
@@ -124,6 +124,15 @@ main() {
   c1.superSetter = forgetType(t0Instance);
   c1.superGetter;
 
+  // Generic function types cannot be used as a type parameter, so test
+  // generics only if it is not a generic function type and in a separate
+  // function to avoid compile-time error
+  if (!isGenericFunctionType) {
+    testGenerics();
+  }
+}
+
+void testGenerics() {
   ArgumentsBinding2_t03<T1> c2 = new ArgumentsBinding2_t03<T1>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));

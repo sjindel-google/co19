@@ -121,8 +121,17 @@ main() {
   c1.superSetter = forgetType(t0Instance);
   c1.superGetter;
 
+  // Generic function types cannot be used as a type parameter, so test
+  // generics only if it is not a generic function type and in a separate
+  // function to avoid compile-time error
+  if (!isGenericFunctionType) {
+    testGenerics();
+  }
+}
+
+void testGenerics() {
   ArgumentsBinding2_t02<FutureOr<S1>> c2 =
-      new ArgumentsBinding2_t02<FutureOr<S1>>(forgetType(t0Instance));
+  new ArgumentsBinding2_t02<FutureOr<S1>>(forgetType(t0Instance));
   c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c1(forgetType(t0Instance));
   c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c2(t1Instance, forgetType(t0Instance));
   c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c3(forgetType(t0Instance));

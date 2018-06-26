@@ -78,7 +78,7 @@ U1<dynamic, void, Object> t1Func<X extends B0, Y extends B1>(
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-
+bool isGenericFunctionType = true;
 
 
 
@@ -167,9 +167,18 @@ main() {
   ClassMember1_t01.staticSetter = forgetType(t0Instance);
   ClassMember1_t01.staticGetter;
 
+  // Generic function types cannot be used as a type parameter, so test
+  // generics only if it is not a generic function type and in a separate
+  // function to avoid compile-time error
+  if (!isGenericFunctionType) {
+    testGenerics();
+  }
+}
+
+void testGenerics() {
   ClassMember2_t01<T1> c2 = new ClassMember2_t01<T1>();
   c2 = new ClassMember2_t01<T1>.short(forgetType(t0Instance),
-      forgetType(t0Instance));
+  forgetType(t0Instance));
   c2 = new ClassMember2_t01<T1>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));

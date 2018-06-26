@@ -101,22 +101,31 @@ main() {
   ArgumentsBindingClass.positionalArgumentsStaticMethod(
       forgetType(t0Instance), forgetType(t0Instance));
 
+  // Generic function types cannot be used as a type parameter, so test
+  // generics only if it is not a generic function type and in a separate
+  // function to avoid compile-time error
+  if (!isGenericFunctionType) {
+    testGenerics();
+  }
+}
+
+void testGenerics() {
   // test generic class constructors
   ArgumentsBindingGen<Null> instance2 =
-      new ArgumentsBindingGen(forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen.fNamed(forgetType(t0Instance),
+      new ArgumentsBindingGen<Null>(forgetType(t0Instance));
+  instance2 = new ArgumentsBindingGen<Null>.fNamed(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen.fPositional(forgetType(t0Instance),
+  instance2 = new ArgumentsBindingGen<Null>.fPositional(forgetType(t0Instance),
       forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen.named(forgetType(t0Instance),
+  instance2 = new ArgumentsBindingGen<Null>.named(forgetType(t0Instance),
       t2: forgetType(t0Instance));
-  instance2 = new ArgumentsBindingGen.positional(forgetType(t0Instance),
+  instance2 = new ArgumentsBindingGen<Null>.positional(forgetType(t0Instance),
       forgetType(t0Instance));
 
   // test generic class methods and setters
-  instance2.namedArgumentsMethod(
-      forgetType(t0Instance), t2: forgetType(t0Instance));
-  instance2.positionalArgumentsMethod(
-      forgetType(t0Instance), forgetType(t0Instance));
-  instance1.testSetter = forgetType(t0Instance);
+  instance2.namedArgumentsMethod(forgetType(t0Instance),
+      t2: forgetType(t0Instance));
+  instance2.positionalArgumentsMethod(forgetType(t0Instance),
+      forgetType(t0Instance));
+  instance2.testSetter = forgetType(t0Instance);
 }

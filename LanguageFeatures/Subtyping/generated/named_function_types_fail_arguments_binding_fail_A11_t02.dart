@@ -46,7 +46,6 @@ T1 t1Instance = t1Func;
 
 
 
-
 class ArgumentsBindingSuper1_t02 {
   T1 m;
 
@@ -328,6 +327,15 @@ main() {
 
   new ArgumentsBinding1_t02.valid().test();
 
+  // Generic function types cannot be used as a type parameter, so test
+  // generics only if it is not a generic function type and in a separate
+  // function to avoid compile-time error
+  if (!isGenericFunctionType) {
+    testGenerics();
+  }
+}
+
+void testGenerics() {
   // test generic class constructors
   Expect.throws(() {
     new ArgumentsBinding2_t02<T1>(forgetType(t0Instance));
