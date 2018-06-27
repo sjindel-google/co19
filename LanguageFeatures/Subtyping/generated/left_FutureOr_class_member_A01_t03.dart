@@ -18,17 +18,17 @@
 import "dart:async";
 import "../utils/common.dart";
 
-class C1 {}
-class S0 extends C1 {}
+class C {}
+class S0 extends C {}
 
 FutureOr<S0> t0Instance = new S0();
-FutureOr<C1> t1Instance = new Future.value(new C1());
+FutureOr<C> t1Instance = new Future<C>.value(new C());
 
 
 
 
 class ClassMemberMixin1_t03 {
-  FutureOr<C1> m;
+  FutureOr<C> m;
 
   void set superSetter(dynamic val) {}
 }
@@ -67,7 +67,7 @@ main() {
 }
 
 void testGenerics() {
-  ClassMember2_t03<FutureOr<C1>> c2 = new ClassMember2_t03<FutureOr<C1>>();
+  ClassMember2_t03<FutureOr<C>> c2 = new ClassMember2_t03<FutureOr<C>>();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

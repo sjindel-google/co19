@@ -18,11 +18,11 @@
 import "dart:async";
 import "../utils/common.dart";
 
-class C1 {}
-class S0 extends C1 {}
+class C {}
+class S0 extends C {}
 
 FutureOr<S0> t0Instance = new S0();
-FutureOr<C1> t1Instance = new Future.value(new C1());
+FutureOr<C> t1Instance = new Future<C>.value(new C());
 
 
 
@@ -30,28 +30,28 @@ FutureOr<C1> t1Instance = new Future.value(new C1());
 class LocalVariableTest {
 
   LocalVariableTest() {
-    FutureOr<C1> t1 = forgetType(t0Instance);
+    FutureOr<C> t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
   static staticTest() {
-    FutureOr<C1> t1 = forgetType(t0Instance);
+    FutureOr<C> t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
   test() {
-    FutureOr<C1> t1 = forgetType(t0Instance);
+    FutureOr<C> t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   foo() {
-    FutureOr<C1> t1 = forgetType(t0Instance);
+    FutureOr<C> t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
-  FutureOr<C1> t1 = forgetType(t0Instance);
+  FutureOr<C> t1 = forgetType(t0Instance);
   t1 = forgetType(t0Instance);
   foo();
   LocalVariableTest x = new LocalVariableTest();

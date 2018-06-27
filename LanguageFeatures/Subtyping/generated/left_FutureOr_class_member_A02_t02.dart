@@ -18,17 +18,17 @@
 import "dart:async";
 import "../utils/common.dart";
 
-class C1 {}
-class S0 extends C1 {}
+class C {}
+class S0 extends C {}
 
-FutureOr<S0> t0Instance = new Future.value(new S0());
-FutureOr<C1> t1Instance = new Future.value(new C1());
+FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
+FutureOr<C> t1Instance = new Future<C>.value(new C());
 
 
 
 
 class ClassMemberSuper1_t02 {
-  FutureOr<C1> m;
+  FutureOr<C> m;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;
@@ -40,7 +40,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(FutureOr<C1> val) {}
+  void set superSetter(FutureOr<C> val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
@@ -104,9 +104,9 @@ main() {
 }
 
 void testGenerics() {
-  ClassMember2_t02<FutureOr<C1>> c2 = new ClassMember2_t02<FutureOr<C1>>();
-  c2 = new ClassMember2_t02<FutureOr<C1>>.short();
-  c2 = new ClassMember2_t02<FutureOr<C1>>.named();
+  ClassMember2_t02<FutureOr<C>> c2 = new ClassMember2_t02<FutureOr<C>>();
+  c2 = new ClassMember2_t02<FutureOr<C>>.short();
+  c2 = new ClassMember2_t02<FutureOr<C>>.named();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);
