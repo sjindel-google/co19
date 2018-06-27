@@ -18,23 +18,23 @@
 import "dart:async";
 import "../utils/common.dart";
 
-class C1 {}
-class S0 extends C1 {}
+class C {}
+class S0 extends C {}
 
-FutureOr<S0> t0Instance = new Future.value(new S0());
-FutureOr<C1> t1Instance = new Future.value(new C1());
+FutureOr<S0> t0Instance = new Future<S0>.value(new S0());
+FutureOr<C> t1Instance = new Future<C>.value(new C());
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  FutureOr<C1> m;
+  FutureOr<C> m;
 
-  void superTest(FutureOr<C1> val) {}
-  void superTestPositioned(FutureOr<C1> val, [FutureOr<C1> val2]) {}
-  void superTestNamed(FutureOr<C1> val, {FutureOr<C1> val2}) {}
-  FutureOr<C1> get superGetter => m;
-  void set superSetter(FutureOr<C1> val) {}
+  void superTest(FutureOr<C> val) {}
+  void superTestPositioned(FutureOr<C> val, [FutureOr<C> val2]) {}
+  void superTestNamed(FutureOr<C> val, {FutureOr<C> val2}) {}
+  FutureOr<C> get superGetter => m;
+  void set superSetter(FutureOr<C> val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -96,7 +96,7 @@ main() {
 }
 
 void testGenerics() {
-  ArgumentsBinding2_t03<FutureOr<C1>> c2 = new ArgumentsBinding2_t03<FutureOr<C1>>();
+  ArgumentsBinding2_t03<FutureOr<C>> c2 = new ArgumentsBinding2_t03<FutureOr<C>>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestPositioned(forgetType(t0Instance));
