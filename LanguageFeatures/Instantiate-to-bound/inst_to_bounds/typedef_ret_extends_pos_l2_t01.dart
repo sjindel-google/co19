@@ -42,10 +42,19 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that typedef cannot reference itself directly.
- * @compile-error
- * @Issue 33599
+ * @description Checks that instantiate-to-bounds passes for function with
+ * parametrized return value.
  */
+class A<X> {}
+typedef F<X extends A<X>> = X Function();
+class B extends A<F> {}
 
-typedef F<X extends F> = void Function();
-main() {}
+F<F> testme() { return null; }
+
+main() {
+  F<dynamic> f1 = testme;
+  F<F<dynamic>> f2 = testme;
+  F<F<F>> f3 = testme;
+  F<F<F<dynamic>>> f4 = testme;
+}
+

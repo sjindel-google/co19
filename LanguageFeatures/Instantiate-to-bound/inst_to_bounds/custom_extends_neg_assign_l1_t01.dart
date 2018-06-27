@@ -41,7 +41,7 @@
  *   [Uj,m], and replacing every contravariant occurrence of [Xj] by [Null].
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
- *   [<U1,m ..., Uk,m>].
+ *   [<U1,m ..., Uk,m>]. 
  * @description Checks rule for custom class with parameter which extends given
  * class
  * @compile-error

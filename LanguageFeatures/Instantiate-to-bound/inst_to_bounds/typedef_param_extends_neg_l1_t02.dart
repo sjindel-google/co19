@@ -42,10 +42,12 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that typedef cannot reference itself directly.
+ * @description Checks that function parameter cannot reference to the given
+ *  function..
  * @compile-error
- * @Issue 33599
+ * @Issue 33607
  */
-
-typedef F<X extends F> = void Function();
+typedef F<X> = Function(F<F>);
+F testme() {}
 main() {}
+

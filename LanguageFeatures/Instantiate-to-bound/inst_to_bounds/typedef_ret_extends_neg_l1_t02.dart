@@ -47,6 +47,5 @@
  * @Issue 33599
  */
 
-typedef F<X> = F Function();
-
+typedef F<X extends F> = X Function();
 main() {}
