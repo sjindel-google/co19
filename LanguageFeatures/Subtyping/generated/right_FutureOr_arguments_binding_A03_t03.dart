@@ -31,19 +31,19 @@ class X0 extends S0 {
 }
 
 X0 t0Instance = new X0();
-Future<S1> t1Instance = new Future.value(new S1());
+FutureOr<S1> t1Instance = new Future.value(new S1());
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  Future<S1> m;
+  FutureOr<S1> m;
 
-  void superTest(Future<S1> val) {}
-  void superTestPositioned(Future<S1> val, [Future<S1> val2]) {}
-  void superTestNamed(Future<S1> val, {Future<S1> val2}) {}
-  Future<S1> get superGetter => m;
-  void set superSetter(Future<S1> val) {}
+  void superTest(FutureOr<S1> val) {}
+  void superTestPositioned(FutureOr<S1> val, [FutureOr<S1> val2]) {}
+  void superTestNamed(FutureOr<S1> val, {FutureOr<S1> val2}) {}
+  FutureOr<S1> get superGetter => m;
+  void set superSetter(FutureOr<S1> val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -105,7 +105,7 @@ main() {
 }
 
 void testGenerics() {
-  ArgumentsBinding2_t03<Future<S1>> c2 = new ArgumentsBinding2_t03<Future<S1>>();
+  ArgumentsBinding2_t03<FutureOr<S1>> c2 = new ArgumentsBinding2_t03<FutureOr<S1>>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestPositioned(forgetType(t0Instance));

@@ -15,7 +15,7 @@
  * bound S0 and S0 <: S1, then a type T0 is a subtype of a type T1.
  * @author ngl@unipro.ru
  */
-
+import "dart:async";
 import "../utils/common.dart";
 
 class S1 {}
@@ -25,24 +25,24 @@ class X0 extends S0 {
 }
 
 X0 t0Instance = new X0();
-S1 t1Instance = new S1();
+FutureOr<S1> t1Instance = new S1();
 
 
 
 
 class ArgumentsBindingSuper1_t02 {
-  S1 m;
+  FutureOr<S1> m;
 
-  ArgumentsBindingSuper1_t02(S1 value) {}
-  ArgumentsBindingSuper1_t02.named(S1 value, {S1 val2}) {}
-  ArgumentsBindingSuper1_t02.positional(S1 value, [S1 val2]) {}
+  ArgumentsBindingSuper1_t02(FutureOr<S1> value) {}
+  ArgumentsBindingSuper1_t02.named(FutureOr<S1> value, {FutureOr<S1> val2}) {}
+  ArgumentsBindingSuper1_t02.positional(FutureOr<S1> value, [FutureOr<S1> val2]) {}
   ArgumentsBindingSuper1_t02.short(this.m);
 
-  void superTest(S1 val) {}
-  void superTestPositioned(S1 val, [S1 val2]) {}
-  void superTestNamed(S1 val, {S1 val2}) {}
-  S1 get superGetter => m;
-  void set superSetter(S1 val) {}
+  void superTest(FutureOr<S1> val) {}
+  void superTestPositioned(FutureOr<S1> val, [FutureOr<S1> val2]) {}
+  void superTestNamed(FutureOr<S1> val, {FutureOr<S1> val2}) {}
+  FutureOr<S1> get superGetter => m;
+  void set superSetter(FutureOr<S1> val) {}
 }
 
 class ArgumentsBinding1_t02 extends ArgumentsBindingSuper1_t02 {
@@ -126,13 +126,13 @@ main() {
 }
 
 void testGenerics() {
-  ArgumentsBinding2_t02<S1> c2 =
-  new ArgumentsBinding2_t02<S1>(forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<S1>.c1(forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<S1>.c2(t1Instance, forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<S1>.c3(forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<S1>.c4(t1Instance, forgetType(t0Instance));
-  c2 = new ArgumentsBinding2_t02<S1>.c5(forgetType(t0Instance));
+  ArgumentsBinding2_t02<FutureOr<S1>> c2 =
+  new ArgumentsBinding2_t02<FutureOr<S1>>(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c1(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c2(t1Instance, forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c3(forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c4(t1Instance, forgetType(t0Instance));
+  c2 = new ArgumentsBinding2_t02<FutureOr<S1>>.c5(forgetType(t0Instance));
 
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
