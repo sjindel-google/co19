@@ -44,10 +44,9 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that typedef cannot reference itself directly.
  * @compile-error
- * @Issue 33625
  * @author iarkh@unipro.ru
+ * @Issue 33599
  */
 
-typedef F<X> = Function(X);
-typedef G<X extends F> = Function(X);
+typedef F<X extends F<F>> = Function({F f});
 main() {}

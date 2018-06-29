@@ -42,12 +42,16 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that typedef cannot reference itself directly.
+ * @description Checks that instantiate-to-bounds fails correctly if [typedef]
+ *  function [F] is declared with [F] named argument.
  * @compile-error
- * @Issue 33625
  * @author iarkh@unipro.ru
  */
+typedef F<X> = Function({X y});
+testme({F y}) {}
 
-typedef F<X> = Function(X);
-typedef G<X extends F> = Function(X);
-main() {}
+main() {
+  F<dynamic> f = testme;
+}
+
+

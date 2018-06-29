@@ -42,12 +42,13 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that typedef cannot reference itself directly.
+ * @description Checks that named parameter type is checked correctly for
+ *  [typedef].
+ * @Issue 33597
  * @compile-error
- * @Issue 33625
  * @author iarkh@unipro.ru
  */
 
-typedef F<X> = Function(X);
-typedef G<X extends F> = Function(X);
+typedef F<X extends int> = Function({X y});
+F<List>  myvariable;
 main() {}

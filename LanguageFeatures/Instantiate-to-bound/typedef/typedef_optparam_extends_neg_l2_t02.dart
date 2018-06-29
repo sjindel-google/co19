@@ -48,6 +48,6 @@
  * @Issue 33625
  */
 
-typedef F<X> = X Function();
+typedef F<X> = Function(X);
 typedef G<X extends F> = Function([X]);
 main() {}
