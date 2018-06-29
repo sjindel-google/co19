@@ -106,17 +106,17 @@ main() {
 
   draw(gl, offset) {
     var buffer = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, buffer);
-    gl.bufferData(wgl.ARRAY_BUFFER, new Float32List.fromList([
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, buffer);
+    gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Float32List.fromList([
           80.0 + offset, 20.0,
           10.0 + offset, 10.0,
-          10.0 + offset, 80.0]), wgl.STATIC_DRAW);
+          10.0 + offset, 80.0]), wgl.WebGL.STATIC_DRAW);
 
     gl.enableVertexAttribArray(positionLocation[gl]);
-    gl.vertexAttribPointer(positionLocation[gl], 2, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(positionLocation[gl], 2, wgl.WebGL.FLOAT, false, 0, 0);
 
     // draw
-    gl.drawArrays(wgl.TRIANGLES, 0, 3);
+    gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 3);
   }
 
   drawAll(offset) {

@@ -78,3 +78,4 @@ T1 t1Instance = t1Func;
 bool isGenericFunctionType = true;
 //# @T0 = T0
 //# @T1 = T1
+//# @GenericFunctionType

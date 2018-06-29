@@ -22,8 +22,8 @@ main() {
     debug('Test whether the WebGL internal buffers have been initialized to 0.');
     var totalBytes = width * height * 4;
     var buf = new Uint8List(totalBytes);
-    gl.readPixels(0, 0, width, height, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
-    if (gl.getError() != wgl.NO_ERROR) {
+    gl.readPixels(0, 0, width, height, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
+    if (gl.getError() != wgl.WebGL.NO_ERROR) {
       testFailed('GL error detected after readPixels().');
       return false;
     }
@@ -37,21 +37,21 @@ main() {
 
     debug('Test whether user created buffers have been initialized to 0.');
     var fbo = gl.createFramebuffer();
-    gl.bindFramebuffer(wgl.FRAMEBUFFER, fbo);
+    gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, fbo);
     var colorbuffer = gl.createRenderbuffer();
-    gl.bindRenderbuffer(wgl.RENDERBUFFER, colorbuffer);
-    gl.renderbufferStorage(wgl.RENDERBUFFER, wgl.RGBA4, width, height);
-    if (gl.getError() != wgl.NO_ERROR) {
+    gl.bindRenderbuffer(wgl.WebGL.RENDERBUFFER, colorbuffer);
+    gl.renderbufferStorage(wgl.WebGL.RENDERBUFFER, wgl.WebGL.RGBA4, width, height);
+    if (gl.getError() != wgl.WebGL.NO_ERROR) {
       testFailed('GL error detected after renderbufferStorage(internalformat = RGBA4).');
       return false;
     }
-    gl.framebufferRenderbuffer(wgl.FRAMEBUFFER, wgl.COLOR_ATTACHMENT0, wgl.RENDERBUFFER, colorbuffer);
-    if (gl.checkFramebufferStatus(wgl.FRAMEBUFFER) != wgl.FRAMEBUFFER_COMPLETE) {
+    gl.framebufferRenderbuffer(wgl.WebGL.FRAMEBUFFER, wgl.WebGL.COLOR_ATTACHMENT0, wgl.WebGL.RENDERBUFFER, colorbuffer);
+    if (gl.checkFramebufferStatus(wgl.WebGL.FRAMEBUFFER) != wgl.WebGL.FRAMEBUFFER_COMPLETE) {
       testFailed('Framebuffer incomplete.');
       return false;
     }
-    gl.readPixels(0, 0, width, height, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
-    if (gl.getError() != wgl.NO_ERROR) {
+    gl.readPixels(0, 0, width, height, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
+    if (gl.getError() != wgl.WebGL.NO_ERROR) {
       testFailed('GL error detected after readPixels().');
       return false;
     }
@@ -78,7 +78,7 @@ main() {
     runTest(gl, canvas.width, canvas.height);
 
     // Testing buffer clearing won't change the clear values.
-    var clearColor = gl.getParameter(wgl.COLOR_CLEAR_VALUE);
+    var clearColor = gl.getParameter(wgl.WebGL.COLOR_CLEAR_VALUE);
     shouldBeList(clearColor, [1, 0, 0, 1]);
   } else
     testFailed('canvas.getContext() failed');

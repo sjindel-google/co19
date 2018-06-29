@@ -58,7 +58,7 @@ main() {
 
   renderWebGL(gl) {
     gl.clearColor(0, 1, 0, 1);
-    gl.clear(wgl.COLOR_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
   }
 
   drawWebGLToCanvas2D(ctx2D, canvas3D, isDrawingBufferUndefined) {

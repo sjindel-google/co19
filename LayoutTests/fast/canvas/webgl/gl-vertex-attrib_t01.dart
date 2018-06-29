@@ -31,15 +31,15 @@ main() {
     debug("Checking gl.vertexAttrib.");
 
     gl.vertexAttrib4fv(0, new Float32List.fromList([1.0, 2.0, 3.0, 4.0]));
-    shouldBe(gl.getVertexAttrib(0, wgl.CURRENT_VERTEX_ATTRIB)[0], 1);
-    shouldBe(gl.getVertexAttrib(0, wgl.CURRENT_VERTEX_ATTRIB)[1], 2);
-    shouldBe(gl.getVertexAttrib(0, wgl.CURRENT_VERTEX_ATTRIB)[2], 3);
-    shouldBe(gl.getVertexAttrib(0, wgl.CURRENT_VERTEX_ATTRIB)[3], 4);
+    shouldBe(gl.getVertexAttrib(0, wgl.WebGL.CURRENT_VERTEX_ATTRIB)[0], 1);
+    shouldBe(gl.getVertexAttrib(0, wgl.WebGL.CURRENT_VERTEX_ATTRIB)[1], 2);
+    shouldBe(gl.getVertexAttrib(0, wgl.WebGL.CURRENT_VERTEX_ATTRIB)[2], 3);
+    shouldBe(gl.getVertexAttrib(0, wgl.WebGL.CURRENT_VERTEX_ATTRIB)[3], 4);
 
     gl.vertexAttrib1f(0, 5);
-    shouldBe(gl.getVertexAttrib(0, wgl.CURRENT_VERTEX_ATTRIB)[0], 5);
-    shouldBe(gl.getVertexAttrib(0, wgl.CURRENT_VERTEX_ATTRIB)[1], 0);
-    shouldBe(gl.getVertexAttrib(0, wgl.CURRENT_VERTEX_ATTRIB)[2], 0);
-    shouldBe(gl.getVertexAttrib(0, wgl.CURRENT_VERTEX_ATTRIB)[3], 1);
+    shouldBe(gl.getVertexAttrib(0, wgl.WebGL.CURRENT_VERTEX_ATTRIB)[0], 5);
+    shouldBe(gl.getVertexAttrib(0, wgl.WebGL.CURRENT_VERTEX_ATTRIB)[1], 0);
+    shouldBe(gl.getVertexAttrib(0, wgl.WebGL.CURRENT_VERTEX_ATTRIB)[2], 0);
+    shouldBe(gl.getVertexAttrib(0, wgl.WebGL.CURRENT_VERTEX_ATTRIB)[3], 1);
   }
 }

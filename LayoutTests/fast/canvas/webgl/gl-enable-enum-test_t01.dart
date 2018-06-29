@@ -28,7 +28,7 @@ main() {
   } else {
     testPassed("context exists");
 
-    debug("Checking wgl.ENABLE enums.");
+    debug("Checking wgl.WebGL.ENABLE enums.");
 
     var invalidEnums = [
       'ALPHA_TEST',
@@ -99,28 +99,28 @@ main() {
       var value = desktopGL[name];
       if (value != null) {
         gl.enable(desktopGL[name]);
-        assertMsg(gl.getError() == wgl.INVALID_ENUM,
+        assertMsg(gl.getError() == wgl.WebGL.INVALID_ENUM,
             "gl.enable must set INVALID_ENUM when passed GL_$name");
       }
     }
 
     var validEnums = [
-      wgl.BLEND,
-      wgl.CULL_FACE,
-      wgl.DEPTH_TEST,
-      wgl.DITHER,
-      wgl.POLYGON_OFFSET_FILL,
-      wgl.SAMPLE_ALPHA_TO_COVERAGE,
-      wgl.SAMPLE_COVERAGE,
-      wgl.SCISSOR_TEST,
-      wgl.STENCIL_TEST
+      wgl.WebGL.BLEND,
+      wgl.WebGL.CULL_FACE,
+      wgl.WebGL.DEPTH_TEST,
+      wgl.WebGL.DITHER,
+      wgl.WebGL.POLYGON_OFFSET_FILL,
+      wgl.WebGL.SAMPLE_ALPHA_TO_COVERAGE,
+      wgl.WebGL.SAMPLE_COVERAGE,
+      wgl.WebGL.SCISSOR_TEST,
+      wgl.WebGL.STENCIL_TEST
     ];
 
     for (var ii = 0; ii < validEnums.length; ++ii) {
       var name = validEnums[ii];
       debug("Valid enums, case $ii");
       gl.enable(name);
-      assertMsg(gl.getError() == wgl.NO_ERROR,
+      assertMsg(gl.getError() == wgl.WebGL.NO_ERROR,
           "gl.enable must succeed when passed $name");
     }
   }

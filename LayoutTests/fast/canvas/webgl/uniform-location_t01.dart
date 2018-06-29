@@ -33,39 +33,39 @@ main() {
   var vec = new Float32List.fromList([1.0, 2.0, 3.0, 4.0]);
   var mat = new Float32List.fromList([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0]);
 
-  shouldGenerateGLError(contextA, wgl.NO_ERROR, () => contextA.useProgram(programA2));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.uniformMatrix4fv(locationA, false, mat));
-  shouldGenerateGLError(contextA, wgl.NO_ERROR, () => contextA.useProgram(programA1));
-  shouldGenerateGLError(contextA, wgl.NO_ERROR, () => contextA.uniformMatrix4fv(locationA, false, mat));
-  shouldGenerateGLError(contextA, wgl.NO_ERROR, () => contextA.uniformMatrix4fv(null, false, mat));
+  shouldGenerateGLError(contextA, wgl.WebGL.NO_ERROR, () => contextA.useProgram(programA2));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.uniformMatrix4fv(locationA, false, mat));
+  shouldGenerateGLError(contextA, wgl.WebGL.NO_ERROR, () => contextA.useProgram(programA1));
+  shouldGenerateGLError(contextA, wgl.WebGL.NO_ERROR, () => contextA.uniformMatrix4fv(locationA, false, mat));
+  shouldGenerateGLError(contextA, wgl.WebGL.NO_ERROR, () => contextA.uniformMatrix4fv(null, false, mat));
 
-  shouldGenerateGLError(contextA, wgl.NO_ERROR, () => contextA.useProgram(programS));
-  shouldGenerateGLError(contextA, wgl.NO_ERROR, () => contextA.uniform1i(locationSx, 3));
-  shouldGenerateGLError(contextA, wgl.NO_ERROR, () => contextA.uniform1f(locationArray0, 4.0));
-  shouldGenerateGLError(contextA, wgl.NO_ERROR, () => contextA.uniform1f(locationArray1, 5.0));
+  shouldGenerateGLError(contextA, wgl.WebGL.NO_ERROR, () => contextA.useProgram(programS));
+  shouldGenerateGLError(contextA, wgl.WebGL.NO_ERROR, () => contextA.uniform1i(locationSx, 3));
+  shouldGenerateGLError(contextA, wgl.WebGL.NO_ERROR, () => contextA.uniform1f(locationArray0, 4.0));
+  shouldGenerateGLError(contextA, wgl.WebGL.NO_ERROR, () => contextA.uniform1f(locationArray1, 5.0));
 
   shouldBe(contextA.getUniform(programS, locationSx), 3);
   shouldBe(contextA.getUniform(programS, locationArray0), 4.0);
   shouldBe(contextA.getUniform(programS, locationArray1), 5.0);
 
-  shouldGenerateGLError(contextA, wgl.NO_ERROR, () => contextA.useProgram(programV));
-  shouldGenerateGLError(contextA, wgl.NO_ERROR, () => contextA.uniform4fv(locationVec4, vec));
+  shouldGenerateGLError(contextA, wgl.WebGL.NO_ERROR, () => contextA.useProgram(programV));
+  shouldGenerateGLError(contextA, wgl.WebGL.NO_ERROR, () => contextA.uniform4fv(locationVec4, vec));
   shouldBe(contextA.getUniform(programV, locationVec4), vec);
 
   shouldBeNull(contextA.getUniformLocation(programV, "IDontExist"));
-  shouldGenerateGLError(contextA, wgl.NO_ERROR, () => contextA.linkProgram(programA1));
+  shouldGenerateGLError(contextA, wgl.WebGL.NO_ERROR, () => contextA.linkProgram(programA1));
   // After linking all boxes are bad.
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.uniformMatrix4fv(locationA, false, mat));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.uniformMatrix4fv(locationA, false, mat));
 
   // after re-linking the same program, all uniform locations become invalid.
-  shouldGenerateGLError(contextA, wgl.NO_ERROR, () => contextA.useProgram(programS));
-  shouldGenerateGLError(contextA, wgl.NO_ERROR, () => contextA.linkProgram(programS));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.uniform1i(locationSx, 3));
-  shouldGenerateGLError(contextA, wgl.INVALID_OPERATION, () => contextA.getUniform(programS, locationSx));
+  shouldGenerateGLError(contextA, wgl.WebGL.NO_ERROR, () => contextA.useProgram(programS));
+  shouldGenerateGLError(contextA, wgl.WebGL.NO_ERROR, () => contextA.linkProgram(programS));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.uniform1i(locationSx, 3));
+  shouldGenerateGLError(contextA, wgl.WebGL.INVALID_OPERATION, () => contextA.getUniform(programS, locationSx));
 
   // Retrieve the locations again, and they should be good.
   locationSx = contextA.getUniformLocation(programS, "u_struct.x");
   locationArray0 = contextA.getUniformLocation(programS, "u_array[0]");
-  shouldGenerateGLError(contextA, wgl.NO_ERROR, () => contextA.uniform1i(locationSx, 3));
+  shouldGenerateGLError(contextA, wgl.WebGL.NO_ERROR, () => contextA.uniform1i(locationSx, 3));
   shouldBe(contextA.getUniform(programS, locationSx), 3);
 }

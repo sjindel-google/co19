@@ -26,25 +26,25 @@ main() {
     testPassed("context exists");
 
     var buf = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, buf);
-    assertMsg(gl.getError() == wgl.NO_ERROR,
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, buf);
+    assertMsg(gl.getError() == wgl.WebGL.NO_ERROR,
         "should be able to bind buffer.");
-    gl.bindBuffer(wgl.ARRAY_BUFFER, null);
-    assertMsg(gl.getError() == wgl.NO_ERROR,
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, null);
+    assertMsg(gl.getError() == wgl.WebGL.NO_ERROR,
         "should be able to unbind buffer.");
-    gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, buf);
-    assertMsg(gl.getError() == wgl.INVALID_OPERATION,
+    gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, buf);
+    assertMsg(gl.getError() == wgl.WebGL.INVALID_OPERATION,
         "should get INVALID_OPERATION if attempting to bind buffer to different target");
 
     buf = gl.createBuffer();
-    gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, buf);
-    assertMsg(gl.getError() == wgl.NO_ERROR,
+    gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, buf);
+    assertMsg(gl.getError() == wgl.WebGL.NO_ERROR,
         "should be able to bind buffer.");
-    gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, null);
-    assertMsg(gl.getError() == wgl.NO_ERROR,
+    gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, null);
+    assertMsg(gl.getError() == wgl.WebGL.NO_ERROR,
         "should be able to unbind buffer.");
-    gl.bindBuffer(wgl.ARRAY_BUFFER, buf);
-    assertMsg(gl.getError() == wgl.INVALID_OPERATION,
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, buf);
+    assertMsg(gl.getError() == wgl.WebGL.INVALID_OPERATION,
         "should get INVALID_OPERATION if attempting to bind buffer to different target");
   }
 }

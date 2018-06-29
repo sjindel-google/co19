@@ -109,6 +109,5 @@ main() {
 
   // Test type parameters
 
-    new ReturnValueGen<T1>().testMethod();
-  new ReturnValueGen<T1>().testGetter;
-  }
+}
+

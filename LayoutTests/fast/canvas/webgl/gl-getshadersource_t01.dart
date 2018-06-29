@@ -24,9 +24,9 @@ main() {
   dynamic canvas = document.getElementById("example");
   var gl = wtu.create3DContext(canvas);
   var original = document.getElementById("vshader").text;
-  var shader = gl.createShader(wgl.VERTEX_SHADER);
+  var shader = gl.createShader(wgl.WebGL.VERTEX_SHADER);
   gl.shaderSource(shader, original);
   var source = gl.getShaderSource(shader);
   shouldBe(source, original);
-  glErrorShouldBe(gl, wgl.NO_ERROR, "Should be no errors.");
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "Should be no errors.");
 }

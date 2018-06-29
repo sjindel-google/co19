@@ -53,7 +53,7 @@ main() {
       // for things like hi-res displays.
       shouldBe(gl.drawingBufferWidth, gl.canvas.width);
       shouldBe(gl.drawingBufferHeight, gl.canvas.height);
-      return gl.getParameter(wgl.MAX_VIEWPORT_DIMS);
+      return gl.getParameter(wgl.WebGL.MAX_VIEWPORT_DIMS);
     }
   }
 
@@ -64,12 +64,12 @@ main() {
     var program = wtu.setupProgram(gl, ["vshaderGrid", "fshaderGrid"], ["a_position"]);
     wtu.setupUnitQuad(gl);
     gl.useProgram(program);
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
 
     wtu.drawQuad(gl);
 
     var pixels = new Uint8List(gl.drawingBufferWidth * gl.drawingBufferHeight * 4);
-    gl.readPixels(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight, wgl.RGBA, wgl.UNSIGNED_BYTE, pixels);
+    gl.readPixels(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, pixels);
 
     var colors = [
       [ { 'color': [0,   0, 0, 255], 'name': "black" },  { 'color': [255,   0, 0, 255], 'name': "red"    } ],
@@ -111,9 +111,9 @@ main() {
     var clipY2 = deviceToClipSpace(deviceY2, gl.drawingBufferHeight);
 
     var vertexObject = gl.createBuffer();
-    gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
+    gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
     gl.bufferData(
-        wgl.ARRAY_BUFFER,
+        wgl.WebGL.ARRAY_BUFFER,
         new Float32List.fromList(
           [ clipX2, clipY2,
           clipX1, clipY2,
@@ -121,14 +121,14 @@ main() {
           clipX2, clipY2,
           clipX1, clipY1,
           clipX2, clipY1]),
-        wgl.STATIC_DRAW);
+        wgl.WebGL.STATIC_DRAW);
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 2, wgl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(0, 2, wgl.WebGL.FLOAT, false, 0, 0);
 
     var green = [0, 255, 0, 255];
     var black = [0, 0, 0, 0];
     gl.clearColor(0, 0, 0, 0);
-    gl.clear(wgl.COLOR_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
     wtu.drawUByteColorQuad(gl, [0, 255, 0, 255]);
 
     var squareWidth = deviceX2 - deviceX1;
@@ -158,35 +158,35 @@ main() {
 
       // Verify these stats didn't change since they come from a different
       // context.
-      shouldBe(gl.getParameter(wgl.MAX_VIEWPORT_DIMS)[0], maxSize[0]);
-      shouldBe(gl.getParameter(wgl.MAX_VIEWPORT_DIMS)[1], maxSize[1]);
+      shouldBe(gl.getParameter(wgl.WebGL.MAX_VIEWPORT_DIMS)[0], maxSize[0]);
+      shouldBe(gl.getParameter(wgl.WebGL.MAX_VIEWPORT_DIMS)[1], maxSize[1]);
 
       // check the initial viewport matches the drawingBufferWidth and drawingBufferHeight
-      shouldBe(gl.getParameter(wgl.VIEWPORT)[0], 0);
-      shouldBe(gl.getParameter(wgl.VIEWPORT)[1], 0);
-      shouldBe(gl.getParameter(wgl.VIEWPORT)[2], gl.drawingBufferWidth);
-      shouldBe(gl.getParameter(wgl.VIEWPORT)[3], gl.drawingBufferHeight);
+      shouldBe(gl.getParameter(wgl.WebGL.VIEWPORT)[0], 0);
+      shouldBe(gl.getParameter(wgl.WebGL.VIEWPORT)[1], 0);
+      shouldBe(gl.getParameter(wgl.WebGL.VIEWPORT)[2], gl.drawingBufferWidth);
+      shouldBe(gl.getParameter(wgl.WebGL.VIEWPORT)[3], gl.drawingBufferHeight);
 
       // Draw a pixel grid using a shader that draws in device coordinates
       checkGrid(gl);
       // Draw a quad in the top right corner.
       checkQuad(gl);
 
-      shouldBe(gl.getError(), wgl.NO_ERROR);
+      shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
 
       debug("Testing resizing canvas");
 
-      var oldViewport = gl.getParameter(wgl.VIEWPORT);
+      var oldViewport = gl.getParameter(wgl.WebGL.VIEWPORT);
 
       // flip width and height
       canvas.width = desiredHeight;
       canvas.height = desiredWidth;
 
       // Verify the viewport didn't change.
-      shouldBe(gl.getParameter(wgl.VIEWPORT)[0], oldViewport[0]);
-      shouldBe(gl.getParameter(wgl.VIEWPORT)[1], oldViewport[1]);
-      shouldBe(gl.getParameter(wgl.VIEWPORT)[2], oldViewport[2]);
-      shouldBe(gl.getParameter(wgl.VIEWPORT)[3], oldViewport[3]);
+      shouldBe(gl.getParameter(wgl.WebGL.VIEWPORT)[0], oldViewport[0]);
+      shouldBe(gl.getParameter(wgl.WebGL.VIEWPORT)[1], oldViewport[1]);
+      shouldBe(gl.getParameter(wgl.WebGL.VIEWPORT)[2], oldViewport[2]);
+      shouldBe(gl.getParameter(wgl.WebGL.VIEWPORT)[3], oldViewport[3]);
 
       // fix the viewport
       gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
@@ -196,7 +196,7 @@ main() {
 
       // Draw a quad in the top right corner.
       checkQuad(gl);
-      shouldBe(gl.getError(), wgl.NO_ERROR);
+      shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
     }
   }
 

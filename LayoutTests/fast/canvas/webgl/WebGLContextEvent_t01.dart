@@ -45,7 +45,7 @@ main() {
     }, false);
     canvas.addEventListener("webglcontextrestored", (e) {
       evt = e;
-      shouldBe(context.getError(), wgl.NO_ERROR);
+      shouldBe(context.getError(), wgl.WebGL.NO_ERROR);
       debug("Test that the event passed to a listener of webglcontextrestored is a WebGLContextEvent.");
       shouldBeTrue(evt is wgl.ContextEvent);
       shouldBe(evt.statusMessage, '');

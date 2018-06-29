@@ -28,17 +28,17 @@ main() {
   var fboSize = 2;
   shouldBeTrue(fboSize < canvas.width);
   var fbo = gl.createFramebuffer();
-  gl.bindFramebuffer(wgl.FRAMEBUFFER, fbo);
+  gl.bindFramebuffer(wgl.WebGL.FRAMEBUFFER, fbo);
   var fboTex = gl.createTexture();
-  gl.activeTexture(wgl.TEXTURE1);
-  gl.bindTexture(wgl.TEXTURE_2D, fboTex);
-  gl.framebufferTexture2D(wgl.FRAMEBUFFER, wgl.COLOR_ATTACHMENT0, wgl.TEXTURE_2D, fboTex, 0);
-  gl.texImage2D(wgl.TEXTURE_2D, 0, wgl.RGBA, fboSize, fboSize, 0, wgl.RGBA, wgl.UNSIGNED_BYTE, null);
-  gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.LINEAR);
-  gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.LINEAR);
-  gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_S, wgl.CLAMP_TO_EDGE);
-  gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_WRAP_T, wgl.CLAMP_TO_EDGE);
-  shouldBe(gl.checkFramebufferStatus(wgl.FRAMEBUFFER), wgl.FRAMEBUFFER_COMPLETE);
+  gl.activeTexture(wgl.WebGL.TEXTURE1);
+  gl.bindTexture(wgl.WebGL.TEXTURE_2D, fboTex);
+  gl.framebufferTexture2D(wgl.WebGL.FRAMEBUFFER, wgl.WebGL.COLOR_ATTACHMENT0, wgl.WebGL.TEXTURE_2D, fboTex, 0);
+  gl.texImage2D(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, fboSize, fboSize, 0, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, null);
+  gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.LINEAR);
+  gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.LINEAR);
+  gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_S, wgl.WebGL.CLAMP_TO_EDGE);
+  gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_WRAP_T, wgl.WebGL.CLAMP_TO_EDGE);
+  shouldBe(gl.checkFramebufferStatus(wgl.WebGL.FRAMEBUFFER), wgl.WebGL.FRAMEBUFFER_COMPLETE);
 
   checkFBO(color, msg) {
     wtu.checkCanvasRect(gl, 0, 0, fboSize, fboSize, color, msg);
@@ -55,10 +55,10 @@ main() {
 
   test() {
     gl.clearColor(0, 0, 1, 1);
-    gl.clear(wgl.COLOR_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
     checkFBO(blue, "should be blue");
     gl.clearColor(0, 1, 0, 1);
-    gl.clear(wgl.COLOR_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT);
     checkFBO(green, "should be green");
   }
 
@@ -73,7 +73,7 @@ main() {
   asyncStart();
   wtu.waitFrames(5, () {
     test();
-    glErrorShouldBe(gl, wgl.NO_ERROR, "Should be no errors.");
+    glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "Should be no errors.");
     asyncEnd();
   });
 }

@@ -46,36 +46,36 @@ main() {
 
   var gl = initWebGL("example", "vs", "fs", ["vPosition", "vColor"],
       [0, 0, 0, 1], 1);
-  var program = gl.getParameter(wgl.CURRENT_PROGRAM);
-  glErrorShouldBe(gl, wgl.NO_ERROR, "after initialization");
+  var program = gl.getParameter(wgl.WebGL.CURRENT_PROGRAM);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "after initialization");
 
   gl.useProgram(program);
   var vertexObject = gl.createBuffer();
-  gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-  gl.bufferData(wgl.ARRAY_BUFFER, float32list(
+  gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, float32list(
       [-1,1,0, 1,1,0, -1,-1,0,
-       -1,-1,0, 1,1,0, 1,-1,0]), wgl.STATIC_DRAW);
+       -1,-1,0, 1,1,0, 1,-1,0]), wgl.WebGL.STATIC_DRAW);
   gl.enableVertexAttribArray(0);
-  gl.vertexAttribPointer(0, 3, wgl.FLOAT, false, 0, 0);
-  glErrorShouldBe(gl, wgl.NO_ERROR, "after vertex setup");
+  gl.vertexAttribPointer(0, 3, wgl.WebGL.FLOAT, false, 0, 0);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "after vertex setup");
 
   var texCoordObject = gl.createBuffer();
-  gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-  gl.bufferData(wgl.ARRAY_BUFFER, float32list(
+  gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, float32list(
       [0,0, 1,0, 0,1,
-       0,1, 1,0, 1,1]), wgl.STATIC_DRAW);
+       0,1, 1,0, 1,1]), wgl.WebGL.STATIC_DRAW);
   gl.enableVertexAttribArray(1);
-  gl.vertexAttribPointer(1, 2, wgl.FLOAT, false, 0, 0);
-  glErrorShouldBe(gl, wgl.NO_ERROR, "after texture coord setup");
+  gl.vertexAttribPointer(1, 2, wgl.WebGL.FLOAT, false, 0, 0);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "after texture coord setup");
 
   // Now resize these buffers because we want to change what we're drawing.
-  gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-  gl.bufferData(wgl.ARRAY_BUFFER, float32list([
+  gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, float32list([
       -1,1,0, 1,1,0, -1,-1,0, 1,-1,0,
-      -1,1,0, 1,1,0, -1,-1,0, 1,-1,0]), wgl.STATIC_DRAW);
-  glErrorShouldBe(gl, wgl.NO_ERROR, "after vertex redefinition");
-  gl.bindBuffer(wgl.ARRAY_BUFFER, texCoordObject);
-  gl.bufferData(wgl.ARRAY_BUFFER, new Uint8List.fromList([
+      -1,1,0, 1,1,0, -1,-1,0, 1,-1,0]), wgl.WebGL.STATIC_DRAW);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "after vertex redefinition");
+  gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, texCoordObject);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Uint8List.fromList([
       255, 0, 0, 255,
       255, 0, 0, 255,
       255, 0, 0, 255,
@@ -83,9 +83,9 @@ main() {
       0, 255, 0, 255,
       0, 255, 0, 255,
       0, 255, 0, 255,
-      0, 255, 0, 255]), wgl.STATIC_DRAW);
-  gl.vertexAttribPointer(1, 4, wgl.UNSIGNED_BYTE, false, 0, 0);
-  glErrorShouldBe(gl, wgl.NO_ERROR,
+      0, 255, 0, 255]), wgl.WebGL.STATIC_DRAW);
+  gl.vertexAttribPointer(1, 4, wgl.WebGL.UNSIGNED_BYTE, false, 0, 0);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR,
       "after texture coordinate / color redefinition");
 
   var numQuads = 2;
@@ -101,9 +101,9 @@ main() {
       indices[offset + 5] = quad + 3;
   }
   var indexObject = gl.createBuffer();
-  gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, indexObject);
-  gl.bufferData(wgl.ELEMENT_ARRAY_BUFFER, indices, wgl.STATIC_DRAW);
-  glErrorShouldBe(gl, wgl.NO_ERROR, "after setting up indices");
-  gl.drawElements(wgl.TRIANGLES, numQuads * 6, wgl.UNSIGNED_BYTE, 0);
-  glErrorShouldBe(gl, wgl.NO_ERROR, "after drawing");
+  gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, indexObject);
+  gl.bufferData(wgl.WebGL.ELEMENT_ARRAY_BUFFER, indices, wgl.WebGL.STATIC_DRAW);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "after setting up indices");
+  gl.drawElements(wgl.WebGL.TRIANGLES, numQuads * 6, wgl.WebGL.UNSIGNED_BYTE, 0);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "after drawing");
 }
