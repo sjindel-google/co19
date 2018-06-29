@@ -15,7 +15,7 @@
  * bound S0 and S0 <: S1, then a type T0 is a subtype of a type T1.
  * @author ngl@unipro.ru
  */
-
+import "dart:async";
 import "../utils/common.dart";
 
 class S1 {}
@@ -25,15 +25,15 @@ class X0 extends S0 {
 }
 
 X0 t0Instance = new X0();
-S1 t1Instance = new S1();
+FutureOr<S1> t1Instance = new S1();
 
 
 
 
 class ClassMember1_t01 {
-  static S1 s = forgetType(t0Instance);
-  S1 m = forgetType(t0Instance);
-  S1 _p = forgetType(t0Instance);
+  static FutureOr<S1> s = forgetType(t0Instance);
+  FutureOr<S1> m = forgetType(t0Instance);
+  FutureOr<S1> _p = forgetType(t0Instance);
 
   ClassMember1_t01() {
     s = forgetType(t0Instance);
@@ -41,7 +41,7 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  ClassMember1_t01.named(S1 value) {
+  ClassMember1_t01.named(FutureOr<S1> value) {
     s = value;
     m = value;
     _p = value;
@@ -55,21 +55,21 @@ class ClassMember1_t01 {
     _p = forgetType(t0Instance);
   }
 
-  set setter(S1 val) {
+  set setter(FutureOr<S1> val) {
     _p = val;
   }
 
-  S1 get getter => forgetType(_p);
+  FutureOr<S1> get getter => forgetType(_p);
 
   static staticTest() {
     s = forgetType(t0Instance);
   }
 
-  static set staticSetter(S1 val) {
+  static set staticSetter(FutureOr<S1> val) {
     s = val;
   }
 
-  static S1 get staticGetter => forgetType(t0Instance);
+  static FutureOr<S1> get staticGetter => forgetType(t0Instance);
 }
 
 class ClassMember2_t01<X> {
@@ -97,7 +97,7 @@ class ClassMember2_t01<X> {
     _p = val;
   }
 
-  S1 get getter => forgetType(_p);
+  FutureOr<S1> get getter => forgetType(_p);
 }
 
 main() {
@@ -124,10 +124,10 @@ main() {
 }
 
 void testGenerics() {
-  ClassMember2_t01<S1> c2 = new ClassMember2_t01<S1>();
-  c2 = new ClassMember2_t01<S1>.short(forgetType(t0Instance),
+  ClassMember2_t01<FutureOr<S1>> c2 = new ClassMember2_t01<FutureOr<S1>>();
+  c2 = new ClassMember2_t01<FutureOr<S1>>.short(forgetType(t0Instance),
   forgetType(t0Instance));
-  c2 = new ClassMember2_t01<S1>.named(forgetType(t0Instance));
+  c2 = new ClassMember2_t01<FutureOr<S1>>.named(forgetType(t0Instance));
   c2.m = forgetType(t0Instance);
   c2.test(forgetType(t0Instance));
   c2.getter;

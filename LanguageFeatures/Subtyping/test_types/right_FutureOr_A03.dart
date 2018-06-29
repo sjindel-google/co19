@@ -31,7 +31,7 @@ class X0 extends S0 {
 }
 
 X0 t0Instance = new X0();
-Future<S1> t1Instance = new Future.value(new S1());
+FutureOr<S1> t1Instance = new Future.value(new S1());
 
 //# @T0 = X0
-//# @T1 = Future<S1>
+//# @T1 = FutureOr<S1>

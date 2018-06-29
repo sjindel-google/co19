@@ -15,7 +15,7 @@
  * bound S0 and S0 <: S1, then a type T0 is a subtype of a type T1.
  * @author ngl@unipro.ru
  */
-
+import "dart:async";
 import "../utils/common.dart";
 
 class S1 {}
@@ -25,13 +25,13 @@ class X0 extends S0 {
 }
 
 X0 t0Instance = new X0();
-S1 t1Instance = new S1();
+FutureOr<S1> t1Instance = new S1();
 
 
 
 
 class ClassMemberSuper1_t02 {
-  S1 m;
+  FutureOr<S1> m;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;
@@ -43,7 +43,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(S1 val) {}
+  void set superSetter(FutureOr<S1> val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
@@ -107,9 +107,9 @@ main() {
 }
 
 void testGenerics() {
-  ClassMember2_t02<S1> c2 = new ClassMember2_t02<S1>();
-  c2 = new ClassMember2_t02<S1>.short();
-  c2 = new ClassMember2_t02<S1>.named();
+  ClassMember2_t02<FutureOr<S1>> c2 = new ClassMember2_t02<FutureOr<S1>>();
+  c2 = new ClassMember2_t02<FutureOr<S1>>.short();
+  c2 = new ClassMember2_t02<FutureOr<S1>>.named();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);

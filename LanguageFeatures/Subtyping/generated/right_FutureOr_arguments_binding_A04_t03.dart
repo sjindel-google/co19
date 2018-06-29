@@ -15,7 +15,7 @@
  * bound S0 and S0 <: S1, then a type T0 is a subtype of a type T1.
  * @author ngl@unipro.ru
  */
-
+import "dart:async";
 import "../utils/common.dart";
 
 class S1 {}
@@ -25,19 +25,19 @@ class X0 extends S0 {
 }
 
 X0 t0Instance = new X0();
-S1 t1Instance = new S1();
+FutureOr<S1> t1Instance = new S1();
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  S1 m;
+  FutureOr<S1> m;
 
-  void superTest(S1 val) {}
-  void superTestPositioned(S1 val, [S1 val2]) {}
-  void superTestNamed(S1 val, {S1 val2}) {}
-  S1 get superGetter => m;
-  void set superSetter(S1 val) {}
+  void superTest(FutureOr<S1> val) {}
+  void superTestPositioned(FutureOr<S1> val, [FutureOr<S1> val2]) {}
+  void superTestNamed(FutureOr<S1> val, {FutureOr<S1> val2}) {}
+  FutureOr<S1> get superGetter => m;
+  void set superSetter(FutureOr<S1> val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -99,7 +99,7 @@ main() {
 }
 
 void testGenerics() {
-  ArgumentsBinding2_t03<S1> c2 = new ArgumentsBinding2_t03<S1>();
+  ArgumentsBinding2_t03<FutureOr<S1>> c2 = new ArgumentsBinding2_t03<FutureOr<S1>>();
   c2.test(forgetType(t0Instance), t1Instance);
   c2.superTest(forgetType(t0Instance));
   c2.superTestPositioned(forgetType(t0Instance));

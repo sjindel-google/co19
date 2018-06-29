@@ -31,7 +31,7 @@ class X0 extends S0 {
 }
 
 X0 t0Instance = new X0();
-Future<S1> t1Instance = new Future.value(new S1());
+FutureOr<S1> t1Instance = new Future.value(new S1());
 
 
 
@@ -39,28 +39,28 @@ Future<S1> t1Instance = new Future.value(new S1());
 class LocalVariableTest {
 
   LocalVariableTest() {
-    Future<S1> t1 = forgetType(t0Instance);
+    FutureOr<S1> t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
   static staticTest() {
-    Future<S1> t1 = forgetType(t0Instance);
+    FutureOr<S1> t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
   test() {
-    Future<S1> t1 = forgetType(t0Instance);
+    FutureOr<S1> t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 }
 
 main() {
   foo() {
-    Future<S1> t1 = forgetType(t0Instance);
+    FutureOr<S1> t1 = forgetType(t0Instance);
     t1 = forgetType(t0Instance);
   }
 
-  Future<S1> t1 = forgetType(t0Instance);
+  FutureOr<S1> t1 = forgetType(t0Instance);
   t1 = forgetType(t0Instance);
   foo();
   LocalVariableTest x = new LocalVariableTest();

@@ -15,7 +15,7 @@
  * bound S0 and S0 <: S1, then a type T0 is a subtype of a type T1.
  * @author ngl@unipro.ru
  */
-
+import "dart:async";
 import "../utils/common.dart";
 
 class S1 {}
@@ -25,19 +25,19 @@ class X0 extends S0 {
 }
 
 X0 t0Instance = new X0();
-S1 t1Instance = new S1();
+FutureOr<S1> t1Instance = new S1();
 
 
 
 
-S1 returnValueFunc() => forgetType(t0Instance);
+FutureOr<S1> returnValueFunc() => forgetType(t0Instance);
 
 class ReturnValueTest {
-  static S1 staticTestMethod() => forgetType(t0Instance);
+  static FutureOr<S1> staticTestMethod() => forgetType(t0Instance);
 
-  S1 testMethod() => forgetType(t0Instance);
+  FutureOr<S1> testMethod() => forgetType(t0Instance);
 
-  S1 get testGetter => forgetType(t0Instance);
+  FutureOr<S1> get testGetter => forgetType(t0Instance);
 }
 
 class ReturnValueGen<X> {
@@ -47,7 +47,7 @@ class ReturnValueGen<X> {
 
 
 main() {
-  S1 returnValueLocalFunc() => forgetType(t0Instance);
+  FutureOr<S1> returnValueLocalFunc() => forgetType(t0Instance);
 
   returnValueFunc();
   returnValueLocalFunc();
@@ -66,6 +66,6 @@ main() {
 }
 
 void testGenerics() {
-  new ReturnValueGen<S1>().testMethod();
-  new ReturnValueGen<S1>().testGetter;
+  new ReturnValueGen<FutureOr<S1>>().testMethod();
+  new ReturnValueGen<FutureOr<S1>>().testGetter;
 }

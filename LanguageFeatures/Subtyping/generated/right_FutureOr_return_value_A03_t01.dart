@@ -31,19 +31,19 @@ class X0 extends S0 {
 }
 
 X0 t0Instance = new X0();
-Future<S1> t1Instance = new Future.value(new S1());
+FutureOr<S1> t1Instance = new Future.value(new S1());
 
 
 
 
-Future<S1> returnValueFunc() => forgetType(t0Instance);
+FutureOr<S1> returnValueFunc() => forgetType(t0Instance);
 
 class ReturnValueTest {
-  static Future<S1> staticTestMethod() => forgetType(t0Instance);
+  static FutureOr<S1> staticTestMethod() => forgetType(t0Instance);
 
-  Future<S1> testMethod() => forgetType(t0Instance);
+  FutureOr<S1> testMethod() => forgetType(t0Instance);
 
-  Future<S1> get testGetter => forgetType(t0Instance);
+  FutureOr<S1> get testGetter => forgetType(t0Instance);
 }
 
 class ReturnValueGen<X> {
@@ -53,7 +53,7 @@ class ReturnValueGen<X> {
 
 
 main() {
-  Future<S1> returnValueLocalFunc() => forgetType(t0Instance);
+  FutureOr<S1> returnValueLocalFunc() => forgetType(t0Instance);
 
   returnValueFunc();
   returnValueLocalFunc();
@@ -72,6 +72,6 @@ main() {
 }
 
 void testGenerics() {
-  new ReturnValueGen<Future<S1>>().testMethod();
-  new ReturnValueGen<Future<S1>>().testGetter;
+  new ReturnValueGen<FutureOr<S1>>().testMethod();
+  new ReturnValueGen<FutureOr<S1>>().testGetter;
 }

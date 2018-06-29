@@ -31,13 +31,13 @@ class X0 extends S0 {
 }
 
 X0 t0Instance = new X0();
-Future<S1> t1Instance = new Future.value(new S1());
+FutureOr<S1> t1Instance = new Future.value(new S1());
 
 
 
 
 class ClassMemberMixin1_t03 {
-  Future<S1> m;
+  FutureOr<S1> m;
 
   void set superSetter(dynamic val) {}
 }
@@ -76,7 +76,7 @@ main() {
 }
 
 void testGenerics() {
-  ClassMember2_t03<Future<S1>> c2 = new ClassMember2_t03<Future<S1>>();
+  ClassMember2_t03<FutureOr<S1>> c2 = new ClassMember2_t03<FutureOr<S1>>();
   c2.m = forgetType(t0Instance);
   c2.test();
   c2.superSetter = forgetType(t0Instance);
