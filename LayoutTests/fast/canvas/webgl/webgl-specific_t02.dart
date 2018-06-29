@@ -12,7 +12,7 @@ import "../../../testcommon.dart";
 
 main() {
   debug("Verify that *LENGTH are undefined");
-  shouldThrow(() => wgl..INFO_LOG_LENGTH);
+  shouldThrow(() => wgl.INFO_LOG_LENGTH);
   shouldThrow(() => wgl.SHADER_SOURCE_LENGTH);
   shouldThrow(() => wgl.ACTIVE_UNIFORM_MAX_LENGTH);
   shouldThrow(() => wgl.ACTIVE_ATTRIB_MAX_LENGTH);
