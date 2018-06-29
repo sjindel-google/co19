@@ -155,16 +155,5 @@ main() {
 
   // Test type parameters
 
-  // test generic class constructors
-  ArgumentsBindingGen<T1> instance2 = new ArgumentsBindingGen<T1>(t0Instance);
-  instance2 = new ArgumentsBindingGen<T1>.fNamed(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<T1>.fPositional(t0Instance, t0Instance);
-  instance2 = new ArgumentsBindingGen<T1>.named(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<T1>.positional(t0Instance, t0Instance);
-
-  // test generic class methods and setters
-  instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
-  instance2.positionalArgumentsMethod(t0Instance, t0Instance);
-  instance2.testSetter = t0Instance;
 }
 

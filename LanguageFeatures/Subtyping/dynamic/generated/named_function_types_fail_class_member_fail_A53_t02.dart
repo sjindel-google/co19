@@ -153,20 +153,5 @@ main() {
 
   // Test type parameters
 
-  Expect.throws(() {new ClassMember2_t02<T1>();}, (e) => e is TypeError);
-  Expect.throws(() {new ClassMember2_t02<T1>.short();}, (e) => e is TypeError);
-  Expect.throws(() {new ClassMember2_t02<T1>.named();}, (e) => e is TypeError);
-  Expect.throws(() {
-    new ClassMember2_t02<T1>.valid().m = forgetType(t0Instance);
-  }, (e) => e is TypeError);
-  Expect.throws(() {
-    new ClassMember2_t02<T1>.valid().superSetter = forgetType(t0Instance);
-  }, (e) => e is TypeError);
-  Expect.throws(() {
-    new ClassMember2_t02<T1>.valid().test1();
-  }, (e) => e is TypeError);
-  Expect.throws(() {
-    new ClassMember2_t02<T1>.valid().test2();
-  }, (e) => e is TypeError);
 }
 

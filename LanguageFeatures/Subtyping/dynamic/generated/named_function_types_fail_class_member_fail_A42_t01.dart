@@ -259,49 +259,5 @@ main() {
 
   // Test type parameters
 
-  // Test getters
-  Expect.throws(() {
-    new ClassMemberTestGenericPublic<T1>.validConstructor().getter;
-  }, (e) => e is TypeError);
-
-  // Test methods
-  Expect.throws(() {
-    new ClassMemberTestGenericPublic<T1>.validConstructor().test(t0Instance);
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ClassMemberTestGenericPrivate<T1>.validConstructor().test(t0Instance);
-  }, (e) => e is TypeError);
-
-  // Test setters
-  Expect.throws(() {
-    new ClassMemberTestGenericPublic<T1>.validConstructor().setter = t0Instance;
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ClassMemberTestGenericPrivate<T1>.validConstructor().setter = t0Instance;
-  }, (e) => e is TypeError);
-
-  // Test class variables
-  Expect.throws(() {
-    new ClassMemberTestGenericPublic<T1>.validConstructor().m = forgetType(t0Instance);
-  }, (e) => e is TypeError);
-
-  // Test constructors
-  Expect.throws(() {
-    new ClassMemberTestGenericPublic<T1>(t0Instance);
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ClassMemberTestGenericPublic<T1>.short(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ClassMemberTestGenericPrivate<T1>(t0Instance);
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ClassMemberTestGenericPrivate<T1>.short(forgetType(t0Instance));
-  }, (e) => e is TypeError);
 }
 

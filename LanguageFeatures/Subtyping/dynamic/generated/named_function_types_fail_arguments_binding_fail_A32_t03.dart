@@ -311,39 +311,5 @@ main() {
 
   // Test type parameters
 
-  // test generic class members
-  Expect.throws(() {
-    new ArgumentsBinding2_t03<T1>().superTest(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBinding2_t03<T1>().superTest(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBinding2_t03<T1>().superTestPositioned(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBinding2_t03<T1>().superTestPositioned(forgetType(t1Instance), forgetType(t0Instance));
-    }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBinding2_t03<T1>().superTestNamed(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBinding2_t03<T1>().superTestNamed(forgetType(t1Instance), val2: forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBinding2_t03<T1>().superSetter = forgetType(t0Instance);
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    new ArgumentsBinding2_t03<T1>().superGetter;
-  }, (e) => e is TypeError);
-
-  new ArgumentsBinding2_t03<T1>().test();
 }
 

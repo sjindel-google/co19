@@ -163,7 +163,7 @@ String removeNotGenericFunctionTypePart(bool isGenericFunctionType, String text)
             throw new Exception("Unexpected '${strings[i]}'");
           }
         } else {
-          if (strings[i].contains(new RegExp("<--\sNotGenericFunctionType"))) {
+          if (strings[i].contains("NotGenericFunctionType")) {
             skip = true;
             continue;
           }
