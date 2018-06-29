@@ -96,10 +96,6 @@ main() {
   namedArgumentsFunc1(forgetType(t0Instance), t2: forgetType(t0Instance));
   positionalArgumentsFunc1(forgetType(t0Instance), forgetType(t0Instance));
 
-  // test generic functions
-  namedArgumentsFunc2<T1>(forgetType(t0Instance), t2: forgetType(t0Instance));
-  positionalArgumentsFunc2<T1>(forgetType(t0Instance), forgetType(t0Instance));
-
   // test class constructors
   ArgumentsBindingClass instance1 =
       new ArgumentsBindingClass(forgetType(t0Instance));
@@ -127,7 +123,11 @@ main() {
 
   // Test type parameters
 
-    // test generic class constructors
+    // test generic functions
+  namedArgumentsFunc2<T1>(forgetType(t0Instance), t2: forgetType(t0Instance));
+  positionalArgumentsFunc2<T1>(forgetType(t0Instance), forgetType(t0Instance));
+
+  // test generic class constructors
   ArgumentsBindingGen<T1> instance2 =
       new ArgumentsBindingGen<T1>(forgetType(t0Instance));
   instance2 = new ArgumentsBindingGen<T1>.fNamed(forgetType(t0Instance),

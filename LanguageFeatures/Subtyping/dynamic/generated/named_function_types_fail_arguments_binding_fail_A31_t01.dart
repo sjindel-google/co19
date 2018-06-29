@@ -203,7 +203,9 @@ main() {
         forgetType(t0Instance));
   }, (e) => e is TypeError);
 
-  // Test generic functions
+  // Test type parameters
+
+    // Test generic functions
   Expect.throws(() {
     namedArgumentsFunc2<T1>(forgetType(t0Instance));
   }, (e) => e is TypeError);
@@ -220,9 +222,7 @@ main() {
     positionalArgumentsFunc2<T1>(t1Instance, forgetType(t0Instance));
   }, (e) => e is TypeError);
 
-  // Test type parameters
-
-    // Test constructors
+  // Test constructors
   Expect.throws(() {
     new ArgumentsBindingClassGen<T1>(forgetType(t0Instance));
   }, (e) => e is TypeError);

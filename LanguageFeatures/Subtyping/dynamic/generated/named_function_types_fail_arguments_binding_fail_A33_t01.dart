@@ -220,23 +220,6 @@ main() {
         forgetType(t0Instance));
   }, (e) => e is TypeError);
 
-  // Test generic functions
-  Expect.throws(() {
-    namedArgumentsFunc2<T1>(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    namedArgumentsFunc2<T1>(t1Instance, t2: forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    positionalArgumentsFunc2<T1>(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
-    positionalArgumentsFunc2<T1>(t1Instance, forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
   // Test type parameters
 
 

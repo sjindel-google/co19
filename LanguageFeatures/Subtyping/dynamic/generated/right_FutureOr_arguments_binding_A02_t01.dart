@@ -80,10 +80,6 @@ main() {
   namedArgumentsFunc1(forgetType(t0Instance), t2: forgetType(t0Instance));
   positionalArgumentsFunc1(forgetType(t0Instance), forgetType(t0Instance));
 
-  // test generic functions
-  namedArgumentsFunc2<FutureOr<S1>>(forgetType(t0Instance), t2: forgetType(t0Instance));
-  positionalArgumentsFunc2<FutureOr<S1>>(forgetType(t0Instance), forgetType(t0Instance));
-
   // test class constructors
   ArgumentsBindingClass instance1 =
       new ArgumentsBindingClass(forgetType(t0Instance));
@@ -111,7 +107,11 @@ main() {
 
   // Test type parameters
 
-    // test generic class constructors
+    // test generic functions
+  namedArgumentsFunc2<FutureOr<S1>>(forgetType(t0Instance), t2: forgetType(t0Instance));
+  positionalArgumentsFunc2<FutureOr<S1>>(forgetType(t0Instance), forgetType(t0Instance));
+
+  // test generic class constructors
   ArgumentsBindingGen<FutureOr<S1>> instance2 =
       new ArgumentsBindingGen<FutureOr<S1>>(forgetType(t0Instance));
   instance2 = new ArgumentsBindingGen<FutureOr<S1>>.fNamed(forgetType(t0Instance),

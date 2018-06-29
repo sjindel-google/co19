@@ -133,10 +133,6 @@ main() {
   namedArgumentsFunc1(forgetType(t0Instance), t2: forgetType(t0Instance));
   positionalArgumentsFunc1(forgetType(t0Instance), forgetType(t0Instance));
 
-  // test generic functions
-  namedArgumentsFunc2<T1>(forgetType(t0Instance), t2: forgetType(t0Instance));
-  positionalArgumentsFunc2<T1>(forgetType(t0Instance), forgetType(t0Instance));
-
   // test class constructors
   ArgumentsBindingClass instance1 =
       new ArgumentsBindingClass(forgetType(t0Instance));

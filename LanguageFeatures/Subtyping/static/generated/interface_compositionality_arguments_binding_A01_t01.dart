@@ -83,10 +83,6 @@ main() {
   namedArgumentsFunc1(t0Instance, t2: t0Instance);
   positionalArgumentsFunc1(t0Instance, t0Instance);
 
-  // test generic functions
-  namedArgumentsFunc2<C0<U0, U1, U2>>(t0Instance, t2: t0Instance);
-  positionalArgumentsFunc2<C0<U0, U1, U2>>(t0Instance, t0Instance);
-
   // test class constructors
   ArgumentsBindingClass instance1 = new ArgumentsBindingClass(t0Instance);
   instance1 = new ArgumentsBindingClass.fNamed(t0Instance, t2: t0Instance);
@@ -105,7 +101,11 @@ main() {
 
   // Test type parameters
 
-    // test generic class constructors
+    // test generic functions
+  namedArgumentsFunc2<C0<U0, U1, U2>>(t0Instance, t2: t0Instance);
+  positionalArgumentsFunc2<C0<U0, U1, U2>>(t0Instance, t0Instance);
+
+  // test generic class constructors
   ArgumentsBindingGen<C0<U0, U1, U2>> instance2 = new ArgumentsBindingGen<C0<U0, U1, U2>>(t0Instance);
   instance2 = new ArgumentsBindingGen<C0<U0, U1, U2>>.fNamed(t0Instance, t2: t0Instance);
   instance2 = new ArgumentsBindingGen<C0<U0, U1, U2>>.fPositional(t0Instance, t0Instance);

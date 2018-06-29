@@ -128,5 +128,4 @@ main() {
   c2.superTestNamed(t1Instance, val2: forgetType(t0Instance));
   c2.superSetter = forgetType(t0Instance);
   c2.superGetter;
-  // -->
-}
+  }
