@@ -43,7 +43,7 @@ main() {
   var ctx = glContext(can);
   print(ctx.runtimeType);
   ctx.clearColor(1, 0, 0, 1);
-  ctx.clear(wgl.COLOR_BUFFER_BIT);
+  ctx.clear(wgl.WebGL.COLOR_BUFFER_BIT);
 
   asyncStart();
   runAfterDisplay(() {

@@ -26,7 +26,7 @@ main() {
   var blue = [0, 0, 255, 255];
   var tex0 = gl.createTexture();
   wtu.fillTexture(gl, tex0, 1, 1, blue, 0);
-  gl.activeTexture(wgl.TEXTURE1);
+  gl.activeTexture(wgl.WebGL.TEXTURE1);
   var tex1 = gl.createTexture();
   wtu.fillTexture(gl, tex1, 1, 1, green, 0);
 

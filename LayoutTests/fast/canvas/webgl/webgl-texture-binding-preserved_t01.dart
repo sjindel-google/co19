@@ -40,13 +40,13 @@ main() {
 
   context.uniform1i(context.getUniformLocation(program, "tex"), 0);
 
-  context.activeTexture(wgl.TEXTURE0 + 5);
-  context.bindTexture(wgl.TEXTURE_2D, texture);
+  context.activeTexture(wgl.WebGL.TEXTURE0 + 5);
+  context.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
 
   context.viewport(0, 0, canvas.width, canvas.height);
 
   context.clearColor(255, 0, 0, 255);
-  context.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+  context.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
 
   // We need to ensure that the compositor has run before the drawing
   // takes place.  requestAnimationFrame was tried for this purpose,

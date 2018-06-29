@@ -25,6 +25,6 @@ main() {
   // intended only to catch accidental regressions, not to enforce the
   // specific strings.
 
-  shouldBe(gl.getParameter(wgl.RENDERER), 'WebKit WebGL');
-  shouldBe(gl.getParameter(wgl.VENDOR), 'WebKit');
+  shouldBe(gl.getParameter(wgl.WebGL.RENDERER), 'WebKit WebGL');
+  shouldBe(gl.getParameter(wgl.WebGL.VENDOR), 'WebKit');
 }

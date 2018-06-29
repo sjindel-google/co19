@@ -481,7 +481,7 @@ main() {
       passMsg = '[' + vShaderId + '/' + fShaderId + ']: ' + passMsg;
       log(passMsg);
       //debug(fShaderId);
-      var vShader = wtu.loadShader(gl, vShaderSource, wgl.VERTEX_SHADER);
+      var vShader = wtu.loadShader(gl, vShaderSource, wgl.WebGL.VERTEX_SHADER);
       if (vShaderTest != null) {
         if (!vShaderTest(vShader)) {
           testFailed(passMsg);
@@ -492,7 +492,7 @@ main() {
         testFailed(passMsg);
         continue;
       }
-      var fShader = wtu.loadShader(gl, fShaderSource, wgl.FRAGMENT_SHADER);
+      var fShader = wtu.loadShader(gl, fShaderSource, wgl.WebGL.FRAGMENT_SHADER);
       //debug(fShader == null ? "fail" : "succeed");
       if ((fShader != null) != fShaderSuccess) {
         testFailed(passMsg);
@@ -504,7 +504,7 @@ main() {
         gl.attachShader(program, vShader);
         gl.attachShader(program, fShader);
         gl.linkProgram(program);
-        var linked = gl.getProgramParameter(program, wgl.LINK_STATUS);
+        var linked = gl.getProgramParameter(program, wgl.WebGL.LINK_STATUS);
         if (!linked) {
           var error = gl.getProgramInfoLog(program);
           log("*** Error linking program: $error");

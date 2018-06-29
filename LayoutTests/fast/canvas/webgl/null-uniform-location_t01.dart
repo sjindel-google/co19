@@ -21,7 +21,7 @@ main() {
   var gl = create3DContext();
   var program = loadStandardProgram(gl);
 
-  shouldBe(gl.getError(), wgl.NO_ERROR);
+  shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
   shouldBeNull(gl.useProgram(program));
 
 
@@ -44,7 +44,7 @@ main() {
   test(func) {
     debug('case #${++i}');
     func();
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
   }
 
   test(() => gl.uniform1f(null, 0));

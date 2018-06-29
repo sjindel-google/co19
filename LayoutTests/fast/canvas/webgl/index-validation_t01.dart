@@ -25,15 +25,15 @@ main() {
 
   sizeInBytes(type) {
     switch (type) {
-      case wgl.BYTE:
-      case wgl.UNSIGNED_BYTE:
+      case wgl.WebGL.BYTE:
+      case wgl.WebGL.UNSIGNED_BYTE:
         return 1;
-      case wgl.SHORT:
-      case wgl.UNSIGNED_SHORT:
+      case wgl.WebGL.SHORT:
+      case wgl.WebGL.UNSIGNED_SHORT:
         return 2;
-      case wgl.INT:
-      case wgl.UNSIGNED_INT:
-      case wgl.FLOAT:
+      case wgl.WebGL.INT:
+      case wgl.WebGL.UNSIGNED_INT:
+      case wgl.WebGL.FLOAT:
         return 4;
       default:
         throw "unknown type";
@@ -60,45 +60,45 @@ main() {
   debug("Testing with valid indices");
 
   var bufferComplete = gl.createBuffer();
-  gl.bindBuffer(wgl.ARRAY_BUFFER, bufferComplete);
-  gl.bufferData(wgl.ARRAY_BUFFER, dataComplete, wgl.STATIC_DRAW);
+  gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, bufferComplete);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, dataComplete, wgl.WebGL.STATIC_DRAW);
   var elements = gl.createBuffer();
-  gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, elements);
-  gl.bufferData(wgl.ELEMENT_ARRAY_BUFFER, indices, wgl.STATIC_DRAW);
+  gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, elements);
+  gl.bufferData(wgl.WebGL.ELEMENT_ARRAY_BUFFER, indices, wgl.WebGL.STATIC_DRAW);
   gl.useProgram(program);
   var vertexLoc = gl.getAttribLocation(program, "a_vertex");
   var normalLoc = gl.getAttribLocation(program, "a_normal");
-  gl.vertexAttribPointer(vertexLoc, 4, wgl.FLOAT, false,
-      7 * sizeInBytes(wgl.FLOAT), 0);
+  gl.vertexAttribPointer(vertexLoc, 4, wgl.WebGL.FLOAT, false,
+      7 * sizeInBytes(wgl.WebGL.FLOAT), 0);
   gl.enableVertexAttribArray(vertexLoc);
-  gl.vertexAttribPointer(normalLoc, 3, wgl.FLOAT, false,
-      7 * sizeInBytes(wgl.FLOAT), 4 * sizeInBytes(wgl.FLOAT));
+  gl.vertexAttribPointer(normalLoc, 3, wgl.WebGL.FLOAT, false,
+      7 * sizeInBytes(wgl.WebGL.FLOAT), 4 * sizeInBytes(wgl.WebGL.FLOAT));
   gl.enableVertexAttribArray(normalLoc);
-  shouldBe(gl.checkFramebufferStatus(wgl.FRAMEBUFFER), wgl.FRAMEBUFFER_COMPLETE);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
-  gl.drawElements(wgl.TRIANGLES, 3, wgl.UNSIGNED_SHORT, 0);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  shouldBe(gl.checkFramebufferStatus(wgl.WebGL.FRAMEBUFFER), wgl.WebGL.FRAMEBUFFER_COMPLETE);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+  gl.drawElements(wgl.WebGL.TRIANGLES, 3, wgl.WebGL.UNSIGNED_SHORT, 0);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
 
   debug("Testing with out-of-range indices");
 
   var bufferIncomplete = gl.createBuffer();
-  gl.bindBuffer(wgl.ARRAY_BUFFER, bufferIncomplete);
-  gl.bufferData(wgl.ARRAY_BUFFER, dataIncomplete, wgl.STATIC_DRAW);
-  gl.vertexAttribPointer(vertexLoc, 4, wgl.FLOAT, false,
-      7 * sizeInBytes(wgl.FLOAT), 0);
+  gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, bufferIncomplete);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, dataIncomplete, wgl.WebGL.STATIC_DRAW);
+  gl.vertexAttribPointer(vertexLoc, 4, wgl.WebGL.FLOAT, false,
+      7 * sizeInBytes(wgl.WebGL.FLOAT), 0);
   gl.enableVertexAttribArray(vertexLoc);
   gl.disableVertexAttribArray(normalLoc);
   debug("Enable vertices, valid");
-  glErrorShouldBe(gl, wgl.NO_ERROR);
-  gl.drawElements(wgl.TRIANGLES, 3, wgl.UNSIGNED_SHORT, 0);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+  gl.drawElements(wgl.WebGL.TRIANGLES, 3, wgl.WebGL.UNSIGNED_SHORT, 0);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
   debug("Enable normals, out-of-range");
-  gl.vertexAttribPointer(normalLoc, 3, wgl.FLOAT, false,
-      7 * sizeInBytes(wgl.FLOAT), 4 * sizeInBytes(wgl.FLOAT));
+  gl.vertexAttribPointer(normalLoc, 3, wgl.WebGL.FLOAT, false,
+      7 * sizeInBytes(wgl.WebGL.FLOAT), 4 * sizeInBytes(wgl.WebGL.FLOAT));
   gl.enableVertexAttribArray(normalLoc);
-  glErrorShouldBe(gl, wgl.NO_ERROR);
-  gl.drawElements(wgl.TRIANGLES, 3, wgl.UNSIGNED_SHORT, 0);
-  glErrorShouldBe(gl, wgl.INVALID_OPERATION);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+  gl.drawElements(wgl.WebGL.TRIANGLES, 3, wgl.WebGL.UNSIGNED_SHORT, 0);
+  glErrorShouldBe(gl, wgl.WebGL.INVALID_OPERATION);
 
   debug("Test with enabled attribute that does not belong to current program");
 
@@ -106,17 +106,17 @@ main() {
   var extraLoc = max([vertexLoc, normalLoc]) + 1;
   gl.enableVertexAttribArray(extraLoc);
   debug("Enable an extra attribute with null");
-  glErrorShouldBe(gl, wgl.NO_ERROR);
-  gl.drawElements(wgl.TRIANGLES, 3, wgl.UNSIGNED_SHORT, 0);
-  glErrorShouldBe(gl, wgl.INVALID_OPERATION);
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+  gl.drawElements(wgl.WebGL.TRIANGLES, 3, wgl.WebGL.UNSIGNED_SHORT, 0);
+  glErrorShouldBe(gl, wgl.WebGL.INVALID_OPERATION);
   debug("Enable an extra attribute with insufficient data buffer");
-  gl.vertexAttribPointer(extraLoc, 3, wgl.FLOAT, false,
-      7 * sizeInBytes(wgl.FLOAT), 4 * sizeInBytes(wgl.FLOAT));
-  glErrorShouldBe(gl, wgl.NO_ERROR);
-  gl.drawElements(wgl.TRIANGLES, 3, wgl.UNSIGNED_SHORT, 0);
+  gl.vertexAttribPointer(extraLoc, 3, wgl.WebGL.FLOAT, false,
+      7 * sizeInBytes(wgl.WebGL.FLOAT), 4 * sizeInBytes(wgl.WebGL.FLOAT));
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR);
+  gl.drawElements(wgl.WebGL.TRIANGLES, 3, wgl.WebGL.UNSIGNED_SHORT, 0);
   debug("Pass large negative index to vertexAttribPointer");
-  gl.vertexAttribPointer(normalLoc, 3, wgl.FLOAT, false,
-      7 * sizeInBytes(wgl.FLOAT), -2000000000 * sizeInBytes(wgl.FLOAT));
-  glErrorShouldBe(gl, wgl.INVALID_VALUE);
-  gl.drawElements(wgl.TRIANGLES, 3, wgl.UNSIGNED_SHORT, 0);
+  gl.vertexAttribPointer(normalLoc, 3, wgl.WebGL.FLOAT, false,
+      7 * sizeInBytes(wgl.WebGL.FLOAT), -2000000000 * sizeInBytes(wgl.WebGL.FLOAT));
+  glErrorShouldBe(gl, wgl.WebGL.INVALID_VALUE);
+  gl.drawElements(wgl.WebGL.TRIANGLES, 3, wgl.WebGL.UNSIGNED_SHORT, 0);
 }

@@ -24,16 +24,16 @@ main() {
       "$root/resources/intArrayUniformShader.vert",
       "$root/resources/noopUniformShader.frag");
 
-  glErrorShouldBe(context, wgl.NO_ERROR);
+  glErrorShouldBe(context, wgl.WebGL.NO_ERROR);
   shouldBe(context.getActiveUniform(program, 0).name, 'u_modelViewProjMatrix');
-  shouldBe(context.getActiveUniform(program, 0).type, wgl.FLOAT_MAT4);
+  shouldBe(context.getActiveUniform(program, 0).type, wgl.WebGL.FLOAT_MAT4);
   shouldBe(context.getActiveUniform(program, 0).size, 1);
   shouldBeNull(context.getActiveUniform(program, 1));
-  glErrorShouldBe(context, wgl.INVALID_VALUE);
+  glErrorShouldBe(context, wgl.WebGL.INVALID_VALUE);
   //shouldBeNull(context.getActiveUniform(program, -1));
-  //glErrorShouldBe(context, wgl.INVALID_VALUE);
+  //glErrorShouldBe(context, wgl.WebGL.INVALID_VALUE);
   shouldBeNull(context.getActiveUniform(null, 0));
-  glErrorShouldBe(context, wgl.INVALID_VALUE);
+  glErrorShouldBe(context, wgl.WebGL.INVALID_VALUE);
 
   // we don't know the order the attribs will appear.
   var info = [
@@ -44,8 +44,8 @@ main() {
     shouldBeNonNull(info[ii]);
 
   var expected = [
-  { 'name': 'a_normal', 'type': wgl.FLOAT_VEC3, 'size': 1 },
-  { 'name': 'a_vertex', 'type': wgl.FLOAT_VEC4, 'size': 1 }
+  { 'name': 'a_normal', 'type': wgl.WebGL.FLOAT_VEC3, 'size': 1 },
+  { 'name': 'a_vertex', 'type': wgl.WebGL.FLOAT_VEC4, 'size': 1 }
   ];
 
   var t;
@@ -70,8 +70,8 @@ main() {
     shouldBeNonNull(info2[ii]);
 
   var expected2 = [
-  { 'name': 'ival', 'type': wgl.INT, 'size': 1 },
-  { 'name': 'ival2[0]', 'type': wgl.INT, 'size': 2 }
+  { 'name': 'ival', 'type': wgl.WebGL.INT, 'size': 1 },
+  { 'name': 'ival2[0]', 'type': wgl.WebGL.INT, 'size': 2 }
   ];
 
   if (info2[0].name != expected2[0]['name']) {
@@ -87,24 +87,24 @@ main() {
   }
 
   shouldBeNull(context.getActiveAttrib(program, 2));
-  glErrorShouldBe(context, wgl.INVALID_VALUE);
+  glErrorShouldBe(context, wgl.WebGL.INVALID_VALUE);
   //shouldBeNull(context.getActiveAttrib(program, -1));
-  //glErrorShouldBe(context, wgl.INVALID_VALUE);
+  //glErrorShouldBe(context, wgl.WebGL.INVALID_VALUE);
   shouldBeNull(context.getActiveAttrib(null, 0));
-  glErrorShouldBe(context, wgl.INVALID_VALUE);
+  glErrorShouldBe(context, wgl.WebGL.INVALID_VALUE);
 
-  glErrorShouldBe(context2, wgl.NO_ERROR);
+  glErrorShouldBe(context2, wgl.WebGL.NO_ERROR);
 
   debug("Check trying to get attribs from different context");
   shouldBeNull(context2.getActiveAttrib(program, 0));
-  glErrorShouldBe(context2, wgl.INVALID_OPERATION);
+  glErrorShouldBe(context2, wgl.WebGL.INVALID_OPERATION);
   shouldBeNull(context2.getActiveUniform(program, 0));
-  glErrorShouldBe(context2, wgl.INVALID_OPERATION);
+  glErrorShouldBe(context2, wgl.WebGL.INVALID_OPERATION);
 
   debug("Check trying to get attribs from deleted program");
   context.deleteProgram(program);
   shouldBeNull(context.getActiveUniform(program, 0));
-  glErrorShouldBe(context, wgl.INVALID_VALUE);
+  glErrorShouldBe(context, wgl.WebGL.INVALID_VALUE);
   shouldBeNull(context.getActiveAttrib(program, 0));
-  glErrorShouldBe(context, wgl.INVALID_VALUE);
+  glErrorShouldBe(context, wgl.WebGL.INVALID_VALUE);
 }

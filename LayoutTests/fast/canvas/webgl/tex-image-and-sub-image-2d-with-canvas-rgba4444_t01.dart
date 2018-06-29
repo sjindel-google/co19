@@ -22,5 +22,5 @@ main() {
     return true;
   }
 
-  generateTest(wgl.RGBA, wgl.UNSIGNED_SHORT_4_4_4_4, testPrologue)();
+  generateTest(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_SHORT_4_4_4_4, testPrologue)();
 }

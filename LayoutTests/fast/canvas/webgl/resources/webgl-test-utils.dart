@@ -140,7 +140,7 @@ var simpleColorFragmentShader = [
  * @return {!WebGLShader}
  */
 setupSimpleTextureVertexShader(gl) {
-    return loadShader(gl, simpleTextureVertexShader, wgl.VERTEX_SHADER);
+    return loadShader(gl, simpleTextureVertexShader, wgl.WebGL.VERTEX_SHADER);
 }
 
 /**
@@ -149,7 +149,7 @@ setupSimpleTextureVertexShader(gl) {
  * @return {!WebGLShader}
  */
 setupSimpleTextureFragmentShader(gl) {
-    return loadShader(gl, simpleTextureFragmentShader, wgl.FRAGMENT_SHADER);
+    return loadShader(gl, simpleTextureFragmentShader, wgl.WebGL.FRAGMENT_SHADER);
 }
 
 /**
@@ -168,7 +168,7 @@ setupProgram(gl, shaders, [opt_attribs, opt_locations]) {
       if (element != null) {
         shader = loadShaderFromScript(gl, shader);
       } else {
-        shader = loadShader(gl, shader, ii>0 ? wgl.FRAGMENT_SHADER : wgl.VERTEX_SHADER);
+        shader = loadShader(gl, shader, ii>0 ? wgl.WebGL.FRAGMENT_SHADER : wgl.WebGL.VERTEX_SHADER);
       }
     }
     gl.attachShader(program, shader);
@@ -184,7 +184,7 @@ setupProgram(gl, shaders, [opt_attribs, opt_locations]) {
   gl.linkProgram(program);
 
   // Check the link status
-  var linked = gl.getProgramParameter(program, wgl.LINK_STATUS);
+  var linked = gl.getProgramParameter(program, wgl.WebGL.LINK_STATUS);
   if (!linked) {
       // something went wrong with the link
       lastError = gl.getProgramInfoLog (program);
@@ -236,29 +236,29 @@ setupUnitQuad(gl, [opt_positionLocation=0, opt_texcoordLocation=1]) {
   var objects = [];
 
   var vertexObject = gl.createBuffer();
-  gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-  gl.bufferData(wgl.ARRAY_BUFFER, new Float32List.fromList([
+  gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Float32List.fromList([
        1.0,  1.0, 0.0,
       -1.0,  1.0, 0.0,
       -1.0, -1.0, 0.0,
        1.0,  1.0, 0.0,
       -1.0, -1.0, 0.0,
-       1.0, -1.0, 0.0]), wgl.STATIC_DRAW);
+       1.0, -1.0, 0.0]), wgl.WebGL.STATIC_DRAW);
   gl.enableVertexAttribArray(opt_positionLocation);
-  gl.vertexAttribPointer(opt_positionLocation, 3, wgl.FLOAT, false, 0, 0);
+  gl.vertexAttribPointer(opt_positionLocation, 3, wgl.WebGL.FLOAT, false, 0, 0);
   objects.add(vertexObject);
 
   vertexObject = gl.createBuffer();
-  gl.bindBuffer(wgl.ARRAY_BUFFER, vertexObject);
-  gl.bufferData(wgl.ARRAY_BUFFER, new Float32List.fromList([
+  gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, vertexObject);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, new Float32List.fromList([
       1.0, 1.0,
       0.0, 1.0,
       0.0, 0.0,
       1.0, 1.0,
       0.0, 0.0,
-      1.0, 0.0]), wgl.STATIC_DRAW);
+      1.0, 0.0]), wgl.WebGL.STATIC_DRAW);
   gl.enableVertexAttribArray(opt_texcoordLocation);
-  gl.vertexAttribPointer(opt_texcoordLocation, 2, wgl.FLOAT, false, 0, 0);
+  gl.vertexAttribPointer(opt_texcoordLocation, 2, wgl.WebGL.FLOAT, false, 0, 0);
   objects.add(vertexObject);
   return objects;
 }
@@ -342,15 +342,15 @@ setupQuad(gl, gridRes, [opt_positionLocation=0, opt_flipOddTriangles=false]) {
   }
 
   var buf = gl.createBuffer();
-  gl.bindBuffer(wgl.ARRAY_BUFFER, buf);
-  gl.bufferData(wgl.ARRAY_BUFFER, positions, wgl.STATIC_DRAW);
+  gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, buf);
+  gl.bufferData(wgl.WebGL.ARRAY_BUFFER, positions, wgl.WebGL.STATIC_DRAW);
   gl.enableVertexAttribArray(positionLocation);
-  gl.vertexAttribPointer(positionLocation, 3, wgl.FLOAT, false, 0, 0);
+  gl.vertexAttribPointer(positionLocation, 3, wgl.WebGL.FLOAT, false, 0, 0);
   objects.add(buf);
 
   buf = gl.createBuffer();
-  gl.bindBuffer(wgl.ELEMENT_ARRAY_BUFFER, buf);
-  gl.bufferData(wgl.ELEMENT_ARRAY_BUFFER, indices, wgl.STATIC_DRAW);
+  gl.bindBuffer(wgl.WebGL.ELEMENT_ARRAY_BUFFER, buf);
+  gl.bufferData(wgl.WebGL.ELEMENT_ARRAY_BUFFER, indices, wgl.WebGL.STATIC_DRAW);
   objects.add(buf);
 
   return objects;
@@ -377,10 +377,10 @@ fillTexture(gl, tex, width, height, color, [opt_level=0]) {
     buf[off + 2] = color[2];
     buf[off + 3] = color[3];
   }
-  gl.bindTexture(wgl.TEXTURE_2D, tex);
+  gl.bindTexture(wgl.WebGL.TEXTURE_2D, tex);
   gl.texImage2D(
-      wgl.TEXTURE_2D, opt_level, wgl.RGBA, width, height, 0,
-      wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+      wgl.WebGL.TEXTURE_2D, opt_level, wgl.WebGL.RGBA, width, height, 0,
+      wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
 }
 
 /**
@@ -414,10 +414,10 @@ drawFloatColorQuad(gl, color) {
   if (color is! Float32List) {
     color = new Float32List.fromList(color as List<double>);
   }
-  var program = gl.getParameter(wgl.CURRENT_PROGRAM);
+  var program = gl.getParameter(wgl.WebGL.CURRENT_PROGRAM);
   var colorLocation = gl.getUniformLocation(program, "u_color");
   gl.uniform4fv(colorLocation, color);
-  gl.drawArrays(wgl.TRIANGLES, 0, 6);
+  gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 6);
 }
 
 /**
@@ -448,8 +448,8 @@ drawQuad(gl, [opt_color=const [255, 255, 255, 255]]) {
       opt_color[1] / 255,
       opt_color[2] / 255,
       opt_color[3] / 255);
-  gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
-  gl.drawArrays(wgl.TRIANGLES, 0, 6);
+  gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
+  gl.drawArrays(wgl.WebGL.TRIANGLES, 0, 6);
 }
 
 /**
@@ -466,8 +466,8 @@ drawIndexedQuad(gl, gridRes, [opt_color=const [255, 255, 255, 255]]) {
       opt_color[1] / 255,
       opt_color[2] / 255,
       opt_color[3] / 255);
-  gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
-  gl.drawElements(wgl.TRIANGLES, gridRes * 6, wgl.UNSIGNED_SHORT, 0);
+  gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
+  gl.drawElements(wgl.WebGL.TRIANGLES, gridRes * 6, wgl.WebGL.UNSIGNED_SHORT, 0);
 }
 
 /**
@@ -485,7 +485,7 @@ drawIndexedQuad(gl, gridRes, [opt_color=const [255, 255, 255, 255]]) {
  */
 checkCanvasRect(gl, x, y, width, height, color, msg, [errorRange=0]) {
   var buf = new Uint8List(width * height * 4);
-  gl.readPixels(x, y, width, height, wgl.RGBA, wgl.UNSIGNED_BYTE, buf);
+  gl.readPixels(x, y, width, height, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, buf);
   for (var i = 0; i < width * height; ++i) {
     var offset = i * 4;
     for (var j = 0; j < color.length; ++j) {
@@ -528,14 +528,14 @@ checkCanvas(gl, color, msg, [errorRange=0]) {
  */
 loadTexture(gl, url, callback) {
     var texture = gl.createTexture();
-    gl.bindTexture(wgl.TEXTURE_2D, texture);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MIN_FILTER, wgl.NEAREST);
-    gl.texParameteri(wgl.TEXTURE_2D, wgl.TEXTURE_MAG_FILTER, wgl.NEAREST);
+    gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.NEAREST);
     var image = new ImageElement();
     image.onLoad.listen((_) {
-        gl.bindTexture(wgl.TEXTURE_2D, texture);
-        gl.pixelStorei(wgl.UNPACK_FLIP_Y_WEBGL, 1);
-        gl.texImage2DImage(wgl.TEXTURE_2D, 0, wgl.RGBA, wgl.RGBA, wgl.UNSIGNED_BYTE, image);
+        gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture);
+        gl.pixelStorei(wgl.WebGL.UNPACK_FLIP_Y_WEBGL, 1);
+        gl.texImage2DImage(wgl.WebGL.TEXTURE_2D, 0, wgl.WebGL.RGBA, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, image);
         callback(image);
     });
     image.src = url;
@@ -580,7 +580,7 @@ create3DContext([opt_canvas, opt_attributes]) {
  * @return {string} the error as a string.
  */
 getGLErrorAsString(gl, err) {
-  if (err == wgl.NO_ERROR) {
+  if (err == wgl.WebGL.NO_ERROR) {
     return "NO_ERROR";
   }
   //TODO
@@ -691,7 +691,7 @@ linkProgram(gl, program, [opt_errorCallback]) {
   gl.linkProgram(program);
 
   // Check the link status
-  var linked = gl.getProgramParameter(program, wgl.LINK_STATUS);
+  var linked = gl.getProgramParameter(program, wgl.WebGL.LINK_STATUS);
   if (!linked) {
     // something went wrong with the link
     var error = gl.getProgramInfoLog (program);
@@ -722,7 +722,7 @@ loadShader(gl, shaderSource, shaderType, [opt_errorCallback]) {
   // Load the shader source
   gl.shaderSource(shader, shaderSource);
   var err = gl.getError();
-  if (err != wgl.NO_ERROR) {
+  if (err != wgl.WebGL.NO_ERROR) {
     errFn("*** Error loading shader '" + shader.toString() + "':" +
         glEnumToString(gl, err));
     return null;
@@ -732,7 +732,7 @@ loadShader(gl, shaderSource, shaderType, [opt_errorCallback]) {
   gl.compileShader(shader);
 
   // Check the compile status
-  var compiled = gl.getShaderParameter(shader, wgl.COMPILE_STATUS);
+  var compiled = gl.getShaderParameter(shader, wgl.WebGL.COMPILE_STATUS);
   if (!compiled) {
     // Something went wrong during compilation; get the error
     lastError = gl.getShaderInfoLog(shader);
@@ -778,9 +778,9 @@ loadShaderFromScript(gl, scriptId, [opt_shaderType, opt_errorCallback]) {
 
   if (opt_shaderType == null) {
     if (shaderScript.type == "x-shader/x-vertex") {
-      shaderType = wgl.VERTEX_SHADER;
+      shaderType = wgl.WebGL.VERTEX_SHADER;
     } else if (shaderScript.type == "x-shader/x-fragment") {
-      shaderType = wgl.FRAGMENT_SHADER;
+      shaderType = wgl.WebGL.FRAGMENT_SHADER;
     } else if (shaderType != gl.VERTEX_SHADER && shaderType != gl.FRAGMENT_SHADER) {
       throw("*** Error: unknown shader type");
     }
@@ -812,11 +812,11 @@ loadProgramFromFile(gl, vertexShaderPath, fragmentShaderPath, [opt_errorCallback
   gl.attachShader(
       program,
       loadShaderFromFile(
-        gl, vertexShaderPath, wgl.VERTEX_SHADER, opt_errorCallback));
+        gl, vertexShaderPath, wgl.WebGL.VERTEX_SHADER, opt_errorCallback));
   gl.attachShader(
       program,
       loadShaderFromFile(
-        gl, fragmentShaderPath, wgl.FRAGMENT_SHADER, opt_errorCallback));
+        gl, fragmentShaderPath, wgl.WebGL.FRAGMENT_SHADER, opt_errorCallback));
   linkProgram(gl, program, opt_errorCallback);
   return program;
 }
@@ -838,23 +838,23 @@ loadProgramFromScript(
   gl.attachShader(
       program,
       loadShaderFromScript(
-        gl, vertexScriptId, wgl.VERTEX_SHADER, opt_errorCallback));
+        gl, vertexScriptId, wgl.WebGL.VERTEX_SHADER, opt_errorCallback));
   gl.attachShader(
       program,
       loadShaderFromScript(
-        gl, fragmentScriptId,  wgl.FRAGMENT_SHADER, opt_errorCallback));
+        gl, fragmentScriptId,  wgl.WebGL.FRAGMENT_SHADER, opt_errorCallback));
   linkProgram(gl, program, opt_errorCallback);
   return program;
 }
 
 loadStandardVertexShader(gl) {
   return loadShaderFromFile(
-      gl, getBasePath() + "vertexShader.vert", wgl.VERTEX_SHADER);
+      gl, getBasePath() + "vertexShader.vert", wgl.WebGL.VERTEX_SHADER);
 }
 
 loadStandardFragmentShader(gl) {
   return loadShaderFromFile(
-      gl, getBasePath() + "fragmentShader.frag", wgl.FRAGMENT_SHADER);
+      gl, getBasePath() + "fragmentShader.frag", wgl.WebGL.FRAGMENT_SHADER);
 }
 
 /**

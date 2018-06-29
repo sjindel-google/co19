@@ -31,7 +31,7 @@ main() {
   asyncStart();
 
   window.onLoad.listen((_) {
-    generateTest(wgl.RGB, wgl.UNSIGNED_SHORT_5_6_5, testPrologue)();
+    generateTest(wgl.WebGL.RGB, wgl.WebGL.UNSIGNED_SHORT_5_6_5, testPrologue)();
     asyncEnd();
   });
 }

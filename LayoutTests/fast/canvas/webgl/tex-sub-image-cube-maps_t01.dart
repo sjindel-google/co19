@@ -113,12 +113,12 @@ main() {
   ];
 
   var targets = [
-    wgl.TEXTURE_CUBE_MAP_POSITIVE_X,
-    wgl.TEXTURE_CUBE_MAP_NEGATIVE_X,
-    wgl.TEXTURE_CUBE_MAP_POSITIVE_Y,
-    wgl.TEXTURE_CUBE_MAP_NEGATIVE_Y,
-    wgl.TEXTURE_CUBE_MAP_POSITIVE_Z,
-    wgl.TEXTURE_CUBE_MAP_NEGATIVE_Z];
+    wgl.WebGL.TEXTURE_CUBE_MAP_POSITIVE_X,
+    wgl.WebGL.TEXTURE_CUBE_MAP_NEGATIVE_X,
+    wgl.WebGL.TEXTURE_CUBE_MAP_POSITIVE_Y,
+    wgl.WebGL.TEXTURE_CUBE_MAP_NEGATIVE_Y,
+    wgl.WebGL.TEXTURE_CUBE_MAP_POSITIVE_Z,
+    wgl.WebGL.TEXTURE_CUBE_MAP_NEGATIVE_Z];
 
   var rotations = [
     new _Rotation(axis: [0, 1, 0], angle:  Math.PI / 2),
@@ -163,13 +163,13 @@ main() {
       halfPixelRow[off + 3] = color[3];
     }
     gl.texImage2D(
-        target, level, wgl.RGBA, size, size, 0, wgl.RGBA, wgl.UNSIGNED_BYTE,
+        target, level, wgl.WebGL.RGBA, size, size, 0, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE,
         null);
     for (var jj = 0; jj < size; ++jj) {
       gl.texSubImage2D(
-          target, level, 0, jj, size ~/ 2, 1, wgl.RGBA, wgl.UNSIGNED_BYTE, halfPixelRow);
+          target, level, 0, jj, size ~/ 2, 1, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, halfPixelRow);
       gl.texSubImage2D(
-          target, level, size ~/ 2, jj, size ~/ 2, 1, wgl.RGBA, wgl.UNSIGNED_BYTE, halfPixelRow);
+          target, level, size ~/ 2, jj, size ~/ 2, 1, wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, halfPixelRow);
     }
   }
 
@@ -270,14 +270,14 @@ main() {
     canvas.height = canvasSize;
     gl.viewport(0, 0, canvasSize, canvasSize);
     var tex = gl.createTexture();
-    gl.bindTexture(wgl.TEXTURE_CUBE_MAP, tex);
+    gl.bindTexture(wgl.WebGL.TEXTURE_CUBE_MAP, tex);
 
     // Seems like I should be using LINEAR here with some other math
     // to make sure I get more mip coverage but that's easier said
     // than done.
 
-    gl.texParameteri(wgl.TEXTURE_CUBE_MAP, wgl.TEXTURE_MIN_FILTER, wgl.NEAREST);
-    gl.texParameteri(wgl.TEXTURE_CUBE_MAP, wgl.TEXTURE_MAG_FILTER, wgl.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_CUBE_MAP, wgl.WebGL.TEXTURE_MIN_FILTER, wgl.WebGL.NEAREST);
+    gl.texParameteri(wgl.WebGL.TEXTURE_CUBE_MAP, wgl.WebGL.TEXTURE_MAG_FILTER, wgl.WebGL.NEAREST);
 
     for (var jj = 0; jj < 2; ++jj) {
       for (var tt = 0; tt < targets.length; ++tt) {
@@ -287,17 +287,17 @@ main() {
       if (jj == 1) {
         debug("use mipmap");
         gl.texParameteri(
-            wgl.TEXTURE_CUBE_MAP, wgl.TEXTURE_MIN_FILTER,
-            wgl.NEAREST_MIPMAP_NEAREST);
-        gl.generateMipmap(wgl.TEXTURE_CUBE_MAP);
+            wgl.WebGL.TEXTURE_CUBE_MAP, wgl.WebGL.TEXTURE_MIN_FILTER,
+            wgl.WebGL.NEAREST_MIPMAP_NEAREST);
+        gl.generateMipmap(wgl.WebGL.TEXTURE_CUBE_MAP);
       }
 
       var err = gl.getError();
-      if (err == wgl.OUT_OF_MEMORY) {
+      if (err == wgl.WebGL.OUT_OF_MEMORY) {
         debug("out of memory");
         return false;
       }
-      if (err != wgl.NO_ERROR) {
+      if (err != wgl.WebGL.NO_ERROR) {
         testFailed("unexpected gl error: " + wtu.glEnumToString(gl, err));
       }
 
@@ -341,5 +341,5 @@ main() {
 
   testSize(size);
 
-  glErrorShouldBe(gl, wgl.NO_ERROR, "Should be no errors.");
+  glErrorShouldBe(gl, wgl.WebGL.NO_ERROR, "Should be no errors.");
 }

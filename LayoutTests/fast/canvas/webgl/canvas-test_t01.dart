@@ -54,11 +54,11 @@ main() {
     }
 
     getViewport() {
-      return getValue4v(wgl.VIEWPORT);
+      return getValue4v(wgl.WebGL.VIEWPORT);
     }
 
     getClearColor() {
-      return getValue4v(wgl.COLOR_CLEAR_VALUE);
+      return getValue4v(wgl.WebGL.COLOR_CLEAR_VALUE);
     }
 
     isAboutEqual(a, b) {
@@ -151,19 +151,19 @@ main() {
           // Check that the color mask does not change.
           debug("change the actual size of the canvas and see that the viewport does not change");
           gl.clearColor(0.25, 0.5, 0.75, 1);
-          gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+          gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
           checkCanvasContentIs(64, 128, 192, 255);
           gl.colorMask(false, false, false, false);
           canvas.width = 400;
           canvas.height = 10;
 
-          var v = gl.getParameter(wgl.COLOR_CLEAR_VALUE);
+          var v = gl.getParameter(wgl.WebGL.COLOR_CLEAR_VALUE);
           assertMsg(isAboutEqual(v[0], 0.25) &&
             isAboutEqual(v[1], 0.5) &&
             isAboutEqual(v[2], 0.75) &&
             isAboutEqual(v[3], 1),
             "gl.clearColor should not change after canvas resize");
-          v = gl.getParameter(wgl.COLOR_WRITEMASK);
+          v = gl.getParameter(wgl.WebGL.COLOR_WRITEMASK);
           assertMsg(v[0] == false &&
             v[1] == false &&
             v[2] == false &&

@@ -23,5 +23,5 @@ main() {
     return true;
   }
 
-  generateTest(wgl.RGBA, wgl.UNSIGNED_BYTE, root, testPrologue)();
+  generateTest(wgl.WebGL.RGBA, wgl.WebGL.UNSIGNED_BYTE, root, testPrologue)();
 }

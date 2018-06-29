@@ -58,7 +58,7 @@ main() {
       // restore the context after this event has exited.
       setTimeout(() {
         // we didn't call prevent default so we should not be able to restore the context
-        shouldGenerateGLError(gl, wgl.INVALID_OPERATION, () => extension.restoreContext());
+        shouldGenerateGLError(gl, wgl.WebGL.INVALID_OPERATION, () => extension.restoreContext());
         testLosingAndRestoringContext();
       }, 0);
     });
@@ -71,10 +71,10 @@ main() {
     extension.loseContext();
     // The context should be lost immediately.
     shouldBeTrue(gl.isContextLost());
-    shouldBe(gl.getError(), wgl.CONTEXT_LOST_WEBGL);
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    shouldBe(gl.getError(), wgl.WebGL.CONTEXT_LOST_WEBGL);
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
     // gl methods should be no-ops
-    shouldGenerateGLError(gl, wgl.NO_ERROR, () => gl.blendFunc(wgl.TEXTURE_2D, wgl.TEXTURE_CUBE_MAP));
+    shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => gl.blendFunc(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_CUBE_MAP));
     // but the event should not have been fired.
     shouldBeFalse(contextLostEventFired);
   };
@@ -90,13 +90,13 @@ main() {
       testLostContext(e);
       // restore the context after this event has exited.
       setTimeout(() {
-        shouldGenerateGLError(gl, wgl.NO_ERROR, () => extension.restoreContext());
+        shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => extension.restoreContext());
         // The context should still be lost. It will not get restored until the 
         // webglrestorecontext event is fired.
         shouldBeTrue(gl.isContextLost());
-        shouldBe(gl.getError(), wgl.NO_ERROR);
+        shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
         // gl methods should still be no-ops
-        shouldGenerateGLError(gl, wgl.NO_ERROR, () => gl.blendFunc(wgl.TEXTURE_2D, wgl.TEXTURE_CUBE_MAP));
+        shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => gl.blendFunc(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_CUBE_MAP));
       }, 0);
     });
     canvas.addEventListener("webglcontextrestored", (e) {
@@ -111,10 +111,10 @@ main() {
     extension.loseContext();
     // The context should be lost immediately.
     shouldBeTrue(gl.isContextLost());
-    shouldBe(gl.getError(), wgl.CONTEXT_LOST_WEBGL);
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    shouldBe(gl.getError(), wgl.WebGL.CONTEXT_LOST_WEBGL);
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
     // gl methods should be no-ops
-    shouldGenerateGLError(gl, wgl.NO_ERROR, () => gl.blendFunc(wgl.TEXTURE_2D, wgl.TEXTURE_CUBE_MAP));
+    shouldGenerateGLError(gl, wgl.WebGL.NO_ERROR, () => gl.blendFunc(wgl.WebGL.TEXTURE_2D, wgl.WebGL.TEXTURE_CUBE_MAP));
     // but the event should not have been fired.
     shouldBeFalse(contextLostEventFired);
   };
@@ -123,7 +123,7 @@ main() {
   {
     gl.clearColor(0, 0, 0, 255);
     gl.colorMask(true, true, true, false);
-    gl.clear(wgl.COLOR_BUFFER_BIT | wgl.DEPTH_BUFFER_BIT);
+    gl.clear(wgl.WebGL.COLOR_BUFFER_BIT | wgl.WebGL.DEPTH_BUFFER_BIT);
 
     program = wtu.setupSimpleTextureProgram(gl);
     bufferObjects = wtu.setupUnitQuad(gl);
@@ -135,14 +135,14 @@ main() {
     var compare = texColor.sublist(0,3);
     wtu.checkCanvasRect(gl, 0, 0, canvas.width, canvas.height, compare, "should be $compare");
 
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
   };
 
   testOriginalContext = ()
   {
     debug("Test valid context");
     shouldBeFalse(gl.isContextLost());
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
     testRendering();
   };
 
@@ -152,7 +152,7 @@ main() {
     shouldBeFalse(contextLostEventFired);
     contextLostEventFired = true;
     shouldBeTrue(gl.isContextLost());
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
     if (allowRestore)
       e.preventDefault();
   };
@@ -165,9 +165,9 @@ main() {
   testResources = (expected)
   {
     var tests = [
-      () => gl.bindTexture(wgl.TEXTURE_2D, texture),
+      () => gl.bindTexture(wgl.WebGL.TEXTURE_2D, texture),
       () => gl.useProgram(program),
-      () => gl.bindBuffer(wgl.ARRAY_BUFFER, bufferObjects[0]),
+      () => gl.bindBuffer(wgl.WebGL.ARRAY_BUFFER, bufferObjects[0]),
     ];
 
     for (var i = 0; i < tests.length; ++i)
@@ -180,15 +180,15 @@ main() {
     shouldBeFalse(contextRestoredEventFired);
     contextRestoredEventFired = true;
     shouldBeFalse(gl.isContextLost());
-    shouldBe(gl.getError(), wgl.NO_ERROR);
+    shouldBe(gl.getError(), wgl.WebGL.NO_ERROR);
 
     // Validate that using old resources fails.
-    testResources(wgl.INVALID_OPERATION);
+    testResources(wgl.WebGL.INVALID_OPERATION);
 
     testRendering();
 
     // Validate new resources created in testRendering().
-    testResources(wgl.NO_ERROR);
+    testResources(wgl.WebGL.NO_ERROR);
   };
 
   asyncStart();
