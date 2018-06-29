@@ -42,10 +42,10 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that typedef cannot have [void] parameter
+ * @description Checks that typedef parameter argument cannot be [Null]
  * @compile-error
- * @Issue 33699
+ * @Issue 33701
  */
 
-typedef F<X extends void> = void Function();
+typedef F<X extends Null> = void Function();
 main() {}
