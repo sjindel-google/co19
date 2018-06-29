@@ -12,8 +12,6 @@
  * @author sgrekhov@unipro.ru
  */
 
-import "../utils/common.dart";
-
 class T0 {}
 
 T0 t0Instance = new T0();

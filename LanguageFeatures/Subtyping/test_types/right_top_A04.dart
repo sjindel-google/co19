@@ -12,8 +12,6 @@
  * @author sgrekhov@unipro.ru
  */
 
-import "../utils/common.dart";
-
 Object t0Instance = new Object();
 dynamic t1Instance = 2018;
 

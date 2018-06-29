@@ -13,8 +13,6 @@
  * @author sgrekhov@unipro.ru
  */
 
-import "../utils/common.dart";
-
 class C {}
 
 typedef C T0<X extends C>();

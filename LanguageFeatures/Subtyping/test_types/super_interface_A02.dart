@@ -13,7 +13,6 @@
  * the case when S1 extends T1
  * @author sgrekhov@unipro.ru
  */
-import "../utils/common.dart";
 
 class T1 {}
 

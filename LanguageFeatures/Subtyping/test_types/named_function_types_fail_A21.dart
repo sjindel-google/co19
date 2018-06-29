@@ -21,8 +21,6 @@
  * a subtype of T1
  * @author sgrekhov@unipro.ru
  */
-import "../utils/common.dart";
-import "../../../Utils/expect.dart";
 
 class U0 extends U1 {}
 class U1 {}
@@ -44,6 +42,6 @@ U1 t1Func(S0 y0, S1 y1, {S2 x2, S3 x3}) => null;
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-bool isGenericFunctionType = true;
 //# @T0 = T0
 //# @T1 = T1
+//# @GenericFunctionType

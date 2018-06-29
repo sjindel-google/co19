@@ -12,8 +12,6 @@
  * @author sgrekhov@unipro.ru
  */
 
-import "../utils/common.dart";
-
 class C {}
 
 typedef void T0<X>(C c, [X d]);

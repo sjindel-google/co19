@@ -19,8 +19,6 @@
  * @description Check that if p == n and m < q then T0 is not a subtype of T1
  * @author sgrekhov@unipro.ru
  */
-import "../utils/common.dart";
-import "../../../Utils/expect.dart";
 
 class U0 extends U1 {}
 class U1 {}

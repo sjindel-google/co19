@@ -20,7 +20,6 @@
  * subtype of T1
  * @author sgrekhov@unipro.ru
  */
-import "../utils/common.dart";
 
 class U0 extends U1 {}
 class U1 {}

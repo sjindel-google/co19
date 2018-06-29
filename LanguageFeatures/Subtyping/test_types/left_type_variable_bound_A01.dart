@@ -13,8 +13,6 @@
  * @author ngl@unipro.ru
  */
 
-import "../utils/common.dart";
-
 class T1 {}
 class B0 extends T1 {}
 class X0 extends B0 {}

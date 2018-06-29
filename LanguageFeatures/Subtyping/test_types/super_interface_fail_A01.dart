@@ -13,9 +13,6 @@
  * @author sgrekhov@unipro.ru
  */
 
-import "../utils/common.dart";
-import "../../../Utils/expect.dart";
-
 class T1 {}
 
 // Missing subtype relation to T1

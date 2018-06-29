@@ -21,8 +21,6 @@
  * a subtype of T1. Test generic types
  * @author sgrekhov@unipro.ru
  */
-import "../utils/common.dart";
-import "../../../Utils/expect.dart";
 
 class A {}
 
@@ -62,6 +60,6 @@ U<A, List, num> t1Func<X extends B0, Y extends B1>(
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-bool isGenericFunctionType = true;
 //# @T0 = T0
 //# @T1 = T1
+//# @GenericFunctionType
