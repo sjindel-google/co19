@@ -44,6 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds passes if dependency tree has
  *  a loop.
+ * @author iarkh@unipro.ru
  */
 typedef F<X> = X Function();
 F<F> testme() { return testme; }

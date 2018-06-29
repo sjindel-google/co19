@@ -45,6 +45,7 @@
  * @description Checks that typedef parameter argument cannot be [Null]
  * @compile-error
  * @Issue 33701
+ * @author iarkh@unipro.ru
  */
 
 typedef F<X extends Null> = void Function();

@@ -44,6 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds passes in correct cases if
  *  [typedef] function [F] is declared with [F] argument.
+ * @author iarkh@unipro.ru
  */
 typedef F<X> = Function(X);
 testme(F x) {}

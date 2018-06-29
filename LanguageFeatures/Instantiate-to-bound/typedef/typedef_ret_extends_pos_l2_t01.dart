@@ -44,6 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for function
  *  with parametrized return value.
+ * @author iarkh@unipro.ru
  */
 class A<X> {}
 typedef F<X extends A<X>> = X Function();

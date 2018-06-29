@@ -45,7 +45,7 @@
  * @description Checks that class parameter can extend [dynamic] and [Object].
  * @author iarkh@unipro.ru
  */
-class B<X1 extends dynamic> {}
-class C<X1 extends Object> {}
+class A<X extends dynamic> {}
+class B<X extends Object> {}
 
 main() {}

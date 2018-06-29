@@ -44,6 +44,8 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds fails in correct cases if
  *  [typedef] function [F] is declared with [F<F>] argument.
+ * @compile-error
+ * @author iarkh@unipro.ru
  */
 
 class A<X> {}

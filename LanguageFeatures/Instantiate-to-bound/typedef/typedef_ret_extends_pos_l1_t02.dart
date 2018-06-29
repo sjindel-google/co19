@@ -44,6 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that typedef can have parameter which extends [dynamic]
  *  or Object.
+ * @author iarkh@unipro.ru
  */
 
 typedef F<X extends dynamic> = void Function();

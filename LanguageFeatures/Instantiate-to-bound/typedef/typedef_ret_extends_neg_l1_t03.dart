@@ -45,6 +45,7 @@
  * @description Checks that typedef cannot have [void] parameter
  * @compile-error
  * @Issue 33699
+ * @author iarkh@unipro.ru
  */
 
 typedef F<X extends void> = void Function();

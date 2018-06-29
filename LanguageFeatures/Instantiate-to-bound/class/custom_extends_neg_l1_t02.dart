@@ -44,6 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that class parameter cannot extend given class.
  * @Issue 33152
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 class C<X extends C> {}

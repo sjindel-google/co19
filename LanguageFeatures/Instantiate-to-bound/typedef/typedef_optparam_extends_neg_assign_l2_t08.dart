@@ -42,9 +42,18 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that typedef cannot reference itself directly.
+ * @description Checks that instantiate-to-bounds fails in correct cases if
+ *  [typedef] function [F] is declared with [F<F>] optional argument.
  * @compile-error
+ * @author iarkh@unipro.ru
  */
 
-typedef F<X extends void> = void Function();
-main() {}
+class A<X> {}
+typedef F<X extends A<X>> = Function([X]);
+class B extends A<F> {}
+
+testme([F<F> f]) {}
+
+main() {
+  F<F<F<void>>> f = testme;
+}
