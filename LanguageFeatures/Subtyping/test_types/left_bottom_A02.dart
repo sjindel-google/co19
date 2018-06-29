@@ -12,8 +12,6 @@
  * @author ngl@unipro.ru
  */
 
-import "../utils/common.dart";
-
 class T1 {}
 
 Null t0Instance = null;

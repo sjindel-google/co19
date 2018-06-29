@@ -17,7 +17,6 @@
  */
 
 import "dart:async";
-import "../utils/common.dart";
 
 class A {}
 class B extends A {}

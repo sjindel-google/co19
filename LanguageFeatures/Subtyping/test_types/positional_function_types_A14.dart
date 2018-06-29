@@ -20,7 +20,6 @@
  * subtype of T1. Test generic types and the case when p > n and m == q.
  * @author sgrekhov@unipro.ru
  */
-import "../utils/common.dart";
 
 class A {}
 
