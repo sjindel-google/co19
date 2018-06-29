@@ -111,3 +111,4 @@ main() {
   x.test();
   LocalVariableTest.staticTest();
 }
+
