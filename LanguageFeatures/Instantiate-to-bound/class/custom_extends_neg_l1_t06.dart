@@ -42,10 +42,11 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that typedef cannot have [void] parameter
+ * @description Checks that class parameter cannot extend [Null].
  * @compile-error
- * @Issue 33699
+ * @Issue 33703
+ * @author iarkh@unipro.ru
  */
+class A<X extends Null> {}
 
-typedef F<X extends void> = void Function();
 main() {}

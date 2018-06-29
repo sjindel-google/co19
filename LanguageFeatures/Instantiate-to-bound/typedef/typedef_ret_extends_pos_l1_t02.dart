@@ -42,16 +42,11 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds passes if dependency tree has
- *  a loop.
- *  @compile-error
+ * @description Checks that typedef can have parameter which extends [dynamic]
+ *  or Object.
  */
-typedef F<X> = X Function();
-F<F> testme() { return testme(); }
 
-main() {
-  // See also issue #33606
-  F<F<F<dynamic>>> f7 = testme;
-}
+typedef F<X extends dynamic> = void Function();
+typedef F<X extends Object> = void Function();
 
-
+main() {}

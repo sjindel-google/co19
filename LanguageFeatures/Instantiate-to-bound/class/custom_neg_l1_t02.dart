@@ -42,10 +42,9 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that typedef cannot have [void] parameter
+ * @description Checks that class cannot extend [dynamic].
+ * @author iarkh@unipro.ru
  * @compile-error
- * @Issue 33699
  */
-
-typedef F<X extends void> = void Function();
+class B extends dynamic {}
 main() {}
