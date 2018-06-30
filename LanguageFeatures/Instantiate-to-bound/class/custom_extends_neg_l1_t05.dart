@@ -42,11 +42,11 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that class parameter cannot extend [void].
+ * @description Checks that class parameter cannot extend [Null].
  * @compile-error
- * @Issue 33704
+ * @Issue 33703
  * @author iarkh@unipro.ru
  */
-class A<X1 extends void> {}
+class A<X extends Null> {}
 
 main() {}

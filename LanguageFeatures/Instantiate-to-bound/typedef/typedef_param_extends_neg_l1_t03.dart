@@ -42,10 +42,10 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that typedef cannot reference itself directly.
+ * @description Checks that typedef parameter cannot extend [void].
  * @compile-error
  * @author iarkh@unipro.ru
  */
 
-typedef F<X extends void> = void Function();
+typedef F<X extends void> = Function(X);
 main() {}

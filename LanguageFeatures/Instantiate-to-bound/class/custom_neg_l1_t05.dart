@@ -42,11 +42,9 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that class parameter cannot extend [Null].
+ * @description Checks that class cannot extend itself.
  * @compile-error
- * @Issue 33703
  * @author iarkh@unipro.ru
  */
-class A<X extends Null> {}
-
+class C extends C {}
 main() {}
