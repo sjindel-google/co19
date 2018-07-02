@@ -472,7 +472,6 @@ main() {
       var fShaderId = info['fShaderId'];
       var passMsg = info['passMsg'];
       var vShaderSource = info['vShaderSource'];
-      var vShaderTest = info['vShaderTest'];
       var vShaderSuccess = info['vShaderSuccess'];
       var fShaderSource = info['fShaderSource'];
       var fShaderSuccess = info['fShaderSuccess'];
@@ -482,12 +481,6 @@ main() {
       log(passMsg);
       //debug(fShaderId);
       var vShader = wtu.loadShader(gl, vShaderSource, wgl.WebGL.VERTEX_SHADER);
-      if (vShaderTest != null) {
-        if (!vShaderTest(vShader)) {
-          testFailed(passMsg);
-          continue;
-        }
-      }
       if ((vShader != null) != vShaderSuccess) {
         testFailed(passMsg);
         continue;
