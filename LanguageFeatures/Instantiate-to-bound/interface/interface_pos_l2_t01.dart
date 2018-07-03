@@ -42,14 +42,26 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Check that type parameters are processed correctly.
- * @compile-error
- * @Issue 33585
+ * @description Checks the [B<X extends A<X>> implements A<X>] case.
  * @author iarkh@unipro.ru
  */
 
-abstract class B<X extends int> extends Object{}
+class A<X extends B<X>> {}
+class B<X extends B<X>> implements A<X> {}
 
-class A implements B<List>{}
+main() {
+  A a1 = new A<Null>();
+  A<Null> a2 = new A();
 
-main() {}
+  B<Null> b1 = new B();
+  B<B<Null>> b2 = new B();
+  B<B<B<Null>>> b3 = new B();
+  B<B<B<Null>>> b4 = new B();
+  B<B<B<B<Null>>>> b5 = new B();
+
+  B b6 = new B<Null>();
+  B b7 = new B<B<Null>>();
+  B b8 = new B<B<B<Null>>>();
+  B b9 = new B<B<B<Null>>>();
+  B b10 = new B<B<B<B<Null>>>>();
+}

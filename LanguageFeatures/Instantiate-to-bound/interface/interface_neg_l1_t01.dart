@@ -42,11 +42,11 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Check that class type parameter cannot extend given class.
+ * @description Check that class cannot implement itself.
  * @compile-error
  * @author iarkh@unipro.ru
  */
 
-abstract class A implements A {}
+class A implements A {}
 
 main() {}

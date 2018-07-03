@@ -42,10 +42,10 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that class parameter can extend [dynamic] and [Object].
+ * @description Check that class cannot implement [dynamic].
+ * @compile-error
  * @author iarkh@unipro.ru
  */
-class A<X extends dynamic> {}
-class B<X extends Object> {}
 
+abstract class A implements dynamic {}
 main() {}

@@ -45,7 +45,14 @@
  * @description Checks that class parameter can extend [dynamic] and [Object].
  * @author iarkh@unipro.ru
  */
-class A<X extends dynamic> {}
-class B<X extends Object> {}
+class A1 implements A {}
+class A<X extends A1> {}
 
-main() {}
+main() {
+  A a = new A<Object>();
+  A a = new A<dynamic>();
+  A a = new A<void>();
+
+  A<List> a12 = new A();
+  A<Null> a14 = new A<A1>();
+}

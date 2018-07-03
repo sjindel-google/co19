@@ -42,10 +42,16 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that class parameter can extend [dynamic] and [Object].
+ * @description Checks that class with two parameters can have a loop in
+ *  dependence tree.
  * @author iarkh@unipro.ru
  */
-class A<X extends dynamic> {}
-class B<X extends Object> {}
+class A<X1 extends X2, X2 extends A<X1, X2>> {}
 
-main() {}
+main() {
+  A<Null, Null> a1 = new A();
+  A a2 = new A<Null, Null>();
+
+  A<A<Null, Null>, A<Null, Null>> a3 = new A();
+  A a4 = new A<A<Null, Null>, A<Null, Null>>();
+}

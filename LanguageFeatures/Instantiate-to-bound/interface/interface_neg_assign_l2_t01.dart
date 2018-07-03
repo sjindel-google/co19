@@ -44,7 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Check that type parameters are processed correctly.
  * @compile-error
- * @Issue 33585
+ * @Issue 33308
  * @author iarkh@unipro.ru
  */
 class O extends Object {}
@@ -54,5 +54,5 @@ abstract class A<X> extends O {}
 class B<X> implements A<X>{}
 
 main() {
-  B<O1> a = new B();
+  B a = new B<O1>();
 }

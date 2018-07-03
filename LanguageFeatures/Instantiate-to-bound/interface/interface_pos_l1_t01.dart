@@ -42,10 +42,22 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that class parameter can extend [dynamic] and [Object].
+ * @description [A] class implements [B] and [B] takes [A] as a typed parameter.
+ *  Checks which objects can be created.
  * @author iarkh@unipro.ru
  */
-class A<X extends dynamic> {}
-class B<X extends Object> {}
+class B implements A {}
+class A<X extends B> {}
 
-main() {}
+main() {
+  A a1 = new A();
+  A a2 = new A<B>();
+  A a3 = new A<Null>();
+
+  A<B> a4 = new A();
+  A<Null> a5 = new A();
+
+  A<B> a6 = new A<Null>();
+
+  B b1 = new B();
+}
