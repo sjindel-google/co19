@@ -42,18 +42,34 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works correctly for function
- *  with parametrized return value.
- * @compile-error
+ * @description Checks that instantiate-to-bound process passes OK
  * @author iarkh@unipro.ru
  */
-class A<X> {}
-typedef F<X extends A<X>> = X Function();
-class B extends A<F> {}
+import "../../../Utils/expect.dart";
 
-F<F> testme() { return null; }
+class A<X> {}
+class B<X> extends A<X> {}
+
+class G<X1, X2 extends A<X1>> {}
 
 main() {
-  F<F<F<int>>> f1 = testme;
-}
 
+  G g1 = new G();
+  Expect.isTrue(g1 is G<dynamic, A>);
+
+  G<A<dynamic>, B<Null>> g2 = new G();
+  Expect.isTrue(g2 is G);
+  Expect.isTrue(g2 is G<dynamic, A>);
+
+  G<A<Object>, B<Null>> g3 = new G();
+  Expect.isTrue(g3 is G);
+  Expect.isTrue(g3 is G<dynamic, A>);
+
+  G<A<String>, B<Null>> g4 = new G();
+  Expect.isTrue(g4 is G);
+  Expect.isTrue(g4 is G<dynamic, A>);
+
+  G<A<dynamic>, B<A<dynamic>>> g5 = new G();
+  Expect.isTrue(g5 is G);
+  Expect.isTrue(g5 is G<dynamic, A>);
+}
