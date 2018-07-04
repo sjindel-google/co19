@@ -42,7 +42,7 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Check [implements] parameter processing.
+ * @description Check [implements] parameter processing - simple case.
  * @author iarkh@unipro.ru
  */
 

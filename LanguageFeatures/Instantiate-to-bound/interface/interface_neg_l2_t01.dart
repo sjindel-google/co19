@@ -47,9 +47,9 @@
  * @author iarkh@unipro.ru
  */
 
-class A1<X extends A<X>> implements A<X> {}
-class A<X extends A<X>> {}
+class A<X extends B<X>> {}
+class B<X extends B<X>> implements A<X> {}
 
 main() {
-  A a = new A<A>();
+   A a2 = new A<int>();
 }

@@ -42,8 +42,8 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds passes if dependency tree has
- *  a loop.
+ * @description Checks that instantiate-to-bounds passes if function parameter
+ *  is of parametrized type.
  */
 import "../../../Utils/expect.dart";
 

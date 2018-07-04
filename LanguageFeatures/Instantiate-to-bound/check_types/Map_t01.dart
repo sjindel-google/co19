@@ -11,7 +11,7 @@
  * the result of performing instantiate to bound on the type in the bound, [Ti];
  * in the case where [Bi] is omitted, let [Si] be dynamic.
  * @description Checks that omitted argument type during the [Map] object
- * creation results to creating an object with [dynamic] type parameter.
+ * creation results to creating an object with correct type parameter.
  * @author iarkh@unipro.ru
  */
 
