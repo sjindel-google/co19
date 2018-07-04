@@ -11,7 +11,7 @@
  * @description Checks that [c2.next.next.unknown(45)] line from the test
  * example causes compile-time error and throws error in runtime
  * @author iarkh@unipro.ru
- * $compile-error
+ * @compile-error
  */
 import "../../Utils/expect.dart";
 

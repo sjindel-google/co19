@@ -42,7 +42,7 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that class cannot extends some class and be a nixin with
+ * @description Checks that class cannot extends some class and be a mixin with
  *  this.
  *  @compile-error
  *  @Issue 33596

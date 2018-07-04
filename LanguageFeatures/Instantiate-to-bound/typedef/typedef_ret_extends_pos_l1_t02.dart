@@ -48,6 +48,6 @@
  */
 
 typedef F<X extends dynamic> = void Function();
-typedef F<X extends Object> = void Function();
+typedef F1<X extends Object> = void Function();
 
 main() {}
