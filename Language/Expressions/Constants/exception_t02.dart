@@ -12,7 +12,7 @@
  * @reviewer rodionov
  */
 
-const m = 1 << 99999999999999999999999999999999999999999999999999999999999; /// 01: runtime error
+const m = 1 << 999999999999999999; /// 01: runtime error
 
 main() {
   print(m); /// 01: continued
