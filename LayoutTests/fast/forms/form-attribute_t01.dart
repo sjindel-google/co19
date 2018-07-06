@@ -19,7 +19,6 @@ main() {
     '<button name=victim form=owner />' +
     '<fieldset name=victim form=owner />' +
     '<input name=victim form=owner />' +
-    '<keygen name=victim form=owner />' +
     '<label name=victim form=owner />' +
     '<object name=victim form=owner></object>' +
     '<output name=victim form=owner />' +
@@ -31,7 +30,6 @@ main() {
   shouldBe((document.getElementsByTagName("button")[0] as ButtonElement).form, owner);
   shouldBe((document.getElementsByTagName("fieldset")[0] as FieldSetElement).form, owner);
   shouldBe((document.getElementsByTagName("input")[0] as InputElement).form, owner);
-  shouldBe((document.getElementsByTagName("keygen")[0] as KeygenElement).form, owner);
   shouldBe((document.getElementsByTagName("label")[0] as LabelElement).form, owner);
   shouldBe((document.getElementsByTagName("object")[0] as ObjectElement).form, owner);
   shouldBe((document.getElementsByTagName("output")[0] as OutputElement).form, owner);

@@ -30,7 +30,6 @@
  * @description Checks that all decimal and hexadecimal digits are parsed
  * correctly.
  * @author iefremov
- * @reviewer rodionov
  */
 import '../../../Utils/expect.dart';
 
@@ -45,8 +44,4 @@ main() {
 
   var v3 = 01234567899876543210.01234567899876543210;
   Expect.equals(1.23456789987654323E18, v3);
-
-  var v4 = 0x1234567890abcdefABCDEF;
-  Expect.equals(22007822917795467892608495, v4);
-  Expect.equals("22007822917795467892608495", v4.toString());
 }

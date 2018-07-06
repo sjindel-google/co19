@@ -59,8 +59,6 @@
  * @description Checks that double reexport also works (no show/hide combinators
  * are used).
  * @author rodionov
- * @reviewer kaigorodov
- * @static-warning
  */
 import "../../../Utils/expect.dart";
 
@@ -75,7 +73,7 @@ class JJ extends J {
 main() {
   Expect.equals("A_FOO", aFoo);
   Expect.equals('aFunc', aFunc());
-  aTypeAlias ff = (bool b, String s) {}; /// static type warning
+  aTypeAlias ff = (b, s) {};
 
   A a = new A();
   J j = new JJ();

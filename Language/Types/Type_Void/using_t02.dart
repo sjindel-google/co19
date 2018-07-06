@@ -9,12 +9,9 @@
  * of null, such as ==). Likewise, passing the result of a void method as a
  * parameter or assigning it to a variable will cause a warning unless the
  * variable/formal parameter has type dynamic.
- * @description Checks that assigning the result of a void method invocation to
- * a variable whose declared type is not dynamic results in a compile error.
- * @compile-error
+ * @description Checks that it is no compile error when assigning the result of
+ * a void method invocation to a variable whose declared type is not dynamic
  * @author rodionov
- * @needsreview Assertion of this test cites non-normative text.
- * Possibly, this text in the spec should be normative?
  */
 
 void foo() {return;}

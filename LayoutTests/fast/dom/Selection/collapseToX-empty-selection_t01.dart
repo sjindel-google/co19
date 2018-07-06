@@ -24,8 +24,8 @@ main() {
 
   sel.selectAllChildren(textNode);
 
-  shouldBeTrue(sel.collapseToStart(), null);
-  shouldBe(sel.collapseToEnd(), null);
+  sel.collapseToStart();
+  sel.collapseToEnd();
 
   textNode.remove();
 }

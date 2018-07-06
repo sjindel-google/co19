@@ -134,14 +134,6 @@ main() {
   // SVGEvents (Event alternative)
   shouldBeTrue(new Event.eventType('SVGEvents', '') is Event);
 
-  // SVGZoomEvent
-  shouldBeTrue(new Event.eventType('SVGZoomEvent', '') is svg.ZoomEvent);
-  shouldBeTrue(new Event.eventType('SVGZoomEvent', '') is Event);
-
-  // SVGZoomEvents (SVGZoomEvent alternative)
-  shouldBeTrue(new Event.eventType('SVGZoomEvents', '') is svg.ZoomEvent);
-  shouldBeTrue(new Event.eventType('SVGZoomEvents', '') is Event);
-
   // CloseEvent
   shouldBeTrue(new Event.eventType('CloseEvent', '') is CloseEvent);
   shouldBeTrue(new Event.eventType('CloseEvent', '') is Event);
@@ -187,8 +179,4 @@ main() {
 
   // OrientationEvent (Event alternative)
   // shouldBeTrue(new Event.eventType('OrientationEvent', '') is Event);
-
-  // AutocompleteErrorEvent
-  shouldBeTrue(new Event.eventType('AutocompleteErrorEvent', '') is AutocompleteErrorEvent);
-  shouldBeTrue(new Event.eventType('AutocompleteErrorEvent', '') is Event);
 }

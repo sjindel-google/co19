@@ -53,7 +53,7 @@ main() {
     });
     reader.onError.listen((event) {
       testFailed(
-          "Received error event: ${(event.target as FileReader).error.code}");
+          "Received error event: ${(event.target as FileReader).error.name}");
     });
     reader.readAsText(sliced);
   }
@@ -81,7 +81,7 @@ main() {
     });
     reader.onError.listen((event) {
       FileReader target = event.target;
-      testFailed("Received error event: ${target.error.code}");
+      testFailed("Received error event: ${target.error.name}");
       runNextTest();
     });
     reader.readAsText(blob);

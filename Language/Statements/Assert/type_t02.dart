@@ -11,7 +11,6 @@
  * @compile-error
  * @issue #27426
  * @author rodionov
- * @reviewer iefremov
  */
 dynamic foo() {return 1;}
 

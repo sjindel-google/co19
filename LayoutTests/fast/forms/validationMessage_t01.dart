@@ -165,11 +165,5 @@ main() {
   form.append(happyObject);
   shouldBe(happyObject.validationMessage, '');
 
-  // Keygen controls can't be validated
-  KeygenElement happyKeygen = document.createElement("keygen") as KeygenElement;
-  happySelect.name = "keygen";
-  form.append(happyKeygen);
-  shouldBe(happyKeygen.validationMessage, '');
-
   form.remove();
 }

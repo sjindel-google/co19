@@ -11,7 +11,6 @@
  * @compile-error
  * @issue 26002
  * @author rodionov
- * @reviewer iefremov
  */
 bool foo(x) {
   return false;
