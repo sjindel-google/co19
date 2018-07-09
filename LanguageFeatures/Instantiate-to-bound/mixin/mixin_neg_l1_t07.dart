@@ -42,10 +42,11 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Check that class cannot implement [Null].
- * @compile-error
+ * @description Checks that class can take itself as its mixin parameter.
  * @author iarkh@unipro.ru
  */
 
-abstract class A implements Null {}
+class M<X extends List> {}
+class O extends Object with M<int> {}
+
 main() {}

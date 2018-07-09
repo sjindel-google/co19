@@ -42,10 +42,11 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Check that class cannot implement [Null].
+ * @description Check that class cannot extend illegal recursive class.
  * @compile-error
+ * @Issue 33786
  * @author iarkh@unipro.ru
  */
-
-abstract class A implements Null {}
+class M<X> {}
+class O<X extends O<X>> extends M<O<O<X>>> {}
 main() {}

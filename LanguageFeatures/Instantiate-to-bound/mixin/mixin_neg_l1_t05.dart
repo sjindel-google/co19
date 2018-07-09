@@ -42,10 +42,11 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Check that class cannot implement [Null].
- * @compile-error
+ * @description Checks that class cannot be a mixin with [dynamic].
+ *  @compile-error
  * @author iarkh@unipro.ru
  */
+class M {}
+class O extends M with dynamic {}
 
-abstract class A implements Null {}
 main() {}

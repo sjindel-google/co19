@@ -42,10 +42,13 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Check that class cannot implement [Null].
+ * @description Check that instantiate-to-bounds process works as expected.
  * @compile-error
  * @author iarkh@unipro.ru
  */
+class M<X> {}
+class O<X extends O<X>> extends Object with M<O<O<X>>> {}
 
-abstract class A implements Null {}
-main() {}
+main() {
+  O o1 = new O();
+}

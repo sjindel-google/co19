@@ -42,10 +42,14 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Check that class cannot implement [Null].
+ * @description [B] class implements [A] and [A] takes [B] as a typed parameter
+ *  bound. Checks that it's impossible to create [A<void>] object.
  * @compile-error
  * @author iarkh@unipro.ru
  */
+class B implements A {}
+class A<X extends B> {}
 
-abstract class A implements Null {}
-main() {}
+main() {
+  A a = new A<void>();
+}
