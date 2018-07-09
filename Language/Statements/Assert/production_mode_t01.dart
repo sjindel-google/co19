@@ -8,8 +8,6 @@
  * @description Checks that the assert statement has no effect in production
  * mode.
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 import '../../../Utils/expect.dart';
@@ -21,6 +19,5 @@ bool check() {
 main() {
   // TODO check if assert is effective
   assert (false);
-  assert (() => true);
   assert(check());
 }

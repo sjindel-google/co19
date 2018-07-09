@@ -99,7 +99,7 @@ main() {
     shouldBe(test.innerHtml, initial);
 
     if (command['selector'] != null) {
-      var f = command['selector'];
+      Function f = command['selector'];
       f(test);
     } else {
       InputElement input = document.body.querySelector('input');

@@ -24,6 +24,7 @@
  * @author a.semenov@unipro.ru
  */
 import 'dart:async';
+import '../../Utils/expect.dart';
 
 class A {
   static Stream<int> a1() async* {

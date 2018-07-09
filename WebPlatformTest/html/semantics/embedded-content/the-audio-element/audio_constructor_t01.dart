@@ -30,7 +30,8 @@ void main() {
   ];
 
   tests.forEach((t) {
-    var fn = t[0], expectedSrc = t[1], description = t[2];
+    Function fn = t[0];
+    var expectedSrc = t[1], description = t[2];
     test(() {
       var element = fn();
       assert_equals(element.localName, "audio");

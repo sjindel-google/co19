@@ -18,8 +18,6 @@
  * @compile-error
  * @issue 27426
  * @author vasya
- * @reviewer rodionov
- * @reviewer iefremov
  */
 
 bar() {return 1;}

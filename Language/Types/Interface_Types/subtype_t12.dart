@@ -29,7 +29,6 @@
  * parameters. Subtypes of a function type described according to
  * (Types/Function Types).
  * @author iefremov
- * @reviewer rodionov
  */
 
 class A {}
@@ -52,8 +51,8 @@ typedef B f1_4(int i, B b, Map<int, num> m, var x);
 
 B f01(int i, B b, Map<int, num> m, var x,
       [var ox, B ob, List<num> ol, bool obool]) {}
-D f02(int i, D b, Map<num, num> m, func x,
-      [func ox, D ob, List<Object> ol, bool obool]) {}
+D f02(int i, D b, Map<num, num> m, var x,
+      [var ox, D ob, List<Object> ol, bool obool]) {}
 C f03(num i, A b, Map<Object, Object> m, var x,
       [var ox, A2 ob, List ol, Object obool]) {}
 A f04(num i, A b, Map<Object, Object> m, var x,

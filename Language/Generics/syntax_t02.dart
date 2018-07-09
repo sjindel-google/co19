@@ -15,7 +15,6 @@
  * ;
  * @description Checks various correct generic class declarations.
  * @author iefremov
- * @reviewer kaigorodov
  */
 
 abstract class I{}

@@ -10,10 +10,9 @@
  * be assigned to bool.
  * @compile-error
  * @author rodionov
- * @reviewer iefremov
  */
 
-void f() {}
+int f() => 1;
 
 main() {
   do {

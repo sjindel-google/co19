@@ -25,7 +25,7 @@ main() {
       <p><input autofocus="autofocus"/></p>
       ''', treeSanitizer: new NullTreeSanitizer());
 
-  document.body.querySelector('input')[0].focus();
+  document.body.querySelectorAll('input')[0].focus();
 
-  shouldBe(document.activeElement, document.body.querySelector('input')[0]);
+  shouldBe(document.activeElement, document.body.querySelectorAll('input')[0]);
 }

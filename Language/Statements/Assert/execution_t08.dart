@@ -16,7 +16,6 @@
  * @description Checks that the assert statement succeeds if the conditional
  * expression evaluates to either true or () => true.
  * @author rodionov
- * @reviewer iefremov
  */
 import '../../../Utils/expect.dart';
 
@@ -33,8 +32,6 @@ main() {
   assert (true);
   assert (true ? true : true);
   assert ((1 > 0 ? true && true : true || false));
-  assert (() => true);
-  assert (t);
-  assert ("string".contains("tri") ? t : f);
-  assert ("string".contains("tri") ? (() => true) : (() => false));
+  assert (t());
+  assert ("string".contains("tri") ? t() : f());
 }

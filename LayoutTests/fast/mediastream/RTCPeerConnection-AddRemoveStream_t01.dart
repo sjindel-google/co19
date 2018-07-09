@@ -41,9 +41,6 @@ void onRemoveStream(event) {
 void onAddStream(event) {
     print('onAddStream was called.');
 
-    Expect.equals(stream, pc.getStreamById(stream.id));
-    Expect.equals(null, pc.getStreamById(stream2.id));
-
     //pc.onNegotiationNeeded = onErroneousNegotiationNeeded;
     pc.addStream(stream);
     Expect.equals(1, pc.getLocalStreams().length);
