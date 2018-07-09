@@ -42,13 +42,14 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Check that instantiate-to-bounds process works as expected.
+ * @description Checks that instantiate-to-bounds work correctly.
  * @compile-error
  * @author iarkh@unipro.ru
  */
-class M<X> {}
-class O<X extends O<X>> extends Object with M<O<O<X>>> {}
+
+class A<X extends B<X>> {}
+class B<X extends B<X>> extends Object with A<X> {}
 
 main() {
-  O<dynamic> o1 = new O();
+   A a2 = new A<int>();
 }

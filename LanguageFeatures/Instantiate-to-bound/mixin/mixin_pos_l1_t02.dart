@@ -42,13 +42,26 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Check that instantiate-to-bounds process works as expected.
- * @compile-error
+ * @description Checks that class parameter can be of any type.
  * @author iarkh@unipro.ru
  */
-class M<X> {}
-class O<X extends O<X>> extends Object with M<O<O<X>>> {}
+class A<X> extends Object with B<X> {}
+class B<X> {}
 
 main() {
-  O<dynamic> o1 = new O();
+  A a1 = new A();
+
+  A a2 = new A<B>();
+  A a3 = new A<Null>();
+  A a4 = new A<dynamic>();
+  A a5 = new A<void>();
+  A a6 = new A<Object>();
+  A a7 = new A<List>();
+
+  A<B> a8 = new A();
+  A<Null> a9 = new A();
+  A<dynamic> a10 = new A();
+  A<void> a11 = new A();
+  A<Object> a12 = new A();
+  A<List> a13 = new A();
 }

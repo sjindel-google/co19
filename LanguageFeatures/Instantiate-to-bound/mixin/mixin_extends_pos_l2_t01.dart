@@ -42,13 +42,26 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Check that instantiate-to-bounds process works as expected.
- * @compile-error
+ * @description Checks the [B<X extends A<X>> extends Object with A<X>] case.
  * @author iarkh@unipro.ru
  */
-class M<X> {}
-class O<X extends O<X>> extends Object with M<O<O<X>>> {}
+
+class A<X extends B<X>> {}
+class B<X extends B<X>> extends Object with A<X> {}
 
 main() {
-  O<dynamic> o1 = new O();
+  A a1 = new A<Null>();
+  A<Null> a2 = new A();
+
+  B<Null> b1 = new B();
+  B<B<Null>> b2 = new B();
+  B<B<B<Null>>> b3 = new B();
+  B<B<B<Null>>> b4 = new B();
+  B<B<B<B<Null>>>> b5 = new B();
+
+  B b6 = new B<Null>();
+  B b7 = new B<B<Null>>();
+  B b8 = new B<B<B<Null>>>();
+  B b9 = new B<B<B<Null>>>();
+  B b10 = new B<B<B<B<Null>>>>();
 }

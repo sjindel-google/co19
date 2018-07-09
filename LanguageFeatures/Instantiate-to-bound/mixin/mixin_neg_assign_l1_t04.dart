@@ -42,13 +42,14 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Check that instantiate-to-bounds process works as expected.
+ * @description [B] is a mixin with [A] and [A] takes [B] as a typed parameter
+ *  bound. Checks that it's impossible to create [A<int>] object.
  * @compile-error
  * @author iarkh@unipro.ru
  */
-class M<X> {}
-class O<X extends O<X>> extends Object with M<O<O<X>>> {}
+class B extends Object with A {}
+class A<X extends B> {}
 
 main() {
-  O<dynamic> o1 = new O();
+  A a = new A<int>();
 }
