@@ -42,12 +42,16 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that typedef can have parameter which extends [dynamic]
- *  or [Object].
+ * @description Checks that instantiate-to-bounds works correctly for function
+ *  with parametrized return value.
+ * @Issue 33805
  * @author iarkh@unipro.ru
  */
+class A<X> {}
+X testme<X extends A<X>>() { return null; }
 
-typedef F<X extends dynamic> = X Function();
-typedef F1<X extends Object> = X Function();
 
-main() {}
+main() {
+  A a1 = testme();
+}
+

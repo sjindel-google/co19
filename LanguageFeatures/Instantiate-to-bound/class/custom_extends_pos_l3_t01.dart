@@ -42,12 +42,10 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that typedef can have parameter which extends [dynamic]
- *  or [Object].
+ * @description Check that class can extend illegal recursive class.
+ * @Issue 33786
  * @author iarkh@unipro.ru
  */
-
-typedef F<X extends dynamic> = X Function();
-typedef F1<X extends Object> = X Function();
-
+class M<X> {}
+class O<X extends O<X>> extends M<O<O<X>>> {}
 main() {}

@@ -42,11 +42,25 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Check that class cannot extend illegal recursive class.
- * @compile-error
- * @Issue 33786
+ * @description Checks that instantiate-to-bounds passes if dependency tree has
+ *  a loop.
  * @author iarkh@unipro.ru
  */
-class M<X> {}
-class O<X extends O<X>> extends M<O<O<X>>> {}
-main() {}
+class A<X extends A<X>> {}
+
+A testme() { return null; }
+A<Null> testme1() { return null; }
+
+main() {
+  A a1 = testme();
+  A<Null> a2 = testme();
+  A<A<Null>> a3 = testme();
+  A<A<A<Null>>> a4 = testme();
+  A<A<A<A<Null>>>> a5 = testme();
+
+  A a6 = testme1();
+  A<Null> a7 = testme1();
+  A<A<Null>> a8 = testme1();
+}
+
+

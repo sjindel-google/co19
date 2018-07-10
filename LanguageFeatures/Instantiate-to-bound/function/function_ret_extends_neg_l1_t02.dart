@@ -42,12 +42,12 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that typedef can have parameter which extends [dynamic]
- *  or [Object].
+ * @description Checks that function parameter argument cannot be of [Null] type
+ * @compile-error
+ * @Issue 33701
  * @author iarkh@unipro.ru
  */
 
-typedef F<X extends dynamic> = X Function();
-typedef F1<X extends Object> = X Function();
+X testme<X extends Null>() {return Null; }
 
 main() {}

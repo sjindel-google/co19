@@ -42,12 +42,14 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that typedef can have parameter which extends [dynamic]
- *  or [Object].
+ * @description Checks that parameter type is checked correctly for functions.
+ * @Issue 33597
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 
-typedef F<X extends dynamic> = X Function();
-typedef F1<X extends Object> = X Function();
+X testme<X extends int>() { return null; }
 
-main() {}
+main() {
+  List a = testme();
+}
