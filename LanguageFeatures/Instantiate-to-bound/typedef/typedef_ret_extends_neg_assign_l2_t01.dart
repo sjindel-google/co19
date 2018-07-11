@@ -49,7 +49,6 @@
  */
 class A<X> {}
 typedef F<X extends A<X>> = X Function();
-class B extends A<F> {}
 
 F<F> testme() { return null; }
 

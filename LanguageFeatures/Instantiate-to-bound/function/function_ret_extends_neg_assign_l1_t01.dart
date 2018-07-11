@@ -42,17 +42,14 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds fails in correct cases if
- *  [typedef] function [F] is declared with named [F<F>] argument.
+ * @description Checks that parameter type is checked correctly for functions.
+ * @Issue 33597
  * @compile-error
  * @author iarkh@unipro.ru
  */
 
-class A<X> {}
-typedef F<X extends A<X>> = Function({X y});
-
-testme({F<F> y}) {}
+X testme<X extends int>() { return null; }
 
 main() {
-  F f = testme;
+  List a = testme();
 }
