@@ -42,17 +42,18 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds fails in correct cases if
- *  [typedef] function [F] is declared with named [F<F>] argument.
+ * @description Checks that instantiate-to-bounds works as expected if
+ *  dependency tree has a loop.
  * @compile-error
+ * @Issue 33597
  * @author iarkh@unipro.ru
  */
+class A<X extends A<X>> {}
 
-class A<X> {}
-typedef F<X extends A<X>> = Function({X y});
-
-testme({F<F> y}) {}
+A testme() { return null; }
 
 main() {
-  F f = testme;
+  A<A<dynamic>> a = testme();
 }
+
+

@@ -42,10 +42,15 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that function cannot have parameter which extends [void].
+ * @description Checks that instantiate-to-bounds works as expected.
  * @compile-error
- * @Issue 33699
+ * @Issue 33597
  * @author iarkh@unipro.ru
  */
-testme<X extends void>() {}
-main() {}
+class A<X> {}
+X testme<X extends A<X>>() { return null; }
+
+main() {
+  A<A<A<void>>> a = testme();
+}
+

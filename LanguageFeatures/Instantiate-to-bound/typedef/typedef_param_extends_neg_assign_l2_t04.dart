@@ -50,7 +50,6 @@
 
 class A<X> {}
 typedef F<X extends A<X>> = Function(X);
-class B extends A<F> {}
 
 testme(F<F> f) {}
 

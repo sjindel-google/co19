@@ -44,14 +44,15 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for function
  *  with parametrized return value.
- * @Issue 33805
  * @author iarkh@unipro.ru
  */
 class A<X> {}
 X testme<X extends A<X>>() { return null; }
 
-
 main() {
-  A a1 = testme();
+  A<Null> a1 = testme();
+  A<A<Null>> a2 = testme();
+  A<A<A<Null>>> a3 = testme();
+  A<A<A<A<Null>>>> a4 = testme();
 }
 
