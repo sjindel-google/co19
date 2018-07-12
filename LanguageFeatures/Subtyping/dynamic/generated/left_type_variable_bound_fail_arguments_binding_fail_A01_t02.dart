@@ -12,6 +12,19 @@
  * B0 is not a subtype of T1 then T0 is not a subtype of a type T1.
  * @author ngl@unipro.ru
  */
+/**
+ * @description Check that if type T0 not a subtype of a type T1, then it cannot
+ * be used as an argument of type T1. Test superclass members
+ * @author sgrekhov@unipro.ru
+ */
+/*
+ * This test is generated from left_type_variable_bound_fail_A01.dart and 
+ * arguments_binding_fail_x02.dart.
+ * Don't modify it. If you want to change this file, change one of the files 
+ * above and then run generator.dart to regenerate the tests.
+ */
+
+
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
 

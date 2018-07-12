@@ -75,17 +75,32 @@ void generateTests(Directory testCasesDir, Directory testTypesDir,
         }
       }
       String testCaseText = testCase.readAsStringSync();
-      testCaseText = removeHeader(testCaseText);
-      testCaseText = removeNotGenericFunctionTypePart(isGenericFunctionType, testCaseText);
+      testCaseText = removeNotGenericFunctionTypePart(isGenericFunctionType,
+          testCaseText);
       testCaseText = replace(testCaseText, replacement);
-      String generatedTestText =
-          removeReplacements(testTypeTextStrings) + testCaseText;
+      String testTypeText = removeReplacements(testTypeTextStrings);
+
+      String header = getGeneratedTestHeader(testTypeText, testCaseText,
+          getGeneratedFileComment(testType, testCase));
+      String generatedTestText = header + removeHeader(testTypeText) +
+          removeHeader(testCaseText);
       File generatedTest = getGeneratedTestFile(testType, testCase, outputDir);
       generatedTest.writeAsStringSync(generatedTestText);
       generatedCount++;
     }
   }
   print("$generatedCount $testsType tests generated successfully");
+}
+
+String getGeneratedFileComment(File testType, File testCase) {
+  String testTypeFileName = getFileName(testType);
+  String testCaseFileName = getFileName(testCase);
+  return '''/*
+ * This test is generated from $testTypeFileName and 
+ * $testCaseFileName.
+ * Don't modify it. If you want to change this file, change one of the files 
+ * above and then run generator.dart to regenerate the tests.
+ */''';
 }
 
 bool findIsGenericFunctionType(List<String> strings) {
@@ -131,6 +146,29 @@ String removeHeader(String text) {
     }
   }
   return text;
+}
+
+String getComment(String text, int index) {
+  int start = text.indexOf("/*");
+  int end = text.indexOf("*/");
+  if (index > 0) {
+    start = text.indexOf("/*", start + 1);
+    end = text.indexOf("*/", end + 1);
+  }
+  if (start > -1 && end > -1) {
+    return text.substring(start, end + 2);
+  }
+  return null;
+}
+
+String getGeneratedTestHeader(String testTypeText, String testCaseText, String text) {
+  String copyright = getComment(testTypeText, 0);
+  String testTypeComment = getComment(testTypeText, 1);
+  String testCaseComment = getComment(testCaseText, 1);
+  return copyright + "\n"
+      + testTypeComment + "\n"
+      + testCaseComment + "\n"
+      + text + "\n";
 }
 
 String removeReplacements(List<String> strings) {

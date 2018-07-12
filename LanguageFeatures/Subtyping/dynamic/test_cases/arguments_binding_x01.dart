@@ -4,7 +4,6 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A type T0 is a subtype of a type T1
  * @description Check that if type T0 is a subtype of a type T1, then instance
  * of T0 can be be used as an argument of type T1
  * @author sgrekhov@unipro.ru

@@ -20,6 +20,19 @@
  * U1[Z0/Y0, ..., Zk/Yk], then T0 is not a subtype of T1. Test generic types
  * @author sgrekhov@unipro.ru
  */
+/**
+ * @description Check that if type T0 not a subtype of a type T1, then it cannot
+ * be used as an argument of type T1. Test mixin members
+ * @author sgrekhov@unipro.ru
+ */
+/*
+ * This test is generated from named_function_types_fail_A43.dart and 
+ * arguments_binding_fail_x03.dart.
+ * Don't modify it. If you want to change this file, change one of the files 
+ * above and then run generator.dart to regenerate the tests.
+ */
+
+
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
 
