@@ -4,7 +4,6 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion A type T0 is a subtype of a type T1
  * @description Check that if type T0 not a subtype of a type T1, then it cannot
  * be used as an argument of type T1. Test mixin members
  * @author sgrekhov@unipro.ru

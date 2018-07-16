@@ -21,6 +21,19 @@
  * a subtype of T1. Test generic types
  * @author sgrekhov@unipro.ru
  */
+/**
+ * @description Check that if type T0 is not a subtype of a type T1, then
+ * instance of T0 cannot be be assigned to the to local variable of type T1
+ * @author sgrekhov@unipro.ru
+ */
+/*
+ * This test is generated from named_function_types_fail_A23.dart and 
+ * local_variable_fail_x01.dart.
+ * Don't modify it. If you want to change this file, change one of the files 
+ * above and then run generator.dart to regenerate the tests.
+ */
+
+
 import '../../utils/common.dart';
 import '../../../../Utils/expect.dart';
 
