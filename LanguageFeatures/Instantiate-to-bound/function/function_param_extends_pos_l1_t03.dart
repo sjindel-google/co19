@@ -50,7 +50,6 @@ class A<X> {}
 testme<X extends A<X>>(X x) {}
 
 main() {
-  testme(A());
   testme(A<Null>());
   testme(A<A<Null>>());
   testme(A<A<A<Null>>>());

@@ -42,10 +42,17 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that function cannot have parameter which extends [void].
- * @compile-error
- * @Issue 33699
+ * @description Checks that function can have optional parameter which extends
+ *  [dynamic] or [Object].
  * @author iarkh@unipro.ru
  */
-testme<X extends void>() {}
-main() {}
+
+function1<X extends dynamic>([X x]) {}
+function2<X extends Object>([X x]) {}
+
+main() {
+  function1();
+  function1(12);
+  function2();
+  function2("test");
+}

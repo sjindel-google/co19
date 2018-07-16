@@ -50,4 +50,7 @@
 function1<X extends dynamic>(X x) {}
 function2<X extends Object>(X x) {}
 
-main() {}
+main() {
+  function1(12);
+  function2("test");
+}

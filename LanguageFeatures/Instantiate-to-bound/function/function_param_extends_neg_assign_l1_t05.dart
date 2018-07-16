@@ -49,7 +49,8 @@
  */
 class A<X> {}
 testme<X extends A<X>>(X x) {}
-A<A<A>> a;
+
+A<A> a;
 
 main() {
   testme(a);

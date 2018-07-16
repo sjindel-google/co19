@@ -42,15 +42,17 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works as expected.
+ * @description Checks that instantiate-to-bounds works as expected if
+ *  dependency tree has a loop and function optional type parameter is incorrect.
  * @compile-error
- * @Issue 33805
  * @author iarkh@unipro.ru
  */
-class A<X> {}
-testme<X extends A<X>>(X x) {}
+class A<X extends A<X>> {}
+
+testme([A a]) {}
 
 main() {
-  testme(new A<void>());
+  testme("incorrect");
 }
+
 

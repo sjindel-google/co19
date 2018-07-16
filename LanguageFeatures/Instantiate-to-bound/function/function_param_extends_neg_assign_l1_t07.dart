@@ -42,17 +42,15 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works correctly for function
- *  with parametrized return value.
- * @Issue 33805
- * @ciompile-error
+ * @description Checks that instantiate-to-bounds works as expected.
+ * @compile-error
  * @Issue 33805
  * @author iarkh@unipro.ru
  */
 class A<X> {}
 testme<X extends A<X>>(X x) {}
 
-A a;
+A<A<A<A>>> a;
 
 main() {
   testme(a);

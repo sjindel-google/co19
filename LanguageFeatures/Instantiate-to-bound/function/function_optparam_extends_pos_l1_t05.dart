@@ -42,12 +42,17 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that function parameter argument cannot be of [Null] type
- * @compile-error
- * @Issue 33701
+ * @description Checks that instantiate-to-bounds works as expected for function
+ *  with optional parameter.
+ * @Issue 32903
  * @author iarkh@unipro.ru
  */
+class A<X> {}
+testme<X extends A<X>>([X x]) {}
 
-X testme<X extends Null>() {return Null; }
+A<dynamic> a;
 
-main() {}
+main() {
+  testme(a);
+}
+
