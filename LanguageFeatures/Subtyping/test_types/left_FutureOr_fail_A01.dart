@@ -24,3 +24,4 @@ Future<S0> t1Instance = new Future<S0>.value(new S0()); // S0 is not a subtype o
 
 //# @T0 = FutureOr<S0>
 //# @T1 = Future<S0>
+//# @DynamicOnly
