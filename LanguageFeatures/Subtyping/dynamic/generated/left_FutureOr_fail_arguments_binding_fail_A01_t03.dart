@@ -39,7 +39,6 @@ Future<S0> t1Instance = new Future<S0>.value(new S0()); // S0 is not a subtype o
 
 
 
-
 class ArgumentsBindingSuper1_t03 {
   void superTest(Future<S0> val) {}
   void superTestPositioned(Future<S0> val, [Future<S0> val2]) {}

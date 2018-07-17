@@ -39,7 +39,6 @@ Future<S0> t1Instance = new Future<S0>.value(new S0()); // S0 is not a subtype o
 
 
 
-
 class ClassMemberSuper1_t02 {
   Future<S0> m;
 
