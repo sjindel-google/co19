@@ -42,33 +42,22 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that callable function can have raw return value.
+ * @description Checks that instantiate-to-bounds works correctly for callable
+ *  function with parametrized return value.
+ * @Issue 33865
  * @author iarkh@unipro.ru
  */
-
-class F1<X> {
-  X call() { return null; }
-}
-
-class F2<X extends dynamic> {
-  X call() { return null; }
-}
-
-class F3<X extends Object> {
-  X call() { return null; }
+class A<X> {}
+class F {
+  X call<X extends A<X>>() {
+    return null;
+  }
 }
 
 main() {
-  F1 funct1 = new F1();
-  var i1 = funct1.call();
-  var i2 = funct1();
-
-  F2 funct2 = new F2();
-  var i3 = funct2.call();
-  var i4 = funct2();
-
-  F3 funct3 = new F3();
-  var i5 = funct3.call();
-  var i6 = funct3();
+  F testme = new F();
+  dynamic x = testme();
+  A<Null> a1 = testme.call();
+  A<Null> a2 = testme();
 }
 

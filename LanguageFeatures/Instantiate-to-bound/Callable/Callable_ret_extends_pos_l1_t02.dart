@@ -43,19 +43,29 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that callable function can have raw return value.
- * @Issue 33865
  * @author iarkh@unipro.ru
  */
 
-class F1 {
-  X call<X>() { return null; }
+class F1<X> {
+  X call() { return null; }
+}
+
+class F2<X extends dynamic> {
+  X call() { return null; }
+}
+
+class F3<X extends Object> {
+  X call() { return null; }
 }
 
 main() {
-  F1 function1 = new F1();
-  int i1 = function1.call();
-  int i2 = function1.call<int>();
-  int i3 = function1<int>();
-  int i4 = function1();
+  F1 funct1 = new F1();
+  dynamic i2 = funct1();
+
+  F2 funct2 = new F2();
+  dynamic i4 = funct2();
+
+  F3 funct3 = new F3();
+  dynamic i6 = funct3();
 }
 

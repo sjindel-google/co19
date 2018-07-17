@@ -42,34 +42,54 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that callable function can have parametrized return
- *  value.
+ * @description Checks that instantiate-to-bounds works correctly for callable
+ *  function with parametrized return value.
+ * @Issue 33880
  * @author iarkh@unipro.ru
  */
-
-class F1<X> {
-  X call() { return null; }
-}
-
-class F2<X extends dynamic> {
-  X call() { return null; }
-}
-
-class F3<X extends Object> {
-  X call() { return null; }
+class A<X> {}
+class F <X extends A<X>> {
+  X call() {
+    return null;
+  }
 }
 
 main() {
-  F1 funct1 = new F1<int>();
-  int i1 = funct1.call();
-  int i2 = funct1();
+  F testme = new F<A<Null>>();
+  A a1 = testme.call();
+  A a2 = testme();
+  A<Null> a3 = testme();
 
-  F2 funct2 = new F2<int>();
-  int i3 = funct2.call();
-  int i4 = funct2();
+  F<A<Null>> testme1 = new F();
+  a1 = testme1.call();
+  a2 = testme1();
+  a3 = testme1();
 
-  F3 funct3 = new F3<int>();
-  int i5 = funct3.call();
-  int i6 = funct3();
+  F testme2 = new F<A<A<Null>>>();
+  a1 = testme2.call();
+  a2 = testme2();
+  a3 = testme2();
+  A<A<Null>> a4 = testme2();
+
+  F<A<A<Null>>> testme3 = new F();
+  a1 = testme3.call();
+  a2 = testme3();
+  a3 = testme3();
+  a4 = testme3();
+
+  F testme4 = new F<A<A<A<Null>>>>();
+  a1 = testme4.call();
+  a2 = testme4();
+  a3 = testme4();
+  a4 = testme4();
+  A<A<A<Null>>> a5 = testme4();
+
+  F<A<A<A<Null>>>> testme5 = new F();
+  a1 = testme5.call();
+  a2 = testme5();
+  a3 = testme5();
+  a4 = testme5();
+  a5 = testme5();
+  A<A<A<A<Null>>>> a6 = testme5();
 }
 

@@ -42,34 +42,21 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that callable function can have parametrized return
- *  value.
+ * @description Checks that instantiate-to-bounds works correctly for callable
+ *  function with parametrized return value.
+ * @Issue 33865
  * @author iarkh@unipro.ru
  */
-
-class F1<X> {
-  X call() { return null; }
-}
-
-class F2<X extends dynamic> {
-  X call() { return null; }
-}
-
-class F3<X extends Object> {
-  X call() { return null; }
+class A<X> {}
+class F {
+  X call<X extends A<X>>() {
+    return null;
+  }
 }
 
 main() {
-  F1 funct1 = new F1<int>();
-  int i1 = funct1.call();
-  int i2 = funct1();
-
-  F2 funct2 = new F2<int>();
-  int i3 = funct2.call();
-  int i4 = funct2();
-
-  F3 funct3 = new F3<int>();
-  int i5 = funct3.call();
-  int i6 = funct3();
+  F testme = new F();
+  A<A<A<Null>>> a = testme.call();
+  A<A<A<Null>>> a1 = testme();
 }
 
