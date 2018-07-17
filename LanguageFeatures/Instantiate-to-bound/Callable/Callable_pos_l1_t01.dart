@@ -42,15 +42,28 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that function can have parameter which extends [dynamic]
- *  or [Object].
+ * @description Checks that instantiate-to-bounds works correctly for callable
+ *  with parametrized parameter.
  * @author iarkh@unipro.ru
  */
 
-X function1<X extends dynamic>() { return null; }
-X function2<X extends Object>() { return null; }
+class A<X extends A<X>> {}
+
+class testme1 {
+  void call<X>() {}
+}
+
+class testme2<X> {
+  void call<Y extends X>() {}
+}
 
 main() {
-  int i = function1();
-  String str = function2();
+  testme1 t1 = new testme1();
+  t1();
+
+  testme2 t2 = new testme2();
+  t2();
+
+  testme2 t3 = new testme2<A>();
+  t3();
 }

@@ -42,15 +42,18 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that function can have parameter which extends [dynamic]
- *  or [Object].
+ * @description Checks that class parameter affect its optional function
+ *  argument
+ * @compile-error
+ * @Issue 83380
  * @author iarkh@unipro.ru
  */
 
-X function1<X extends dynamic>() { return null; }
-X function2<X extends Object>() { return null; }
+class C<X> {
+  call([X x]) {}
+}
 
 main() {
-  int i = function1();
-  String str = function2();
+  C c = new C<String>();
+  c.call(12345);
 }

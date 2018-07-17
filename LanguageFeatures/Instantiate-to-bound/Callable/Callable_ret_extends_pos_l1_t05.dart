@@ -42,15 +42,33 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that function can have parameter which extends [dynamic]
- *  or [Object].
+ * @description Checks that callable function can have raw return value.
  * @author iarkh@unipro.ru
  */
 
-X function1<X extends dynamic>() { return null; }
-X function2<X extends Object>() { return null; }
+class F1<X> {
+  X call() { return null; }
+}
+
+class F2<X extends dynamic> {
+  X call() { return null; }
+}
+
+class F3<X extends Object> {
+  X call() { return null; }
+}
 
 main() {
-  int i = function1();
-  String str = function2();
+  F1 funct1 = new F1<int>();
+  int i1 = funct1.call();
+  int i2 = funct1();
+
+  F2 funct2 = new F2<int>();
+  int i3 = funct2.call();
+  int i4 = funct2();
+
+  F3 funct3 = new F3<int>();
+  int i5 = funct3.call();
+  int i6 = funct3();
 }
+
