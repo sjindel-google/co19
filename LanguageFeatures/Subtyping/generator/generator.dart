@@ -9,10 +9,12 @@
 import "dart:io";
 
 const GENERIC_FUNCTION_TYPE_FLAG = "@GenericFunctionType";
+const DYNAMIC_ONLY_FLAG = "@DynamicOnly";
 const DYNAMIC_TESTS_DIR = "dynamic";
 const STATIC_TESTS_DIR = "static";
 const TEST_CASES_DIR = "test_cases";
 const TEST_TYPES_DIR = "test_types";
+const TYPE_PROMOTION_DIR = "type_promotion";
 const OUTPUT_DIR = "generated";
 
 const IMPORT_COMMON = "import '../../utils/common.dart';";
@@ -21,6 +23,7 @@ const IMPORT_EXPECT = "import '../../../../Utils/expect.dart';";
 const String META_PREXIX = "//#";
 
 main() {
+  // Generate dynamic tests
   Directory testCasesDir = new Directory(".." + Platform.pathSeparator +
       DYNAMIC_TESTS_DIR + Platform.pathSeparator + TEST_CASES_DIR);
   Directory testTypesDir = new Directory(".." + Platform.pathSeparator +
@@ -29,6 +32,7 @@ main() {
       DYNAMIC_TESTS_DIR + Platform.pathSeparator + OUTPUT_DIR);
   generateTests(testCasesDir, testTypesDir, outputDir, "dynamic");
 
+  // Generate static tests
   testCasesDir = new Directory(".." + Platform.pathSeparator +
       STATIC_TESTS_DIR + Platform.pathSeparator + TEST_CASES_DIR);
   testTypesDir = new Directory(".." + Platform.pathSeparator +
@@ -36,14 +40,27 @@ main() {
   outputDir = new Directory(".." + Platform.pathSeparator +
       STATIC_TESTS_DIR + Platform.pathSeparator + OUTPUT_DIR);
   generateTests(testCasesDir, testTypesDir, outputDir, "static");
+
+  // Generate type promotion static tests
+  /*
+  testCasesDir = new Directory(".." + Platform.pathSeparator +
+      STATIC_TESTS_DIR + Platform.pathSeparator + TEST_CASES_DIR);
+  testTypesDir = new Directory(".." + Platform.pathSeparator +
+      TYPE_PROMOTION_DIR + Platform.pathSeparator + TEST_TYPES_DIR);
+  outputDir = new Directory(".." + Platform.pathSeparator +
+      STATIC_TESTS_DIR + Platform.pathSeparator + OUTPUT_DIR);
+  generateTests(testCasesDir, testTypesDir, outputDir, "type_promotion", clear: false);
+  */
 }
 
 void generateTests(Directory testCasesDir, Directory testTypesDir,
-    Directory outputDir, String testsType) {
+    Directory outputDir, String testsType, {bool clear = true}) {
   // First, clear output directory
-  List<FileSystemEntity> existing = outputDir.listSync();
-  for (int i = 0; i < existing.length; i++) {
-    existing[i].deleteSync();
+  if (clear) {
+    List<FileSystemEntity> existing = outputDir.listSync();
+    for (int i = 0; i < existing.length; i++) {
+      existing[i].deleteSync();
+    }
   }
 
   // Generate tests
@@ -56,6 +73,9 @@ void generateTests(Directory testCasesDir, Directory testTypesDir,
     bool isFailTest = isFail(testType);
     String testTypeText = testType.readAsStringSync();
     List<String> testTypeTextStrings = testTypeText.split("\n");
+    if (testsType == "static" && findIsDynamicOnly(testTypeTextStrings)) {
+      continue;
+    }
     Map<String, String> replacement = null;
     bool isGenericFunctionType = findIsGenericFunctionType(testTypeTextStrings);
     replacement = findReplacements(testTypeTextStrings);
@@ -108,6 +128,18 @@ bool findIsGenericFunctionType(List<String> strings) {
     if (strings[i].startsWith(META_PREXIX)) {
       String s = strings[i].substring(META_PREXIX.length).trim();
       if (s == GENERIC_FUNCTION_TYPE_FLAG) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+bool findIsDynamicOnly(List<String> strings) {
+  for (int i = 0; i < strings.length; i++) {
+    if (strings[i].startsWith(META_PREXIX)) {
+      String s = strings[i].substring(META_PREXIX.length).trim();
+      if (s == DYNAMIC_ONLY_FLAG) {
         return true;
       }
     }
