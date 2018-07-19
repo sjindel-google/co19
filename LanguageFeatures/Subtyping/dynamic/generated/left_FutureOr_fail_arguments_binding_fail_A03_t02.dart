@@ -362,10 +362,6 @@ main() {
   }, (e) => e is TypeError);
 
   Expect.throws(() {
-    new ArgumentsBinding2_t02<Future<C1>>.valid().superTest(forgetType(t0Instance));
-  }, (e) => e is TypeError);
-
-  Expect.throws(() {
     new ArgumentsBinding2_t02<Future<C1>>.valid().superTestPositioned(forgetType(t0Instance));
   }, (e) => e is TypeError);
 
