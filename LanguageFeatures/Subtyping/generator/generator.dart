@@ -9,12 +9,10 @@
 import "dart:io";
 
 const GENERIC_FUNCTION_TYPE_FLAG = "@GenericFunctionType";
-const DYNAMIC_ONLY_FLAG = "@DynamicOnly";
 const DYNAMIC_TESTS_DIR = "dynamic";
 const STATIC_TESTS_DIR = "static";
 const TEST_CASES_DIR = "test_cases";
 const TEST_TYPES_DIR = "test_types";
-const TYPE_PROMOTION_DIR = "type_promotion";
 const OUTPUT_DIR = "generated";
 
 const IMPORT_COMMON = "import '../../utils/common.dart';";
@@ -24,6 +22,8 @@ const String META_PREXIX = "//#";
 
 main() {
   // Generate dynamic tests
+
+  // First generate tests for common test types
   Directory testCasesDir = new Directory(".." + Platform.pathSeparator +
       DYNAMIC_TESTS_DIR + Platform.pathSeparator + TEST_CASES_DIR);
   Directory testTypesDir = new Directory(".." + Platform.pathSeparator +
@@ -32,7 +32,14 @@ main() {
       DYNAMIC_TESTS_DIR + Platform.pathSeparator + OUTPUT_DIR);
   generateTests(testCasesDir, testTypesDir, outputDir, "dynamic");
 
+  // Now generate tests for dynamic only test types
+  testTypesDir = new Directory(".." + Platform.pathSeparator +
+      DYNAMIC_TESTS_DIR + Platform.pathSeparator + TEST_TYPES_DIR);
+  generateTests(testCasesDir, testTypesDir, outputDir, "dynamic", clear: false);
+
   // Generate static tests
+
+  // First generate tests for common test types
   testCasesDir = new Directory(".." + Platform.pathSeparator +
       STATIC_TESTS_DIR + Platform.pathSeparator + TEST_CASES_DIR);
   testTypesDir = new Directory(".." + Platform.pathSeparator +
@@ -41,16 +48,11 @@ main() {
       STATIC_TESTS_DIR + Platform.pathSeparator + OUTPUT_DIR);
   generateTests(testCasesDir, testTypesDir, outputDir, "static");
 
-  // Generate type promotion static tests
+  // Now generate tests for static only test types
   /*
-  testCasesDir = new Directory(".." + Platform.pathSeparator +
-      STATIC_TESTS_DIR + Platform.pathSeparator + TEST_CASES_DIR);
   testTypesDir = new Directory(".." + Platform.pathSeparator +
-      TYPE_PROMOTION_DIR + Platform.pathSeparator + TEST_TYPES_DIR);
-  outputDir = new Directory(".." + Platform.pathSeparator +
-      STATIC_TESTS_DIR + Platform.pathSeparator + OUTPUT_DIR);
-  generateTests(testCasesDir, testTypesDir, outputDir, "type_promotion", clear: false);
-  */
+      STATIC_TESTS_DIR + Platform.pathSeparator + TEST_TYPES_DIR);
+  generateTests(testCasesDir, testTypesDir, outputDir, "static", clear: false);*/
 }
 
 void generateTests(Directory testCasesDir, Directory testTypesDir,
@@ -73,9 +75,6 @@ void generateTests(Directory testCasesDir, Directory testTypesDir,
     bool isFailTest = isFail(testType);
     String testTypeText = testType.readAsStringSync();
     List<String> testTypeTextStrings = testTypeText.split("\n");
-    if (testsType == "static" && findIsDynamicOnly(testTypeTextStrings)) {
-      continue;
-    }
     Map<String, String> replacement = null;
     bool isGenericFunctionType = findIsGenericFunctionType(testTypeTextStrings);
     replacement = findReplacements(testTypeTextStrings);
@@ -128,18 +127,6 @@ bool findIsGenericFunctionType(List<String> strings) {
     if (strings[i].startsWith(META_PREXIX)) {
       String s = strings[i].substring(META_PREXIX.length).trim();
       if (s == GENERIC_FUNCTION_TYPE_FLAG) {
-        return true;
-      }
-    }
-  }
-  return false;
-}
-
-bool findIsDynamicOnly(List<String> strings) {
-  for (int i = 0; i < strings.length; i++) {
-    if (strings[i].startsWith(META_PREXIX)) {
-      String s = strings[i].substring(META_PREXIX.length).trim();
-      if (s == DYNAMIC_ONLY_FLAG) {
         return true;
       }
     }
@@ -275,9 +262,19 @@ File getGeneratedTestFile(File testType, File testCase, Directory outputDir) {
   String testCasePrefix = testCaseName.substring(0, index);
   String testCaseSuffix = testCaseName.substring(index).replaceFirst("x", "t");
 
-  String generatedTestName = testNamePrefix + "_" + testCasePrefix +
-      testNameSuffix + testCaseSuffix;
-  File generatedFile = new File(outputDir.path + Platform.pathSeparator + generatedTestName);
+  String generatedTestName = null;
+  File generatedFile = null;
+  String testNameSuffix2 = "";
+  for (int i = 1;;i++) {
+    generatedTestName = testNamePrefix + "_" + testCasePrefix +
+        testNameSuffix + testNameSuffix2 + testCaseSuffix;
+    generatedFile = new File(outputDir.path + Platform.pathSeparator + generatedTestName);
+    if (generatedFile.existsSync()) {
+      testNameSuffix2 = "_$i";
+    } else {
+      break;
+    }
+  }
   generatedFile.createSync();
   return generatedFile;
 }

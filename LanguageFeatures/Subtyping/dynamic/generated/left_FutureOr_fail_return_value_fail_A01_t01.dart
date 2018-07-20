@@ -39,6 +39,7 @@ Future<S0> t1Instance = new Future<S0>.value(new S0()); // S0 is not a subtype o
 
 
 
+
 Future<S0> returnValueFunc() => forgetType(t0Instance);
 
 class ReturnValueTest {
