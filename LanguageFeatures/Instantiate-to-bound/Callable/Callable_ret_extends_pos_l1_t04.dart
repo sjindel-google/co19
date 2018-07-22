@@ -44,20 +44,20 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that callable function can have return value which
  *  extends [Object].
- * @Issue 33865
  * @author iarkh@unipro.ru
  */
 
 class F1 {
-  X call<X extends Object>() { return null; }
+  X call<X extends Object>() { return X == int ? 0 : "123"; }
 }
 
 main() {
   F1 funct = new F1();
-  int i1 = funct.call();
-  int i2 = funct.call<int>();
-  int i4 = funct();
+  int i1 = funct();
+  int i2 = funct<int>();
+  var i4 = funct<int>();
   dynamic i5 = funct();
   Object i6 = funct();
+  String s = funct();
 }
 

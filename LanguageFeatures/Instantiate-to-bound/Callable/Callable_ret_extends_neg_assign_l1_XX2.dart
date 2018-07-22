@@ -44,18 +44,23 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for callable
  *  function with parametrized return value.
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 class A<X> {}
-class F {
-  X call<X extends A<X>>() {
+class F <X extends A<X>> {
+  X call() {
     return null;
   }
 }
 
 main() {
-  F testme = new F();
-  A<Null> a1 = testme();
-  A a2 = testme<A<Null>>();
+  F testme = new F<A<Null>>();
+  A a1 = testme.call();
+  A a2 = testme();
+
+  testme = new F<A<A<Null>>>();
+  A<int> a3 = testme.call();
+  var a4 = testme();
 }
 

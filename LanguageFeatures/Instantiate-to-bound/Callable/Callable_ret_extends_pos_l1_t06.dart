@@ -42,22 +42,19 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works correctly for callable
- *  function with parametrized return value.
- * @Issue 33865
+ * @description Checks that callable function can have raw return value.
  * @author iarkh@unipro.ru
  */
-class A<X> {}
-class F {
-  X call<X extends A<X>>() {
-    return null;
-  }
+
+class F1 {
+  X call<X>() { return null; }
 }
 
 main() {
-  F testme = new F();
-  dynamic x = testme();
-  A<Null> a1 = testme.call();
-  A<Null> a2 = testme();
+  F1 function1 = new F1();
+  int i1 = function1.call();
+  int i2 = function1.call<int>();
+  int i3 = function1<int>();
+  int i4 = function1();
 }
 

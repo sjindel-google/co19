@@ -42,20 +42,18 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works correctly for callable
- *  function with parametrized return value.
+ * @description Checks that class parameter affect its function return value
+ *  (see also issue 33880)
  * @author iarkh@unipro.ru
  */
-class A<X> {}
-class F {
-  X call<X extends A<X>>() {
-    return null;
-  }
+import "../../../Utils/expect.dart";
+
+class C<X> {
+  X call() { return X == String ? "OK" :
+    ( X == int ? 0 : Null); }
 }
 
 main() {
-  F testme = new F();
-  A<Null> a1 = testme();
-  A a2 = testme<A<Null>>();
+  C c = new C<String>();
+  Expect.throws(() { int i1 = c(); });
 }
-

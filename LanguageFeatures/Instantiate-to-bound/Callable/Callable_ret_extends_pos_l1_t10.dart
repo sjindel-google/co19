@@ -44,52 +44,19 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for callable
  *  function with parametrized return value.
- * @Issue 33880
  * @author iarkh@unipro.ru
  */
 class A<X> {}
-class F <X extends A<X>> {
-  X call() {
+class F {
+  X call<X extends A<X>>() {
     return null;
   }
 }
 
 main() {
-  F testme = new F<A<Null>>();
-  A a1 = testme.call();
-  A a2 = testme();
-  A<Null> a3 = testme();
-
-  F<A<Null>> testme1 = new F();
-  a1 = testme1.call();
-  a2 = testme1();
-  a3 = testme1();
-
-  F testme2 = new F<A<A<Null>>>();
-  a1 = testme2.call();
-  a2 = testme2();
-  a3 = testme2();
-  A<A<Null>> a4 = testme2();
-
-  F<A<A<Null>>> testme3 = new F();
-  a1 = testme3.call();
-  a2 = testme3();
-  a3 = testme3();
-  a4 = testme3();
-
-  F testme4 = new F<A<A<A<Null>>>>();
-  a1 = testme4.call();
-  a2 = testme4();
-  a3 = testme4();
-  a4 = testme4();
-  A<A<A<Null>>> a5 = testme4();
-
-  F<A<A<A<Null>>>> testme5 = new F();
-  a1 = testme5.call();
-  a2 = testme5();
-  a3 = testme5();
-  a4 = testme5();
-  a5 = testme5();
-  A<A<A<A<Null>>>> a6 = testme5();
+  F testme = new F();
+  A<A<A<A<Null>>>> a1 = testme.call();
+  A<A<A<A<Null>>>> a2 = testme();
+  A a3 = testme<A<A<A<A<Null>>>>>();
 }
 

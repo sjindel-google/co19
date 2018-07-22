@@ -54,5 +54,10 @@ main() {
   A<A<Null>> a2 = testme();
   A<A<A<Null>>> a3 = testme();
   A<A<A<A<Null>>>> a4 = testme();
+
+  A a5 = testme<A<Null>>();
+  A a6 = testme<A<A<Null>>>();
+  A a7 = testme<A<A<A<Null>>>>();
+  A a8 = testme<A<A<A<A<Null>>>>>();
 }
 

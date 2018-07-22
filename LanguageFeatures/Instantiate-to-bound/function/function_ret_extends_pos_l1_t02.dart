@@ -53,4 +53,6 @@ X function2<X extends Object>() { return null; }
 main() {
   int i = function1();
   String str = function2();
+  var i1 = function1<int>();
+  var str2 = function2<String>();
 }

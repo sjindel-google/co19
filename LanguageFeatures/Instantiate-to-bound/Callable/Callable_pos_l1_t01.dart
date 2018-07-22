@@ -65,5 +65,6 @@ main() {
   t2();
 
   testme2 t3 = new testme2<A>();
-  t3();
+  t3.call<A<Null>>();
+  t3<A<Null>>();
 }

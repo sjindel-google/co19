@@ -44,7 +44,6 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for callable
  *  function with parametrized return value.
- * @Issue 33865
  * @author iarkh@unipro.ru
  */
 class A<X> {}
@@ -56,7 +55,7 @@ class F {
 
 main() {
   F testme = new F();
-  A<A<A<A<Null>>>> a1 = testme.call();
-  A<A<A<A<Null>>>> a2 = testme();
-}
+  A<A<A<Null>>> a = testme.call();
+  A<A<A<Null>>> a1 = testme();
+  A a2 = testme<A<A<A<Null>>>>();}
 

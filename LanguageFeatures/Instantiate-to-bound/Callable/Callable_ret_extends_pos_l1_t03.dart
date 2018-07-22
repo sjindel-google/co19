@@ -44,7 +44,6 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that callable function can have return value which
  *  extends [dynamic].
- * @Issue 33865
  * @author iarkh@unipro.ru
  */
 
@@ -54,8 +53,8 @@ class F1 {
 
 main() {
   F1 funct = new F1();
-  int i1 = funct.call();
-  int i2 = funct.call<int>();
+  int i1 = funct();
+  int i2 = funct<int>();
   dynamic i5 = funct();
   int i4 = funct();
   int i6 = funct<int>();
