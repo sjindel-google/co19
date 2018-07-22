@@ -42,16 +42,17 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that class parameter affect its function return value
- * @compile-error
+ * @description Checks that class parameter affect its optional function
+ *  argument (see also issue 33880)
  * @author iarkh@unipro.ru
  */
+import "../../../Utils/expect.dart";
 
 class C<X> {
-  X call() { return null; }
+  call({X x}) {}
 }
 
 main() {
-  C<String> c = new C();
-  int i1 = c.call();
+  C c = new C<String>();
+  Expect.throws(() { c.call(x: 12345); });
 }

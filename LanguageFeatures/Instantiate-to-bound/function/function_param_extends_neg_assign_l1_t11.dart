@@ -44,7 +44,6 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that class parameter affect its function arguments
  * @compile-error
- * @Issue 83380
  * @author iarkh@unipro.ru
  */
 
@@ -53,6 +52,6 @@ class C<X> {
 }
 
 main() {
-  C c = new C<String>();
+  C<String> c = new C();
   c.call(12345);
 }

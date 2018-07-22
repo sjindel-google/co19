@@ -53,4 +53,7 @@ class C<X> {
 main() {
   C c = new C<String>();
   c.call("12345");
+
+  C<String> c1 = new C();
+  c1.call("12345");
 }

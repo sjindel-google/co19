@@ -42,10 +42,9 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that class parameter affect its optional function
+ * @description Checks that class parameter affect its named optional function
  *  argument
  * @compile-error
- * @Issue 83380
  * @author iarkh@unipro.ru
  */
 
@@ -54,6 +53,6 @@ class C<X> {
 }
 
 main() {
-  C c = new C<String>();
+  C<String> c = new C();
   c.call(x: 12345);
 }

@@ -47,10 +47,13 @@
  */
 
 class C<X> {
-  X call() { return null; }
+  X call() { return X == String ? "testme" : Null; }
 }
 
 main() {
   C c = new C<String>();
   String i1 = c.call();
+
+  C<String> c1 = new C();
+  String i2 = c1.call();
 }
