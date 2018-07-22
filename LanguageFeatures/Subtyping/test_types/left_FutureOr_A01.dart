@@ -25,4 +25,3 @@ FutureOr<C> t1Instance = new Future<C>.value(new C());
 
 //# @T0 = FutureOr<S0>
 //# @T1 = FutureOr<C>
-//# @DynamicOnly

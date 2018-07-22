@@ -9,21 +9,22 @@
 import "dart:io";
 
 const GENERIC_FUNCTION_TYPE_FLAG = "@GenericFunctionType";
-const DYNAMIC_ONLY_FLAG = "@DynamicOnly";
 const DYNAMIC_TESTS_DIR = "dynamic";
 const STATIC_TESTS_DIR = "static";
 const TEST_CASES_DIR = "test_cases";
 const TEST_TYPES_DIR = "test_types";
-const TYPE_PROMOTION_DIR = "type_promotion";
 const OUTPUT_DIR = "generated";
 
 const IMPORT_COMMON = "import '../../utils/common.dart';";
 const IMPORT_EXPECT = "import '../../../../Utils/expect.dart';";
 
-const String META_PREXIX = "//#";
+const String META_PREFIX = "//#";
 
 main() {
   // Generate dynamic tests
+
+  // First generate tests for common test types
+
   Directory testCasesDir = new Directory(".." + Platform.pathSeparator +
       DYNAMIC_TESTS_DIR + Platform.pathSeparator + TEST_CASES_DIR);
   Directory testTypesDir = new Directory(".." + Platform.pathSeparator +
@@ -32,7 +33,14 @@ main() {
       DYNAMIC_TESTS_DIR + Platform.pathSeparator + OUTPUT_DIR);
   generateTests(testCasesDir, testTypesDir, outputDir, "dynamic");
 
+  // Now generate tests for dynamic only test types
+  testTypesDir = new Directory(".." + Platform.pathSeparator +
+      DYNAMIC_TESTS_DIR + Platform.pathSeparator + TEST_TYPES_DIR);
+  generateTests(testCasesDir, testTypesDir, outputDir, "dynamic", clear: false);
+
   // Generate static tests
+
+  // First generate tests for common test types
   testCasesDir = new Directory(".." + Platform.pathSeparator +
       STATIC_TESTS_DIR + Platform.pathSeparator + TEST_CASES_DIR);
   testTypesDir = new Directory(".." + Platform.pathSeparator +
@@ -41,16 +49,12 @@ main() {
       STATIC_TESTS_DIR + Platform.pathSeparator + OUTPUT_DIR);
   generateTests(testCasesDir, testTypesDir, outputDir, "static");
 
-  // Generate type promotion static tests
-  /*
-  testCasesDir = new Directory(".." + Platform.pathSeparator +
-      STATIC_TESTS_DIR + Platform.pathSeparator + TEST_CASES_DIR);
+  // Now generate tests for static only test types
+
   testTypesDir = new Directory(".." + Platform.pathSeparator +
-      TYPE_PROMOTION_DIR + Platform.pathSeparator + TEST_TYPES_DIR);
-  outputDir = new Directory(".." + Platform.pathSeparator +
-      STATIC_TESTS_DIR + Platform.pathSeparator + OUTPUT_DIR);
-  generateTests(testCasesDir, testTypesDir, outputDir, "type_promotion", clear: false);
-  */
+      STATIC_TESTS_DIR + Platform.pathSeparator + TEST_TYPES_DIR);
+  generateTests(testCasesDir, testTypesDir, outputDir, "static", clear: false);
+
 }
 
 void generateTests(Directory testCasesDir, Directory testTypesDir,
@@ -73,10 +77,8 @@ void generateTests(Directory testCasesDir, Directory testTypesDir,
     bool isFailTest = isFail(testType);
     String testTypeText = testType.readAsStringSync();
     List<String> testTypeTextStrings = testTypeText.split("\n");
-    if (testsType == "static" && findIsDynamicOnly(testTypeTextStrings)) {
-      continue;
-    }
     Map<String, String> replacement = null;
+    bool hasMainFunc = hasMain(testTypeTextStrings);
     bool isGenericFunctionType = findIsGenericFunctionType(testTypeTextStrings);
     replacement = findReplacements(testTypeTextStrings);
     if (replacement.length == 0) {
@@ -102,8 +104,18 @@ void generateTests(Directory testCasesDir, Directory testTypesDir,
 
       String header = getGeneratedTestHeader(testTypeText, testCaseText,
           getGeneratedFileComment(testType, testCase));
-      String generatedTestText = header + removeHeader(testTypeText) +
-          removeHeader(testCaseText);
+      testCaseText = removeHeader(testCaseText);
+      testTypeText = removeHeader(testTypeText);
+      String generatedTestText = null;
+      if (hasMainFunc) {
+        String beforeMain = getBeforeMain(testCaseText);
+        String mainContent = getMainContent(testCaseText);
+        generatedTestText = header + testTypeText.replaceFirst(
+            new RegExp(r"\/\/#\s*<!--\s*Global\s*variables\s*&\s*classes\s*definition\s*-->"),
+            beforeMain).replaceFirst(new RegExp(r"\/\/#\s*<!--\s*Test\s*body\s*-->"), mainContent);
+      } else {
+        generatedTestText = header + removeHeader(testTypeText) + testCaseText;
+      }
       File generatedTest = getGeneratedTestFile(testType, testCase, outputDir);
       generatedTest.writeAsStringSync(generatedTestText);
       generatedCount++;
@@ -125,8 +137,8 @@ String getGeneratedFileComment(File testType, File testCase) {
 
 bool findIsGenericFunctionType(List<String> strings) {
   for (int i = 0; i < strings.length; i++) {
-    if (strings[i].startsWith(META_PREXIX)) {
-      String s = strings[i].substring(META_PREXIX.length).trim();
+    if (strings[i].startsWith(META_PREFIX)) {
+      String s = strings[i].substring(META_PREFIX.length).trim();
       if (s == GENERIC_FUNCTION_TYPE_FLAG) {
         return true;
       }
@@ -135,13 +147,10 @@ bool findIsGenericFunctionType(List<String> strings) {
   return false;
 }
 
-bool findIsDynamicOnly(List<String> strings) {
+bool hasMain(List<String> strings) {
   for (int i = 0; i < strings.length; i++) {
-    if (strings[i].startsWith(META_PREXIX)) {
-      String s = strings[i].substring(META_PREXIX.length).trim();
-      if (s == DYNAMIC_ONLY_FLAG) {
-        return true;
-      }
+    if (strings[i].contains(new RegExp(r"[\s]*main[\s]*\("))) {
+      return true;
     }
   }
   return false;
@@ -150,8 +159,8 @@ bool findIsDynamicOnly(List<String> strings) {
 Map<String, String> findReplacements(List<String> strings) {
   Map<String, String> found = new Map<String, String>();
   for (int i = 0; i < strings.length; i++) {
-    if (strings[i].startsWith(META_PREXIX)) {
-      String s = strings[i].substring(META_PREXIX.length).trim();
+    if (strings[i].startsWith(META_PREFIX)) {
+      String s = strings[i].substring(META_PREFIX.length).trim();
       List<String> l = s.split("=");
       if (l.length != 2) {
         continue;
@@ -206,7 +215,7 @@ String getGeneratedTestHeader(String testTypeText, String testCaseText, String t
 String removeReplacements(List<String> strings) {
   List<String> found = [];
   for (int i = 0; i < strings.length; i++) {
-    if (strings[i].startsWith(META_PREXIX)) {
+    if (strings[i].startsWith(new RegExp("$META_PREFIX\\s+@"))) {
       found.add(strings[i]);
     }
   }
@@ -224,7 +233,7 @@ String removeNotGenericFunctionTypePart(bool isGenericFunctionType, String text)
     bool skip = false;
     StringBuffer sb = new StringBuffer();
     for (int i = 0; i < strings.length; i++) {
-      if (strings[i].trim().startsWith(META_PREXIX)) {
+      if (strings[i].trim().startsWith(META_PREFIX)) {
         if (skip) {
           if (strings[i].contains("-->")) {
             skip = false;
@@ -249,7 +258,7 @@ String removeNotGenericFunctionTypePart(bool isGenericFunctionType, String text)
     return sb.toString();
   } else {
     // remove "//# <-- NotGenericFunctionType" and "//# -->"
-    return text.replaceFirst("$META_PREXIX <-- NotGenericFunctionType\n", "").replaceFirst("$META_PREXIX -->\n", "");
+    return text.replaceFirst("$META_PREFIX <-- NotGenericFunctionType\n", "").replaceFirst("$META_PREFIX -->\n", "");
   }
 }
 
@@ -275,9 +284,19 @@ File getGeneratedTestFile(File testType, File testCase, Directory outputDir) {
   String testCasePrefix = testCaseName.substring(0, index);
   String testCaseSuffix = testCaseName.substring(index).replaceFirst("x", "t");
 
-  String generatedTestName = testNamePrefix + "_" + testCasePrefix +
-      testNameSuffix + testCaseSuffix;
-  File generatedFile = new File(outputDir.path + Platform.pathSeparator + generatedTestName);
+  String generatedTestName = null;
+  File generatedFile = null;
+  String testNameSuffix2 = "";
+  for (int i = 1;;i++) {
+    generatedTestName = testNamePrefix + "_" + testCasePrefix +
+        testNameSuffix + testNameSuffix2 + testCaseSuffix;
+    generatedFile = new File(outputDir.path + Platform.pathSeparator + generatedTestName);
+    if (generatedFile.existsSync()) {
+      testNameSuffix2 = "_$i";
+    } else {
+      break;
+    }
+  }
   generatedFile.createSync();
   return generatedFile;
 }
@@ -302,4 +321,14 @@ List<String> addImport(List<String> testTypeTextStrings, bool addExpect) {
     }
   }
   return testTypeTextStrings;
+}
+
+String getBeforeMain(String text) {
+  return text.substring(0, text.indexOf(new RegExp(r"main[\s]*\(")));
+}
+
+String getMainContent(String text) {
+  int start = text.indexOf("{", text.indexOf(new RegExp(r"main\s*\(.*\)\s*\{")));
+  int end = text.lastIndexOf("}");
+  return text.substring(start + 1, end);
 }
