@@ -18,7 +18,9 @@
  */
 /**
  * @description Check that if type T0 not a subtype of a type T1, then it cannot
- * be used as a class member of type T1
+ * be used as a class member of type T1. Receiving instance class variable of
+ * generic class is tested.
+ * @compile-error
  * @author sgrekhov@unipro.ru
  * @author ngl@unipro.ru
  */

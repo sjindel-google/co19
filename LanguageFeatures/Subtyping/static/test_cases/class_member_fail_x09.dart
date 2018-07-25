@@ -7,6 +7,7 @@
  * @description Check that if type T0 not a subtype of a type T1, then it cannot
  * be used as a class member of type T1. Returning static class variable in
  * static getter is tested.
+ * @compile-error
  * @author sgrekhov@unipro.ru
  * @author ngl@unipro.ru
  */
