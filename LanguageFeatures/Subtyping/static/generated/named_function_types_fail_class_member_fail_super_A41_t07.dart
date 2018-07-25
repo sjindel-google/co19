@@ -71,7 +71,7 @@ class ClassMemberSuper2_t02<X> {
 
 class ClassMember2_t02<X> extends ClassMemberSuper2_t02<X> {
   ClassMember2_t02() : super() {}
-  
+
   ClassMember2_t02.valid() : super();
 }
 
