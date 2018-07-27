@@ -59,7 +59,7 @@ final List<double> values = const [
 
 main() {
   values.forEach((d) {
-    Expect.identical(0, d ~/ double.INFINITY);
-    Expect.identical(0, d ~/ double.NEGATIVE_INFINITY);
+    Expect.identical(0, d ~/ double.infinity);
+    Expect.identical(0, d ~/ double.negativeInfinity);
   });
 }

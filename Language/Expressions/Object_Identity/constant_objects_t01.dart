@@ -33,6 +33,6 @@ main() {
   Expect.isTrue(const C(1) == const C(2));
   Expect.isFalse(identical(const C(1), const C(2)));
 
-  Expect.isFalse(double.NAN == double.NAN);
-  Expect.isTrue(identical(double.NAN, double.NAN));
+  Expect.isFalse(double.nan == double.nan);
+  Expect.isTrue(identical(double.nan, double.nan));
 }

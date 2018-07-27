@@ -4,11 +4,11 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void writeStringSync(String string, {Encoding encoding: UTF8})
+ * @assertion void writeStringSync(String string, {Encoding encoding: utf8})
  * Synchronously writes a single string to the file using the given Encoding.
  *
  * @description Checks that method writeStringSync synchronously writes a single
- * string to the file using the given Encoding UTF8 LATIN1.
+ * string to the file using the given Encoding utf8 latin1.
  * @author ngl@unipro.ru
 */
 import "dart:async";
@@ -20,9 +20,9 @@ import "../file_utils.dart";
 check(String s) {
   File file = getTempFileSync();
   asyncStart();
-  Future<RandomAccessFile> raFile = file.open(mode: FileMode.WRITE);
+  Future<RandomAccessFile> raFile = file.open(mode: FileMode.write);
   raFile.then((RandomAccessFile rf) {
-    rf.writeStringSync(s, encoding: LATIN1);
+    rf.writeStringSync(s, encoding: latin1);
     var flen = file.lengthSync();
     rf.setPositionSync(0);
     List<int> l = rf.readSync(flen);

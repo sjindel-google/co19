@@ -17,7 +17,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 check(String str) {
-  List<int> data = ASCII.encode(str);
+  List<int> data = ascii.encode(str);
   AsciiDecoder decoder = new AsciiDecoder();
   bool called = false;
 

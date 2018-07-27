@@ -31,7 +31,7 @@ test() async {
     true, false,
     0, 1, -1, 1024,
     "a", "ABC",
-    1.1, 0.0, double.NAN
+    1.1, 0.0, double.nan
   ];
 
   ReceivePort onExit = new ReceivePort();

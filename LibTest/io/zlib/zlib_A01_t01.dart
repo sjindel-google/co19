@@ -4,15 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion WRITE_ONLY_APPEND = FileMode.WRITE_ONLY_APPEND
- * @description Checks that [WRITE_ONLY_APPENS] is set to
- * [FileMode.WRITE_ONLY_APPEND].
+ * @assertion zlib = const ZLibCodec._default()
+ * @description Checks that [zlib] is an instance of [ZLibCodec].
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:io";
 
 main() {
-  Expect.equals(FileMode.WRITE_ONLY_APPEND, WRITE_ONLY_APPEND);
+  Expect.isTrue(zlib is ZLibCodec);
 }
 

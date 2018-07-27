@@ -11,9 +11,9 @@
  * Returns a Future<FileStat> object containing the data returned by stat().
  *
  * If the call fails, completes the future with a FileStat object with .type set
- * to FileSystemEntityType.NOT_FOUND and the other fields invalid.
+ * to FileSystemEntityType.notFound and the other fields invalid.
  * @description Checks that if the call fails, completes the future with a
- * FileStat object with .type set to FileSystemEntityType.NOT_FOUND
+ * FileStat object with .type set to FileSystemEntityType.notFound
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -24,7 +24,7 @@ main() {
   Link link = new Link(getTempFileName());
   asyncStart();
   link.stat().then((FileStat fs) {
-    Expect.equals(FileSystemEntityType.NOT_FOUND, fs.type);
+    Expect.equals(FileSystemEntityType.notFound, fs.type);
     asyncEnd();
   });
 }

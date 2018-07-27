@@ -6,7 +6,7 @@
 /**
  * @assertion Future<File> writeAsBytes(
  * List<int> bytes, {
- * FileMode mode: FileMode.WRITE,
+ * FileMode mode: FileMode.write,
  * bool flush: false
  * })
  * Write a list of bytes to a file.
@@ -17,11 +17,11 @@
  *
  * By default writeAsBytes creates the file for writing and truncates the file
  * if it already exists. In order to append the bytes to an existing file, pass
- * FileMode.APPEND as the optional mode parameter.
+ * FileMode.append as the optional mode parameter.
  *
  * If the argument flush is set to true, the data written will be flushed to the
  * file system before the returned future completes.
- * @description Checks that in a FileMode.WRITE_ONLY_APPEND file can be read
+ * @description Checks that in a FileMode.writeOnlyAppend file can be read
  * @author sgrekhov@unipro.ru
  * @issue 30262
  */
@@ -33,7 +33,7 @@ main() {
   File file = new File(getTempFilePath());
   file.writeAsBytesSync([3, 1, 4, 5, 2, 6]);
   asyncStart();
-  file.writeAsBytes([0, 1, 2, 255], mode: FileMode.WRITE_ONLY_APPEND).then((f) {
+  file.writeAsBytes([0, 1, 2, 255], mode: FileMode.writeOnlyAppend).then((f) {
     Expect.isTrue(file.existsSync());
     Expect.listEquals([3, 1, 4, 5, 2, 6, 0, 1, 2, 255], f.readAsBytesSync());
     Expect.listEquals([3, 1, 4, 5, 2, 6, 0, 1, 2, 255], file.readAsBytesSync());

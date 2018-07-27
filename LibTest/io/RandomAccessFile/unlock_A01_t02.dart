@@ -24,8 +24,8 @@ import "lock_check_1_lib.dart";
 
 main() {
   File file = getTempFileSync();
-  var rf1 = file.openSync(mode: FileMode.WRITE);
-  var rf2 = file.openSync(mode: FileMode.WRITE);
+  var rf1 = file.openSync(mode: FileMode.write);
+  var rf2 = file.openSync(mode: FileMode.write);
   rf1.writeFromSync(new List.filled(30, 0));
   asyncStart();
   rf1.lockSync(FileLock.EXCLUSIVE, 10, 15);

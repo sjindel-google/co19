@@ -16,7 +16,7 @@ import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test(String method, int statusCode) async {
   asyncStart();
@@ -48,7 +48,7 @@ test(String method, int statusCode) async {
   }).then((HttpClientResponse response) {
     Expect.equals(1, response.redirects.length);
     Expect.equals("/yyy", response.redirects[0].location.path);
-    response.transform(UTF8.decoder).listen((content) {});
+    response.transform(utf8.decoder).listen((content) {});
   });
 }
 

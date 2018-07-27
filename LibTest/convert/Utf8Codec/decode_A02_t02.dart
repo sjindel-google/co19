@@ -8,11 +8,11 @@
  * Decodes the UTF-8 codeUnits (a list of unsigned 8-bit integers) to the
  * corresponding string.
  *
- * If the [codeUnits] start with the encoding of a [UNICODE_BOM_CHARACTER_RUNE],
+ * If the [codeUnits] start with the encoding of a [unicodeBomCharacterRune],
  * that character is discarded.
  * ...
  * @description Checks that if the [codeUnits] start with the encoding of a
- * [UNICODE_BOM_CHARACTER_RUNE], that character is discarded
+ * [unicodeBomCharacterRune], that character is discarded
  * Test allowMalformed = true
  * @issue 28834
  * @author sgrekhov@unipro.ru
@@ -26,14 +26,14 @@ main() {
     String s = new String.fromCharCode(i);
     List<int> toDecode = [];
     toDecode.addAll(codec.encode(
-        new String.fromCharCodes([UNICODE_BOM_CHARACTER_RUNE])));
+        new String.fromCharCodes([unicodeBomCharacterRune])));
     toDecode.add(i);
     Expect.equals(s, codec.decode(toDecode, allowMalformed: true));
   }
 
   List<int> toDecode = [];
   toDecode.addAll(codec.encode(
-      new String.fromCharCodes([UNICODE_BOM_CHARACTER_RUNE])));
+      new String.fromCharCodes([unicodeBomCharacterRune])));
   toDecode.addAll([208, 154, 208, 184, 209, 128,
     208, 184, 208, 187, 208, 187, 208, 184, 209, 134, 208, 176, 32]);
   Expect.equals("Кириллица ", codec.decode(toDecode, allowMalformed: true));

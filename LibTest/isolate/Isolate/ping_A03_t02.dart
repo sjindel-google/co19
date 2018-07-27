@@ -82,6 +82,6 @@ main() {
     0, 1, -1,
     true, false,
     "", "string",
-    1.1, double.NAN, double.INFINITY, 0.0
+    1.1, double.nan, double.infinity, 0.0
   ]);
 }

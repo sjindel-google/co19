@@ -16,14 +16,14 @@ import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
-  Expect.equals(1.0, Math.pow(double.NAN, .0));
-  Expect.equals(1.0, Math.pow(double.NAN, -.0));
+  Expect.equals(1.0, Math.pow(double.nan, .0));
+  Expect.equals(1.0, Math.pow(double.nan, -.0));
 
-  Expect.equals(1.0, Math.pow(double.INFINITY, .0));
-  Expect.equals(1.0, Math.pow(double.INFINITY, -.0));
+  Expect.equals(1.0, Math.pow(double.infinity, .0));
+  Expect.equals(1.0, Math.pow(double.infinity, -.0));
 
-  Expect.equals(1.0, Math.pow(double.NEGATIVE_INFINITY, .0));
-  Expect.equals(1.0, Math.pow(double.NEGATIVE_INFINITY, -.0));
+  Expect.equals(1.0, Math.pow(double.negativeInfinity, .0));
+  Expect.equals(1.0, Math.pow(double.negativeInfinity, -.0));
 
   Expect.equals(1.0, Math.pow(.0, .0));
   Expect.equals(1.0, Math.pow(-.0, .0));

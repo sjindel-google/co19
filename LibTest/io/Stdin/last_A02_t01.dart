@@ -29,7 +29,7 @@ run_main() async {
       Expect.isTrue(errors.isEmpty);
     });
     await process.stdout.toList().then((out) {
-      String res = SYSTEM_ENCODING.decode(out[0]);
+      String res = systemEncoding.decode(out[0]);
       // Get rid from possible new line symbols here
       Expect.equals("Testme", res.trimRight());
       called++;

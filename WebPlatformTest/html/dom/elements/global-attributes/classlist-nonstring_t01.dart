@@ -38,7 +38,7 @@ void main() {
 
 //var items = document.getElementById("test").getElementsByTagName("li");
 var items = document.querySelector('#test').querySelectorAll('li');
-var tests = [null, 0, double.NAN, double.INFINITY, -double.INFINITY];
+var tests = [null, 0, double.nan, double.infinity, -double.infinity];
 
   for (var i = 0, il = items.length; i < il; ++i) {
     var cls=items[i].classes;

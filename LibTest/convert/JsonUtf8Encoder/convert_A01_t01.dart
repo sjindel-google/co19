@@ -18,6 +18,6 @@ main() {
   for (List<Object> pair in table) {
     JsonUtf8Encoder enc = new JsonUtf8Encoder();
     List<int> res = enc.convert(pair[0]);
-    Expect.listEquals(UTF8.encode(pair[1]), res);
+    Expect.listEquals(utf8.encode(pair[1]), res);
   }
 }

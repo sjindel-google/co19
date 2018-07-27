@@ -40,7 +40,7 @@ import "../../../Utils/expect.dart";
 test() async {
   int requestCounter = 0;
 
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
     Expect.isNull(request.headers[HttpHeaders.PROXY_AUTHORIZATION]);
     if (requestCounter++ == 0) {
@@ -66,10 +66,10 @@ test() async {
 
   client
       .getUrl(Uri.parse(
-          "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}"))
+          "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {});
+    response.transform(utf8.decoder).listen((content) {});
   });
 }
 

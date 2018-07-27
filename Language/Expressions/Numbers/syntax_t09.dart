@@ -36,7 +36,7 @@ import '../../../Utils/expect.dart';
 main() {
   var v1 = 1234567890.0987654321e1234567890;
   Expect.equals(1234567890.0987654321e1234567890, v1);
-  Expect.equals(double.INFINITY, v1);
+  Expect.equals(double.infinity, v1);
 
   var v2 = 01234567899876543210;
   Expect.equals(01234567899876543210, v2);

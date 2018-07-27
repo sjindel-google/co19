@@ -34,14 +34,14 @@ main() {
   check(0, 0, NEG_MAX_DOUBLE);
   check(1, 1, MAX_DOUBLE);
   check(1, 1, NEG_MAX_DOUBLE);
-  check(1, 1, double.INFINITY);
-  check(-1, -1, double.INFINITY);
-  check(1, 1, double.NEGATIVE_INFINITY);
-  check(-1, -1, double.NEGATIVE_INFINITY);
-  check(0x1000000000000000, 0x1000000000000000, double.INFINITY);
-  check(-0x1000000000000000, -0x1000000000000000, double.INFINITY);
-  check(0x1000000000000000, 0x1000000000000000, double.NEGATIVE_INFINITY);
-  check(-0x1000000000000000, -0x1000000000000000, double.NEGATIVE_INFINITY);
+  check(1, 1, double.infinity);
+  check(-1, -1, double.infinity);
+  check(1, 1, double.negativeInfinity);
+  check(-1, -1, double.negativeInfinity);
+  check(0x1000000000000000, 0x1000000000000000, double.infinity);
+  check(-0x1000000000000000, -0x1000000000000000, double.infinity);
+  check(0x1000000000000000, 0x1000000000000000, double.negativeInfinity);
+  check(-0x1000000000000000, -0x1000000000000000, double.negativeInfinity);
   
   Expect.isTrue((1.remainder(0.0)).isNaN);
   Expect.isTrue((1.remainder(-0.0)).isNaN);
@@ -51,9 +51,9 @@ main() {
   Expect.isTrue((0.remainder(-0.0)).isNaN);
   Expect.isTrue((0x1000000000000000.remainder(0.0)).isNaN);
   Expect.isTrue(((-0x1000000000000000).remainder(0.0)).isNaN);
-  Expect.isTrue((1.remainder(double.NAN)).isNaN);
-  Expect.isTrue((0x1000000000000000.remainder(double.NAN)).isNaN);
-  Expect.isTrue(((-0x1000000000000000).remainder(double.NAN)).isNaN);
+  Expect.isTrue((1.remainder(double.nan)).isNaN);
+  Expect.isTrue((0x1000000000000000.remainder(double.nan)).isNaN);
+  Expect.isTrue(((-0x1000000000000000).remainder(double.nan)).isNaN);
 }
 
 void check(num ex, int a, double b) {

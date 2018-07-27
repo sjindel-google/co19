@@ -20,10 +20,10 @@ main() {
   
   var outSink = new ByteConversionSink.withCallback((accumulated) {
     called = true;
-    Expect.listEquals(UTF8.encode("12"), accumulated);
+    Expect.listEquals(utf8.encode("12"), accumulated);
   });
 
-  StringConversionSink inSink = UTF8.encoder.startChunkedConversion(outSink);
+  StringConversionSink inSink = utf8.encoder.startChunkedConversion(outSink);
   inSink.add("1");
 
   ByteConversionSink bcs = inSink.asUtf8Sink(false);

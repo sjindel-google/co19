@@ -27,7 +27,7 @@ test(ChunkedConversionSink create(ChunkedConversionSink outSink)) {
   });
 
   ByteConversionSink inSink = create(outSink);
-  var list = UTF8.encode("Кириллица");
+  var list = utf8.encode("Кириллица");
 
   Expect.isFalse(called);
   inSink.add(list);
@@ -35,7 +35,7 @@ test(ChunkedConversionSink create(ChunkedConversionSink outSink)) {
   inSink.close();
   Expect.isTrue(called);
 
-  list = UTF8.encode("прекрасна");
+  list = utf8.encode("прекрасна");
   inSink.add(list);
   inSink.close();
 }

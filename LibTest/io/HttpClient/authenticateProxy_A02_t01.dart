@@ -34,7 +34,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 test() async {
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
     var response = request.response;
     if (request.headers[HttpHeaders.PROXY_AUTHORIZATION] == null) {
@@ -54,12 +54,12 @@ test() async {
 
   HttpClient client = new HttpClient();
   client.findProxy = (Uri uri) {
-    return "PROXY ${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}";
+    return "PROXY ${InternetAddress.loopbackIPv4.address}:${server.port}";
   };
 
   client.authenticateProxy =
       (String host, int port, String scheme, String realm) {
-    Expect.equals(InternetAddress.LOOPBACK_IP_V4.address, host);
+    Expect.equals(InternetAddress.loopbackIPv4.address, host);
     Expect.equals(server.port, port);
     Expect.equals("Basic", scheme);
     Expect.equals("realm", realm);
@@ -70,10 +70,10 @@ test() async {
 
   client
       .getUrl(Uri.parse(
-          "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}"))
+          "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {});
+    response.transform(utf8.decoder).listen((content) {});
   });
 }
 

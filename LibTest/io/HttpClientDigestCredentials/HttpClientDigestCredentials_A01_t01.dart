@@ -16,7 +16,7 @@ import 'dart:async';
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test() async {
   HttpServer server = await HttpServer.bind(localhost, 0);
@@ -60,7 +60,7 @@ test() async {
       .getUrl(Uri.parse("http://${localhost}:${server.port}/xxx"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {});
+    response.transform(utf8.decoder).listen((content) {});
   });
 }
 

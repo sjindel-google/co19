@@ -21,7 +21,7 @@ main() {
   Expect.isTrue(Math.asin(1.0000000000001).isNaN);
   Expect.isTrue(Math.asin(-1.0000000000001).isNaN);
 
-  Expect.isTrue(Math.asin(double.NAN).isNaN);
-  Expect.isTrue(Math.asin(double.INFINITY).isNaN);
-  Expect.isTrue(Math.asin(double.NEGATIVE_INFINITY).isNaN);
+  Expect.isTrue(Math.asin(double.nan).isNaN);
+  Expect.isTrue(Math.asin(double.infinity).isNaN);
+  Expect.isTrue(Math.asin(double.negativeInfinity).isNaN);
 }

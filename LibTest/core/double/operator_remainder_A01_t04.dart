@@ -12,7 +12,7 @@
  */
 import "../../../Utils/expect.dart";
 
-final inf = double.INFINITY;
+final inf = double.infinity;
 
 final List<double> values = const [
    4.9406564584124654e-324, // min
@@ -46,8 +46,8 @@ main() {
 
   values.forEach((double d) {
     Expect.equals(d, d % inf);
-    Expect.equals(double.INFINITY, (-d) % inf);
+    Expect.equals(double.infinity, (-d) % inf);
     Expect.equals(d, d % (-inf));
-    Expect.equals(double.INFINITY, (-d) % (-inf));
+    Expect.equals(double.infinity, (-d) % (-inf));
   });
 }

@@ -15,10 +15,10 @@
  * Uses the code units from start to, but no including, end. If end is omitted,
  * it defaults to codeUnits.length.
  *
- * If the codeUnits start with the encoding of a UNICODE_BOM_CHARACTER_RUNE this
+ * If the codeUnits start with the encoding of a unicodeBomCharacterRune this
  * character is discarded.
  * @description Checks that if the [codeUnits] start with the encoding of a
- * [UNICODE_BOM_CHARACTER_RUNE], that character is discarded. Test
+ * [unicodeBomCharacterRune], that character is discarded. Test
  * allowMalformed = true
  * @issue 28834
  * @author sgrekhov@unipro.ru
@@ -31,15 +31,15 @@ main() {
   for (int i = 0; i < 128; i++) {
     String s = new String.fromCharCode(i);
     List<int> toDecode = [];
-    toDecode.addAll(UTF8.encode(
-        new String.fromCharCodes([UNICODE_BOM_CHARACTER_RUNE])));
+    toDecode.addAll(utf8.encode(
+        new String.fromCharCodes([unicodeBomCharacterRune])));
     toDecode.add(i);
     Expect.equals(s, decoder.convert(toDecode));
   }
 
   List<int> toDecode = [];
-  toDecode.addAll(UTF8.encode(
-      new String.fromCharCodes([UNICODE_BOM_CHARACTER_RUNE])));
+  toDecode.addAll(utf8.encode(
+      new String.fromCharCodes([unicodeBomCharacterRune])));
   toDecode.addAll([208, 154, 208, 184, 209, 128, 208, 184, 208, 187, 208, 187,
     208, 184, 209, 134, 208, 176, 32]);
   Expect.equals("Кириллица ", decoder.convert(toDecode));

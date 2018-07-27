@@ -14,6 +14,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   for(int i = 0; i < 10; i++) {
-    Expect.equals('NaN', double.NAN.toStringAsFixed(i));
+    Expect.equals('NaN', double.nan.toStringAsFixed(i));
   }
 }

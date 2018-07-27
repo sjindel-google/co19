@@ -12,7 +12,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  double inf = double.INFINITY;
+  double inf = double.infinity;
   Expect.equals(inf, inf.truncateToDouble());
   Expect.equals(-inf, (-inf).truncateToDouble());
 }

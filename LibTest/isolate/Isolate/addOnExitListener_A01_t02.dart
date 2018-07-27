@@ -45,7 +45,7 @@ main() {
     test("string"),
     test(10),
     test(1.1),
-    test(double.NAN),
-    test(double.INFINITY)
+    test(double.nan),
+    test(double.infinity)
   ]).then((_) => asyncEnd());
 }

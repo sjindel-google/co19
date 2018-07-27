@@ -15,7 +15,7 @@
  * Uses the code units from start to, but no including, end. If end is omitted,
  * it defaults to codeUnits.length.
  *
- * If the codeUnits start with the encoding of a UNICODE_BOM_CHARACTER_RUNE this
+ * If the codeUnits start with the encoding of a unicodeBomCharacterRune this
  * character is discarded.
  * @description Checks that this method decodes data to UTF-8 string
  * @author sgrekhov@unipro.ru

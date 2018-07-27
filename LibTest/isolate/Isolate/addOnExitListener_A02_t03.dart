@@ -46,7 +46,7 @@ Future test(List<Object> values) async {
 main() {
   asyncStart();
   List<Object> values = [
-    null, true, false, "string", 10, 1.1, double.NAN, double.INFINITY
+    null, true, false, "string", 10, 1.1, double.nan, double.infinity
   ];
   Random random = new Random();
   Future.wait([

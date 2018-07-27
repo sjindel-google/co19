@@ -6,7 +6,7 @@
 /**
  * @assertion Future<File> writeAsBytes(
  * List<int> bytes, {
- * FileMode mode: FileMode.WRITE,
+ * FileMode mode: FileMode.write,
  * bool flush: false
  * })
  * Write a list of bytes to a file.
@@ -17,7 +17,7 @@
  *
  * By default writeAsBytes creates the file for writing and truncates the file
  * if it already exists. In order to append the bytes to an existing file, pass
- * FileMode.APPEND as the optional mode parameter.
+ * FileMode.append as the optional mode parameter.
  *
  * If the argument flush is set to true, the data written will be flushed to the
  * file system before the returned future completes.

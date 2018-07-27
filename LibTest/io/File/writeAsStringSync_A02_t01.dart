@@ -6,8 +6,8 @@
 /**
  * @assertion void writeAsStringSync(
  *  String contents, {
- *  FileMode mode: FileMode.WRITE,
- *  Encoding encoding: UTF8,
+ *  FileMode mode: FileMode.write,
+ *  Encoding encoding: utf8,
  *  bool flush: false
  *  })
  * Synchronously write a string to a file.
@@ -16,13 +16,13 @@
  *
  * By default writeAsStringSync creates the file for writing and truncates the
  * file if it already exists. In order to append the bytes to an existing file,
- * pass FileMode.APPEND as the optional mode parameter.
+ * pass FileMode.append as the optional mode parameter.
  *
  * If the flush argument is set to true data written will be flushed to the file
  * system before returning.
  *
  * Throws a FileSystemException if the operation fails.
- * @description Checks that this method writes a string to a file in a UTF8
+ * @description Checks that this method writes a string to a file in a utf8
  * encoding
  * @author sgrekhov@unipro.ru
  */

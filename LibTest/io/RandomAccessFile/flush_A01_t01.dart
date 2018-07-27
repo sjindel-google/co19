@@ -20,7 +20,7 @@ import "../file_utils.dart";
 main() {
   File file = getTempFileSync();
   asyncStart();
-  Future<RandomAccessFile> raFile = file.open(mode: FileMode.WRITE);
+  Future<RandomAccessFile> raFile = file.open(mode: FileMode.write);
   raFile.then((RandomAccessFile rf) {
     Expect.isNotNull(rf);
     rf.writeByteSync(9);

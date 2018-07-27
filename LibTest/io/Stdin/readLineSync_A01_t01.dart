@@ -6,7 +6,7 @@
 /**
  * @assertion int readByteSync()
  * @assertion String readLineSync({
- *   Encoding encoding: SYSTEM_ENCODING,
+ *   Encoding encoding: systemEncoding,
  *   bool retainNewlines: false
  *   })
  * Synchronously read a line from stdin.

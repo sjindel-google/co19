@@ -7,12 +7,12 @@
  * @assertion
  * Future<RandomAccessFile> writeString(
  *     String string, {
- *     Encoding encoding: UTF8
+ *     Encoding encoding: utf8
  * })
  * Writes a string to the file using the given Encoding.
  *
  * @description Checks that method writeString writes a string to the file using
- * the given default Encoding UTF8.
+ * the given default Encoding utf8.
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -24,7 +24,7 @@ import "../file_utils.dart";
 check(String s) {
   File file = getTempFileSync();
   asyncStart();
-  Future<RandomAccessFile> raFile = file.open(mode: FileMode.WRITE);
+  Future<RandomAccessFile> raFile = file.open(mode: FileMode.write);
   raFile.then((RandomAccessFile rf) {
     var f = rf.writeString(s);
     f.then((RandomAccessFile file) {

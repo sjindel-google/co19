@@ -28,8 +28,8 @@ check(InternetAddress address) {
 }
 
 main() {
-  check(InternetAddress.ANY_IP_V4);
-  check(InternetAddress.ANY_IP_V6);
-  check(InternetAddress.LOOPBACK_IP_V4);
-  check(InternetAddress.LOOPBACK_IP_V6);
+  check(InternetAddress.anyIPv4);
+  check(InternetAddress.anyIPv6);
+  check(InternetAddress.loopbackIPv4);
+  check(InternetAddress.loopbackIPv6);
 }

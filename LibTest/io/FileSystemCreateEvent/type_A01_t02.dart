@@ -19,7 +19,7 @@ main() {
   Directory dir = getTempDirectorySync();
   asyncStart();
   StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
-    Expect.equals(FileSystemEvent.CREATE, event.type);
+    Expect.equals(FileSystemEvent.create, event.type);
     asyncEnd();
   });
   getTempFileSync(parent: dir);

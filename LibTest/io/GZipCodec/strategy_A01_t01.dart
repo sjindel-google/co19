@@ -6,7 +6,7 @@
 /**
  * @assertion int strategy
  *  final
- * Tunes the compression algorithm. Use the value ZLibOption.STRATEGY_DEFAULT
+ * Tunes the compression algorithm. Use the value ZLibOption.strategyDefault
  * for normal data, ZLibOption.STRATEGY_FILTERED for data produced by a filter
  * (or predictor), ZLibOption.STRATEGY_HUFFMAN_ONLY to force Huffman encoding
  * only (no string match), or ZLibOption.STRATEGY_RLE to limit match distances
@@ -20,7 +20,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   GZipCodec codec1 = new GZipCodec();
-  Expect.equals(ZLibOption.STRATEGY_DEFAULT, codec1.strategy);
+  Expect.equals(ZLibOption.strategyDefault, codec1.strategy);
 
   GZipCodec codec2 = new GZipCodec(strategy: ZLibOption.STRATEGY_HUFFMAN_ONLY);
   Expect.equals(ZLibOption.STRATEGY_HUFFMAN_ONLY, codec2.strategy);

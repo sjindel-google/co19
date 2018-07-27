@@ -19,7 +19,7 @@ import "dart:io";
 int called = 0;
 
 String str = "Testme";
-List encodings = [UTF8, ASCII, LATIN1, SYSTEM_ENCODING];
+List encodings = [utf8, ascii, latin1, systemEncoding];
 List expected = [84, 101, 115, 116, 109, 101];
 
 class MyStreamConsumer<List> extends StreamConsumer<List> {

@@ -17,15 +17,15 @@ checkNaN(d) {
 }
 
 main() {
-  checkNaN(double.INFINITY * .0);
-  checkNaN(.0 * double.INFINITY);
+  checkNaN(double.infinity * .0);
+  checkNaN(.0 * double.infinity);
 
-  checkNaN(double.INFINITY * (-.0));
-  checkNaN((-.0) * double.INFINITY);
+  checkNaN(double.infinity * (-.0));
+  checkNaN((-.0) * double.infinity);
 
-  checkNaN(double.NEGATIVE_INFINITY * .0);
-  checkNaN(.0 * double.NEGATIVE_INFINITY);
+  checkNaN(double.negativeInfinity * .0);
+  checkNaN(.0 * double.negativeInfinity);
 
-  checkNaN(double.NEGATIVE_INFINITY * (-.0));
-  checkNaN((-.0) * double.NEGATIVE_INFINITY);
+  checkNaN(double.negativeInfinity * (-.0));
+  checkNaN((-.0) * double.negativeInfinity);
 }

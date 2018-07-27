@@ -16,7 +16,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 check(String str) {
-  List<int> data = LATIN1.encode(str);
+  List<int> data = latin1.encode(str);
   Latin1Decoder decoder = new Latin1Decoder();
   bool called = false;
 

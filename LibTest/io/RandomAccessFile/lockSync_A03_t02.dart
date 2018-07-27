@@ -27,7 +27,7 @@ import "lock_check_1_lib.dart";
 void check(int fLen) {
   File file = getTempFileSync();
   file.writeAsBytesSync(new List.filled(fLen, 1));
-  var rf = file.openSync(mode: FileMode.READ);
+  var rf = file.openSync(mode: FileMode.read);
   asyncStart();
   rf.lockSync(FileLock.SHARED);
   var tests = [

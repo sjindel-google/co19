@@ -59,9 +59,9 @@ final List<double> values = const [
 
 main() {
   values.forEach((d) {
-    Expect.equals(double.INFINITY, double.INFINITY - d);
-    Expect.equals(double.NEGATIVE_INFINITY, d - double.INFINITY);
-    Expect.equals(double.NEGATIVE_INFINITY, double.NEGATIVE_INFINITY - d);
-    Expect.equals(double.INFINITY, d - double.NEGATIVE_INFINITY);
+    Expect.equals(double.infinity, double.infinity - d);
+    Expect.equals(double.negativeInfinity, d - double.infinity);
+    Expect.equals(double.negativeInfinity, double.negativeInfinity - d);
+    Expect.equals(double.infinity, d - double.negativeInfinity);
   });
 }

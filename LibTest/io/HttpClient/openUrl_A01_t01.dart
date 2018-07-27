@@ -28,7 +28,7 @@ import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test() async {
   String helloWorld = "Hello test world!";
@@ -48,7 +48,7 @@ test() async {
       Expect.equals("GET", request.method);
       return request.close();
     }).then((HttpClientResponse response) {
-      response.transform(UTF8.decoder).listen((content) {
+      response.transform(utf8.decoder).listen((content) {
         Expect.equals(helloWorld, content);
     });
   });

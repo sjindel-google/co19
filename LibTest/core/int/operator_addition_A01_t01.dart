@@ -32,12 +32,12 @@ main() {
   Expect.equals(0.0, 1 + -1.0);
   Expect.equals(0.0, -1 + 1.0);
 
-  Expect.equals(double.INFINITY, 0 + double.INFINITY);
-  Expect.equals(double.INFINITY, 0 + double.INFINITY);
+  Expect.equals(double.infinity, 0 + double.infinity);
+  Expect.equals(double.infinity, 0 + double.infinity);
   Expect.equals(MIN_DOUBLE, 0 + MIN_DOUBLE);
   Expect.equals(NEG_MIN_DOUBLE, 0 + NEG_MIN_DOUBLE);
   Expect.equals(MAX_DOUBLE, 0 + MAX_DOUBLE);
   Expect.equals(NEG_MAX_DOUBLE, 0 + NEG_MAX_DOUBLE);
   
-  Expect.isTrue((0 + double.NAN).isNaN);
+  Expect.isTrue((0 + double.nan).isNaN);
 }

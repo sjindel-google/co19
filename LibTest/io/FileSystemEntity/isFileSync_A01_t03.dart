@@ -5,10 +5,10 @@
  */
 /**
  * @assertion bool isFileSync(String path)
- * Synchronously checks if typeSync(path) returns FileSystemEntityType.FILE.
+ * Synchronously checks if typeSync(path) returns FileSystemEntityType.file.
  *
  * @description Checks that this property Synchronously checks if typeSync(path)
- * returns FileSystemEntityType.FILE. Test Directory
+ * returns FileSystemEntityType.file. Test Directory
  * @issue 30410
  * @author sgrekhov@unipro.ru
  */
@@ -21,7 +21,7 @@ main() {
   try {
     Expect.isFalse(FileSystemEntity.isFileSync(link.path));
     Expect.equals(
-        FileSystemEntity.typeSync(link.path), FileSystemEntityType.LINK);
+        FileSystemEntity.typeSync(link.path), FileSystemEntityType.link);
   } finally {
     link.delete();
   }

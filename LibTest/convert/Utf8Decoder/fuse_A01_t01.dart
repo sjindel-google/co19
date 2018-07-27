@@ -27,5 +27,5 @@ main() {
   for (int i = 0; i < 128; i++) {
     check(fused, [i]);
   }
-  check(fused, UTF8.encode("Кириллица прекрасна"));
+  check(fused, utf8.encode("Кириллица прекрасна"));
 }

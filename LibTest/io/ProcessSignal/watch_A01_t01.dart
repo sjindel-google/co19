@@ -35,7 +35,7 @@ check(ProcessSignal signal) {
     process.stdin.close();
     process.stderr.drain();
     var output = "";
-    process.stdout.transform(UTF8.decoder).listen((str) {
+    process.stdout.transform(utf8.decoder).listen((str) {
       output += str;
       if (output == 'done\n') {
         process.kill(signal);

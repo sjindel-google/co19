@@ -26,7 +26,7 @@ StreamTransformer<RawSocketEvent, int> transformer =
 });
 
 main() {
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((socket) {
     Stream s1 = socket.transform(transformer);
     Expect.isFalse(s1.isBroadcast);

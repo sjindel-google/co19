@@ -11,9 +11,9 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isFalse((double.NAN > 0));
-  Expect.isFalse((double.NAN < 0));
-  Expect.isFalse((double.NAN >= 0));
-  Expect.isFalse((double.NAN <= 0));
-  Expect.isFalse((double.NAN == 0));
+  Expect.isFalse((double.nan > 0));
+  Expect.isFalse((double.nan < 0));
+  Expect.isFalse((double.nan >= 0));
+  Expect.isFalse((double.nan <= 0));
+  Expect.isFalse((double.nan == 0));
 }

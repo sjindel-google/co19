@@ -18,10 +18,10 @@ main() {
 
   StringConversionSink outSink = new StringConversionSink.from(sink);
 
-  ByteConversionSink inSink = ASCII.decoder.startChunkedConversion(outSink);
-  var list = ASCII.encode("12345");
+  ByteConversionSink inSink = ascii.decoder.startChunkedConversion(outSink);
+  var list = ascii.encode("12345");
   inSink.add(list);
-  list = ASCII.encode("absdABCD");
+  list = ascii.encode("absdABCD");
   inSink.add(list);
   inSink.close();
 

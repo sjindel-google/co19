@@ -10,9 +10,9 @@
 import "dart:html";
 import "../../testcommon.dart";
 
-var NaN = double.NAN;
-var Infinity = double.INFINITY;
-var NegInfinity = double.NEGATIVE_INFINITY;
+var NaN = double.nan;
+var Infinity = double.infinity;
+var NegInfinity = double.negativeInfinity;
 
 pass(msg) => testPassed('pass: $msg');
 fail(msg) => testFailed(msg);

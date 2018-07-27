@@ -24,7 +24,7 @@ void check(int start) {
   int len = list.length - start;
   File file = getTempFileSync();
   asyncStart();
-  Future<RandomAccessFile> raFile = file.open(mode: FileMode.WRITE);
+  Future<RandomAccessFile> raFile = file.open(mode: FileMode.write);
   raFile.then((RandomAccessFile rf) {
     Expect.equals(0, file.lengthSync());
     rf.writeFromSync(list, start);

@@ -14,7 +14,7 @@ import 'dart:async';
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test() async {
   HttpServer server = await HttpServer.bind(localhost, 0);
@@ -25,7 +25,7 @@ test() async {
       request.response.close();
     } else {
       var authorization = request.headers[HttpHeaders.AUTHORIZATION][0];
-      String encoded = BASE64.encode(UTF8.encode("co19-test:password"));
+      String encoded = BASE64.encode(utf8.encode("co19-test:password"));
       Expect.equals("Basic ${encoded}", authorization);
       request.response.close();
       server.close();
@@ -47,10 +47,10 @@ test() async {
 
   client
       .getUrl(Uri.parse(
-          "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}/xxx"))
+          "http://${InternetAddress.loopbackIPv4.address}:${server.port}/xxx"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {});
+    response.transform(utf8.decoder).listen((content) {});
   });
 }
 

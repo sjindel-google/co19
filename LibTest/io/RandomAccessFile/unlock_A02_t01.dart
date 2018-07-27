@@ -23,7 +23,7 @@ import "lock_check_1_lib.dart";
 
 main() {
   File file = getTempFileSync();
-  var rf1 = file.openSync(mode: FileMode.WRITE);
+  var rf1 = file.openSync(mode: FileMode.write);
   rf1.writeFromSync(new List.filled(10, 0));
   asyncStart();
   rf1.lockSync(FileLock.EXCLUSIVE, 4, 7);

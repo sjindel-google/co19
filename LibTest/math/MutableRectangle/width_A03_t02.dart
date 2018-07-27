@@ -7,7 +7,7 @@
  * @assertion void width=(T width)
  * The width must be non-negative. If a negative width is supplied, it is
  * clamped to zero.
- * @description Checks that if the width is double.NEGATIVE_INFINITY, it is
+ * @description Checks that if the width is double.negativeInfinity, it is
  * clamped to zero.
  * @issue 30186
  * @author ngl@unipro.ru
@@ -19,6 +19,6 @@ import "../../../Utils/expect.dart";
 main() {
   MutableRectangle r = new MutableRectangle(2, 1, 20, 15);
   Expect.equals(20, r.width);
-  r.width = double.NEGATIVE_INFINITY;
+  r.width = double.negativeInfinity;
   Expect.equals(0, r.width, 'wedth = ${r.width}');
 }

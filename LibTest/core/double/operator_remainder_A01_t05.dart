@@ -10,7 +10,7 @@
  */
 import "../../../Utils/expect.dart";
 
-final inf = double.INFINITY;
+final inf = double.infinity;
 
 final List<double> values = const [
    .0,

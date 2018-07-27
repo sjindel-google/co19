@@ -38,7 +38,7 @@ void main() {
 		 0, // expected default value
 		 whitespace,
 		 [ "-47", ".1", "0.35", "1e-10", "+32", "+17E-1", "17e+2" ], // valid
-		 [ double.NAN.toString(), double.INFINITY.toString(), double.NEGATIVE_INFINITY.toString(), "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ], // invalid
+		 [ double.nan.toString(), double.infinity.toString(), double.negativeInfinity.toString(), "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ], // invalid
 		 [ "" ], // valid units
          garbage,
 		 (elm, value) { assert_approx_equals(elm.gradientOffset.baseVal, double.parse(value), EPSILON); },
@@ -50,7 +50,7 @@ void main() {
 		 0, // expected default value
 		 whitespace,
 		 [ "-47", ".1", "0.35", "1e-10", "+32", "+17E-1", "17e+2" ], // valid
-		 [ double.NAN.toString(), double.INFINITY.toString(), double.NEGATIVE_INFINITY.toString(), "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ], // invalid
+		 [ double.nan.toString(), double.infinity.toString(), double.negativeInfinity.toString(), "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ], // invalid
 		 [ "%" ], // valid units
 		 garbage,
 		 (elm, value) {

@@ -24,7 +24,7 @@ check(JsonUtf8Encoder encoder, data, List expected) {
   Sink<List<int>> outSink = new ChunkedConversionSink.withCallback((List chunks) {
     Expect.equals(expected.length, chunks.length);
     for (var i = 0; i < expected.length; i++) {
-      Expect.listEquals(UTF8.encode(expected[i]), chunks[i]);
+      Expect.listEquals(utf8.encode(expected[i]), chunks[i]);
     }
     called = true;
   });

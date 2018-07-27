@@ -5,10 +5,10 @@
  */
 /**
  * @assertion bool isFileSync(String path)
- * Synchronously checks if typeSync(path) returns FileSystemEntityType.FILE.
+ * Synchronously checks if typeSync(path) returns FileSystemEntityType.file.
  *
  * @description Checks that this property Synchronously checks if typeSync(path)
- * returns FileSystemEntityType.FILE. Test File
+ * returns FileSystemEntityType.file. Test File
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -20,7 +20,7 @@ main() {
   try {
     Expect.isTrue(FileSystemEntity.isFileSync(file.path));
     Expect.equals(
-        FileSystemEntity.typeSync(file.path), FileSystemEntityType.FILE);
+        FileSystemEntity.typeSync(file.path), FileSystemEntityType.file);
   } finally {
     file.delete();
   }

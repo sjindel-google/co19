@@ -11,12 +11,12 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals(double.INFINITY, double.INFINITY * double.INFINITY);
-  Expect.equals(double.INFINITY,
-      double.NEGATIVE_INFINITY * double.NEGATIVE_INFINITY);
+  Expect.equals(double.infinity, double.infinity * double.infinity);
+  Expect.equals(double.infinity,
+      double.negativeInfinity * double.negativeInfinity);
 
-  Expect.equals(double.NEGATIVE_INFINITY,
-      double.INFINITY * double.NEGATIVE_INFINITY);
-  Expect.equals(double.NEGATIVE_INFINITY,
-      double.NEGATIVE_INFINITY * double.INFINITY);
+  Expect.equals(double.negativeInfinity,
+      double.infinity * double.negativeInfinity);
+  Expect.equals(double.negativeInfinity,
+      double.negativeInfinity * double.infinity);
 }

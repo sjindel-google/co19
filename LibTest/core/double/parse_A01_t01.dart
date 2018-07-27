@@ -36,8 +36,8 @@ main() {
   Expect.isTrue(double.parse("1.1e2") == 110);
   Expect.isTrue(double.parse("1E1") == 10);
 
-  Expect.isTrue(double.parse("Infinity") == double.INFINITY);
-  Expect.isTrue(double.parse("-Infinity") == double.NEGATIVE_INFINITY);
+  Expect.isTrue(double.parse("Infinity") == double.infinity);
+  Expect.isTrue(double.parse("-Infinity") == double.negativeInfinity);
   Expect.isTrue(double.parse("NaN").isNaN);
   Expect.isTrue(double.parse("-NaN").isNaN);
   

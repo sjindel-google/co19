@@ -9,7 +9,7 @@
  *     int level: ZLibOption.DEFAULT_LEVEL,
  *     int windowBits: ZLibOption.DEFAULT_WINDOW_BITS,
  *     int memLevel: ZLibOption.DEFAULT_MEM_LEVEL,
- *     int strategy: ZLibOption.STRATEGY_DEFAULT,
+ *     int strategy: ZLibOption.strategyDefault,
  *     List<int> dictionary: null,
  *     bool raw: false,
  *     bool gzip: false

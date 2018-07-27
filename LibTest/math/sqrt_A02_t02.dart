@@ -14,5 +14,5 @@ import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
-  Expect.isTrue(Math.sqrt(double.NAN).isNaN);
+  Expect.isTrue(Math.sqrt(double.nan).isNaN);
 }

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion Map<String, String> splitQueryString(String query, {
- *  Encoding encoding: UTF8
+ *  Encoding encoding: utf8
  *  })
  * Returns the query split into a map according to the rules specified for FORM
  * post in the HTML 4.01 specification section 17.13.4. Each key and value in

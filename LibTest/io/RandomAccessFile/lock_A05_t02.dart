@@ -39,8 +39,8 @@ main() {
   int fLen = 10;
   File file = getTempFileSync();
   asyncStart();
-  var rf1 = file.openSync(mode: FileMode.WRITE);
-  var rf2 = file.openSync(mode: FileMode.WRITE);
+  var rf1 = file.openSync(mode: FileMode.write);
+  var rf2 = file.openSync(mode: FileMode.write);
   for (int i = 0; i < fLen; i++) {
     rf1.writeByteSync((i + 1) & 0xff);
   }

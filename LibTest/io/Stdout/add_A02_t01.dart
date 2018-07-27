@@ -39,14 +39,14 @@ main(List<String> args) {
   if(args.length > 0)
     run_process(args[0] == "err" ? stderr : stdout);
   else {
-    run_main("out", ASCII);
-    run_main("out", UTF8);
-    run_main("out", LATIN1);
-    run_main("out", SYSTEM_ENCODING);
+    run_main("out", ascii);
+    run_main("out", utf8);
+    run_main("out", latin1);
+    run_main("out", systemEncoding);
 
-    run_main("err", ASCII);
-    run_main("err", UTF8);
-    run_main("err", LATIN1);
-    run_main("err", SYSTEM_ENCODING);
+    run_main("err", ascii);
+    run_main("err", utf8);
+    run_main("err", latin1);
+    run_main("err", systemEncoding);
   }
 }

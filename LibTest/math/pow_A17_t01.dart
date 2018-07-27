@@ -27,11 +27,11 @@ main() {
   check(1, null);
   check(0, null);
   check(null, 0);
-  check(double.INFINITY, null);
-  check(null, double.INFINITY);
-  check(null, double.NAN);
-  check(double.NAN, null);
-  check(double.NEGATIVE_INFINITY, null);
-  check(null, double.NEGATIVE_INFINITY);
+  check(double.infinity, null);
+  check(null, double.infinity);
+  check(null, double.nan);
+  check(double.nan, null);
+  check(double.negativeInfinity, null);
+  check(null, double.negativeInfinity);
   check(null, null);
 }

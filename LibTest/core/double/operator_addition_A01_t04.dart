@@ -24,6 +24,6 @@ main() {
   checkNaN(positive_infinity + negative_infinity);
   checkNaN(negative_infinity + positive_infinity);
 
-  checkNaN(double.INFINITY + double.NEGATIVE_INFINITY);
-  checkNaN(double.NEGATIVE_INFINITY + double.INFINITY);
+  checkNaN(double.infinity + double.negativeInfinity);
+  checkNaN(double.negativeInfinity + double.infinity);
 }

@@ -5,7 +5,7 @@
  */
 /**
  * @assertion String readLineSync({
- *   Encoding encoding: SYSTEM_ENCODING,
+ *   Encoding encoding: systemEncoding,
  *   bool retainNewlines: false
  *   })
  * The argument [encoding] can be used to changed how the input should be
@@ -20,7 +20,7 @@ import "test.lib.dart";
 import "../file_utils.dart";
 
 List<int> expected = [1, 2, 3, 128, 129, 200, 254, 255];
-String str = LATIN1.decode(expected);
+String str = latin1.decode(expected);
 
 void run_process(String filename, Encoding enc) {
   String res = stdin.readLineSync(encoding : enc);
@@ -34,5 +34,5 @@ void run(Process process) { process.stdin.writeln(str); }
 main(List<String> args) {
   String filename = Directory.systemTemp.path + Platform.pathSeparator +
       getTempFileName();
-  args.length > 0 ? run_process(args[0], LATIN1) : run_main(filename, run, str);
+  args.length > 0 ? run_process(args[0], latin1) : run_main(filename, run, str);
 }

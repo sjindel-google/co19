@@ -4,14 +4,14 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion WRITE_ONLY = FileMode.WRITE_ONLY
- * @description Checks that [WRITE_ONLY] is set to [FileMode.WRITE_ONLY].
+ * @assertion gzip = const GZipCodec._default()
+ * @description Checks that [gzip] is an instance of [GZipCodec].
  * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 import "dart:io";
 
 main() {
-  Expect.equals(FileMode.WRITE_ONLY, WRITE_ONLY);
+  Expect.isTrue(gzip is GZipCodec);
 }
 

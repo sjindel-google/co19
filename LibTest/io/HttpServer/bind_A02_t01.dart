@@ -15,10 +15,10 @@
  * The address can either be a String or an InternetAddress. If address is a
  * String, bind will perform a InternetAddress.lookup and use the first value in
  * the list. To listen on the loopback adapter, which will allow only incoming
- * connections from the local host, use the value InternetAddress.LOOPBACK_IP_V4
- * or InternetAddress.LOOPBACK_IP_V6. To allow for incoming connection from the
- * network use either one of the values InternetAddress.ANY_IP_V4 or
- * InternetAddress.ANY_IP_V6 to bind to all interfaces or the IP address of a
+ * connections from the local host, use the value InternetAddress.loopbackIPv4
+ * or InternetAddress.loopbackIPv6. To allow for incoming connection from the
+ * network use either one of the values InternetAddress.anyIPv4 or
+ * InternetAddress.anyIPv6 to bind to all interfaces or the IP address of a
  * specific interface.
  * @description Checks that if [address]  is a String, then
  * InternetAddress.lookup is performed and the first value in the list is used
@@ -50,8 +50,8 @@ test() async {
         .then((HttpClientRequest request) {
       return request.close();
     }).then((HttpClientResponse response) {
-      Expect.equals(HttpStatus.OK, response.statusCode);
-      response.transform(UTF8.decoder).listen((content) {
+      Expect.equals(HttpStatus.ok, response.statusCode);
+      response.transform(utf8.decoder).listen((content) {
         Expect.equals(helloWorld, content);
         asyncEnd();
       });

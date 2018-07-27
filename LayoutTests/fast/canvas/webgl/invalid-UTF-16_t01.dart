@@ -5,8 +5,8 @@
  */
 /** 
  * @description This test verifies that the internal conversion from UTF16 to
- * UTF8 is robust to invalid inputs. Any DOM entry point which converts an
- * incoming string to UTF8 could be used for this test.
+ * utf8 is robust to invalid inputs. Any DOM entry point which converts an
+ * incoming string to utf8 could be used for this test.
  */
 import "../../../testcommon.dart";
 import "resources/webgl-test.dart";
@@ -26,7 +26,7 @@ main() {
   // The first code path does not perform a utf8 conversion of the
   // incoming string unless Console::shouldPrintExceptions() returns
   // true. The second seems to sanitize the form's input before
-  // converting it to a UTF8 string.
+  // converting it to a utf8 string.
 
   var gl = create3DContext(null);
   var program = gl.createProgram();

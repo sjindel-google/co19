@@ -13,5 +13,5 @@ import "../../../Utils/expect.dart";
 
 
 main() {
-  Expect.throws(() {double.NAN.toInt();});
+  Expect.throws(() {double.nan.toInt();});
 }

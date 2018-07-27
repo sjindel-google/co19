@@ -56,12 +56,12 @@ final List<double> values = const [
   3.273390607896142E150,
   1.7976931348623157e308,
   1 / 0,
-  double.NAN
+  double.nan
 ];
 
 main() {
   values.forEach((d) {
-    Expect.throws(() {d ~/ double.NAN;});
-    Expect.throws(() {double.NAN ~/ d;});
+    Expect.throws(() {d ~/ double.nan;});
+    Expect.throws(() {double.nan ~/ d;});
   });
 }

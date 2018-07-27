@@ -30,7 +30,7 @@ main() {
     });
   }
 
-  testBlob("$root/resources/UTF8.txt", "text/plain", () {
+  testBlob("$root/resources/utf8.txt", "text/plain", () {
     testBlob("$root/resources/IntentionallyMissingFile.txt", "", () {
       testBlob("$root/resources/empty-file", "", asyncEnd);
     });

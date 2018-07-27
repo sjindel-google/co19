@@ -5,7 +5,7 @@
  */
 /**
  * @assertion int strategy
- * Tunes the compression algorithm. Use the value ZLibOption.STRATEGY_DEFAULT
+ * Tunes the compression algorithm. Use the value ZLibOption.strategyDefault
  * for normal data, ZLibOption.STRATEGY_FILTERED for data produced by a filter
  * (or predictor), ZLibOption.STRATEGY_HUFFMAN_ONLY to force Huffman encoding
  * only (no string match), or ZLibOption.STRATEGY_RLE to limit match distances

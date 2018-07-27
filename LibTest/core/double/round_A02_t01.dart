@@ -12,5 +12,5 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {double.NAN.round();},(e) => e is UnsupportedError);
+  Expect.throws(() {double.nan.round();},(e) => e is UnsupportedError);
 }

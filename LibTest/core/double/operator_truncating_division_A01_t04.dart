@@ -12,18 +12,18 @@ import "../../../Utils/expect.dart";
 
 main() {
   Expect.throws(() {
-    double.INFINITY ~/ double.INFINITY;
+    double.infinity ~/ double.infinity;
   });
   
   Expect.throws(() {
-    double.INFINITY ~/ double.NEGATIVE_INFINITY;
+    double.infinity ~/ double.negativeInfinity;
   });
   
   Expect.throws(() {
-    double.NEGATIVE_INFINITY ~/ double.INFINITY;
+    double.negativeInfinity ~/ double.infinity;
   });
   
   Expect.throws(() {
-    double.NEGATIVE_INFINITY ~/ double.NEGATIVE_INFINITY;
+    double.negativeInfinity ~/ double.negativeInfinity;
   });
 }

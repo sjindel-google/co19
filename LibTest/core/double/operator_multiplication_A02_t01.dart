@@ -12,7 +12,7 @@
 import "../../../Utils/expect.dart";
 
 final List<double> values = const [
-  double.NEGATIVE_INFINITY,
+  double.negativeInfinity,
   -1.7976931348623157e308,
   -3.273390607896142E150,
   -4.503599627370497E15,
@@ -56,8 +56,8 @@ final List<double> values = const [
   4.503599627370497E15,
   3.273390607896142E150,
   1.7976931348623157e308,
-  double.INFINITY,
-  double.NAN
+  double.infinity,
+  double.nan
 ];
 
 main() {

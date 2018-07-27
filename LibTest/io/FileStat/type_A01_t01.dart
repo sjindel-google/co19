@@ -20,13 +20,13 @@ main() {
   Directory dir = getTempDirectorySync();
   try {
     FileStat fs = FileStat.statSync(file.path);
-    Expect.equals(FileSystemEntityType.FILE, fs.type);
+    Expect.equals(FileSystemEntityType.file, fs.type);
 
     fs = FileStat.statSync(dir.path);
-    Expect.equals(FileSystemEntityType.DIRECTORY, fs.type);
+    Expect.equals(FileSystemEntityType.directory, fs.type);
 
     fs = FileStat.statSync(getTempFileName());
-    Expect.equals(FileSystemEntityType.NOT_FOUND, fs.type);
+    Expect.equals(FileSystemEntityType.notFound, fs.type);
   } finally {
     file.delete();
     dir.delete();

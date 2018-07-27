@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion RandomAccessFile openSync({FileMode mode: FileMode.READ})
+ * @assertion RandomAccessFile openSync({FileMode mode: FileMode.read})
  * Synchronously open the file for random access operations. The result is a
  * RandomAccessFile on which random access operations can be performed. Opened
  * RandomAccessFiles must be closed using the RandomAccessFile.close method.
@@ -22,7 +22,7 @@ import "../file_utils.dart";
 
 main() {
   File file = getTempFileSync();
-  RandomAccessFile raFile = file.openSync(mode: FileMode.READ);
+  RandomAccessFile raFile = file.openSync(mode: FileMode.read);
   try {
     Expect.isNotNull(raFile);
     Expect.throws(() {raFile.writeByteSync(1);});

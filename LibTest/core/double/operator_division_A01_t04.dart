@@ -16,8 +16,8 @@ checkNaN(d) {
 }
 
 main() {
-  checkNaN(double.INFINITY / double.INFINITY);
-  checkNaN(double.INFINITY / double.NEGATIVE_INFINITY);
-  checkNaN(double.NEGATIVE_INFINITY / double.INFINITY);
-  checkNaN(double.NEGATIVE_INFINITY / double.NEGATIVE_INFINITY);
+  checkNaN(double.infinity / double.infinity);
+  checkNaN(double.infinity / double.negativeInfinity);
+  checkNaN(double.negativeInfinity / double.infinity);
+  checkNaN(double.negativeInfinity / double.negativeInfinity);
 }

@@ -18,7 +18,7 @@ import "dart:io";
 RegExp ipv6 = new RegExp(r'^::|^::1|^([a-fA-F0-9]{1,4}::?){1,7}([a-fA-F0-9]{1,4})$');
 
 main() {
-  Expect.equals(InternetAddress.LOOPBACK_IP_V6.type, InternetAddressType.IP_V6);
-  Expect.isTrue(ipv6.hasMatch(InternetAddress.LOOPBACK_IP_V6.address),
+  Expect.equals(InternetAddress.loopbackIPv6.type, InternetAddressType.IP_V6);
+  Expect.isTrue(ipv6.hasMatch(InternetAddress.loopbackIPv6.address),
       "Address string does not correspond its type");
 }

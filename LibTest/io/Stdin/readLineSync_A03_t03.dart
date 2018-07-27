@@ -5,12 +5,12 @@
  */
 /**
  * @assertion String readLineSync({
- *   Encoding encoding: SYSTEM_ENCODING,
+ *   Encoding encoding: systemEncoding,
  *   bool retainNewlines: false
  *   })
  * The argument [encoding] can be used to changed how the input should be
  * decoded.
- * @description Checks that [SYSTEM_ENCODING] string is passed OK
+ * @description Checks that [systemEncoding] string is passed OK
  * @author iarkh@unipro.ru
  */
 
@@ -19,11 +19,11 @@ import "test.lib.dart";
 import "../file_utils.dart";
 
 List<int> expected = [1, 2, 3, 50, 60, 100, 124, 125, 126, 127];
-String str = SYSTEM_ENCODING.decode(expected);
+String str = systemEncoding.decode(expected);
 
 
 run_process(String filename) {
-  String res = stdin.readLineSync(encoding: SYSTEM_ENCODING);
+  String res = stdin.readLineSync(encoding: systemEncoding);
   File fl = new File(filename);
   fl.openWrite();
   fl.writeAsString(res);

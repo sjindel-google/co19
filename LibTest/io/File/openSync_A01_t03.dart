@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion RandomAccessFile openSync({FileMode mode: FileMode.READ})
+ * @assertion RandomAccessFile openSync({FileMode mode: FileMode.read})
  * Synchronously open the file for random access operations. The result is a
  * RandomAccessFile on which random access operations can be performed. Opened
  * RandomAccessFiles must be closed using the RandomAccessFile.close method.
@@ -26,7 +26,7 @@ main() {
   File f = new File(path);
   try {
     Expect.throws(() {
-      f.openSync(mode: FileMode.READ);
+      f.openSync(mode: FileMode.read);
     }, (e) => e is FileSystemException);
   } finally {
     file.delete();

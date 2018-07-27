@@ -11,7 +11,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isFalse(double.NAN is int);
-  Expect.isTrue(double.NAN is double);
-  Expect.isTrue(double.NAN is num);
+  Expect.isFalse(double.nan is int);
+  Expect.isTrue(double.nan is double);
+  Expect.isTrue(double.nan is num);
 }

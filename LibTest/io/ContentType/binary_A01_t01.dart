@@ -4,17 +4,16 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion dynamic JSON
+ * @assertion dynamic BINARY
  *  final
- *  Content type for JSON using UTF-8 encoding.
- * @description Checks that this constant returns content type for JSON using
- * UTF-8 encoding
+ *  Content type for binary data.
+ * @description Checks that this constant returns content type for binary data.
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isNotNull(ContentType.JSON);
-  Expect.equals("application/json; charset=utf-8", ContentType.JSON.toString());
+  Expect.isNotNull(ContentType.binary);
+  Expect.equals("application/octet-stream", ContentType.binary.toString());
 }

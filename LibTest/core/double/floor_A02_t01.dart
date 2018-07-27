@@ -17,7 +17,7 @@ check(double arg) {
 }
 
 main() {
-  double nan = double.NAN;
+  double nan = double.nan;
   check(nan);
   check(-nan);
   check(.0/(1-1));

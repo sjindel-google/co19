@@ -19,8 +19,8 @@ import "../../../Utils/expect.dart";
 
 const List<num> values = const [
   0, -1, 1, 10, -10, 0.0, -1.0, 1.0, 10.0, -10.0,
-  double.INFINITY, double.MAX_FINITE, double.MIN_POSITIVE, -double.MAX_FINITE,
-  -double.MIN_POSITIVE, double.NAN, double.NEGATIVE_INFINITY
+  double.infinity, double.maxFinite, double.MIN_POSITIVE, -double.maxFinite,
+  -double.MIN_POSITIVE, double.nan, double.negativeInfinity
 ];
  
 main() {

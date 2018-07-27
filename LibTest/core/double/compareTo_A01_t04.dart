@@ -17,20 +17,20 @@ import "../../../Utils/expect.dart";
 main() {
   List values = [
     0.0,
-    double.MAX_FINITE,
+    double.maxFinite,
     2.2250738585072014e-308, // min normal
     4.9406564584124654e-324 // min
   ];
 
   values.forEach((val) {
-    Expect.isTrue(double.INFINITY.compareTo(val) > 0);
-    Expect.isTrue(val.compareTo(double.INFINITY) < 0);
+    Expect.isTrue(double.infinity.compareTo(val) > 0);
+    Expect.isTrue(val.compareTo(double.infinity) < 0);
   });
-  Expect.isTrue(double.NAN.compareTo(double.INFINITY) > 0);
+  Expect.isTrue(double.nan.compareTo(double.infinity) > 0);
 
   values.forEach((val) {
-    Expect.isTrue(double.NEGATIVE_INFINITY.compareTo(-val) < 0);
-    Expect.isTrue((-val).compareTo(double.NEGATIVE_INFINITY) > 0);
+    Expect.isTrue(double.negativeInfinity.compareTo(-val) < 0);
+    Expect.isTrue((-val).compareTo(double.negativeInfinity) > 0);
   });
-  Expect.isTrue((-double.NAN).compareTo(double.NEGATIVE_INFINITY) > 0);
+  Expect.isTrue((-double.nan).compareTo(double.negativeInfinity) > 0);
 }

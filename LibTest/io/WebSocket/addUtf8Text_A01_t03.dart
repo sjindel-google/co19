@@ -18,21 +18,21 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../http_utils.dart";
 
-const Utf8Codec UTF8 = const Utf8Codec();
+const Utf8Codec utf8 = const Utf8Codec();
 
 main() {
   asyncTest<HttpServer>(
     (HttpServer server) async {
       WebSocket ws = await WebSocket.connect("ws://${server.address.address}:${server.port}/");
       await AsyncExpect.data(["Hello", "client"], ws.take(2));
-      ws.addUtf8Text(UTF8.encode("Hi"));
-      ws.addUtf8Text(UTF8.encode("server"));
+      ws.addUtf8Text(utf8.encode("Hi"));
+      ws.addUtf8Text(utf8.encode("server"));
       ws.close();
     },
     setup: () => spawnWebSocketServer(
       (WebSocket ws) async {
-        ws.addUtf8Text(UTF8.encode("Hello"));
-        ws.addUtf8Text(UTF8.encode("client"));
+        ws.addUtf8Text(utf8.encode("Hello"));
+        ws.addUtf8Text(utf8.encode("client"));
         await AsyncExpect.data(["Hi", "server"], ws);
         ws.close();
       }

@@ -12,8 +12,8 @@
  *     Map<String, String> environment,
  *     bool includeParentEnvironment: true,
  *     bool runInShell: false,
- *     Encoding stdoutEncoding: SYSTEM_ENCODING,
- *     Encoding stderrEncoding: SYSTEM_ENCODING
+ *     Encoding stdoutEncoding: systemEncoding,
+ *     Encoding stderrEncoding: systemEncoding
  * })
  *
  * Starts a process and runs it to completion. This is a synchronous call and

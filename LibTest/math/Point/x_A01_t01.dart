@@ -18,18 +18,18 @@ main() {
   Expect.equals(3, p.x);
   p = new Point(4.5, 5.0);
   Expect.equals(4.5, p.x);
-  p = new Point(double.INFINITY, 5.0);
-  Expect.equals(double.INFINITY, p.x);
-  p = new Point(double.NEGATIVE_INFINITY, 5.0);
-  Expect.equals(double.NEGATIVE_INFINITY, p.x);
+  p = new Point(double.infinity, 5.0);
+  Expect.equals(double.infinity, p.x);
+  p = new Point(double.negativeInfinity, 5.0);
+  Expect.equals(double.negativeInfinity, p.x);
   p = new Point(double.MIN_POSITIVE, 5.0);
   Expect.equals(double.MIN_POSITIVE, p.x);
   p = new Point(-double.MIN_POSITIVE, 5.0);
   Expect.equals(-double.MIN_POSITIVE, p.x);
-  p = new Point(double.MAX_FINITE, 5.0);
-  Expect.equals(double.MAX_FINITE, p.x);
-  p = new Point(-double.MAX_FINITE, 5.0);
-  Expect.equals(-double.MAX_FINITE, p.x);
-  p = new Point(double.NAN, 5.0);
-  Expect.notEquals(double.NAN, p.x);
+  p = new Point(double.maxFinite, 5.0);
+  Expect.equals(double.maxFinite, p.x);
+  p = new Point(-double.maxFinite, 5.0);
+  Expect.equals(-double.maxFinite, p.x);
+  p = new Point(double.nan, 5.0);
+  Expect.notEquals(double.nan, p.x);
 }

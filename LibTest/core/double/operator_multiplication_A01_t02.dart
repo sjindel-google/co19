@@ -38,12 +38,12 @@ final List<double> values = const [
 
 check(d) {
   Expect.isTrue(d > 0);
-  Expect.equals(double.INFINITY, d * double.INFINITY);
-  Expect.equals(double.NEGATIVE_INFINITY, d * double.NEGATIVE_INFINITY);
+  Expect.equals(double.infinity, d * double.infinity);
+  Expect.equals(double.negativeInfinity, d * double.negativeInfinity);
 
   d = -d;
-  Expect.equals(double.NEGATIVE_INFINITY, d * double.INFINITY);
-  Expect.equals(double.INFINITY, d * double.NEGATIVE_INFINITY);
+  Expect.equals(double.negativeInfinity, d * double.infinity);
+  Expect.equals(double.infinity, d * double.negativeInfinity);
 }
 
 main() {

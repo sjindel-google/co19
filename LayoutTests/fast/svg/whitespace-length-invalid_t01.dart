@@ -43,7 +43,7 @@ void main() {
 		 0, // expected default value
 		 whitespace,
 		 [], // valid
-		 [ double.NAN.toString(), double.INFINITY.toString(), double.NEGATIVE_INFINITY.toString(), "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ], // invalid
+		 [ double.nan.toString(), double.infinity.toString(), double.negativeInfinity.toString(), "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ], // invalid
 		 validunits,
 		 [], // garbage
 		 (elm, value) { assert_approx_equals(elm.x.baseVal.valueInSpecifiedUnits, double.parse(value), EPSILON); },

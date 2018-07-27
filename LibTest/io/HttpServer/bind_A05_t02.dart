@@ -30,9 +30,9 @@ test() async {
   HttpServer server1 = null;
   HttpServer server2 = null;
   try {
-    server1 = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 1234,
+    server1 = await HttpServer.bind(InternetAddress.loopbackIPv4, 1234,
         shared: true);
-    server2 = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 1234,
+    server2 = await HttpServer.bind(InternetAddress.loopbackIPv4, 1234,
         shared: true);
   } finally {
     server1.close();

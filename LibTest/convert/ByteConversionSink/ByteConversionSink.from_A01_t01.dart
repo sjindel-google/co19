@@ -18,14 +18,14 @@ main() {
 
   ByteConversionSink outSink = new ByteConversionSink.from(sink);
 
-  StringConversionSink inSink = UTF8.encoder.startChunkedConversion(outSink);
+  StringConversionSink inSink = utf8.encoder.startChunkedConversion(outSink);
   inSink.add("Кириллица");
   inSink.add("прекрасна");
   inSink.close();
 
   asyncStart();
   c.stream.toList().then((x) {
-    Expect.listEquals([UTF8.encode("Кириллица"), UTF8.encode("прекрасна")], x);
+    Expect.listEquals([utf8.encode("Кириллица"), utf8.encode("прекрасна")], x);
     asyncEnd();
   });
   c.close();

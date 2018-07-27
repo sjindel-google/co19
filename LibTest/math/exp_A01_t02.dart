@@ -16,6 +16,6 @@ import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
-  Expect.equals(double.INFINITY, Math.exp(double.INFINITY));
-  Expect.equals(.0, Math.exp(double.NEGATIVE_INFINITY));
+  Expect.equals(double.infinity, Math.exp(double.infinity));
+  Expect.equals(.0, Math.exp(double.negativeInfinity));
 }

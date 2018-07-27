@@ -18,10 +18,10 @@ import "dart:io";
 import "dart:async";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test() async {
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
     if (request.headers[HttpHeaders.AUTHORIZATION] == null) {
       request.response.statusCode = HttpStatus.UNAUTHORIZED;

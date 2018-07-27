@@ -21,11 +21,11 @@ main() {
   Expect.isTrue(Math.atan2(-.5, 0.2).isNegative);
   Expect.isTrue(Math.atan2(-.5, -0.2).isNegative);
 
-  Expect.isTrue(Math.atan2(-1e2, double.INFINITY).isNegative);
-  Expect.isTrue(Math.atan2(-1e2, double.NEGATIVE_INFINITY).isNegative);
+  Expect.isTrue(Math.atan2(-1e2, double.infinity).isNegative);
+  Expect.isTrue(Math.atan2(-1e2, double.negativeInfinity).isNegative);
 
   Expect.isTrue(Math.atan2(
-      double.NEGATIVE_INFINITY, double.INFINITY).isNegative);
+      double.negativeInfinity, double.infinity).isNegative);
   Expect.isTrue(Math.atan2(
-      double.NEGATIVE_INFINITY, double.NEGATIVE_INFINITY).isNegative);
+      double.negativeInfinity, double.negativeInfinity).isNegative);
 }

@@ -15,6 +15,6 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isNotNull(ContentType.HTML);
-  Expect.equals("text/html; charset=utf-8", ContentType.HTML.toString());
+  Expect.isNotNull(ContentType.html);
+  Expect.equals("text/html; charset=utf-8", ContentType.html.toString());
 }

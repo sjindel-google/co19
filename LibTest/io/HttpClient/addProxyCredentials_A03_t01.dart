@@ -19,7 +19,7 @@ import "dart:io";
 import 'dart:async';
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test() async {
   HttpServer server = await HttpServer.bind(localhost, 0);
@@ -52,7 +52,7 @@ test() async {
     Expect.equals("Digest", scheme);
     Expect.equals("server-realm", realm);
     Completer completer = new Completer();
-    client.addProxyCredentials(InternetAddress.LOOPBACK_IP_V4.address, port,
+    client.addProxyCredentials(InternetAddress.loopbackIPv4.address, port,
         "client-realm",
         new HttpClientDigestCredentials("co19-test", "password"));
     completer.complete(true);

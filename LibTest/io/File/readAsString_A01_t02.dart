@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<String> readAsString({Encoding encoding: UTF8})
+ * @assertion Future<String> readAsString({Encoding encoding: utf8})
  * Read the entire file contents as a string using the given Encoding.
  *
  * Returns a Future<String> that completes with the string once the file

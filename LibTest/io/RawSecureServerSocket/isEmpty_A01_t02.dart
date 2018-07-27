@@ -136,8 +136,8 @@ check(InternetAddress address, int clNumber) {
 }
 
 main() {
-  check(InternetAddress.LOOPBACK_IP_V4, 1);
-  check(InternetAddress.LOOPBACK_IP_V4, 2);
-  check(InternetAddress.LOOPBACK_IP_V6, 1);
-  check(InternetAddress.LOOPBACK_IP_V6, 2);
+  check(InternetAddress.loopbackIPv4, 1);
+  check(InternetAddress.loopbackIPv4, 2);
+  check(InternetAddress.loopbackIPv6, 1);
+  check(InternetAddress.loopbackIPv6, 2);
 }

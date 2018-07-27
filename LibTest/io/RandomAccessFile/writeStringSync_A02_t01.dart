@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion void writeStringSync(String string, {Encoding encoding: UTF8})
+ * @assertion void writeStringSync(String string, {Encoding encoding: utf8})
  * . . .
  * Throws a FileSystemException if the operation fails.
  *
@@ -20,7 +20,7 @@ import "../file_utils.dart";
 check(String s) {
   File file = getTempFileSync();
   asyncStart();
-  Future<RandomAccessFile> raFile = file.open(mode: FileMode.WRITE);
+  Future<RandomAccessFile> raFile = file.open(mode: FileMode.write);
   raFile.then((RandomAccessFile rf) {
     rf.writeStringSync(s);
     rf.closeSync();

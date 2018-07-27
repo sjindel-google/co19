@@ -132,6 +132,6 @@ check(InternetAddress address) {
 }
 
 main() {
-  check(InternetAddress.LOOPBACK_IP_V4);
-  check(InternetAddress.LOOPBACK_IP_V6);
+  check(InternetAddress.loopbackIPv4);
+  check(InternetAddress.loopbackIPv6);
 }

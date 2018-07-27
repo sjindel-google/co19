@@ -5,9 +5,9 @@
  */
 /**
  * @assertion IOSink(StreamConsumer<List<int>> target,
- *   { Encoding encoding: UTF8 })
+ *   { Encoding encoding: utf8 })
  * Create an [IOSink] that outputs to a target [StreamConsumer] of bytes.
- * @description Checks that new [IOSink] object with [UTF8] encoding is created
+ * @description Checks that new [IOSink] object with [utf8] encoding is created
  * by default
  * @author iarkh@unipro.ru
  */

@@ -7,7 +7,7 @@
  * @assertion FileStat statSync(String path)
  * Calls the operating system's stat() function on path. Returns a FileStat
  * object containing the data returned by stat(). If the call fails, returns a
- * FileStat object with .type set to FileSystemEntityType.NOT_FOUND and the
+ * FileStat object with .type set to FileSystemEntityType.notFound and the
  * other fields invalid.
  * @description Checks that this method calls the operating system's stat()
  * function on path. Returns a FileStat object containing the data returned by
@@ -22,7 +22,7 @@ main() {
   File file = getTempFileSync();
   try {
     FileStat fs = FileStat.statSync(file.path);
-    Expect.equals(FileSystemEntityType.FILE, fs.type);
+    Expect.equals(FileSystemEntityType.file, fs.type);
     Expect.equals(0, fs.size);
     Expect.equals(file.statSync().mode, fs.mode);
     Expect.equals(file.statSync().accessed, fs.accessed);

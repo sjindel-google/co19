@@ -21,7 +21,7 @@ main() {
   Expect.equals(0, r.height);
   r.height = -1.0;
   Expect.equals(0, r.height);
-  r.height = -double.MAX_FINITE;
+  r.height = -double.maxFinite;
   Expect.equals(0, r.height);
   r.height = -double.MIN_POSITIVE;
   Expect.equals(0, r.height);
