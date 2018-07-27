@@ -18,7 +18,7 @@
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from left_promoted_variable_A01.dart and 
+ * This test is generated from left_promoted_variable_A02.dart and 
  * arguments_binding_x03.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
@@ -29,7 +29,6 @@ import '../../utils/common.dart';
 class T1 {}
 class X0 {}
 class S0 extends X0 implements T1 {}
-
 
 
 S0 t0Instance = new S0();
@@ -88,11 +87,9 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X>
 
 
 
-main() {
-  X0 t0Instance = new S0();
-
+test<T>(T t0Instance) {
   if (t0Instance is S0) {
-    
+  
   ArgumentsBinding1_t03 c1 = new ArgumentsBinding1_t03();
 
   c1.test(t0Instance, t1Instance);
@@ -117,4 +114,8 @@ main() {
   c2.superGetter;
   
   }
+}
+
+main() {
+  test<S0>(t0Instance);
 }

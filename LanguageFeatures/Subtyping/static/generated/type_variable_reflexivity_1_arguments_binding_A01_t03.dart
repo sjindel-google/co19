@@ -88,8 +88,6 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X>
 
 main() {
   X0 t0Instance = new S0();
-  X0 t1Instance = new X0();
-
   if (t0Instance is S0) {
     
   ArgumentsBinding1_t03 c1 = new ArgumentsBinding1_t03();

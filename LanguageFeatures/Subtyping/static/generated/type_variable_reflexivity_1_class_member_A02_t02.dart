@@ -18,7 +18,7 @@
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from type_variable_reflexivity_1_A01.dart and 
+ * This test is generated from type_variable_reflexivity_1_A02.dart and 
  * class_member_x02.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
@@ -29,6 +29,8 @@ import '../../utils/common.dart';
 class X0 {}
 class S0 extends X0 {
 }
+
+///# @T0 = S0
 
 X0 t0Instance = new S0();
 X0 t1Instance = new X0();
@@ -68,10 +70,9 @@ class ClassMember1_t02 extends ClassMemberSuper1_t02 {
 
 
 
-main() {
-  X0 t0Instance = new S0();
+test<T>(T t0Instance) {
   if (t0Instance is S0) {
-    
+  
   ClassMember1_t02 c1 = new ClassMember1_t02();
   c1 = new ClassMember1_t02.short();
   c1 = new ClassMember1_t02.named();
@@ -80,4 +81,8 @@ main() {
   c1.superSetter = t0Instance;
 
   }
+}
+
+main() {
+  test<S0>(t0Instance);
 }

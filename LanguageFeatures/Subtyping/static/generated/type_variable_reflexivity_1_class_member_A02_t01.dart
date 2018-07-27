@@ -6,10 +6,10 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Left Promoted Variable: T0 is a promoted type variable X0 & S0
- * and S0 <: T1
- * @description Check that if type T0 is a promoted type variable X0 & S0 and S0
- * is subtype of T1 then T0 is a subtype of T1.
+ * Type Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
+ * variables X0 & S0 and T1 is X0
+ * @description Check that if type T0 a promoted type variables X0 & S0 and T1
+ * is X0 then T0 is a subtype of T1.
  * @author sgrekhov@unipro.ru
  */
 /**
@@ -18,7 +18,7 @@
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from left_promoted_variable_A01.dart and 
+ * This test is generated from type_variable_reflexivity_1_A02.dart and 
  * class_member_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
@@ -26,22 +26,22 @@
 
 
 import '../../utils/common.dart';
-class T1 {}
 class X0 {}
-class S0 extends X0 implements T1 {}
+class S0 extends X0 {
+}
 
+///# @T0 = S0
 
-
-S0 t0Instance = new S0();
-T1 t1Instance = new T1();
+X0 t0Instance = new S0();
+X0 t1Instance = new X0();
 
 
 
 
 class ClassMember1_t01 {
-  static T1 s = t0Instance;
-  T1 m = t0Instance;
-  T1 _p = t0Instance;
+  static X0 s = t0Instance;
+  X0 m = t0Instance;
+  X0 _p = t0Instance;
 
   ClassMember1_t01() {
     s = t0Instance;
@@ -49,7 +49,7 @@ class ClassMember1_t01 {
     _p = t0Instance;
   }
 
-  ClassMember1_t01.named(T1 value) {
+  ClassMember1_t01.named(X0 value) {
     s = value;
     m = value;
     _p = value;
@@ -63,30 +63,28 @@ class ClassMember1_t01 {
     _p = t0Instance;
   }
 
-  set setter(T1 val) {
+  set setter(X0 val) {
     _p = val;
   }
 
-  T1 get getter => _p;
+  X0 get getter => _p;
 
   static staticTest() {
     s = t0Instance;
   }
 
-  static set staticSetter(T1 val) {
+  static set staticSetter(X0 val) {
     s = val;
   }
 
-  static T1 get staticGetter => t0Instance;
+  static X0 get staticGetter => t0Instance;
 }
 
 
 
-main() {
-  X0 t0Instance = new S0();
-
+test<T>(T t0Instance) {
   if (t0Instance is S0) {
-    
+  
   ClassMember1_t01 c1 = new ClassMember1_t01();
   c1 = new ClassMember1_t01.short(t0Instance,
       t0Instance);
@@ -102,4 +100,8 @@ main() {
   ClassMember1_t01.staticGetter;
 
   }
+}
+
+main() {
+  test<S0>(t0Instance);
 }

@@ -18,7 +18,7 @@
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from left_promoted_variable_A01.dart and 
+ * This test is generated from left_promoted_variable_A03.dart and 
  * local_variable_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
@@ -28,7 +28,7 @@
 import '../../utils/common.dart';
 class T1 {}
 class X0 {}
-class S0 extends X0 implements T1 {}
+class S0 extends X0 with T1 {}
 
 
 

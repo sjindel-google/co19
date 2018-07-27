@@ -54,8 +54,6 @@ class GlobalVariableTest {
 
 main() {
   X0 t0Instance = new S0();
-  X0 t1Instance = new X0();
-
   if (t0Instance is S0) {
     
   bar () {

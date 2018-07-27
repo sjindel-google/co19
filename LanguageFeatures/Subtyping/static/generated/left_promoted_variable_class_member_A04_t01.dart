@@ -18,7 +18,7 @@
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from left_promoted_variable_A01.dart and 
+ * This test is generated from left_promoted_variable_A04.dart and 
  * class_member_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
@@ -28,8 +28,7 @@
 import '../../utils/common.dart';
 class T1 {}
 class X0 {}
-class S0 extends X0 implements T1 {}
-
+class S0 extends X0 with T1 {}
 
 
 S0 t0Instance = new S0();
@@ -82,11 +81,9 @@ class ClassMember1_t01 {
 
 
 
-main() {
-  X0 t0Instance = new S0();
-
+test<T>(T t0Instance) {
   if (t0Instance is S0) {
-    
+  
   ClassMember1_t01 c1 = new ClassMember1_t01();
   c1 = new ClassMember1_t01.short(t0Instance,
       t0Instance);
@@ -102,4 +99,8 @@ main() {
   ClassMember1_t01.staticGetter;
 
   }
+}
+
+main() {
+  test<S0>(t0Instance);
 }

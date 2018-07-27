@@ -110,8 +110,6 @@ class ArgumentsBinding2_t02<X> extends ArgumentsBindingSuper2_t02<X> {
 
 main() {
   X0 t0Instance = new S0();
-  X0 t1Instance = new X0();
-
   if (t0Instance is S0) {
     
   ArgumentsBinding1_t02 c1 = new ArgumentsBinding1_t02(t0Instance);

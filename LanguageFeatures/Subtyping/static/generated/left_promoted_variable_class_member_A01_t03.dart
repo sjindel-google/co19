@@ -4,7 +4,9 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Left Promoted Variable: T0 is a promoted type variable X0 & S0
+ * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
+ * when:
+ * Left Promoted Variable: T0 is a promoted type variable X0 & S0
  * and S0 <: T1
  * @description Check that if type T0 is a promoted type variable X0 & S0 and S0
  * is subtype of T1 then T0 is a subtype of T1.
@@ -53,7 +55,6 @@ class ClassMember1_t03 extends Object with ClassMemberMixin1_t03 {
 
 main() {
   X0 t0Instance = new S0();
-  T1 t1Instance = new T1();
 
   if (t0Instance is S0) {
     

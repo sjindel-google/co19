@@ -6,10 +6,10 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Left Promoted Variable: T0 is a promoted type variable X0 & S0
- * and S0 <: T1
- * @description Check that if type T0 is a promoted type variable X0 & S0 and S0
- * is subtype of T1 then T0 is a subtype of T1.
+ * Type Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
+ * variables X0 & S0 and T1 is X0
+ * @description Check that if type T0 a promoted type variables X0 & S0 and T1
+ * is X0 then T0 is a subtype of T1.
  * @author sgrekhov@unipro.ru
  */
 /**
@@ -18,7 +18,7 @@
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from left_promoted_variable_A01.dart and 
+ * This test is generated from type_variable_reflexivity_1_A02.dart and 
  * arguments_binding_x03.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
@@ -26,26 +26,26 @@
 
 
 import '../../utils/common.dart';
-class T1 {}
 class X0 {}
-class S0 extends X0 implements T1 {}
+class S0 extends X0 {
+}
 
+///# @T0 = S0
 
-
-S0 t0Instance = new S0();
-T1 t1Instance = new T1();
+X0 t0Instance = new S0();
+X0 t1Instance = new X0();
 
 
 
 
 class ArgumentsBindingMixin1_t03 {
-  T1 m;
+  X0 m;
 
-  void superTest(T1 val) {}
-  void superTestPositioned(T1 val, [T1 val2]) {}
-  void superTestNamed(T1 val, {T1 val2}) {}
-  T1 get superGetter => m;
-  void set superSetter(T1 val) {}
+  void superTest(X0 val) {}
+  void superTestPositioned(X0 val, [X0 val2]) {}
+  void superTestNamed(X0 val, {X0 val2}) {}
+  X0 get superGetter => m;
+  void set superSetter(X0 val) {}
 }
 
 class ArgumentsBinding1_t03 extends Object with ArgumentsBindingMixin1_t03 {
@@ -88,11 +88,9 @@ class ArgumentsBinding2_t03<X> extends Object with ArgumentsBindingMixin2_t03<X>
 
 
 
-main() {
-  X0 t0Instance = new S0();
-
+test<T>(T t0Instance) {
   if (t0Instance is S0) {
-    
+  
   ArgumentsBinding1_t03 c1 = new ArgumentsBinding1_t03();
 
   c1.test(t0Instance, t1Instance);
@@ -106,7 +104,7 @@ main() {
 
   // Test type parameters
 
-    ArgumentsBinding2_t03<T1> c2 = new ArgumentsBinding2_t03<T1>();
+    ArgumentsBinding2_t03<X0> c2 = new ArgumentsBinding2_t03<X0>();
   c2.test(t0Instance, t1Instance);
   c2.superTest(t0Instance);
   c2.superTestPositioned(t0Instance);
@@ -117,4 +115,8 @@ main() {
   c2.superGetter;
   
   }
+}
+
+main() {
+  test<S0>(t0Instance);
 }

@@ -6,10 +6,10 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Type Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
- * variables X0 & S0 and T1 is X0
- * @description Check that if type T0 a promoted type variables X0 & S0 and T1
- * is X0 then T0 is a subtype of T1.
+ * Left Promoted Variable: T0 is a promoted type variable X0 & S0
+ * and S0 <: T1
+ * @description Check that if type T0 is a promoted type variable X0 & S0 and S0
+ * is subtype of T1 then T0 is a subtype of T1.
  * @author sgrekhov@unipro.ru
  */
 /**
@@ -18,7 +18,7 @@
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from type_variable_reflexivity_1_A01.dart and 
+ * This test is generated from left_promoted_variable_A04.dart and 
  * class_member_x02.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
@@ -26,18 +26,19 @@
 
 
 import '../../utils/common.dart';
+class T1 {}
 class X0 {}
-class S0 extends X0 {
-}
+class S0 extends X0 with T1 {}
 
-X0 t0Instance = new S0();
-X0 t1Instance = new X0();
+
+S0 t0Instance = new S0();
+T1 t1Instance = new T1();
 
 
 
 
 class ClassMemberSuper1_t02 {
-  X0 m;
+  T1 m;
 
   ClassMemberSuper1_t02(dynamic value) {
     m = value;
@@ -49,7 +50,7 @@ class ClassMemberSuper1_t02 {
 
   ClassMemberSuper1_t02.short(this.m);
 
-  void set superSetter(X0 val) {}
+  void set superSetter(T1 val) {}
 }
 
 class ClassMember1_t02 extends ClassMemberSuper1_t02 {
@@ -68,10 +69,9 @@ class ClassMember1_t02 extends ClassMemberSuper1_t02 {
 
 
 
-main() {
-  X0 t0Instance = new S0();
+test<T>(T t0Instance) {
   if (t0Instance is S0) {
-    
+  
   ClassMember1_t02 c1 = new ClassMember1_t02();
   c1 = new ClassMember1_t02.short();
   c1 = new ClassMember1_t02.named();
@@ -80,4 +80,8 @@ main() {
   c1.superSetter = t0Instance;
 
   }
+}
+
+main() {
+  test<S0>(t0Instance);
 }

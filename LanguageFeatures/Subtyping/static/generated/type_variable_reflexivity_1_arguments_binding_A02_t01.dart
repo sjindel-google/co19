@@ -6,10 +6,10 @@
 /**
  * @assertion We say that a type T0 is a subtype of a type T1 (written T0 <: T1)
  * when:
- * Left Promoted Variable: T0 is a promoted type variable X0 & S0
- * and S0 <: T1
- * @description Check that if type T0 is a promoted type variable X0 & S0 and S0
- * is subtype of T1 then T0 is a subtype of T1.
+ * Type Variable Reflexivity 1: T0 is a type variable X0 or a promoted type
+ * variables X0 & S0 and T1 is X0
+ * @description Check that if type T0 a promoted type variables X0 & S0 and T1
+ * is X0 then T0 is a subtype of T1.
  * @author sgrekhov@unipro.ru
  */
 /**
@@ -18,7 +18,7 @@
  * @author sgrekhov@unipro.ru
  */
 /*
- * This test is generated from left_promoted_variable_A01.dart and 
+ * This test is generated from type_variable_reflexivity_1_A02.dart and 
  * arguments_binding_x01.dart.
  * Don't modify it. If you want to change this file, change one of the files 
  * above and then run generator.dart to regenerate the tests.
@@ -26,44 +26,44 @@
 
 
 import '../../utils/common.dart';
-class T1 {}
 class X0 {}
-class S0 extends X0 implements T1 {}
+class S0 extends X0 {
+}
+
+///# @T0 = S0
+
+X0 t0Instance = new S0();
+X0 t1Instance = new X0();
 
 
 
-S0 t0Instance = new S0();
-T1 t1Instance = new T1();
 
-
-
-
-namedArgumentsFunc1(T1 t1, {T1 t2}) {}
-positionalArgumentsFunc1(T1 t1, [T1 t2]) {}
+namedArgumentsFunc1(X0 t1, {X0 t2}) {}
+positionalArgumentsFunc1(X0 t1, [X0 t2]) {}
 
 namedArgumentsFunc2<X>(X t1, {X t2}) {}
 positionalArgumentsFunc2<X>(X t1, [X t2]) {}
 
 class ArgumentsBindingClass {
-  ArgumentsBindingClass(T1 t1) {}
+  ArgumentsBindingClass(X0 t1) {}
 
-  ArgumentsBindingClass.named(T1 t1, {T1 t2}) {}
-  ArgumentsBindingClass.positional(T1 t1, [T1 t2]) {}
+  ArgumentsBindingClass.named(X0 t1, {X0 t2}) {}
+  ArgumentsBindingClass.positional(X0 t1, [X0 t2]) {}
 
-  factory ArgumentsBindingClass.fNamed(T1 t1, {T1 t2}) {
+  factory ArgumentsBindingClass.fNamed(X0 t1, {X0 t2}) {
     return new ArgumentsBindingClass.named(t1, t2: t2);
   }
-  factory ArgumentsBindingClass.fPositional(T1 t1, [T1 t2]) {
+  factory ArgumentsBindingClass.fPositional(X0 t1, [X0 t2]) {
     return new ArgumentsBindingClass.positional(t1, t2);
   }
 
-  static namedArgumentsStaticMethod(T1 t1, {T1 t2}) {}
-  static positionalArgumentsStaticMethod(T1 t1, [T1 t2]) {}
+  static namedArgumentsStaticMethod(X0 t1, {X0 t2}) {}
+  static positionalArgumentsStaticMethod(X0 t1, [X0 t2]) {}
 
-  namedArgumentsMethod(T1 t1, {T1 t2}) {}
-  positionalArgumentsMethod(T1 t1, [T1 t2]) {}
+  namedArgumentsMethod(X0 t1, {X0 t2}) {}
+  positionalArgumentsMethod(X0 t1, [X0 t2]) {}
 
-  set testSetter(T1 val) {}
+  set testSetter(X0 val) {}
 }
 
 class ArgumentsBindingGen<X>  {
@@ -87,11 +87,9 @@ class ArgumentsBindingGen<X>  {
 
 
 
-main() {
-  X0 t0Instance = new S0();
-
+test<T>(T t0Instance) {
   if (t0Instance is S0) {
-    
+  
   // test functions
   namedArgumentsFunc1(t0Instance, t2: t0Instance);
   positionalArgumentsFunc1(t0Instance, t0Instance);
@@ -115,15 +113,15 @@ main() {
   // Test type parameters
 
     // test generic functions
-  namedArgumentsFunc2<T1>(t0Instance, t2: t0Instance);
-  positionalArgumentsFunc2<T1>(t0Instance, t0Instance);
+  namedArgumentsFunc2<X0>(t0Instance, t2: t0Instance);
+  positionalArgumentsFunc2<X0>(t0Instance, t0Instance);
 
   // test generic class constructors
-  ArgumentsBindingGen<T1> instance2 = new ArgumentsBindingGen<T1>(t0Instance);
-  instance2 = new ArgumentsBindingGen<T1>.fNamed(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<T1>.fPositional(t0Instance, t0Instance);
-  instance2 = new ArgumentsBindingGen<T1>.named(t0Instance, t2: t0Instance);
-  instance2 = new ArgumentsBindingGen<T1>.positional(t0Instance, t0Instance);
+  ArgumentsBindingGen<X0> instance2 = new ArgumentsBindingGen<X0>(t0Instance);
+  instance2 = new ArgumentsBindingGen<X0>.fNamed(t0Instance, t2: t0Instance);
+  instance2 = new ArgumentsBindingGen<X0>.fPositional(t0Instance, t0Instance);
+  instance2 = new ArgumentsBindingGen<X0>.named(t0Instance, t2: t0Instance);
+  instance2 = new ArgumentsBindingGen<X0>.positional(t0Instance, t0Instance);
 
   // test generic class methods and setters
   instance2.namedArgumentsMethod(t0Instance, t2: t0Instance);
@@ -131,4 +129,8 @@ main() {
   instance2.testSetter = t0Instance;
   
   }
+}
+
+main() {
+  test<S0>(t0Instance);
 }
