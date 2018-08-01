@@ -66,14 +66,6 @@ class S2<X, Y, Z> extends V2<X, Y, Z> {}
 
 class S3<X, Y, Z> extends V3<X, Y, Z> {}
 
-class X0<X, Y, Z> extends B0<X, Y, Z> {}
-
-class X1<X, Y, Z> extends B1<X, Y, Z> {}
-
-class Y0<X, Y, Z> extends B0<X, Y, Z> {}
-
-class Y1<X, Y, Z> extends B1<X, Y, Z> {}
-
 typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
     V0<A, List, num> x0, [V1<A, List, num> x1]);
 typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
