@@ -42,7 +42,7 @@ class A {}
 
 class C extends A {}
 
-class U0<X, Y, Z> {}// U0 is not subtype of U1
+class U0<X, Y, Z> {} // U0 is not subtype of U1
 
 class U1<X, Y, Z> {}
 
