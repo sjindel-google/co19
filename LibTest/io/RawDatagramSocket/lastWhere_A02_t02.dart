@@ -64,10 +64,10 @@ check(test, rValue, expected) {
 }
 
 main() {
-  check((e) => e == null, () => RawSocketEvent.READ_CLOSED,
-      RawSocketEvent.READ_CLOSED);
-  check((e) => e == 1, () => RawSocketEvent.READ, RawSocketEvent.READ);
-  check((e) => !(e is RawSocketEvent), () => RawSocketEvent.CLOSED,
-      RawSocketEvent.CLOSED);
-  check((e) => false, () => RawSocketEvent.WRITE, RawSocketEvent.WRITE);
+  check((e) => e == null, () => RawSocketEvent.readClosed,
+      RawSocketEvent.readClosed);
+  check((e) => e == 1, () => RawSocketEvent.read, RawSocketEvent.read);
+  check((e) => !(e is RawSocketEvent), () => RawSocketEvent.closed,
+      RawSocketEvent.closed);
+  check((e) => false, () => RawSocketEvent.write, RawSocketEvent.write);
 }

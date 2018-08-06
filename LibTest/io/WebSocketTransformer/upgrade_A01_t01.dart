@@ -8,7 +8,7 @@
  * Future<WebSocket> upgrade(
  *     HttpRequest request, {
  *     dynamic protocolSelector(List<String> protocols),
- *     CompressionOptions compression: CompressionOptions.DEFAULT
+ *     CompressionOptions compression: CompressionOptions.compressionDefault
  * })
  * Upgrades a HttpRequest to a WebSocket connection. If the request is not a
  * valid WebSocket upgrade request an HTTP response with status code 500 will

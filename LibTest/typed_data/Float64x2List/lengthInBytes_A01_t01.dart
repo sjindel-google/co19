@@ -17,7 +17,7 @@ Float64x2 f64x2(v) => new Float64x2.splat(v);
 
 void check(List<Float64x2> list) {
   var l = new Float64x2List.fromList(list);
-  Expect.equals(l.length * Float64x2List.BYTES_PER_ELEMENT, l.lengthInBytes);
+  Expect.equals(l.length * Float64x2List.bytesPerElement, l.lengthInBytes);
 }
 
 main() {

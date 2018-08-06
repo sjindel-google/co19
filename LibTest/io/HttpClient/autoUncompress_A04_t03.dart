@@ -44,7 +44,7 @@ test() async {
   asyncStart();
   server.listen((HttpRequest request) {
     request.response
-      ..headers.set(HttpHeaders.CONTENT_ENCODING, "gzip")
+      ..headers.set(HttpHeaders.contentEncodingHeader, "gzip")
       ..write(helloWorld)
       ..close();
     server.close();

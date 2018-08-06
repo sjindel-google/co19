@@ -56,10 +56,10 @@ check(convert(event), List expected) {
 
 main() {
   check((e) => e, [
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED
+    RawSocketEvent.write,
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.closed
   ]);
   check((e) => [1, 2], [
     [1, 2],

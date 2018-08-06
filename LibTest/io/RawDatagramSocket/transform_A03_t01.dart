@@ -22,7 +22,7 @@ import "../../../Utils/expect.dart";
 
 StreamTransformer<RawSocketEvent, int> transformer =
     new StreamTransformer.fromHandlers(handleData: (x, sink) {
-  sink.add(x == RawSocketEvent.WRITE ? 1 : x == RawSocketEvent.READ ? 2 : 3);
+  sink.add(x == RawSocketEvent.write ? 1 : x == RawSocketEvent.read ? 2 : 3);
 });
 
 main() {

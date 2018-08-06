@@ -21,7 +21,7 @@ check(List<double> array, int offset, int length) {
 }
 
 main() {
-  var elemSize = Float64List.BYTES_PER_ELEMENT;
+  var elemSize = Float64List.bytesPerElement;
   check([], 0, 0);
   check([1.0], 0, 1);
   check([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0], 0, 1);

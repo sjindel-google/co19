@@ -26,7 +26,7 @@ void check(List<int> array, int offset, int length) {
   var l = new Uint64List.view(byteBuffer, offset, length);
   Expect.equals(length, l.length);
   for (int i = 0; i < l.length; ++i) {
-    Expect.equals(tmp[offset ~/ Uint64List.BYTES_PER_ELEMENT + i], l[i]);
+    Expect.equals(tmp[offset ~/ Uint64List.bytesPerElement + i], l[i]);
   }
 }
 

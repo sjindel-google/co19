@@ -26,37 +26,37 @@ main() {
   Expect.equals(-0.0, Math.atan2(-0.0, 0.0));
   Expect.equals(-0.0, Math.atan2(-1, double.infinity));
   
-  Expect.equals(Math.PI, Math.atan2(0.0, -0.1));
-  Expect.equals(Math.PI, Math.atan2(0.0, -10));
-  Expect.equals(Math.PI, Math.atan2(0.0, double.negativeInfinity));
-  Expect.equals(Math.PI, Math.atan2(1, double.negativeInfinity));
-  Expect.equals(Math.PI, Math.atan2(0.0, -0.0));
+  Expect.equals(Math.pi, Math.atan2(0.0, -0.1));
+  Expect.equals(Math.pi, Math.atan2(0.0, -10));
+  Expect.equals(Math.pi, Math.atan2(0.0, double.negativeInfinity));
+  Expect.equals(Math.pi, Math.atan2(1, double.negativeInfinity));
+  Expect.equals(Math.pi, Math.atan2(0.0, -0.0));
 
-  Expect.equals(-Math.PI, Math.atan2(-0.0, -0.1));
-  Expect.equals(-Math.PI, Math.atan2(-0.0, -0.0));
-  Expect.equals(-Math.PI, Math.atan2(-1, double.negativeInfinity));
+  Expect.equals(-Math.pi, Math.atan2(-0.0, -0.1));
+  Expect.equals(-Math.pi, Math.atan2(-0.0, -0.0));
+  Expect.equals(-Math.pi, Math.atan2(-1, double.negativeInfinity));
   
-  Expect.equals(Math.PI / 2, Math.atan2(0.1, 0.0));
-  Expect.equals(Math.PI / 2, Math.atan2(10, -0.0));
-  Expect.equals(Math.PI / 2, Math.atan2(double.infinity, 0.0));
-  Expect.equals(Math.PI / 2, Math.atan2(double.infinity, 0.0));
-  Expect.equals(Math.PI / 2, Math.atan2(double.infinity, -1));
+  Expect.equals(Math.pi / 2, Math.atan2(0.1, 0.0));
+  Expect.equals(Math.pi / 2, Math.atan2(10, -0.0));
+  Expect.equals(Math.pi / 2, Math.atan2(double.infinity, 0.0));
+  Expect.equals(Math.pi / 2, Math.atan2(double.infinity, 0.0));
+  Expect.equals(Math.pi / 2, Math.atan2(double.infinity, -1));
   
-  Expect.equals(-Math.PI / 2, Math.atan2(-0.1, 0.0));
-  Expect.equals(-Math.PI / 2, Math.atan2(-0.1, -0.0));
-  Expect.equals(-Math.PI / 2, Math.atan2(-10, 0.0));
-  Expect.equals(-Math.PI / 2, Math.atan2(double.negativeInfinity, 0.0));
-  Expect.equals(-Math.PI / 2, Math.atan2(double.negativeInfinity, 1));
-  Expect.equals(-Math.PI / 2, Math.atan2(double.negativeInfinity, -100));
+  Expect.equals(-Math.pi / 2, Math.atan2(-0.1, 0.0));
+  Expect.equals(-Math.pi / 2, Math.atan2(-0.1, -0.0));
+  Expect.equals(-Math.pi / 2, Math.atan2(-10, 0.0));
+  Expect.equals(-Math.pi / 2, Math.atan2(double.negativeInfinity, 0.0));
+  Expect.equals(-Math.pi / 2, Math.atan2(double.negativeInfinity, 1));
+  Expect.equals(-Math.pi / 2, Math.atan2(double.negativeInfinity, -100));
   
-  Expect.equals(Math.PI / 4, Math.atan2(double.infinity, double.infinity));
+  Expect.equals(Math.pi / 4, Math.atan2(double.infinity, double.infinity));
   
-  Expect.equals(3 * Math.PI / 4, Math.atan2(
+  Expect.equals(3 * Math.pi / 4, Math.atan2(
       double.infinity, double.negativeInfinity));
   
-  Expect.equals(-Math.PI / 4, Math.atan2(
+  Expect.equals(-Math.pi / 4, Math.atan2(
       double.negativeInfinity, double.infinity));
   
-  Expect.equals(-3 * Math.PI / 4, Math.atan2(
+  Expect.equals(-3 * Math.pi / 4, Math.atan2(
       double.negativeInfinity, double.negativeInfinity));
 }

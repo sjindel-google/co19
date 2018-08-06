@@ -7,7 +7,7 @@
  * @assertion
  * WebSocketTransformer({
  *     dynamic protocolSelector(List<String> protocols),
- *     CompressionOptions compression: CompressionOptions.DEFAULT
+ *     CompressionOptions compression: CompressionOptions.compressionDefault
  * })
  * Create a new WebSocketTransformer.
  * If protocolSelector is provided, protocolSelector will be called to select

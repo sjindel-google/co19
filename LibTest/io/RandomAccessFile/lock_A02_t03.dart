@@ -6,7 +6,7 @@
 /**
  * @assertion
  * Future<RandomAccessFile> lock([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  * ])
@@ -34,7 +34,7 @@ void check(int fLen) {
   int start = fLen >> 1;
   int end = fLen + start;
   asyncStart();
-  var rfLock = rf.lock(FileLock.EXCLUSIVE, start, end);
+  var rfLock = rf.lock(FileLock.exclusive, start, end);
   rfLock.then((RandomAccessFile f) {
     var rfLen = f.lengthSync();
     Expect.isTrue(end > rfLen);

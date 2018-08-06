@@ -58,14 +58,14 @@ check(test(e), expected) {
 
 main() {
   List expected = [
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED
+    RawSocketEvent.write,
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.closed
   ];
-  check((e) => e == RawSocketEvent.WRITE, expected.sublist(1));
-  check((e) => e != RawSocketEvent.READ, expected.sublist(1));
-  check((e) => e != RawSocketEvent.CLOSED, expected.sublist(3));
+  check((e) => e == RawSocketEvent.write, expected.sublist(1));
+  check((e) => e != RawSocketEvent.read, expected.sublist(1));
+  check((e) => e != RawSocketEvent.closed, expected.sublist(3));
   check((e) => true, []);
   check((e) => false, expected);
 }

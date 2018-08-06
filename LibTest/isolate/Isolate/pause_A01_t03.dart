@@ -51,7 +51,7 @@ test() async {
                               );
   await new Future.delayed(THREE_SECONDS);
 // clean up & check
-  isolate.kill(priority:Isolate.IMMEDIATE);
+  isolate.kill(priority:Isolate.immediate);
   await onExit.first;
   receivePort.close();
   Expect.isFalse(additionalData);

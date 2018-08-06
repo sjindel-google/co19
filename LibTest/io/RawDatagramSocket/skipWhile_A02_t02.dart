@@ -46,7 +46,7 @@ check(test(e), expected) {
 }
 
 main() {
-  check((e) => false, [RawSocketEvent.CLOSED]);
+  check((e) => false, [RawSocketEvent.closed]);
   check((e) => true, []);
-  check((e) => e == RawSocketEvent.CLOSED, []);
+  check((e) => e == RawSocketEvent.closed, []);
 }

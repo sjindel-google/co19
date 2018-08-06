@@ -20,8 +20,8 @@ test(String method) async {
   asyncStart();
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    request.response.headers.add(HttpHeaders.AGE, 21);
-    request.response.headers.add(HttpHeaders.TE, "");
+    request.response.headers.add(HttpHeaders.ageHeader, 21);
+    request.response.headers.add(HttpHeaders.teHeader, "");
     request.response.close();
     server.close();
   });
@@ -33,8 +33,8 @@ test(String method) async {
   }).then((HttpClientResponse response) {
     Expect.equals("text/plain; charset=utf-8",
         response.headers.value("content-type"));
-    Expect.equals("21", response.headers.value(HttpHeaders.AGE));
-    Expect.equals("", response.headers.value(HttpHeaders.TE));
+    Expect.equals("21", response.headers.value(HttpHeaders.ageHeader));
+    Expect.equals("", response.headers.value(HttpHeaders.teHeader));
     asyncEnd();
   });
 }

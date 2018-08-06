@@ -5,7 +5,7 @@
  */
 /**
  * @assertion bool writeEventsEnabled
- * Set or get, if the RawDatagramSocket should listen for RawSocketEvent.WRITE
+ * Set or get, if the RawDatagramSocket should listen for RawSocketEvent.write
  * events. Default is true. This is a one-shot listener, and writeEventsEnabled
  * must be set to true again to receive another write event.
  *

@@ -49,7 +49,7 @@ main() {
         errors1.add(err);
       }, onDone: () {
         Expect.listEquals([11], intercepted1);
-        Expect.listEquals([RawSocketEvent.READ, RawSocketEvent.CLOSED], data1);
+        Expect.listEquals([RawSocketEvent.read, RawSocketEvent.closed], data1);
         Expect.listEquals([12], errors1);
       });
 
@@ -74,7 +74,7 @@ main() {
         errors2.add(err);
       }, onDone: () {
         Expect.listEquals([11], intercepted2);
-        Expect.listEquals([RawSocketEvent.READ, RawSocketEvent.CLOSED], data2);
+        Expect.listEquals([RawSocketEvent.read, RawSocketEvent.closed], data2);
         Expect.listEquals([13], errors2);
         asyncEnd();
       });

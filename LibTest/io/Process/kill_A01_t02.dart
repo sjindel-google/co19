@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion bool kill([ProcessSignal signal = ProcessSignal.SIGTERM ])
+ * @assertion bool kill([ProcessSignal signal = ProcessSignal.sigterm ])
  *
  * Kills the process.
  *
  * Where possible, sends the signal to the process. This includes Linux and
- * OS X. The default signal is ProcessSignal.SIGTERM which will normally
+ * OS X. The default signal is ProcessSignal.sigterm which will normally
  * terminate the process.
  *
  * On platforms without signal support, including Windows, the call just

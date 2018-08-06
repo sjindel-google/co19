@@ -7,7 +7,7 @@
  * @assertion Future close([int code, String reason ])
  * Closes the WebSocket connection. Set the optional code and reason arguments
  * to send close information to the remote peer. If they are omitted, the peer
- * will see WebSocketStatus.NO_STATUS_RECEIVED code with no reason.
+ * will see WebSocketStatus.noStatusReceived code with no reason.
  * @description Checks that the close method works correctly when its parameters
  * code and reason are not set.
  * @author ngl@unipro.ru
@@ -30,7 +30,7 @@ main() {
       Expect.isTrue(client.closeCode == null);
       Expect.isTrue(client.closeReason == null);
       client.close().then((_) {
-        Expect.isTrue(client.closeCode == WebSocketStatus.NO_STATUS_RECEIVED);
+        Expect.isTrue(client.closeCode == WebSocketStatus.noStatusReceived);
         Expect.isTrue(client.closeReason == "");
       });
       server.close();

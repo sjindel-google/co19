@@ -60,7 +60,7 @@ test() async {
   }).then((HttpClientResponse response) {
     response.transform(utf8.decoder).listen((content) {
       Expect.equals(helloWorld, content);
-      Expect.equals("gzip", response.headers.value(HttpHeaders.CONTENT_ENCODING));
+      Expect.equals("gzip", response.headers.value(HttpHeaders.contentEncodingHeader));
       asyncEnd();
     });
   });

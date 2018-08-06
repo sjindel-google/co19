@@ -41,7 +41,7 @@ main() {
 
       Future fValue = receiver.firstWhere((e) => true);
       fValue.then((value) {
-        Expect.equals(RawSocketEvent.WRITE, value);
+        Expect.equals(RawSocketEvent.write, value);
       }).whenComplete(() {
         Expect.throws(() => receiver.listen((e) {
               print(e);

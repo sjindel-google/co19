@@ -48,7 +48,7 @@ main() {
         errors.add(err);
       }, onDone: () {
         Expect.listEquals([], intercepted);
-        Expect.listEquals([RawSocketEvent.READ, RawSocketEvent.CLOSED], data);
+        Expect.listEquals([RawSocketEvent.read, RawSocketEvent.closed], data);
         Expect.listEquals([11], errors);
         asyncEnd();
       });

@@ -57,10 +57,10 @@ check(test, expected) {
 }
 
 main() {
-  check((e) => e == RawSocketEvent.WRITE, RawSocketEvent.WRITE);
-  check((e) => e != RawSocketEvent.READ, RawSocketEvent.CLOSED);
-  check((e) => e != RawSocketEvent.CLOSED, RawSocketEvent.WRITE);
-  check((e) => e != RawSocketEvent.WRITE, RawSocketEvent.CLOSED);
-  check((e) => e is RawSocketEvent, RawSocketEvent.CLOSED);
-  check((e) => true, RawSocketEvent.CLOSED);
+  check((e) => e == RawSocketEvent.write, RawSocketEvent.write);
+  check((e) => e != RawSocketEvent.read, RawSocketEvent.closed);
+  check((e) => e != RawSocketEvent.closed, RawSocketEvent.write);
+  check((e) => e != RawSocketEvent.write, RawSocketEvent.closed);
+  check((e) => e is RawSocketEvent, RawSocketEvent.closed);
+  check((e) => true, RawSocketEvent.closed);
 }

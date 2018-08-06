@@ -18,7 +18,7 @@
  *
  * @description Checks that if receiver RawDatagramSocket is closed before
  * method 'elementAt' calling, this stream contains only one element
- * RawSocketEvent.CLOSED.
+ * RawSocketEvent.closed.
  * @author ngl@unipro.ru
  */
 import "dart:io";
@@ -39,7 +39,7 @@ main() {
 
       Future fValue = receiver.elementAt(0);
       fValue.then((value) {
-        Expect.equals(RawSocketEvent.CLOSED, value);
+        Expect.equals(RawSocketEvent.closed, value);
       }).catchError((e) {
         Expect.fail('No error should be.');
       }).whenComplete(() {

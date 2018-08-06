@@ -45,13 +45,13 @@ test() async {
       .getUrl(Uri.parse(
           "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) {
-    request.headers.removeAll(HttpHeaders.ACCEPT_ENCODING);
+    request.headers.removeAll(HttpHeaders.acceptEncodingHeader);
     return request.close();
   }).then((HttpClientResponse response) {
     Expect.equals(HttpStatus.ok, response.statusCode);
     response.transform(utf8.decoder).listen((content) {
       Expect.isFalse(
-          response.headers.value(HttpHeaders.CONTENT_ENCODING) == "gzip");
+          response.headers.value(HttpHeaders.contentEncodingHeader) == "gzip");
       Expect.equals(helloWorld, content);
       asyncEnd();
     });

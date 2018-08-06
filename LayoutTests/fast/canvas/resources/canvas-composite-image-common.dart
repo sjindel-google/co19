@@ -287,7 +287,7 @@ setupContext(context, alpha) {
   context.clip();
   context.translate(40, -10);
   context.scale(0.4, 0.6);
-  context.rotate(Math.PI / 8);
+  context.rotate(Math.pi / 8);
   context.translate(-10, -10);
 }
 

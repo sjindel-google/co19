@@ -37,14 +37,14 @@ test() async {
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
     var response = request.response;
-    if (request.headers[HttpHeaders.PROXY_AUTHORIZATION] == null) {
-      response.statusCode = HttpStatus.UNAUTHORIZED;
+    if (request.headers[HttpHeaders.proxyAuthorizationHeader] == null) {
+      response.statusCode = HttpStatus.unauthorized;
       response.headers
-          .set(HttpHeaders.PROXY_AUTHENTICATE, 'Basic, realm=realm');
-      response.statusCode = HttpStatus.PROXY_AUTHENTICATION_REQUIRED;
+          .set(HttpHeaders.proxyAuthenticateHeader, 'Basic, realm=realm');
+      response.statusCode = HttpStatus.proxyAuthenticationRequired;
       response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.PROXY_AUTHORIZATION][0];
+      var authorization = request.headers[HttpHeaders.proxyAuthorizationHeader][0];
       String encoded = BASE64.encode(utf8.encode("co19-test:password"));
       Expect.equals("Basic ${encoded}", authorization);
       response.close();

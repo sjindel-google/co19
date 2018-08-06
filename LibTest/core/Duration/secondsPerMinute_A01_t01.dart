@@ -11,5 +11,5 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals(60, Duration.SECONDS_PER_MINUTE);
+  Expect.equals(60, Duration.secondsPerMinute);
 }

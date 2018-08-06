@@ -4,12 +4,12 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Holds the number of microseconds in a day.
+ * @assertion Holds the number of microseconds in a minute.
  * @description Checks that the value of this property is correct.
  * @author sgrekhov@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals(24 * 3600 * 1000 * 1000, Duration.MICROSECONDS_PER_DAY);
+  Expect.equals(60 * 1000 * 1000, Duration.microsecondsPerMinute);
 }

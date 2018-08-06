@@ -6,7 +6,7 @@
 /**
  * @assertion
  * void lockSync([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  *     ])
@@ -34,7 +34,7 @@ void check(int fLen) {
   var rf = file.openSync(mode: FileMode.write);
   rf.writeFromSync(new List.filled(fLen, 1));
   var start = fLen >> 1;
-  rf.lockSync(FileLock.EXCLUSIVE, start);
+  rf.lockSync(FileLock.exclusive, start);
   rf.writeFromSync(new List.filled(fLen, 2));
   var tests = [
     () => checkLocked(rf.path, start),

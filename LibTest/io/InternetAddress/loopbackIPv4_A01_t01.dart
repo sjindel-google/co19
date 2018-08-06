@@ -18,7 +18,7 @@ import "dart:io";
 RegExp ipv4 = new RegExp(r'^(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)$');
 
 main() {
-  Expect.equals(InternetAddress.loopbackIPv4.type, InternetAddressType.IP_V4);
+  Expect.equals(InternetAddress.loopbackIPv4.type, InternetAddressType.IPv4);
   Expect.isTrue(ipv4.hasMatch(InternetAddress.loopbackIPv4.address),
       "Address string does not correspond its type");
 }

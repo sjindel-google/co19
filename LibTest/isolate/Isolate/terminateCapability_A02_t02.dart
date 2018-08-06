@@ -30,9 +30,9 @@ test() async {
   Expect.equals("hello", await server.ping("hello"));
   isolate.kill();
   Expect.equals("alive1", await ping(isolate, "alive1"));
-  isolate.kill(priority:Isolate.IMMEDIATE);
+  isolate.kill(priority:Isolate.immediate);
   Expect.equals("alive2", await ping(isolate, "alive2"));
-  isolate.kill(priority:Isolate.BEFORE_NEXT_EVENT);
+  isolate.kill(priority:Isolate.beforeNextEvent);
   Expect.equals("alive3", await ping(isolate, "alive3"));
 
   // clean up

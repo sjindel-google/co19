@@ -57,7 +57,7 @@ abstract class Server {
     return result;
   }
 
-  Future kill({int priority: Isolate.BEFORE_NEXT_EVENT}) {
+  Future kill({int priority: Isolate.beforeNextEvent}) {
     ReceivePort exitPort = new ReceivePort();
     isolate.addOnExitListener(exitPort.sendPort);
     Future result = exitPort.first; // subscribe first

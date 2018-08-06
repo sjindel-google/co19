@@ -28,7 +28,7 @@ void check(ByteBuffer buffer) {
   Int32List res = buffer.asInt32List(0);
   int viewSizeInBytes = res.lengthInBytes;
   int viewLength = res.length;
-  int shift = (Int32List.BYTES_PER_ELEMENT == 4) ? 2 : 0;
+  int shift = (Int32List.bytesPerElement == 4) ? 2 : 0;
   int offset1 = 4;
   int length1 = ((viewSizeInBytes - offset1) >> shift) - 1;
   int offset2 = 8;

@@ -6,18 +6,18 @@
 /**
  * @assertion
  * void lockSync([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  *     ])
  * Synchronously locks the file or part of the file.
  * . . .
- * If mode is FileLock.EXCLUSIVE or FileLock.SHARED, an exception is thrown if
- * the lock cannot be obtained. If mode is FileLock.BLOCKING_EXCLUSIVE or
- * FileLock.BLOCKING_SHARED, the call returns only after the lock has been
+ * If mode is FileLock.exclusive or FileLock.shared, an exception is thrown if
+ * the lock cannot be obtained. If mode is FileLock.blockingExclusive or
+ * FileLock.blockingShared, the call returns only after the lock has been
  * obtained.
  *
- * @description Checks that if mode is FileLock.EXCLUSIVE, an exception is
+ * @description Checks that if mode is FileLock.exclusive, an exception is
  * thrown if the lock cannot be obtained.
  * @author ngl@unipro.ru
  */
@@ -32,8 +32,8 @@ void check(int fLen) {
   asyncStart();
   var rf = file.openSync(mode: FileMode.write);
   rf.writeFromSync(new List.filled(fLen, 1));
-  rf.lockSync(FileLock.EXCLUSIVE);
-  var tests = [() => checkLocked(rf.path, 0, -1, FileLock.EXCLUSIVE)];
+  rf.lockSync(FileLock.exclusive);
+  var tests = [() => checkLocked(rf.path, 0, -1, FileLock.exclusive)];
   Future.forEach(tests, (f) => f()).whenComplete(() {
     asyncEnd();
     rf.unlockSync();

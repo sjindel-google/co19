@@ -24,7 +24,7 @@ import "../../../Utils/expect.dart";
 main() {
   var list = new Int64List(2);
   var buffer = list.buffer;
-  for (int i = 1; i < Int64List.BYTES_PER_ELEMENT; ++i) {
+  for (int i = 1; i < Int64List.bytesPerElement; ++i) {
     try {
       new Int64List.view(buffer, i);
       Expect.fail("ArgumentError is expected");

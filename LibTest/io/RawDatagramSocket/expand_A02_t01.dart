@@ -58,17 +58,17 @@ check(convert, expected) {
 }
 
 main() {
-  check((e) => e == RawSocketEvent.WRITE ? throw 11 : [e],
-      [11, RawSocketEvent.READ, RawSocketEvent.READ, RawSocketEvent.CLOSED]);
-  check((e) => e == RawSocketEvent.READ ? throw 12 : [e],
-      [RawSocketEvent.WRITE, 12, 12, RawSocketEvent.CLOSED]);
-  check((e) => e == RawSocketEvent.CLOSED ? throw 13 : [e],
-      [RawSocketEvent.WRITE, RawSocketEvent.READ, RawSocketEvent.READ, 13]);
+  check((e) => e == RawSocketEvent.write ? throw 11 : [e],
+      [11, RawSocketEvent.read, RawSocketEvent.read, RawSocketEvent.closed]);
+  check((e) => e == RawSocketEvent.read ? throw 12 : [e],
+      [RawSocketEvent.write, 12, 12, RawSocketEvent.closed]);
+  check((e) => e == RawSocketEvent.closed ? throw 13 : [e],
+      [RawSocketEvent.write, RawSocketEvent.read, RawSocketEvent.read, 13]);
 
-  check((e) => e == RawSocketEvent.WRITE ? throw 11 : [1, 2, 3],
+  check((e) => e == RawSocketEvent.write ? throw 11 : [1, 2, 3],
       [11, 1, 2, 3, 1, 2, 3, 1, 2, 3]);
-  check((e) => e == RawSocketEvent.READ ? throw 12 : [1, 2, 3],
+  check((e) => e == RawSocketEvent.read ? throw 12 : [1, 2, 3],
       [1, 2, 3, 12, 12, 1, 2, 3]);
-  check((e) => e == RawSocketEvent.CLOSED ? throw 13 : [1, 2, 3],
+  check((e) => e == RawSocketEvent.closed ? throw 13 : [1, 2, 3],
       [1, 2, 3, 1, 2, 3, 1, 2, 3, 13]);
 }

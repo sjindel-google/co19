@@ -52,6 +52,6 @@ check(dataExpected, [bool no_write_events = false]) {
 }
 
 main() {
-  check([RawSocketEvent.WRITE, RawSocketEvent.READ, RawSocketEvent.CLOSED]);
-  check([RawSocketEvent.READ, RawSocketEvent.CLOSED], true);
+  check([RawSocketEvent.write, RawSocketEvent.read, RawSocketEvent.closed]);
+  check([RawSocketEvent.read, RawSocketEvent.closed], true);
 }

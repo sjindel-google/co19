@@ -8,7 +8,7 @@
  * void setUint16(
  *     int byteOffset,
  *     int value, [
- *     Endianness endian = Endianness.BIG_ENDIAN
+ *     Endian endian = Endian.big
  * ])
  * Sets the two bytes starting at the specified [byteOffset] in this object to
  * the unsigned binary representation of the specified [value], which must fit
@@ -30,12 +30,12 @@ main() {
     31488, 24320, 6400, 25088, 0, 28928, 5120, 2304, 65535, 256, 6144, 6400,
     17664, 13312, 32000, 7936
   ];
-  int bytesInElement = Int16List.BYTES_PER_ELEMENT;
+  int bytesInElement = Int16List.bytesPerElement;
 
   var byteDataFromU16 = new ByteData.view(u16.buffer);
   for (int i = 0; i < byteDataFromU16.lengthInBytes / bytesInElement; ++i) {
     byteDataFromU16.setUint16(i * bytesInElement, valuesToBeSet[i],
-        Endianness.LITTLE_ENDIAN);
+        Endian.little);
   }
   Expect.listEquals(valuesToBeSet, u16);
 

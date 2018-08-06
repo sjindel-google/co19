@@ -10,7 +10,7 @@
  * If the stream ends without finding an element that test accepts, the returned
  * future is completed with false.
  *
- * @description Checks that method any returns false when RawSocketEvent.WRITE
+ * @description Checks that method any returns false when RawSocketEvent.write
  * is searched and writeEventsEnabled is false. In this case the listening to
  * the stream is stopped after the last received event.
  * @issue 31881
@@ -21,7 +21,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var expectedEvent = RawSocketEvent.WRITE;
+  var expectedEvent = RawSocketEvent.write;
   asyncStart();
   var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {

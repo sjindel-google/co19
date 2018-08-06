@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion CompressionOptions OFF = const CompressionOptions(enabled: false)
+ * @assertion CompressionOptions.compressionOff = const CompressionOptions(enabled: false)
  * Disables WebSocket Compression.
  * @description Checks that this constant disables WebSocket Compression
  * @author sgrekhov@unipro.ru
@@ -13,6 +13,6 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isNotNull(CompressionOptions.OFF);
-  Expect.isFalse(CompressionOptions.OFF.enabled);
+  Expect.isNotNull(CompressionOptions.compressionOff);
+  Expect.isFalse(CompressionOptions.compressionOff.enabled);
 }

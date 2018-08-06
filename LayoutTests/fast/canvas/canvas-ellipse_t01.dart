@@ -24,7 +24,7 @@ main() {
   ctx.lineWidth = 10;
   ctx.beginPath();
   ctx.moveTo(0, 100);
-  ctx.ellipse(200, 200, 100, 150, Math.PI / 9, -Math.PI, Math.PI * 5 / 9, false);
+  ctx.ellipse(200, 200, 100, 150, Math.pi / 9, -Math.pi, Math.pi * 5 / 9, false);
   ctx.lineTo(0, 300);
   ctx.stroke();
 

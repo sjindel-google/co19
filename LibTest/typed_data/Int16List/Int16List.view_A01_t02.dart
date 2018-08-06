@@ -25,7 +25,7 @@ check(List<int> array, int offset, int length) {
   var l = new Int16List.view(byteBuffer, offset, length);
   Expect.equals(length, l.length);
   for (int i = 0; i < l.length; ++i) {
-    Expect.equals(tmp[offset ~/ Int16List.BYTES_PER_ELEMENT + i], l[i]);
+    Expect.equals(tmp[offset ~/ Int16List.bytesPerElement + i], l[i]);
   }
 }
 

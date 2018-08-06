@@ -37,14 +37,14 @@ test() async {
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
     var response = request.response;
-    if (request.headers[HttpHeaders.PROXY_AUTHORIZATION] == null) {
-      response.statusCode = HttpStatus.UNAUTHORIZED;
+    if (request.headers[HttpHeaders.proxyAuthorizationHeader] == null) {
+      response.statusCode = HttpStatus.unauthorized;
       response.headers.set(
-          HttpHeaders.PROXY_AUTHENTICATE, 'Digest, realm="realm", nonce=123');
-      response.statusCode = HttpStatus.PROXY_AUTHENTICATION_REQUIRED;
+          HttpHeaders.proxyAuthenticateHeader, 'Digest, realm="realm", nonce=123');
+      response.statusCode = HttpStatus.proxyAuthenticationRequired;
       response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.PROXY_AUTHORIZATION][0];
+      var authorization = request.headers[HttpHeaders.proxyAuthorizationHeader][0];
       Expect.isTrue(authorization.contains('Digest'));
       Expect.isTrue(authorization.contains('username="co19-test"'));
       Expect.isTrue(authorization.contains('realm="realm"'));

@@ -57,7 +57,7 @@ check(int n, List expected) {
       int counter = 0;
       s.listen((e) {
         list.add(e);
-        if (e == RawSocketEvent.CLOSED) {
+        if (e == RawSocketEvent.closed) {
           return;
         }
         counter++;
@@ -78,7 +78,7 @@ main() {
     [0],
     [1],
     [2],
-    RawSocketEvent.CLOSED
+    RawSocketEvent.closed
   ]);
   check(1, [
     [0],
@@ -87,7 +87,7 @@ main() {
     [1],
     [2],
     [2],
-    RawSocketEvent.CLOSED,
-    RawSocketEvent.CLOSED
+    RawSocketEvent.closed,
+    RawSocketEvent.closed
   ]);
 }

@@ -7,7 +7,7 @@
  * @assertion
  * int getInt32(
  *     int byteOffset, [
- *     Endianness endian = Endianness.BIG_ENDIAN
+ *     Endian endian = Endian.big
  * ])
  * ...
  * Throws [RangeError] if [byteOffset] is negative, or `byteOffset + 4` is

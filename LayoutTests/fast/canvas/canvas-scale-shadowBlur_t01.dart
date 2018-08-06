@@ -27,7 +27,7 @@ main() {
   // top left
   ctx.shadowColor = 'rgba(255, 0, 0, 1.0)';
   ctx.scale(4, 4);
-  ctx.rotate(Math.PI/2);
+  ctx.rotate(Math.pi/2);
   ctx.translate(25, -50);
   ctx.fillRect(0, 0, 25, 25);
 

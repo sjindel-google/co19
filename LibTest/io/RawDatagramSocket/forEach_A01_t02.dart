@@ -28,11 +28,11 @@ check(variant, expected) {
       int counter = 0;
       List list = [];
       void action1(e) => list.add(e);
-      void action2(e) => (e == RawSocketEvent.WRITE
+      void action2(e) => (e == RawSocketEvent.write
           ? list.add(1)
-          : (e == RawSocketEvent.READ
+          : (e == RawSocketEvent.read
               ? list.add(2)
-              : (e == RawSocketEvent.CLOSED ? list.add(3) : list.add(0))));
+              : (e == RawSocketEvent.closed ? list.add(3) : list.add(0))));
       var action = variant == 1 ? action1 : action2;
 
       producer.send([sent++], address, receiver.port);
@@ -64,10 +64,10 @@ check(variant, expected) {
 
 main() {
   check(1, [
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED
+    RawSocketEvent.write,
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.closed
   ]);
   check(2, [1, 2, 2, 3]);
 }

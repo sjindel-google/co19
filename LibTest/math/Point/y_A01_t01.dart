@@ -22,10 +22,10 @@ main() {
   Expect.equals(double.infinity, p.y);
   p = new Point(3.0, double.negativeInfinity);
   Expect.equals(double.negativeInfinity, p.y);
-  p = new Point(3.0, double.MIN_POSITIVE);
-  Expect.equals(double.MIN_POSITIVE, p.y);
-  p = new Point(3.0, -double.MIN_POSITIVE);
-  Expect.equals(-double.MIN_POSITIVE, p.y);
+  p = new Point(3.0, double.minPositive);
+  Expect.equals(double.minPositive, p.y);
+  p = new Point(3.0, -double.minPositive);
+  Expect.equals(-double.minPositive, p.y);
   p = new Point(3.0, double.maxFinite);
   Expect.equals(double.maxFinite, p.y);
   p = new Point(3.0, -double.maxFinite);

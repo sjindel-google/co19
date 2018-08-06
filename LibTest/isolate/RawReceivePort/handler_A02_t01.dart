@@ -6,7 +6,7 @@
 /**
  * @assertion void set handler=(Function newHandler)
  * Sets the handler that is invoked for every incoming message.
- * The handler is invoked in the root-zone (Zone.ROOT).
+ * The handler is invoked in the root-zone (Zone.root).
  *
  * @description Checks that events are not received if handler is set to null.
  *

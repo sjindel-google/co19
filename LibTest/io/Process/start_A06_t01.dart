@@ -12,7 +12,7 @@
  *     Map<String, String> environment,
  *     bool includeParentEnvironment: true,
  *     bool runInShell: false,
- *     ProcessStartMode mode: ProcessStartMode.NORMAL
+ *     ProcessStartMode mode: ProcessStartMode.normal
  * })
  *
  * If mode is ProcessStartMode.DETACHED_WITH_STDIO a detached process will be
@@ -66,7 +66,7 @@ main() {
   setCommand();
   asyncStart();
   Process
-      .start(command, args, mode: ProcessStartMode.DETACHED_WITH_STDIO)
+      .start(command, args, mode: ProcessStartMode.detachedWithStdio)
       .then((Process process) {
     if (Platform.isWindows) {
       testEmpty(process.stdout).then((_) {

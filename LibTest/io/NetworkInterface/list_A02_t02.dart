@@ -12,12 +12,12 @@
  * })
  * Query the system for NetworkInterfaces.
  * ...
- * If type is either InternetAddressType.IP_V4 or InternetAddressType.IP_V6 it
+ * If type is either InternetAddressType.IPv4 or InternetAddressType.IPv6 it
  * will only lookup addresses of the specified type. Default is
  * InternetAddressType.ANY.
  *
  * @description Checks that if parameter 'type' of static method [list] is
- * InternetAddressType.IP_V4, only addresses of InternetAddressType.IP_V4 type
+ * InternetAddressType.IPv4, only addresses of InternetAddressType.IPv4 type
  * are lookup.
  * @author ngl@unipro.ru
  */
@@ -29,7 +29,7 @@ main() {
   Future<List<NetworkInterface>> fList = NetworkInterface.list(
       includeLoopback: true,
       includeLinkLocal: true,
-      type: InternetAddressType.IP_V4);
+      type: InternetAddressType.IPv4);
 
   asyncStart();
   fList.then((fValue) {

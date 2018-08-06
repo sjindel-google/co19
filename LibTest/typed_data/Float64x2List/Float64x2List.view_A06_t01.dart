@@ -22,7 +22,7 @@ import "../../../Utils/expect.dart";
 main() {
   Float64x2List tmp = new Float64x2List(4);
   var byteBuffer = tmp.buffer;
-  for (int i = 1; i < Float64x2List.BYTES_PER_ELEMENT; ++i) {
+  for (int i = 1; i < Float64x2List.bytesPerElement; ++i) {
     try {
       new Float64x2List.view(byteBuffer, i);
       Expect.fail("ArgumentError should be thrown.");

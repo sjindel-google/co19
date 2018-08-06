@@ -7,7 +7,7 @@
  * @assertion
  * bool killPid(
  *     int pid, [
- *     ProcessSignal signal = ProcessSignal.SIGTERM
+ *     ProcessSignal signal = ProcessSignal.sigterm
  * ])
  *
  * Kills the process with id pid.

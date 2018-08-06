@@ -9,7 +9,7 @@
  *     String url, {
  *     Iterable<String> protocols,
  *     Map<String, dynamic> headers,
- *     CompressionOptions compression: CompressionOptions.DEFAULT
+ *     CompressionOptions compression: CompressionOptions.compressionDefault
  * })
  * Create a new WebSocket connection. The URL supplied in url must use the
  * scheme ws or wss.
@@ -50,7 +50,7 @@ Future<Stream> create<T>(Iterable<T> data, {bool Function(T element) isError}) a
         ws.add(x);
       }
     });
-    ws.close(WebSocketStatus.NORMAL_CLOSURE).then((_) {
+    ws.close(WebSocketStatus.normalClosure).then((_) {
       server.close();
     });
   });

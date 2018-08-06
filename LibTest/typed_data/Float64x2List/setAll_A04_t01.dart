@@ -36,7 +36,7 @@ main() {
   var l = new Float64x2List.fromList(list);
   var buffer = l.buffer;
   var view = new Float64x2List.view(buffer,
-      3 * Float64x2List.BYTES_PER_ELEMENT, 3);
+      3 * Float64x2List.bytesPerElement, 3);
 
   listEquals([f64x2(4.0), f64x2(5.0), f64x2(6.0)], view);
   l.setAll(2, view);

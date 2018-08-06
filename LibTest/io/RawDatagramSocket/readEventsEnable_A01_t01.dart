@@ -5,7 +5,7 @@
  */
 /**
  * @assertion bool readEventsEnabled
- * Set or get, if the RawDatagramSocket should listen for RawSocketEvent.READ
+ * Set or get, if the RawDatagramSocket should listen for RawSocketEvent.read
  * events. Default is true.
  *
  * @description Checks that readEventsEnabled property may be get and set for

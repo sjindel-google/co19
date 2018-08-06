@@ -23,7 +23,7 @@ void check(ByteBuffer buffer) {
   Uint64List res1 = buffer.asUint64List(0);
   int viewSizeInBytes = res.lengthInBytes;
   int viewLength = res.length;
-  int shift = (Uint64List.BYTES_PER_ELEMENT == 8) ? 3 : 0;
+  int shift = (Uint64List.bytesPerElement == 8) ? 3 : 0;
 
   Expect.isTrue(res is Uint64List);
   Expect.equals(bufSizeInBytes >> shift, viewLength);

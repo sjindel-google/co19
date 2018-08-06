@@ -63,7 +63,7 @@ main() {
   // Test rotate
   context.beginPath();
   context.save();
-  context.rotate(90/180 * Math.PI);
+  context.rotate(90/180 * Math.pi);
   context.rect(50, -50, 50, 50);
   context.restore();
   context.fill();

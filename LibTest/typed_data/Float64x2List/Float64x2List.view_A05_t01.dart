@@ -23,7 +23,7 @@ import "../../../Utils/expect.dart";
 Float64x2 f64x2V(v) => new Float64x2.splat(v);
 
 void check(List<Float64x2> list, int offsetInEl) {
-  var el_size = Float64x2List.BYTES_PER_ELEMENT;
+  var el_size = Float64x2List.bytesPerElement;
   Float64x2List tmp = new Float64x2List.fromList(list);
   var byteBuffer = tmp.buffer;
   try {

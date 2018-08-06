@@ -5,11 +5,11 @@
  */
 /**
  * @assertion bool readEventsEnabled
- * Set or get, if the RawDatagramSocket should listen for RawSocketEvent.READ
+ * Set or get, if the RawDatagramSocket should listen for RawSocketEvent.read
  * events. Default is true.
  *
  * @description Checks that the RawDatagramSocket should not listen for
- * RawSocketEvent.READ events, if readEventsEnabled is false.
+ * RawSocketEvent.read events, if readEventsEnabled is false.
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -49,7 +49,7 @@ check(int expReceive, [bool no_read_events = false]) {
       int s = 0;
       receiver.listen((event) {
         received++;
-        if (event == RawSocketEvent.READ) {
+        if (event == RawSocketEvent.read) {
           read++;
         }
         var datagram = receiver.receive();

@@ -10,10 +10,10 @@
  * redirects. The default is true.
  *
  * Automatic redirect will only happen for "GET" and "HEAD" requests and only
- * for the status codes HttpHeaders.MOVED_PERMANENTLY (301), HttpStatus.FOUND
- * (302), HttpStatus.MOVED_TEMPORARILY (302, alias for HttpStatus.FOUND),
- * HttpStatus.SEE_OTHER (303) and HttpStatus.TEMPORARY_REDIRECT (307). For
- * HttpStatus.SEE_OTHER (303) automatic redirect will also happen for "POST"
+ * for the status codes HttpHeaders.MOVED_PERMANENTLY (301), HttpStatus.found
+ * (302), HttpStatus.movedTemporarily (302, alias for HttpStatus.found),
+ * HttpStatus.seeOther (303) and HttpStatus.temporaryRedirect (307). For
+ * HttpStatus.seeOther (303) automatic redirect will also happen for "POST"
  * requests with the method changed to "GET" when following the redirect.
  *
  * All headers added to the request will be added to the redirection request(s).

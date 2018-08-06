@@ -39,7 +39,7 @@ check([bool no_write_events = false]) {
           if (received != 1) {
             Expect.fail('Number of receiver messages should be equal to 1');
           }
-          Expect.equals(RawSocketEvent.CLOSED, rEvent);
+          Expect.equals(RawSocketEvent.closed, rEvent);
           asyncEnd();
         });
       });

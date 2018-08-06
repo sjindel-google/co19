@@ -52,7 +52,7 @@ check([bool no_write_events = false]) {
       receiver.first.then((event) {
         received++;
         Expect.equals(
-            no_write_events ? RawSocketEvent.READ : RawSocketEvent.WRITE,
+            no_write_events ? RawSocketEvent.read : RawSocketEvent.write,
             event);
         if (timer2 != null) timer2.cancel();
         timer2 = new Timer(const Duration(milliseconds: 200), () {

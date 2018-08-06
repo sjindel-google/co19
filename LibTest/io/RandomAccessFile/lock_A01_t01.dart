@@ -6,7 +6,7 @@
 /**
  * @assertion
  * Future<RandomAccessFile> lock([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  * ])
@@ -42,8 +42,8 @@ check(FileLock lock) {
 }
 
 main() {
-  check(FileLock.SHARED);
-  check(FileLock.EXCLUSIVE);
-  check(FileLock.BLOCKING_SHARED);
-  check(FileLock.BLOCKING_EXCLUSIVE);
+  check(FileLock.shared);
+  check(FileLock.exclusive);
+  check(FileLock.blockingShared);
+  check(FileLock.blockingExclusive);
 }

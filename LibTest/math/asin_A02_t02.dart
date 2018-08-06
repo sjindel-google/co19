@@ -19,7 +19,7 @@ main() {
   var a;
   for (var d = -1.0; d <= 1.0; d += 0.5) {
     a = Math.asin(d);
-    Expect.isTrue(a >= -Math.PI / 2);
-    Expect.isTrue(a <= Math.PI / 2);
+    Expect.isTrue(a >= -Math.pi / 2);
+    Expect.isTrue(a <= Math.pi / 2);
   }
 }

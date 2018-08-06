@@ -44,7 +44,7 @@ main() {
   ctx.rect(50, 300, side, side);
   ctx.stroke();
 
-  ctx.rotate(Math.PI / 2);
+  ctx.rotate(Math.pi / 2);
 
   // Rotated alpha shadow.
   ctx.shadowBlur = 0;

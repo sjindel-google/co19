@@ -26,7 +26,7 @@ void check(List<double> array, int offset, int length) {
 }
 
 main() {
-  var elemSize = Float64List.BYTES_PER_ELEMENT;
+  var elemSize = Float64List.bytesPerElement;
   check([], 0, 0);
   check([
     3.4028234663852886e38, 1.401298464324817e-45, 1.1754943508222875e-38

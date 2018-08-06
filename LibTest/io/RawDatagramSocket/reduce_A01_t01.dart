@@ -53,6 +53,6 @@ check(combine(previous, element), expected) {
 }
 
 main() {
-  check((previous, element) => previous, RawSocketEvent.WRITE);
-  check((previous, element) => element, RawSocketEvent.CLOSED);
+  check((previous, element) => previous, RawSocketEvent.write);
+  check((previous, element) => element, RawSocketEvent.closed);
 }

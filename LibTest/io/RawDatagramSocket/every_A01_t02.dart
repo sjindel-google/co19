@@ -59,10 +59,10 @@ check(test, expected) {
 }
 
 main() {
-  check((e) => e == RawSocketEvent.WRITE, false);
-  check((e) => e == RawSocketEvent.READ, false);
-  check((e) => e == RawSocketEvent.CLOSED, false);
-  check((e) => e == RawSocketEvent.READ_CLOSED, false);
+  check((e) => e == RawSocketEvent.write, false);
+  check((e) => e == RawSocketEvent.read, false);
+  check((e) => e == RawSocketEvent.closed, false);
+  check((e) => e == RawSocketEvent.readClosed, false);
   check((e) => e is RawSocketEvent, true);
   check((e) => e != null, true);
   check((e) => e == null, false);

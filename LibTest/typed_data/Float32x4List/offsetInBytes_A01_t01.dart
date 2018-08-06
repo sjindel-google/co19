@@ -23,7 +23,7 @@ check(List<Float32x4> array, int offset, int length) {
 }
 
 main() {
-  var elemSize = Float32x4List.BYTES_PER_ELEMENT;
+  var elemSize = Float32x4List.bytesPerElement;
   check([], 0, 0);
   check([pack(1.0)], 0, 1);
   check([

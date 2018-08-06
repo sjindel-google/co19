@@ -26,7 +26,7 @@ main() {
   ctx.shadowOffsetY = 100;
 
   ctx.translate(-100, -100);
-  ctx.rotate(Math.PI/2);
+  ctx.rotate(Math.pi/2);
   ctx.scale(2, 2);
 
   ctx.shadowColor = 'rgba(255, 0, 0, 1.0)';

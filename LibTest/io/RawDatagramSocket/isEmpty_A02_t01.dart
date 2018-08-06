@@ -61,7 +61,7 @@ check(convert, expected) {
 }
 
 main() {
-  check((e) => e == RawSocketEvent.WRITE ? throw 11 : [e], 11);
-  check((e) => e == RawSocketEvent.READ ? throw 12 : [e], 12);
-  check((e) => e == RawSocketEvent.CLOSED ? throw 13 : [e], 13);
+  check((e) => e == RawSocketEvent.write ? throw 11 : [e], 11);
+  check((e) => e == RawSocketEvent.read ? throw 12 : [e], 12);
+  check((e) => e == RawSocketEvent.closed ? throw 13 : [e], 13);
 }

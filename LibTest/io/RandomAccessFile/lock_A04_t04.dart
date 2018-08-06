@@ -6,17 +6,17 @@
 /**
  * @assertion
  * Future<RandomAccessFile> lock([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  * ])
  * . . .
- * If mode is FileLock.EXCLUSIVE or FileLock.SHARED, an error is signaled if the
- * lock cannot be obtained. If mode is FileLock.BLOCKING_EXCLUSIVE or
- * FileLock.BLOCKING_SHARED, the returned Future is resolved only when the lock
+ * If mode is FileLock.exclusive or FileLock.shared, an error is signaled if the
+ * lock cannot be obtained. If mode is FileLock.blockingExclusive or
+ * FileLock.blockingShared, the returned Future is resolved only when the lock
  * has been obtained.
  *
- * @description Checks that if mode is FileLock.BLOCKING_EXCLUSIVE, the returned
+ * @description Checks that if mode is FileLock.blockingExclusive, the returned
  * Future is resolved only when the lock has been obtained.
  * @author ngl@unipro.ru
  */
@@ -31,10 +31,10 @@ void check(int fLen) {
   asyncStart();
   var rf = file.openSync(mode: FileMode.write);
   rf.writeFromSync(new List.filled(fLen, 1));
-  var rfLock = rf.lock(FileLock.EXCLUSIVE);
+  var rfLock = rf.lock(FileLock.exclusive);
   rfLock.then((RandomAccessFile f) {
     var tests = [
-      () => checkUnlocked(f.path, 0, -1, FileLock.BLOCKING_EXCLUSIVE)
+      () => checkUnlocked(f.path, 0, -1, FileLock.blockingExclusive)
     ];
     Future.forEach(tests, (f) => f()).whenComplete(() {
       asyncEnd();

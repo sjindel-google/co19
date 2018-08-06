@@ -44,8 +44,8 @@ check(test, expected) {
 }
 
 main() {
-  check((e) => e == RawSocketEvent.WRITE, false);
-  check((e) => e == RawSocketEvent.READ, false);
-  check((e) => e == RawSocketEvent.CLOSED, true);
-  check((e) => e == RawSocketEvent.READ_CLOSED, false);
+  check((e) => e == RawSocketEvent.write, false);
+  check((e) => e == RawSocketEvent.read, false);
+  check((e) => e == RawSocketEvent.closed, true);
+  check((e) => e == RawSocketEvent.readClosed, false);
 }

@@ -54,10 +54,10 @@ check(test(e), dataExpected) {
 }
 
 main() {
-  check((e) => e != RawSocketEvent.CLOSED ? true : throw 11,
-      [RawSocketEvent.WRITE, RawSocketEvent.READ, RawSocketEvent.READ, 11]);
-  check((e) => e != RawSocketEvent.READ ? true : throw 12,
-      [RawSocketEvent.WRITE, 12, 12, RawSocketEvent.CLOSED]);
-  check((e) => e == RawSocketEvent.WRITE ? throw 13 : true,
-      [13, RawSocketEvent.READ, RawSocketEvent.READ, RawSocketEvent.CLOSED]);
+  check((e) => e != RawSocketEvent.closed ? true : throw 11,
+      [RawSocketEvent.write, RawSocketEvent.read, RawSocketEvent.read, 11]);
+  check((e) => e != RawSocketEvent.read ? true : throw 12,
+      [RawSocketEvent.write, 12, 12, RawSocketEvent.closed]);
+  check((e) => e == RawSocketEvent.write ? throw 13 : true,
+      [13, RawSocketEvent.read, RawSocketEvent.read, RawSocketEvent.closed]);
 }

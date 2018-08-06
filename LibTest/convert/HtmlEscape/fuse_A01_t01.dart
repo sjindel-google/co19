@@ -20,8 +20,8 @@ var symbols = ["\"", "&", "<", ">", "'"];
 var escape = ["&quot;", "&amp;", "&lt;", "&gt;", "&#39;"];
 
 main() {
-  HtmlEscape thisConverter = new HtmlEscape(HtmlEscapeMode.ATTRIBUTE);
-  HtmlEscape otherConverter = new HtmlEscape(HtmlEscapeMode.SQ_ATTRIBUTE);
+  HtmlEscape thisConverter = new HtmlEscape(HtmlEscapeMode.attribute);
+  HtmlEscape otherConverter = new HtmlEscape(HtmlEscapeMode.sqAttribute);
   Converter fused = thisConverter.fuse(otherConverter);
 
   for (int i = 0; i < symbols.length; i++) {

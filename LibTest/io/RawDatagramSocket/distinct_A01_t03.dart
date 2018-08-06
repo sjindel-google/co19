@@ -31,7 +31,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   List expected = [
-    RawSocketEvent.CLOSED
+    RawSocketEvent.closed
   ];
   asyncStart();
   var address = InternetAddress.loopbackIPv4;

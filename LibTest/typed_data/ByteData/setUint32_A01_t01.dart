@@ -8,7 +8,7 @@
  * void setUint32(
  *     int byteOffset,
  *     int value, [
- *     Endianness endian = Endianness.BIG_ENDIAN
+ *     Endian endian = Endian.big
  * ])
  * Sets the four bytes starting at the specified [byteOffset] in this object to
  * the unsigned binary representation of the specified [value], which must fit
@@ -32,12 +32,12 @@ main() {
     150994944, 16777216, 4294967295, 128, 419430400, 1157627904, 872415232,
     2097152000, 520093696
   ];
-  int bytesInElement = Int32List.BYTES_PER_ELEMENT;
+  int bytesInElement = Int32List.bytesPerElement;
 
   var byteDataFromU32 = new ByteData.view(u32.buffer);
   for (int i = 0; i < byteDataFromU32.lengthInBytes / bytesInElement; ++i) {
     byteDataFromU32.setUint32(i * bytesInElement, valuesToBeSet[i],
-        Endianness.LITTLE_ENDIAN);
+        Endian.little);
   }
   Expect.listEquals(valuesToBeSet, u32);
 

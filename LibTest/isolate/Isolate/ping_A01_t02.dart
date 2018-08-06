@@ -46,7 +46,7 @@ Future test(List<Object> values) async {
     Expect.equals(value, await pingPort.first);
   }
   // clean up
-  isolate.kill(priority:Isolate.IMMEDIATE);
+  isolate.kill(priority:Isolate.immediate);
   await onExit.first;
   asyncEnd();
 }

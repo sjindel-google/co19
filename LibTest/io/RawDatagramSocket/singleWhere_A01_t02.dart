@@ -69,10 +69,10 @@ check(test, expected, valueExpected, errorExpected) {
 }
 
 main() {
-  check((e) => e == RawSocketEvent.WRITE, RawSocketEvent.WRITE, true, false);
-  check((e) => e == RawSocketEvent.READ, RawSocketEvent.READ, false, true);
-  check((e) => e == RawSocketEvent.CLOSED, RawSocketEvent.CLOSED, true, false);
-  check((e) => e is RawSocketEvent, RawSocketEvent.WRITE, false, true);
-  check((e) => true, RawSocketEvent.WRITE, false, true);
-  check((e) => e != RawSocketEvent.WRITE, RawSocketEvent.READ, false, true);
+  check((e) => e == RawSocketEvent.write, RawSocketEvent.write, true, false);
+  check((e) => e == RawSocketEvent.read, RawSocketEvent.read, false, true);
+  check((e) => e == RawSocketEvent.closed, RawSocketEvent.closed, true, false);
+  check((e) => e is RawSocketEvent, RawSocketEvent.write, false, true);
+  check((e) => true, RawSocketEvent.write, false, true);
+  check((e) => e != RawSocketEvent.write, RawSocketEvent.read, false, true);
 }

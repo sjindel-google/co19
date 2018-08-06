@@ -8,7 +8,7 @@
  * void setInt16(
  *     int byteOffset,
  *     int value, [
- *     Endianness endian = Endianness.BIG_ENDIAN
+ *     Endian endian = Endian.big
  * ])
  * ...
  * Throws [RangeError] if [byteOffset] is negative, or `byteOffset + 2` is

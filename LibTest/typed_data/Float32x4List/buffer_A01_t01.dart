@@ -23,7 +23,7 @@ main() {
     pack(9.0, 10.0, 11.0, 12.0), pack(13.0, 14.0, 15.0, 16.0)
   ]);
   var byteBuffer = tmp.buffer;
-  var elemSize = Float32x4List.BYTES_PER_ELEMENT;
+  var elemSize = Float32x4List.bytesPerElement;
 
   for (int i = 0; i <= 4; ++i) {
     var l = new Float32x4List.view(byteBuffer, i * elemSize, 4 - i) ;

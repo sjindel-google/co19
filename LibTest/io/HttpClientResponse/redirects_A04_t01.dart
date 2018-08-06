@@ -55,27 +55,27 @@ test(String method, int maxRedirects, int status) async {
 }
 
 main() {
-  test("get", 3, HttpStatus.MOVED_TEMPORARILY);
-  test("get", 3, HttpStatus.FOUND);
-  test("get", 3, HttpStatus.MOVED_PERMANENTLY);
-  test("get", 3, HttpStatus.SEE_OTHER);
-  test("get", 3, HttpStatus.TEMPORARY_REDIRECT);
+  test("get", 3, HttpStatus.movedTemporarily);
+  test("get", 3, HttpStatus.found);
+  test("get", 3, HttpStatus.movedPermanently);
+  test("get", 3, HttpStatus.seeOther);
+  test("get", 3, HttpStatus.temporaryRedirect);
 
-  test("head", 3, HttpStatus.MOVED_TEMPORARILY);
-  test("head", 3, HttpStatus.FOUND);
-  test("head", 3, HttpStatus.MOVED_PERMANENTLY);
-  test("head", 3, HttpStatus.SEE_OTHER);
-  test("head", 3, HttpStatus.TEMPORARY_REDIRECT);
+  test("head", 3, HttpStatus.movedTemporarily);
+  test("head", 3, HttpStatus.found);
+  test("head", 3, HttpStatus.movedPermanently);
+  test("head", 3, HttpStatus.seeOther);
+  test("head", 3, HttpStatus.temporaryRedirect);
 
-  test("get", 6, HttpStatus.MOVED_TEMPORARILY);
-  test("get", 6, HttpStatus.FOUND);
-  test("get", 6, HttpStatus.MOVED_PERMANENTLY);
-  test("get", 6, HttpStatus.SEE_OTHER);
-  test("get", 6, HttpStatus.TEMPORARY_REDIRECT);
+  test("get", 6, HttpStatus.movedTemporarily);
+  test("get", 6, HttpStatus.found);
+  test("get", 6, HttpStatus.movedPermanently);
+  test("get", 6, HttpStatus.seeOther);
+  test("get", 6, HttpStatus.temporaryRedirect);
 
-  test("head", 6, HttpStatus.MOVED_TEMPORARILY);
-  test("head", 6, HttpStatus.FOUND);
-  test("head", 6, HttpStatus.MOVED_PERMANENTLY);
-  test("head", 6, HttpStatus.SEE_OTHER);
-  test("head", 6, HttpStatus.TEMPORARY_REDIRECT);
+  test("head", 6, HttpStatus.movedTemporarily);
+  test("head", 6, HttpStatus.found);
+  test("head", 6, HttpStatus.movedPermanently);
+  test("head", 6, HttpStatus.seeOther);
+  test("head", 6, HttpStatus.temporaryRedirect);
 }

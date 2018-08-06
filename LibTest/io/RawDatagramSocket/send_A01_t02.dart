@@ -66,7 +66,7 @@ check([bool no_write_events = false]) {
         }
         if (timer2 != null) timer2.cancel();
         timer2 = new Timer(const Duration(milliseconds: 200), () {
-          if (event != RawSocketEvent.CLOSED) {
+          if (event != RawSocketEvent.closed) {
             Expect.equals(received, sent - 1);
           }
           receiver.close();

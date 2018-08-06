@@ -23,7 +23,7 @@ void check(ByteBuffer buffer) {
   Float32List res1 = buffer.asFloat32List(0);
   int viewSizeInBytes = res.lengthInBytes;
   int viewLength = res.length;
-  int shift = (Float32List.BYTES_PER_ELEMENT == 4) ? 2 : 0;
+  int shift = (Float32List.bytesPerElement == 4) ? 2 : 0;
 
   Expect.isTrue(res is Float32List);
   Expect.equals(bufSizeInBytes >> shift, viewLength);

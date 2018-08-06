@@ -6,7 +6,7 @@
 /**
  * @assertion
  * void lockSync([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  *     ])
@@ -32,7 +32,7 @@ main() {
   var rf = file.openSync(mode: FileMode.read);
   asyncStart();
   var tests = [
-        () => checkLock(rf.path, 0, fLen, FileLock.EXCLUSIVE, locked: false)
+        () => checkLock(rf.path, 0, fLen, FileLock.exclusive, locked: false)
   ];
   Future.forEach(tests, (f) => f()).whenComplete(() {
     asyncEnd();

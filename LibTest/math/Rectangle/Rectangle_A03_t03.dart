@@ -8,7 +8,7 @@
  * ...
  * The width and height should be non-negative. If width or height are negative,
  * they are clamped to zero.
- * @description Checks that if width or height are -double.MIN_POSITIVE, they
+ * @description Checks that if width or height are -double.minPositive, they
  * are clamped to zero.
  * @author ngl@unipro.ru
  */
@@ -17,9 +17,9 @@ import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
-  Rectangle r = new Rectangle(2, 1, -double.MIN_POSITIVE, -double.MIN_POSITIVE);
+  Rectangle r = new Rectangle(2, 1, -double.minPositive, -double.minPositive);
 
-  Expect.isTrue((-double.MIN_POSITIVE).isNegative);
+  Expect.isTrue((-double.minPositive).isNegative);
   Expect.isTrue((r.width == 0) && (r.height == 0),
       "width = ${r.width} height = ${r.height}");
 }

@@ -12,7 +12,7 @@
  *     Map<String, String> environment,
  *     bool includeParentEnvironment: true,
  *     bool runInShell: false,
- *     ProcessStartMode mode: ProcessStartMode.NORMAL
+ *     ProcessStartMode mode: ProcessStartMode.normal
  * })
  *
  * If mode is ProcessStartMode.DETACHED a detached process will be created. A
@@ -47,7 +47,7 @@ void setCommand() {
 main() {
   setCommand();
   Process
-      .start(command, args, mode: ProcessStartMode.DETACHED)
+      .start(command, args, mode: ProcessStartMode.detached)
       .then((Process process) {
     Expect.isTrue(process.pid is int);
     Expect.isNull(process.stdout);

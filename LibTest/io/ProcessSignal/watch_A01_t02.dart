@@ -7,12 +7,12 @@
  * @assertion Stream<ProcessSignal> watch()
  * Watch for process signals.
  * The following ProcessSignals can be listened to:
- * - ProcessSignal.SIGHUP.
- * - ProcessSignal.SIGINT. Signal sent by e.g. CTRL-C.
- * - ProcessSignal.SIGTERM. Not available on Windows.
- * - ProcessSignal.SIGUSR1. Not available on Windows.
- * - ProcessSignal.SIGUSR2. Not available on Windows.
- * - ProcessSignal.SIGWINCH. Not available on Windows.
+ * - ProcessSignal.sighup.
+ * - ProcessSignal.sigint. Signal sent by e.g. CTRL-C.
+ * - ProcessSignal.sigterm. Not available on Windows.
+ * - ProcessSignal.sigusr1. Not available on Windows.
+ * - ProcessSignal.sigusr2. Not available on Windows.
+ * - ProcessSignal.sigwinch. Not available on Windows.
  *
  * Other signals are disallowed, as they may be used by the VM.
  *
@@ -49,12 +49,12 @@ check(ProcessSignal signal, int ec) {
 
 main() {
   if (!Platform.isWindows) {
-    check(ProcessSignal.SIGHUP, -1);
-    check(ProcessSignal.SIGINT, -2);
-    check(ProcessSignal.SIGTERM, -15);
-    check(ProcessSignal.SIGUSR1, -10);
-    check(ProcessSignal.SIGUSR2, -12);
-    // ProcessSignal.SIGWINCH does not kill process
-    check(ProcessSignal.SIGWINCH, 0);
+    check(ProcessSignal.sighup, -1);
+    check(ProcessSignal.sigint, -2);
+    check(ProcessSignal.sigterm, -15);
+    check(ProcessSignal.sigusr1, -10);
+    check(ProcessSignal.sigusr2, -12);
+    // ProcessSignal.sigwinch does not kill process
+    check(ProcessSignal.sigwinch, 0);
   }
 }

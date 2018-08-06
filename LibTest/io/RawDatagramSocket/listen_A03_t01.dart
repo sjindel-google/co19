@@ -49,7 +49,7 @@ check(int n, expected) {
         actual.add(event);
         counter++;
         receiver.receive();
-        if (event == RawSocketEvent.CLOSED) {
+        if (event == RawSocketEvent.closed) {
           Expect.listEquals(expected, actual);
           asyncEnd();
         }
@@ -62,13 +62,13 @@ check(int n, expected) {
 }
 
 main() {
-  check(0, [RawSocketEvent.CLOSED]);
-  check(1, [RawSocketEvent.WRITE, RawSocketEvent.CLOSED]);
-  check(2, [RawSocketEvent.WRITE, RawSocketEvent.READ, RawSocketEvent.CLOSED]);
+  check(0, [RawSocketEvent.closed]);
+  check(1, [RawSocketEvent.write, RawSocketEvent.closed]);
+  check(2, [RawSocketEvent.write, RawSocketEvent.read, RawSocketEvent.closed]);
   check(3, [
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED
+    RawSocketEvent.write,
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.closed
   ]);
 }

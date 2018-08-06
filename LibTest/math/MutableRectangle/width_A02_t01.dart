@@ -24,6 +24,6 @@ main() {
   Expect.equals(double.infinity, r.width);
   r.width = double.maxFinite;
   Expect.equals(double.maxFinite, r.width);
-  r.width = double.MIN_POSITIVE;
-  Expect.equals(double.MIN_POSITIVE, r.width);
+  r.width = double.minPositive;
+  Expect.equals(double.minPositive, r.width);
 }

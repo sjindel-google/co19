@@ -31,7 +31,7 @@ main() {
       producer.close();
 
       bool test(e) {
-        if (e == RawSocketEvent.WRITE || e == RawSocketEvent.READ) {
+        if (e == RawSocketEvent.write || e == RawSocketEvent.read) {
           return true;
         } else {
           throw 2;

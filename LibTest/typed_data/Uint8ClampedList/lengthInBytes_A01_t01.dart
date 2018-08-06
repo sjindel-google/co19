@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 void check(List<int> list) {
   var l = new Uint8ClampedList.fromList(list);
-  Expect.equals(list.length * Uint8ClampedList.BYTES_PER_ELEMENT,
+  Expect.equals(list.length * Uint8ClampedList.bytesPerElement,
       l.lengthInBytes);
 }
 

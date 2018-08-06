@@ -19,7 +19,7 @@ import "../../../Utils/expect.dart";
 main() {
   bool computationStarted = false;
   asyncStart();
-  new Future.delayed(Duration.ZERO, () {computationStarted = true;})
+  new Future.delayed(Duration.zero, () {computationStarted = true;})
     .then((v) {
       Expect.isTrue(computationStarted);
       asyncEnd();

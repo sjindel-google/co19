@@ -26,7 +26,7 @@ main() {
 
   asyncStart();
   StreamSubscription s = link.watch().listen((FileSystemEvent event) {
-    Expect.equals(FileSystemEvent.MODIFY, event.type);
+    Expect.equals(FileSystemEvent.modify, event.type);
     asyncEnd();
   });
   link.update(target2.path).then((_) {}).timeout(new Duration(seconds: 1)).then((_) {

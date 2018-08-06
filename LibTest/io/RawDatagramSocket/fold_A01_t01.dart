@@ -63,10 +63,10 @@ main() {
       0,
       (previous, element) =>
           previous +
-          (element == RawSocketEvent.WRITE
+          (element == RawSocketEvent.write
               ? 1
-              : (element == RawSocketEvent.READ
+              : (element == RawSocketEvent.read
                   ? 10
-                  : (element == RawSocketEvent.CLOSED ? 100 : 0))),
+                  : (element == RawSocketEvent.closed ? 100 : 0))),
       121);
 }

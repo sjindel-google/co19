@@ -223,7 +223,7 @@ fillPathWithSourceInContext(context) {
 
 applyTransformsToContext(context) {
   context.translate(1, 1);
-  context.rotate(Math.PI / 2);
+  context.rotate(Math.pi / 2);
   context.scale(2, 2);
 }
 

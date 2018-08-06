@@ -49,9 +49,9 @@ test() async {
     return request.close();
   }).then((HttpClientResponse response) {
     Expect.equals(HttpStatus.ok, response.statusCode);
-    response.transform(GZIP.decoder).transform(utf8.decoder).listen((content) {
+    response.transform(gzip.decoder).transform(utf8.decoder).listen((content) {
       Expect.isTrue(
-          response.headers.value(HttpHeaders.CONTENT_ENCODING) == "gzip");
+          response.headers.value(HttpHeaders.contentEncodingHeader) == "gzip");
       Expect.equals(helloWorld, content);
       asyncEnd();
     });

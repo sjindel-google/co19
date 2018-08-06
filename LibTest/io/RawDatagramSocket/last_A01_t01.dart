@@ -41,7 +41,7 @@ check([bool no_write_events = false]) {
       receiver.last.then((event) {
         rEvent = event;
       }).whenComplete (() {
-        Expect.equals(RawSocketEvent.CLOSED, rEvent);
+        Expect.equals(RawSocketEvent.closed, rEvent);
         asyncEnd();
       });
     });

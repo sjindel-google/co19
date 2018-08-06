@@ -34,11 +34,11 @@ main() {
       List expected = [1, 2, 2, 3];
       int convert(e) {
         cCounter++;
-        return (e == RawSocketEvent.WRITE
+        return (e == RawSocketEvent.write
             ? 1
-            : (e == RawSocketEvent.READ
+            : (e == RawSocketEvent.read
                 ? 2
-                : (e == RawSocketEvent.CLOSED ? 3 : 0)));
+                : (e == RawSocketEvent.closed ? 3 : 0)));
       }
 
       producer.send([sent++], address, receiver.port);

@@ -7,12 +7,12 @@
  * @assertion Stream<ProcessSignal> watch()
  * Watch for process signals.
  * The following ProcessSignals can be listened to:
- * - ProcessSignal.SIGHUP.
- * - ProcessSignal.SIGINT. Signal sent by e.g. CTRL-C.
- * - ProcessSignal.SIGTERM. Not available on Windows.
- * - ProcessSignal.SIGUSR1. Not available on Windows.
- * - ProcessSignal.SIGUSR2. Not available on Windows.
- * - ProcessSignal.SIGWINCH. Not available on Windows.
+ * - ProcessSignal.sighup.
+ * - ProcessSignal.sigint. Signal sent by e.g. CTRL-C.
+ * - ProcessSignal.sigterm. Not available on Windows.
+ * - ProcessSignal.sigusr1. Not available on Windows.
+ * - ProcessSignal.sigusr2. Not available on Windows.
+ * - ProcessSignal.sigwinch. Not available on Windows.
  *
  * Other signals are disallowed, as they may be used by the VM.
  *
@@ -32,22 +32,22 @@ void main(args) {
     var signal;
     switch (arg) {
       case 'SIGHUP':
-        signal = ProcessSignal.SIGHUP;
+        signal = ProcessSignal.sighup;
         break;
       case 'SIGINT':
-        signal = ProcessSignal.SIGINT;
+        signal = ProcessSignal.sigint;
         break;
       case 'SIGTERM':
-        signal = ProcessSignal.SIGTERM;
+        signal = ProcessSignal.sigterm;
         break;
       case 'SIGUSR1':
-        signal = ProcessSignal.SIGUSR1;
+        signal = ProcessSignal.sigusr1;
         break;
       case 'SIGUSR2':
-        signal = ProcessSignal.SIGUSR2;
+        signal = ProcessSignal.sigusr2;
         break;
       case 'SIGWINCH':
-        signal = ProcessSignal.SIGWINCH;
+        signal = ProcessSignal.sigwinch;
         break;
     }
     signal.watch().first.then((s) {

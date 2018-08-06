@@ -71,7 +71,7 @@ main() {
         Expect.isTrue(sc.controller.isClosed);
         Expect.equals(1, sc.closeCallCount);
         Expect.equals(1, sc.addStreamFutureCompleted);
-        Expect.listEquals([RawSocketEvent.CLOSED], list);
+        Expect.listEquals([RawSocketEvent.closed], list);
       }).whenComplete(() {
         asyncEnd();
       });

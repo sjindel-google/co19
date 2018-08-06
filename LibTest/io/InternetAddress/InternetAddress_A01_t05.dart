@@ -18,13 +18,13 @@ import "dart:io";
 main() {
   InternetAddress address = new InternetAddress("::11:ab:4");
   Expect.equals("::11:ab:4", address.address);
-  Expect.equals(InternetAddressType.IP_V6, address.type);
+  Expect.equals(InternetAddressType.IPv6, address.type);
 
   address = new InternetAddress("11:ab:4::");
   Expect.equals("11:ab:4::", address.address);
-  Expect.equals(InternetAddressType.IP_V6, address.type);
+  Expect.equals(InternetAddressType.IPv6, address.type);
 
   address = new InternetAddress("11:ab:4::12:83");
   Expect.equals("11:ab:4::12:83", address.address);
-  Expect.equals(InternetAddressType.IP_V6, address.type);
+  Expect.equals(InternetAddressType.IPv6, address.type);
 }
