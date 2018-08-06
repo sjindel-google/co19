@@ -6,7 +6,7 @@
 /**
  * @assertion static void run(void callback())
  * Runs the given callback asynchronously as soon as possible.
- * This function is equivalent to new Timer(Duration.ZERO, callback).
+ * This function is equivalent to new Timer(Duration.zero, callback).
  * @description Checks that callback function is called asynchronously.
  * @author kaigorodov
  */

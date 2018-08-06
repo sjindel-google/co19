@@ -29,7 +29,7 @@
  * exit code of the process when the process completes. On Linux and OS X if the
  * process was terminated due to a signal the exit code will be a negative value
  * in the range -255..-1, where the absolute value of the exit code is the
- * signal number. If the process is killed with ProcessSignal.SIGTERM the exit
+ * signal number. If the process is killed with ProcessSignal.sigterm the exit
  * code is -15, as the signal SIGTERM has number 15.
  * @author ngl@unipro.ru
  */
@@ -54,7 +54,7 @@ main() {
   setCommand();
   asyncStart();
   Process.start(command, args).then((Process process) {
-    process.kill(ProcessSignal.SIGTERM);
+    process.kill(ProcessSignal.sigterm);
 
     process.exitCode.then((int value) {
       if (Platform.isWindows) {

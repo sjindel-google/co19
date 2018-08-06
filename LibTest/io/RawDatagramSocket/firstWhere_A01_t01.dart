@@ -35,9 +35,9 @@ main() {
       producer.close();
       receiver.close();
 
-      Future fValue = receiver.firstWhere((e) => e == RawSocketEvent.CLOSED);
+      Future fValue = receiver.firstWhere((e) => e == RawSocketEvent.closed);
       fValue.then((value) {
-        Expect.equals(RawSocketEvent.CLOSED, value);
+        Expect.equals(RawSocketEvent.closed, value);
       }).whenComplete(() {
         asyncEnd();
       });

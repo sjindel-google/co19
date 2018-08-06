@@ -47,7 +47,7 @@ check(bool test(e), dataExpected) {
 }
 
 main() {
-  check((e) => e != RawSocketEvent.READ, [RawSocketEvent.WRITE]);
+  check((e) => e != RawSocketEvent.read, [RawSocketEvent.write]);
   check((e) => !(e is RawSocketEvent), []);
   check((e) => false, []);
 }

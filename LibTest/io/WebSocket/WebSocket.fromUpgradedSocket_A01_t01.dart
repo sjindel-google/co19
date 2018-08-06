@@ -9,7 +9,7 @@
  *     Socket socket, {
  *     String protocol,
  *     bool serverSide,
- *     CompressionOptions compression: CompressionOptions.DEFAULT
+ *     CompressionOptions compression: CompressionOptions.compressionDefault
  * })
  * Creates a WebSocket from an already-upgraded socket.
  *

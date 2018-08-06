@@ -24,7 +24,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
-  int shift = (Float32List.BYTES_PER_ELEMENT == 4) ? 2 : 0;
+  int shift = (Float32List.bytesPerElement == 4) ? 2 : 0;
   // creates Float32List view with negative offset
   Expect.throws(() {
     buffer.asFloat32List(-1);

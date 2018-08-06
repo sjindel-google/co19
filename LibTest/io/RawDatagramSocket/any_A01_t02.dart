@@ -10,9 +10,9 @@
  * Calls test on each element of the stream. If the call returns true, the
  * returned future is completed with true and processing stops.
  *
- * @description Checks that method any returns true when RawSocketEvent.READ is
+ * @description Checks that method any returns true when RawSocketEvent.read is
  * searched and in this case the listening to the stream is stopped after the
- * first received RawSocketEvent.READ event.
+ * first received RawSocketEvent.read event.
  * @author ngl@unipro.ru
  */
 import "dart:async";
@@ -20,7 +20,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 check([bool no_write_events = false]) {
-  var expectedEvent = RawSocketEvent.READ;
+  var expectedEvent = RawSocketEvent.read;
   asyncStart();
   var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {

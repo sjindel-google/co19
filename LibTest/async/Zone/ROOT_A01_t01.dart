@@ -14,5 +14,5 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isTrue(Zone.ROOT is Zone);
+  Expect.isTrue(Zone.root is Zone);
 }

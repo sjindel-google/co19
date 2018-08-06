@@ -21,7 +21,7 @@ main() {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
       List list = [];
-      List expected = [RawSocketEvent.CLOSED];
+      List expected = [RawSocketEvent.closed];
       StreamController<RawSocketEvent> sController =
           new StreamController<RawSocketEvent>();
       producer.send([sent++], address, receiver.port);

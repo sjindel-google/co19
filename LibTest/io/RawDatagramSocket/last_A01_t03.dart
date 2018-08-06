@@ -43,7 +43,7 @@ check([bool no_write_events = false]) {
       stream.last.then((event) {
         rEvent = event;
       }).whenComplete (() {
-        Expect.equals(RawSocketEvent.CLOSED, rEvent);
+        Expect.equals(RawSocketEvent.closed, rEvent);
         Expect.equals(2, counter);
         asyncEnd();
       });

@@ -44,7 +44,7 @@ main() {
 
       Future future = receiver.reduce(combine);
       future.then((event) {
-        Expect.equals(RawSocketEvent.CLOSED, event);
+        Expect.equals(RawSocketEvent.closed, event);
         Expect.equals(0, nCalls);
         Expect.isTrue(list.isEmpty);
       }).whenComplete(() {

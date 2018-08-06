@@ -30,7 +30,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  List expected1 = [RawSocketEvent.WRITE];
+  List expected1 = [RawSocketEvent.write];
   List expected2 = ['ex', 'ex', 'ex'];
   asyncStart();
   var address = InternetAddress.loopbackIPv4;

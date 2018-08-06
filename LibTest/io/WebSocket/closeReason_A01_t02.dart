@@ -21,7 +21,7 @@ main() {
       WebSocketTransformer
           .upgrade(request)
           .then((websocket) {
-        websocket.close(WebSocketStatus.NORMAL_CLOSURE, "closed");
+        websocket.close(WebSocketStatus.normalClosure, "closed");
       });
     });
 

@@ -37,7 +37,7 @@ check(test) {
 
       Stream<RawSocketEvent> bcs = receiver.asBroadcastStream();
       Future fValue =
-          bcs.singleWhere(test, orElse: () => RawSocketEvent.READ_CLOSED);
+          bcs.singleWhere(test, orElse: () => RawSocketEvent.readClosed);
       fValue.then((value) {
         Expect.fail('Future should be completed with error');
       }).catchError((error) {
@@ -62,7 +62,7 @@ check(test) {
 }
 
 main() {
-  check((e) => e == RawSocketEvent.READ);
+  check((e) => e == RawSocketEvent.read);
   check((e) => true);
-  check((e) => e != RawSocketEvent.WRITE);
+  check((e) => e != RawSocketEvent.write);
 }

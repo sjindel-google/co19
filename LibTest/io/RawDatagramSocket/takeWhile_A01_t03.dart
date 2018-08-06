@@ -46,8 +46,8 @@ check(bool test(e), dataExpected, int n) {
 }
 
 main() {
-  check((e) => e != RawSocketEvent.CLOSED, [], 1);
-  check((e) => e != RawSocketEvent.READ, [RawSocketEvent.CLOSED], 2);
-  check((e) => true, [RawSocketEvent.CLOSED], 3);
+  check((e) => e != RawSocketEvent.closed, [], 1);
+  check((e) => e != RawSocketEvent.read, [RawSocketEvent.closed], 2);
+  check((e) => true, [RawSocketEvent.closed], 3);
   check((e) => false, [], 4);
 }

@@ -72,16 +72,16 @@ check(dataExpected, [bool no_write_events = false]) {
 
 main() {
   check([
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED
+    RawSocketEvent.write,
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.closed
   ]);
   check([
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.closed
   ], true);
 }

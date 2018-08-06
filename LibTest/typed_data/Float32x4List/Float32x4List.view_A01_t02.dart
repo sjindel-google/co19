@@ -34,7 +34,7 @@ check(List<Float32x4> list, int offset, int length) {
   var l = new Float32x4List.view(byteBuffer, offset, length);
   Expect.equals(length, l.length);
   for (int i = 0; i < l.length; ++i) {
-    Expect.isTrue(equal(tmp[offset ~/ Float32x4List.BYTES_PER_ELEMENT + i],
+    Expect.isTrue(equal(tmp[offset ~/ Float32x4List.bytesPerElement + i],
         l[i]));
   }
 }

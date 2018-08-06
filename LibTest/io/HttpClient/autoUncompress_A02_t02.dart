@@ -58,7 +58,7 @@ test() async {
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
-    response.transform(GZIP.decoder).transform(utf8.decoder).listen((content) {
+    response.transform(gzip.decoder).transform(utf8.decoder).listen((content) {
       Expect.equals(helloWorld, content);
       asyncEnd();
     });

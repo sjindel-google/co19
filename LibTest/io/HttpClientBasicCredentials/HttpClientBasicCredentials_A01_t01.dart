@@ -19,12 +19,12 @@ var localhost = InternetAddress.loopbackIPv4.address;
 test() async {
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    if (request.headers[HttpHeaders.AUTHORIZATION] == null) {
-      request.response.statusCode = HttpStatus.UNAUTHORIZED;
-      request.response.headers.set(HttpHeaders.WWW_AUTHENTICATE, 'Basic');
+    if (request.headers[HttpHeaders.authorizationHeader] == null) {
+      request.response.statusCode = HttpStatus.unauthorized;
+      request.response.headers.set(HttpHeaders.wwwAuthenticateHeader, 'Basic');
       request.response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.AUTHORIZATION][0];
+      var authorization = request.headers[HttpHeaders.authorizationHeader][0];
       String encoded = BASE64.encode(utf8.encode("co19-test:password"));
       Expect.equals("Basic ${encoded}", authorization);
       request.response.close();

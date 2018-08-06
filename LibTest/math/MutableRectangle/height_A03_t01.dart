@@ -23,6 +23,6 @@ main() {
   Expect.equals(0, r.height);
   r.height = -double.maxFinite;
   Expect.equals(0, r.height);
-  r.height = -double.MIN_POSITIVE;
+  r.height = -double.minPositive;
   Expect.equals(0, r.height);
 }

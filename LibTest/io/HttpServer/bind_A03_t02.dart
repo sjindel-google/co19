@@ -44,7 +44,7 @@ test() async {
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
-    Expect.equals(HttpStatus.HTTP_VERSION_NOT_SUPPORTED, response.statusCode);
+    Expect.equals(HttpStatus.httpVersionNotSupported, response.statusCode);
     asyncEnd();
   });
   asyncEnd();

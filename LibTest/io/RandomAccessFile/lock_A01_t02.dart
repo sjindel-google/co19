@@ -6,7 +6,7 @@
 /**
  * @assertion
  * Future<RandomAccessFile> lock([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  * ])

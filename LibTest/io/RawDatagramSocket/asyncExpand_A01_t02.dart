@@ -36,10 +36,10 @@ check(convert, int n) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
       List expected = [
-        RawSocketEvent.WRITE,
-        RawSocketEvent.READ,
-        RawSocketEvent.READ,
-        RawSocketEvent.CLOSED
+        RawSocketEvent.write,
+        RawSocketEvent.read,
+        RawSocketEvent.read,
+        RawSocketEvent.closed
       ];
       List list = [];
       producer.send([sent++], address, receiver.port);
@@ -53,7 +53,7 @@ check(convert, int n) {
       Stream s = receiver.asyncExpand(convert);
       s.listen((e) {
         list.add(e);
-        if (e == RawSocketEvent.CLOSED) {
+        if (e == RawSocketEvent.closed) {
           return;
         }
         counter++;

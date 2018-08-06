@@ -8,7 +8,7 @@
  * void setFloat64(
  *     int byteOffset,
  *     double value, [
- *     Endianness endian = Endianness.BIG_ENDIAN
+ *     Endian endian = Endian.big
  * ])
  * Sets the eight bytes starting at the specified [byteOffset] in this object to
  * the IEEE 754 double-precision binary floating-point (binary64) representation
@@ -27,12 +27,12 @@ main() {
     .0, -2.2424848378575808e-38, -2.339165719346336e-25,
     -1.3941523508821674e+276, 4.585e-320, 7.291122019556398e-304
   ];
-  var sizeInBytes =  Float64List.BYTES_PER_ELEMENT;
+  var sizeInBytes =  Float64List.bytesPerElement;
 
   var byteDataFromF64 = new ByteData.view(f64.buffer);
   for (int i = 0; i < byteDataFromF64.lengthInBytes / sizeInBytes; ++i) {
     byteDataFromF64.setFloat64(i * sizeInBytes, valuesToBeSet[i],
-        Endianness.LITTLE_ENDIAN);
+        Endian.little);
     Expect.approxEquals(valuesToBeSet[i], f64[i], (f64[i] / 1e7).abs());
   }
 

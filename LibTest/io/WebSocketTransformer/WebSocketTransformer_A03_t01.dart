@@ -7,7 +7,7 @@
  * @assertion
  * WebSocketTransformer({
  *     dynamic protocolSelector(List<String> protocols),
- *     CompressionOptions compression: CompressionOptions.DEFAULT
+ *     CompressionOptions compression: CompressionOptions.compressionDefault
  * })
  * Create a new WebSocketTransformer.
  * ...
@@ -23,9 +23,9 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var v1 = new WebSocketTransformer(compression: CompressionOptions.DEFAULT);
+  var v1 = new WebSocketTransformer(compression: CompressionOptions.compressionDefault);
   Expect.isTrue(v1 is WebSocketTransformer);
 
-  var v2 = new WebSocketTransformer(compression: CompressionOptions.OFF);
+  var v2 = new WebSocketTransformer(compression: CompressionOptions.compressionOff);
   Expect.isTrue(v2 is WebSocketTransformer);
 }

@@ -59,20 +59,20 @@ check(convert, expected) {
 main() {
   check((e) => [], []);
   check((e) => [e], [
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED
+    RawSocketEvent.write,
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.closed
   ]);
   check((e) => [e, e], [
-    RawSocketEvent.WRITE,
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED,
-    RawSocketEvent.CLOSED
+    RawSocketEvent.write,
+    RawSocketEvent.write,
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.closed,
+    RawSocketEvent.closed
   ]);
   check((e) => [1, 2, 3], [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]);
 }

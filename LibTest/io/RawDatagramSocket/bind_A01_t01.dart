@@ -39,7 +39,7 @@ main() {
       var received = 0;
       var timer;
       receiver.listen((event) {
-        if (event != RawSocketEvent.READ) return;
+        if (event != RawSocketEvent.read) return;
         var datagram = receiver.receive();
         Expect.listEquals([received++], datagram.data);
         if (timer != null) timer.cancel();

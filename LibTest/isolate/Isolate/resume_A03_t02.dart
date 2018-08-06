@@ -34,7 +34,7 @@ test() async {
   server.isolate.resume(null);
   Expect.equals("timeout", await server.ping("resume", _500MS, "timeout"));
 
-  await server.kill(priority:Isolate.IMMEDIATE);
+  await server.kill(priority:Isolate.immediate);
   receivePort.close();
   asyncEnd();
 }

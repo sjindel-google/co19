@@ -27,7 +27,7 @@ main() {
   var rf = file.openSync(mode: FileMode.write);
   rf.writeFromSync(new List.filled(30, 0));
   asyncStart();
-  rf.lockSync(FileLock.EXCLUSIVE);
+  rf.lockSync(FileLock.exclusive);
   var tests = [
     () => checkLocked(rf.path, 0, 30),
     () => checkLocked(rf.path, 30, 40)

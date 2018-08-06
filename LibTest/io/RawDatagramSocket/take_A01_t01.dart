@@ -52,9 +52,9 @@ check(int n, List expected) {
 
 main() {
   check(0, []);
-  check(1, [RawSocketEvent.CLOSED]);
-  check(2, [RawSocketEvent.CLOSED]);
-  check(3, [RawSocketEvent.CLOSED]);
-  check(4, [RawSocketEvent.CLOSED]);
-  check(5, [RawSocketEvent.CLOSED]);
+  check(1, [RawSocketEvent.closed]);
+  check(2, [RawSocketEvent.closed]);
+  check(3, [RawSocketEvent.closed]);
+  check(4, [RawSocketEvent.closed]);
+  check(5, [RawSocketEvent.closed]);
 }

@@ -26,7 +26,7 @@ test(String method) async {
   server.listen((HttpRequest request) {
     request.response.write(helloWorld);
     Expect.throws(() {
-      request.response.statusCode = HttpStatus.ACCEPTED;
+      request.response.statusCode = HttpStatus.accepted;
     }, (e) => e is StateError);
     request.response.close();
     server.close();

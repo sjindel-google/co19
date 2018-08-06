@@ -42,8 +42,8 @@ test() async {
   asyncStart();
   server.listen((HttpRequest request) {
     request.response
-      ..headers.set(HttpHeaders.CONTENT_LENGTH, helloWorld.length)
-      ..headers.set(HttpHeaders.CONTENT_ENCODING, "utf-8")
+      ..headers.set(HttpHeaders.contentLengthHeader, helloWorld.length)
+      ..headers.set(HttpHeaders.contentEncodingHeader, "utf-8")
       ..write(helloWorld)
       ..close();
     server.close();
@@ -60,8 +60,8 @@ test() async {
     return request.close();
   }).then((HttpClientResponse response) {
     Expect.listEquals([helloWorld.length.toString()],
-        response.headers[HttpHeaders.CONTENT_LENGTH]);
-    Expect.listEquals(["utf-8"], response.headers[HttpHeaders.CONTENT_ENCODING]);
+        response.headers[HttpHeaders.contentLengthHeader]);
+    Expect.listEquals(["utf-8"], response.headers[HttpHeaders.contentEncodingHeader]);
     response.transform(utf8.decoder).listen((content) {
       Expect.equals(helloWorld, content);
       asyncEnd();

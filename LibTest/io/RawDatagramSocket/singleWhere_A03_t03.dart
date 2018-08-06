@@ -61,7 +61,7 @@ check(test, orElseFunction, expected) {
 }
 
 main() {
-  check((e) => e == RawSocketEvent.READ_CLOSED, () => throw 11, 11);
+  check((e) => e == RawSocketEvent.readClosed, () => throw 11, 11);
   check((e) => false, () => throw 12, 12);
   Error error = new Error();
   check((e) => !(e is RawSocketEvent), () => throw error, error);

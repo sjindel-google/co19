@@ -23,8 +23,8 @@ main() {
   ctx.lineJoin = 'bevel';
   ctx.lineWidth = 12;
   ctx.beginPath();
-  ctx.arc(200, 50, 40, Math.PI / 2, -Math.PI / 2, false);
-  ctx.arc(100, 50, 40, Math.PI / 2, -Math.PI / 2, false);
+  ctx.arc(200, 50, 40, Math.pi / 2, -Math.pi / 2, false);
+  ctx.arc(100, 50, 40, Math.pi / 2, -Math.pi / 2, false);
   ctx.stroke();
 
   var imageData = ctx.getImageData(0, 0, 1, 1);

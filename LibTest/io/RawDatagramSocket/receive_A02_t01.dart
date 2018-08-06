@@ -43,7 +43,7 @@ check([bool no_write_events = false]) {
       List<int> rList;
       int longDataLength = 0;
       receiver.listen((event) {
-        if (event == RawSocketEvent.CLOSED) {
+        if (event == RawSocketEvent.closed) {
           if (longDataLength != sentLength) {
             Expect.fail('Long datagram was not received.');
           }

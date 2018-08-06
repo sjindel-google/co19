@@ -24,7 +24,7 @@ import "dart:typed_data";
 import "../../../Utils/expect.dart";
 
 void check(ByteBuffer buffer) {
-  int shift = (Uint64List.BYTES_PER_ELEMENT == 8) ? 3 : 0;
+  int shift = (Uint64List.bytesPerElement == 8) ? 3 : 0;
   // creates Uint64List view with negative offset
   Expect.throws(() {
     buffer.asUint64List(-8);

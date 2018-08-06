@@ -19,7 +19,7 @@ test(String method) async {
   asyncStart();
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    request.response.headers.set(HttpHeaders.SET_COOKIE,
+    request.response.headers.set(HttpHeaders.setCookieHeader,
         "Lily-cookie=Lily-was-here");
     request.response.close();
     server.close();

@@ -40,7 +40,7 @@ main() {
       Future fValue = receiver.pipe(sc.sink);
       fValue.then((value) {
         rValue = value;
-        Expect.listEquals([RawSocketEvent.CLOSED], list);
+        Expect.listEquals([RawSocketEvent.closed], list);
       }).whenComplete(() {
         sc.sink.close().then((x) {
           Expect.equals(x, rValue);

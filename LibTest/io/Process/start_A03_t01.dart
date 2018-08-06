@@ -12,7 +12,7 @@
  *     Map<String, String> environment,
  *     bool includeParentEnvironment: true,
  *     bool runInShell: false,
- *     ProcessStartMode mode: ProcessStartMode.NORMAL
+ *     ProcessStartMode mode: ProcessStartMode.normal
  * })
  * ...
  * If includeParentEnvironment is true, the process's environment will include

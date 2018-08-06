@@ -12,13 +12,13 @@
  *     Map<String, String> environment,
  *     bool includeParentEnvironment: true,
  *     bool runInShell: false,
- *     ProcessStartMode mode: ProcessStartMode.NORMAL
+ *     ProcessStartMode mode: ProcessStartMode.normal
  * })
  * ...
- * If mode is ProcessStartMode.NORMAL (the default) a child process will be
+ * If mode is ProcessStartMode.normal (the default) a child process will be
  * started with stdin, stdout and stderr connected.
  *
- * @description Checks that if mode is ProcessStartMode.NORMAL (the default) a
+ * @description Checks that if mode is ProcessStartMode.normal (the default) a
  * child process will be started with stdin, stdout and stderr connected. Also
  * process pid and exitCode are available.
  * @author ngl@unipro.ru
@@ -60,7 +60,7 @@ Future testNotEmpty(var stream) {
 main() {
   setCommand();
   asyncStart();
-  Process.start(command, args, mode: ProcessStartMode.NORMAL)
+  Process.start(command, args, mode: ProcessStartMode.normal)
       .then((Process process) {
     if (Platform.isWindows) {
       testEmpty(process.stdout).then((_) {

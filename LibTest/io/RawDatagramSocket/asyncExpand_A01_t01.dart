@@ -43,7 +43,7 @@ check(convert, n) {
       receiver.close();
       Stream s = receiver.asyncExpand(convert);
       s.listen((value) {
-        Expect.equals(RawSocketEvent.CLOSED, value);
+        Expect.equals(RawSocketEvent.closed, value);
         count++;
       }).onDone(() {
         Expect.equals(n, count);

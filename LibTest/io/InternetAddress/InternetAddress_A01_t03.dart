@@ -17,5 +17,5 @@ import "dart:io";
 main() {
   InternetAddress address = new InternetAddress("::1");
   Expect.equals("::1", address.address);
-  Expect.equals(InternetAddressType.IP_V6, address.type);
+  Expect.equals(InternetAddressType.IPv6, address.type);
 }

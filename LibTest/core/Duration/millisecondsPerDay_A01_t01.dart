@@ -1,16 +1,15 @@
 /*
- * Copyright (c) 2016, the Dart project authors.  Please see the AUTHORS file
+ * Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
  * for details. All rights reserved. Use of this source code is governed by a
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Duration ZERO = const Duration(seconds: 0)
+ * @assertion Holds the number of milliseconds in a day.
  * @description Checks that the value of this property is correct.
- * @author sgrekhov@unipro.ru
+ * @author rodionov
  */
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.equals(new Duration(seconds: 0).inMicroseconds,
-      Duration.ZERO.inMicroseconds);
+  Expect.equals(24 * 3600 * 1000, Duration.millisecondsPerDay);
 }

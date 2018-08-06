@@ -34,14 +34,14 @@ import "../../../Utils/expect.dart";
 test() async {
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
-    if (request.headers[HttpHeaders.AUTHORIZATION] == null) {
-      request.response.statusCode = HttpStatus.UNAUTHORIZED;
+    if (request.headers[HttpHeaders.authorizationHeader] == null) {
+      request.response.statusCode = HttpStatus.unauthorized;
       StringBuffer authHeader = new StringBuffer();
       authHeader.write('Digest');
       authHeader.write(', realm="realm"');
       authHeader.write(', nonce="123"');
       authHeader.write(', domain="/xxxt/"');
-      request.response.headers.set(HttpHeaders.WWW_AUTHENTICATE, authHeader);
+      request.response.headers.set(HttpHeaders.wwwAuthenticateHeader, authHeader);
       request.response.close();
       server.close();
       asyncEnd();

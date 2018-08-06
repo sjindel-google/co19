@@ -33,7 +33,7 @@ test() async {
   server.send("server");
   await new Future.delayed(new Duration(milliseconds:200));
 // clean up & check
-  await server.kill(priority:Isolate.IMMEDIATE);
+  await server.kill(priority:Isolate.immediate);
   receivePort.close();
   // first message hello may be blocked by pause call
   List receivedData = await receivedDataFuture;

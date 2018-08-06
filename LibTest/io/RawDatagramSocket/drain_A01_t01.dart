@@ -61,7 +61,7 @@ check(checkValue) {
         });
       }).onDone(() {
         Expect.equals(1, counter);
-        Expect.listEquals([RawSocketEvent.CLOSED], list);
+        Expect.listEquals([RawSocketEvent.closed], list);
       });
 
     });

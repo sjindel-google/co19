@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion CompressionOptions DEFAULT = const CompressionOptions()
+ * @assertion CompressionOptions.compressionDefault = const CompressionOptions()
  * Default WebSocket Compression options. Compression will be enabled with the
  * following options: clientNoContextTakeover: false serverNoContextTakeover:
  * false clientMaxWindowBits: 15 serverMaxWindowBits: 15
@@ -17,10 +17,10 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isNotNull(CompressionOptions.DEFAULT);
+  Expect.isNotNull(CompressionOptions.compressionDefault);
 
-  Expect.isFalse(CompressionOptions.DEFAULT.clientNoContextTakeover);
-  Expect.isFalse(CompressionOptions.DEFAULT.serverNoContextTakeover);
-  Expect.equals(15, CompressionOptions.DEFAULT.clientMaxWindowBits);
-  Expect.equals(15, CompressionOptions.DEFAULT.serverMaxWindowBits);
+  Expect.isFalse(CompressionOptions.compressionDefault.clientNoContextTakeover);
+  Expect.isFalse(CompressionOptions.compressionDefault.serverNoContextTakeover);
+  Expect.equals(15, CompressionOptions.compressionDefault.clientMaxWindowBits);
+  Expect.equals(15, CompressionOptions.compressionDefault.serverMaxWindowBits);
 }

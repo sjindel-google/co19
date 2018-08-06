@@ -19,6 +19,6 @@ main() {
   for (var d = -1.0; d <= 1.0; d += 0.5) {
     a = Math.acos(d);
     Expect.isTrue(a >= 0);
-    Expect.isTrue(a <= Math.PI);
+    Expect.isTrue(a <= Math.pi);
   }
 }

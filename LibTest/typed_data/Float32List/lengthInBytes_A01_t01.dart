@@ -15,7 +15,7 @@ import "../../../Utils/expect.dart";
 
 void check(List<double> list) {
   var l = new Float32List.fromList(list);
-  Expect.equals(list.length * Float32List.BYTES_PER_ELEMENT, l.lengthInBytes);
+  Expect.equals(list.length * Float32List.bytesPerElement, l.lengthInBytes);
 }
 
 main() {

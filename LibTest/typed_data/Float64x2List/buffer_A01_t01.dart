@@ -23,7 +23,7 @@ main() {
   ]);
   var tmpSize = tmp.length;
   var byteBuffer = tmp.buffer;
-  var elemSize = Float64x2List.BYTES_PER_ELEMENT;
+  var elemSize = Float64x2List.bytesPerElement;
 
   for (int i = 0; i <= tmpSize; ++i) {
     var l = new Float64x2List.view(byteBuffer, i * elemSize, tmpSize - i) ;

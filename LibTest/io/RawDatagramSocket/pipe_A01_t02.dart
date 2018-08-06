@@ -23,10 +23,10 @@ main() {
       int sent = 0;
       List list = [];
       List expected = [
-        RawSocketEvent.WRITE,
-        RawSocketEvent.READ,
-        RawSocketEvent.READ,
-        RawSocketEvent.CLOSED
+        RawSocketEvent.write,
+        RawSocketEvent.read,
+        RawSocketEvent.read,
+        RawSocketEvent.closed
       ];
       StreamController<RawSocketEvent> sController =
           new StreamController<RawSocketEvent>();

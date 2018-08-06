@@ -17,7 +17,7 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
   var arguments = new List<String>()
     ..add(Platform.script.resolve('lock_check_2_lib.dart').toFilePath())
     ..add(path)
-    ..add(mode == FileLock.EXCLUSIVE ? 'EXCLUSIVE' : 'SHARED')
+    ..add(mode == FileLock.exclusive ? 'EXCLUSIVE' : 'SHARED')
     ..add('$start')
     ..add('$end');
   return Process
@@ -43,9 +43,9 @@ main(List<String> args) {
   File file = new File(args[0]);
   int start = null;
   int end = null;
-  var mode = FileLock.EXCLUSIVE;
+  var mode = FileLock.exclusive;
   if (args[1] == 'SHARED') {
-    mode = FileLock.SHARED;
+    mode = FileLock.shared;
   }
   if (args[2] != 'null') {
     start = int.parse(args[2]);

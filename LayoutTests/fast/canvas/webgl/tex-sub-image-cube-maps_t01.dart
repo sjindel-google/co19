@@ -121,23 +121,23 @@ main() {
     wgl.WebGL.TEXTURE_CUBE_MAP_NEGATIVE_Z];
 
   var rotations = [
-    new _Rotation(axis: [0, 1, 0], angle:  Math.PI / 2),
-    new _Rotation(axis: [0, 1, 0], angle: -Math.PI / 2),
-    new _Rotation(axis: [1, 0, 0], angle: -Math.PI / 2),
-    new _Rotation(axis: [1, 0, 0], angle:  Math.PI / 2),
+    new _Rotation(axis: [0, 1, 0], angle:  Math.pi / 2),
+    new _Rotation(axis: [0, 1, 0], angle: -Math.pi / 2),
+    new _Rotation(axis: [1, 0, 0], angle: -Math.pi / 2),
+    new _Rotation(axis: [1, 0, 0], angle:  Math.pi / 2),
     new _Rotation(axis: [0, 1, 0], angle:  0),
-    new _Rotation(axis: [0, 1, 0], angle:  Math.PI),
+    new _Rotation(axis: [0, 1, 0], angle:  Math.pi),
   ];
 
   var halfRotations = [
-    new _HalfRotation(colors: [3, 4], rotations: [new _Rotation(axis: [1, 0, 0], angle:  Math.PI / 4)]),
-    new _HalfRotation(colors: [4, 2], rotations: [new _Rotation(axis: [1, 0, 0], angle: -Math.PI / 4)]),
-    new _HalfRotation(colors: [5, 3], rotations: [new _Rotation(axis: [1, 0, 0], angle:  Math.PI / 4 * 3)]),
-    new _HalfRotation(colors: [2, 5], rotations: [new _Rotation(axis: [1, 0, 0], angle: -Math.PI / 4 * 3)]),
-    new _HalfRotation(colors: [3, 0], rotations: [new _Rotation(axis: [0, 1, 0], angle:  Math.PI / 2),
-                                                  new _Rotation(axis: [1, 0, 0], angle:  Math.PI / 4)]),
-    new _HalfRotation(colors: [0, 2], rotations: [new _Rotation(axis: [0, 1, 0], angle:  Math.PI / 2),
-                                                  new _Rotation(axis: [1, 0, 0], angle: -Math.PI / 4)]),
+    new _HalfRotation(colors: [3, 4], rotations: [new _Rotation(axis: [1, 0, 0], angle:  Math.pi / 4)]),
+    new _HalfRotation(colors: [4, 2], rotations: [new _Rotation(axis: [1, 0, 0], angle: -Math.pi / 4)]),
+    new _HalfRotation(colors: [5, 3], rotations: [new _Rotation(axis: [1, 0, 0], angle:  Math.pi / 4 * 3)]),
+    new _HalfRotation(colors: [2, 5], rotations: [new _Rotation(axis: [1, 0, 0], angle: -Math.pi / 4 * 3)]),
+    new _HalfRotation(colors: [3, 0], rotations: [new _Rotation(axis: [0, 1, 0], angle:  Math.pi / 2),
+                                                  new _Rotation(axis: [1, 0, 0], angle:  Math.pi / 4)]),
+    new _HalfRotation(colors: [0, 2], rotations: [new _Rotation(axis: [0, 1, 0], angle:  Math.pi / 2),
+                                                  new _Rotation(axis: [1, 0, 0], angle: -Math.pi / 4)]),
   ];
 
   var count = 0;

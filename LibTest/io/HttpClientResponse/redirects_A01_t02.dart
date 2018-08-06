@@ -53,15 +53,15 @@ test(String method, int statusCode) async {
 }
 
 main() {
-  test("get", HttpStatus.MOVED_PERMANENTLY);
-  test("get", HttpStatus.FOUND);
-  test("get", HttpStatus.MOVED_TEMPORARILY);
-  test("get", HttpStatus.SEE_OTHER);
-  test("get", HttpStatus.TEMPORARY_REDIRECT);
+  test("get", HttpStatus.movedPermanently);
+  test("get", HttpStatus.found);
+  test("get", HttpStatus.movedTemporarily);
+  test("get", HttpStatus.seeOther);
+  test("get", HttpStatus.temporaryRedirect);
 
-  test("head", HttpStatus.MOVED_PERMANENTLY);
-  test("head", HttpStatus.FOUND);
-  test("head", HttpStatus.MOVED_TEMPORARILY);
-  test("head", HttpStatus.SEE_OTHER);
-  test("head", HttpStatus.TEMPORARY_REDIRECT);
+  test("head", HttpStatus.movedPermanently);
+  test("head", HttpStatus.found);
+  test("head", HttpStatus.movedTemporarily);
+  test("head", HttpStatus.seeOther);
+  test("head", HttpStatus.temporaryRedirect);
 }

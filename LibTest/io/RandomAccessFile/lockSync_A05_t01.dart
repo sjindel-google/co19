@@ -6,7 +6,7 @@
 /**
  * @assertion
  * void lockSync([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  *     ])
@@ -44,8 +44,8 @@ main() {
   for (int i = 0; i < fLen; i++) {
     rf1.writeByteSync((i + 1) & 0xff);
   }
-  rf1.lockSync(FileLock.EXCLUSIVE, 4, 6);
-  rf2.lockSync(FileLock.EXCLUSIVE, 7, 8);
+  rf1.lockSync(FileLock.exclusive, 4, 6);
+  rf2.lockSync(FileLock.exclusive, 7, 8);
   var tests = [
     () => checkLocked(rf1.path, 4),
     () => checkUnlocked(rf1.path, 0, 4),

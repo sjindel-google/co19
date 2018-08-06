@@ -54,9 +54,9 @@ check(int n, List expected) {
 
 main() {
   List expected = [
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ
+    RawSocketEvent.write,
+    RawSocketEvent.read,
+    RawSocketEvent.read
   ];
   check(0, []);
   check(1, expected.sublist(0, 1));

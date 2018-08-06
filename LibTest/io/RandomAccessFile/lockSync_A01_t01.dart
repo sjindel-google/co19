@@ -6,7 +6,7 @@
 /**
  * @assertion
  * void lockSync([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  *     ])
@@ -30,11 +30,11 @@ void check(int fLen) {
   asyncStart();
   var rf = file.openSync(mode: FileMode.write);
   rf.writeFromSync(new List.filled(fLen, 1));
-  rf.lockSync(FileLock.EXCLUSIVE);
+  rf.lockSync(FileLock.exclusive);
   Expect.isTrue(fLen == rf.lengthSync());
   var tests = [
     () => checkLocked(rf.path),
-    () => checkLocked(rf.path, 0, fLen, FileLock.SHARED)
+    () => checkLocked(rf.path, 0, fLen, FileLock.shared)
   ];
   Future.forEach(tests, (f) => f()).whenComplete(() {
     asyncEnd();

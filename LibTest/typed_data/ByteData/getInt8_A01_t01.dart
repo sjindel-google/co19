@@ -21,7 +21,7 @@ main() {
       [0, -1, 128, -127, 12, 54, 100, -23, 98, 23, 43, -15, -3]);
   var u32 = new Uint32List.fromList(
       [0x62e7a17b, 0xf7ec7100, 0xe7180101, 0x1f83ccbb]);
-  int bytesInElement = Int8List.BYTES_PER_ELEMENT;
+  int bytesInElement = Int8List.bytesPerElement;
 
   var byteDataFromI8 = new ByteData.view(i8.buffer);
   for (int i = 0; i < byteDataFromI8.lengthInBytes / bytesInElement; ++i) {

@@ -24,7 +24,7 @@ check(List<double> array, int offset, int length) {
   var l = new Float32List.view(byteBuffer, offset, length);
   Expect.equals(length, l.length);
   for (int i = 0; i < l.length; ++i) {
-    Expect.equals(tmp[offset ~/ Float32List.BYTES_PER_ELEMENT + i], l[i]);
+    Expect.equals(tmp[offset ~/ Float32List.bytesPerElement + i], l[i]);
   }
 }
 

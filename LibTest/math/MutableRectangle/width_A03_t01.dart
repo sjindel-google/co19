@@ -23,6 +23,6 @@ main() {
   Expect.equals(0, r.width);
   r.width = -double.maxFinite;
   Expect.equals(0, r.width);
-  r.width = -double.MIN_POSITIVE;
+  r.width = -double.minPositive;
   Expect.equals(0, r.width);
 }

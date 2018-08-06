@@ -6,7 +6,7 @@
 /**
  * @assertion
  * Future<RandomAccessFile> lock([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  * ])
@@ -28,9 +28,9 @@ void check(int fLen) {
   var rf = file.openSync(mode: FileMode.write);
   rf.writeFromSync(new List.filled(fLen, 1));
   asyncStart();
-  var rfLock = rf.lock(FileLock.EXCLUSIVE);
+  var rfLock = rf.lock(FileLock.exclusive);
   rfLock.then((RandomAccessFile f) {
-    var tests = [() => checkLocked(f.path, 0, fLen, FileLock.EXCLUSIVE)];
+    var tests = [() => checkLocked(f.path, 0, fLen, FileLock.exclusive)];
     Future.forEach(tests, (f) => f()).whenComplete(() {
       asyncEnd();
       rf.unlockSync();

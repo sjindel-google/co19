@@ -27,7 +27,7 @@ test(Zone z) {
 }
 
 main() {
-  Expect.isNull(Zone.ROOT.parent);
+  Expect.isNull(Zone.root.parent);
 
   var z = Zone.current;
 

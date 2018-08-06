@@ -21,7 +21,7 @@ main() {
   asyncStart();
   StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
     if (event is FileSystemDeleteEvent) {
-      Expect.equals(FileSystemEvent.DELETE, event.type);
+      Expect.equals(FileSystemEvent.delete, event.type);
       asyncEnd();
     } else {
       d.delete();

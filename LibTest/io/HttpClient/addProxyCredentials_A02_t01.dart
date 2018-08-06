@@ -23,7 +23,7 @@ var localhost = InternetAddress.loopbackIPv4.address;
 test() async {
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
-    Expect.isNull(request.headers[HttpHeaders.PROXY_AUTHORIZATION]);
+    Expect.isNull(request.headers[HttpHeaders.proxyAuthorizationHeader]);
     request.response.close();
     server.close();
     asyncEnd();

@@ -54,11 +54,11 @@ Future test(List<Object> values) async {
   // check
   for (Object value in values) {
     ReceivePort pingPort = new ReceivePort();
-    isolate.ping(pingPort.sendPort, response:value, priority:Isolate.IMMEDIATE);
+    isolate.ping(pingPort.sendPort, response:value, priority:Isolate.immediate);
     Expect.equals(value, await pingPort.first);
   }
   // clean up
-  isolate.kill(priority:Isolate.IMMEDIATE);
+  isolate.kill(priority:Isolate.immediate);
   await onExit.first;
   asyncEnd();
 }

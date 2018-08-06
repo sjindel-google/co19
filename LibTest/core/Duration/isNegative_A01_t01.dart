@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 main() {
   Expect.isTrue(new Duration(days: -1).isNegative);
   Expect.isTrue(new Duration(microseconds: -1).isNegative);
-  Expect.isFalse(Duration.ZERO.isNegative);
+  Expect.isFalse(Duration.zero.isNegative);
   Expect.isFalse(new Duration(days: 1).isNegative);
   Expect.isFalse(new Duration(microseconds: 1).isNegative);
 }

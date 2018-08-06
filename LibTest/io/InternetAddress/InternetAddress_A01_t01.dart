@@ -18,5 +18,5 @@ import "dart:io";
 main() {
   InternetAddress address = new InternetAddress("192.168.16.23");
   Expect.equals("192.168.16.23", address.address);
-  Expect.equals(InternetAddressType.IP_V4, address.type);
+  Expect.equals(InternetAddressType.IPv4, address.type);
 }

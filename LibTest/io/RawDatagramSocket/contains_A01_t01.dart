@@ -42,8 +42,8 @@ check(value, expected) {
 }
 
 main() {
-  check(RawSocketEvent.WRITE, false);
-  check(RawSocketEvent.READ, false);
-  check(RawSocketEvent.CLOSED, true);
-  check(RawSocketEvent.READ_CLOSED, false);
+  check(RawSocketEvent.write, false);
+  check(RawSocketEvent.read, false);
+  check(RawSocketEvent.closed, true);
+  check(RawSocketEvent.readClosed, false);
 }

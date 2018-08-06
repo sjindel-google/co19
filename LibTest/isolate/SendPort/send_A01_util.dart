@@ -10,7 +10,7 @@ var messagesList = const [
   null, false, true,
   0, 1, -1, (1<<31)-1, (1<<32)-1, (1<<32), (1<<64)-1, 1<<64, 1<<128, -(1<<128),
   -0.0, 0.0, 3.14, double.nan, double.infinity, double.maxFinite,
-  double.MIN_POSITIVE, double.negativeInfinity,
+  double.minPositive, double.negativeInfinity,
   "", "abrakadabra", "\u1234\u4321",
 //a long string
   '''
@@ -31,6 +31,6 @@ var messagesMap = const {
    * for details. All rights reserved. Use of this source code is governed by a
    * BSD-style license that can be found in the LICENSE file.
   ''',
-  "22":double.nan, "23":double.maxFinite, "24":double.MIN_POSITIVE,
+  "22":double.nan, "23":double.maxFinite, "24":double.minPositive,
   "25":double.negativeInfinity
 };

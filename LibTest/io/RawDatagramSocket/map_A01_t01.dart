@@ -51,6 +51,6 @@ check(convert(event), expected) {
 }
 
 main() {
-  check((e) => e, RawSocketEvent.CLOSED);
+  check((e) => e, RawSocketEvent.closed);
   check((e) => [1, 2], [1, 2]);
 }

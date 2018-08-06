@@ -44,7 +44,7 @@ test() async {
   asyncStart();
   server.listen((HttpRequest request) {
     request.response
-      ..headers.set(HttpHeaders.CONTENT_ENCODING, "no")
+      ..headers.set(HttpHeaders.contentEncodingHeader, "no")
       ..write(helloWorld)
       ..close();
     server.close();

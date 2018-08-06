@@ -41,7 +41,7 @@ check([bool no_write_events = false]) {
 
       bool test(RawSocketEvent x) {
         count++;
-        if (x == RawSocketEvent.READ) {
+        if (x == RawSocketEvent.read) {
           throw 11;
         }
         var d = receiver == null ? null : receiver.receive();

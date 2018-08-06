@@ -24,10 +24,10 @@ import "../../../Utils/expect.dart";
 
 main() {
    List expected = [
-     RawSocketEvent.WRITE,
-     RawSocketEvent.READ,
-     RawSocketEvent.READ,
-     RawSocketEvent.CLOSED
+     RawSocketEvent.write,
+     RawSocketEvent.read,
+     RawSocketEvent.read,
+     RawSocketEvent.closed
    ];
   asyncStart();
   var address = InternetAddress.loopbackIPv4;
@@ -52,7 +52,7 @@ main() {
       future.then((event) {
         Expect.equals(2, nCalls);
         Expect.listEquals(expected, list);
-        Expect.equals(RawSocketEvent.CLOSED, event);
+        Expect.equals(RawSocketEvent.closed, event);
 
       }).whenComplete(() {
         asyncEnd();

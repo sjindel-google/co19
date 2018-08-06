@@ -48,7 +48,7 @@ check(n, expected) {
 }
 
 main() {
-  check(0, [RawSocketEvent.CLOSED]);
+  check(0, [RawSocketEvent.closed]);
   check(1, []);
   check(10, []);
 }

@@ -27,7 +27,7 @@ check(String name) {
 
   list.then((addresses) {
     addresses.forEach((InternetAddress addr) {
-      if(addr.type == InternetAddressType.IP_V4) {
+      if(addr.type == InternetAddressType.IPv4) {
         Expect.isTrue(ipv4.hasMatch(addr.address),
             "Address string does not correspond its type");
       } else {

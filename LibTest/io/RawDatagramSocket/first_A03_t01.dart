@@ -45,7 +45,7 @@ check(convert, expected) {
         if (expected == 11) {
           Expect.fail('Future should be completed with an error.');
         } else {
-          Expect.equals(RawSocketEvent.WRITE, event);
+          Expect.equals(RawSocketEvent.write, event);
         }
         if (timer2 != null) timer2.cancel();
         timer2 = new Timer(const Duration(milliseconds: 200), () {
@@ -55,7 +55,7 @@ check(convert, expected) {
         if (expected == 11) {
           Expect.equals(11, error);
         } else {
-          Expect.fail('Future should be completed with RawSocketEvent.WRITE');
+          Expect.fail('Future should be completed with RawSocketEvent.write');
         }
       }).whenComplete(action);
     });
@@ -63,7 +63,7 @@ check(convert, expected) {
 }
 
 main() {
-  check((e) => e == RawSocketEvent.WRITE ? throw 11 : [e], 11);
-  check((e) => e == RawSocketEvent.READ ? throw 12 : [e], 12);
-  check((e) => e == RawSocketEvent.CLOSED ? throw 13 : [e], 13);
+  check((e) => e == RawSocketEvent.write ? throw 11 : [e], 11);
+  check((e) => e == RawSocketEvent.read ? throw 12 : [e], 12);
+  check((e) => e == RawSocketEvent.closed ? throw 13 : [e], 13);
 }

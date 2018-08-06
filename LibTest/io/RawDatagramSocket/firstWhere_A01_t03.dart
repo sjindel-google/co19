@@ -45,9 +45,9 @@ check(test, expected) {
 }
 
 main() {
-  check((e) => e == RawSocketEvent.WRITE, RawSocketEvent.WRITE);
-  check((e) => e == RawSocketEvent.READ, RawSocketEvent.READ);
-  check((e) => e is RawSocketEvent, RawSocketEvent.WRITE);
-  check((e) => true, RawSocketEvent.WRITE);
-  check((e) => e != RawSocketEvent.WRITE, RawSocketEvent.READ);
+  check((e) => e == RawSocketEvent.write, RawSocketEvent.write);
+  check((e) => e == RawSocketEvent.read, RawSocketEvent.read);
+  check((e) => e is RawSocketEvent, RawSocketEvent.write);
+  check((e) => true, RawSocketEvent.write);
+  check((e) => e != RawSocketEvent.write, RawSocketEvent.read);
 }

@@ -25,7 +25,7 @@ check(variant) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
       void action1(e) => throw 1;
-      void action2(e) => e == RawSocketEvent.CLOSED ? throw 2 : 0;
+      void action2(e) => e == RawSocketEvent.closed ? throw 2 : 0;
       var action = variant == 1 ? action1 : action2;
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);

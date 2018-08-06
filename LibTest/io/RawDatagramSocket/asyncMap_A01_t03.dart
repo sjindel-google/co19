@@ -56,10 +56,10 @@ check(convert(event), List expected) {
 
 main() {
   check((e) => new Future.value(e), [
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED
+    RawSocketEvent.write,
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.closed
   ]);
   check((e) => new Future.value([1, 2]), [
     [1, 2],

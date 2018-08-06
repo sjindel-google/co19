@@ -52,7 +52,7 @@ check(InternetAddress address) {
       sList[sli++] = client;
       client.listen((event) {
         switch (event) {
-          case RawSocketEvent.READ:
+          case RawSocketEvent.read:
             Expect.isTrue(client.available() > 0);
             var buffer = client.read();
             if (buffer != null) {
@@ -65,7 +65,7 @@ check(InternetAddress address) {
               client.writeEventsEnabled = true;
             }
             break;
-          case RawSocketEvent.WRITE:
+          case RawSocketEvent.write:
             Expect.listEquals(expected, data);
             bytesWritten +=
                 client.write(data, bytesWritten, data.length - bytesWritten);
@@ -73,10 +73,10 @@ check(InternetAddress address) {
               client.writeEventsEnabled = true;
             }
             if (bytesWritten == data.length) {
-              client.shutdown(SocketDirection.SEND);
+              client.shutdown(SocketDirection.send);
             }
             break;
-          case RawSocketEvent.READ_CLOSED:
+          case RawSocketEvent.readClosed:
             closed++;
             break;
           default:
@@ -99,7 +99,7 @@ check(InternetAddress address) {
           List<int> dataReceived = new List<int>(dataSent.length);
           client.listen((event) {
             switch (event) {
-              case RawSocketEvent.READ:
+              case RawSocketEvent.read:
                 Expect.isTrue(client.available() > 0);
                 var buffer = client.read();
                 if (buffer != null) {
@@ -108,13 +108,13 @@ check(InternetAddress address) {
                   bytesRead += buffer.length;
                 }
                 break;
-              case RawSocketEvent.WRITE:
+              case RawSocketEvent.write:
                 Expect.isTrue(bytesRead == 0);
                 bytesWritten += client.write(
                     dataSent, bytesWritten, dataSent.length - bytesWritten);
                 if (bytesWritten < dataSent.length) {}
                 break;
-              case RawSocketEvent.READ_CLOSED:
+              case RawSocketEvent.readClosed:
                 Expect.listEquals(expected, dataReceived);
                 completer.complete(client);
                 break;

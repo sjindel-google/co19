@@ -27,7 +27,7 @@ void check(List<int> array, int offset, int length) {
 }
 
 main() {
-  var elemSize = Uint32List.BYTES_PER_ELEMENT;
+  var elemSize = Uint32List.bytesPerElement;
 
   check([], 0, 0);
   check([4294967295, 2147483648], 0, 2);

@@ -53,14 +53,14 @@ test() async {
   );
   // check
   ReceivePort pingPort = new ReceivePort();
-  isolate.ping(pingPort.sendPort, priority:Isolate.BEFORE_NEXT_EVENT);
+  isolate.ping(pingPort.sendPort, priority:Isolate.beforeNextEvent);
   Future pingResponse = pingPort.first.timeout(TWO_SECONDS, onTimeout: () {
     pingPort.close();
     return "timeout";
   });
   Expect.equals("timeout", await pingResponse);
   // clean up
-  isolate.kill(priority:Isolate.IMMEDIATE);
+  isolate.kill(priority:Isolate.immediate);
   await onExit.first;
   asyncEnd();
 }

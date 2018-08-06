@@ -6,8 +6,8 @@
 /**
  * @assertion bool isRedirect
  * Returns whether the status code is one of the normal redirect codes
- * HttpStatus.MOVED_PERMANENTLY, HttpStatus.FOUND, HttpStatus.MOVED_TEMPORARILY,
- * HttpStatus.SEE_OTHER and HttpStatus.TEMPORARY_REDIRECT.
+ * HttpStatus.movedPermanently, HttpStatus.found, HttpStatus.movedTemporarily,
+ * HttpStatus.seeOther and HttpStatus.temporaryRedirect.
  * @description Checks that this getter returns whether the status code is one
  * of the normal redirect codes
  * @author sgrekhov@unipro.ru

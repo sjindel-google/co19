@@ -44,7 +44,7 @@ main() {
       Future fValue = receiver.pipe(sc);
       fValue.then((value) {
         Expect.isTrue(sc.isClosed);
-        Expect.listEquals([RawSocketEvent.CLOSED], list);
+        Expect.listEquals([RawSocketEvent.closed], list);
       }).whenComplete(() {
         asyncEnd();
       });

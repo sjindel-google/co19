@@ -20,7 +20,7 @@ main() {
   asyncStart();
   StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
     if (event is FileSystemMoveEvent) {
-      Expect.equals(FileSystemEvent.MOVE, event.type);
+      Expect.equals(FileSystemEvent.move, event.type);
       asyncEnd();
     }
   });

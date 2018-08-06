@@ -10,10 +10,10 @@
  * redirects. The default is true.
  *
  * Automatic redirect will only happen for "GET" and "HEAD" requests and only
- * for the status codes HttpHeaders.MOVED_PERMANENTLY (301), HttpStatus.FOUND
- * (302), HttpStatus.MOVED_TEMPORARILY (302, alias for HttpStatus.FOUND),
- * HttpStatus.SEE_OTHER (303) and HttpStatus.TEMPORARY_REDIRECT (307). For
- * HttpStatus.SEE_OTHER (303) automatic redirect will also happen for "POST"
+ * for the status codes HttpHeaders.MOVED_PERMANENTLY (301), HttpStatus.found
+ * (302), HttpStatus.movedTemporarily (302, alias for HttpStatus.found),
+ * HttpStatus.seeOther (303) and HttpStatus.temporaryRedirect (307). For
+ * HttpStatus.seeOther (303) automatic redirect will also happen for "POST"
  * requests with the method changed to "GET" when following the redirect.
  *
  * All headers added to the request will be added to the redirection request(s).
@@ -62,26 +62,26 @@ test(String method, int statusCode) async {
 }
 
 main() {
-  test("DELETE", HttpStatus.MOVED_PERMANENTLY);
-  test("DELETE", HttpStatus.FOUND);
-  test("DELETE", HttpStatus.MOVED_TEMPORARILY);
-  test("DELETE", HttpStatus.SEE_OTHER);
-  test("DELETE", HttpStatus.TEMPORARY_REDIRECT);
+  test("DELETE", HttpStatus.movedPermanently);
+  test("DELETE", HttpStatus.found);
+  test("DELETE", HttpStatus.movedTemporarily);
+  test("DELETE", HttpStatus.seeOther);
+  test("DELETE", HttpStatus.temporaryRedirect);
 
-  test("PUT", HttpStatus.MOVED_PERMANENTLY);
-  test("PUT", HttpStatus.FOUND);
-  test("PUT", HttpStatus.MOVED_TEMPORARILY);
-  test("PUT", HttpStatus.SEE_OTHER);
-  test("PUT", HttpStatus.TEMPORARY_REDIRECT);
+  test("PUT", HttpStatus.movedPermanently);
+  test("PUT", HttpStatus.found);
+  test("PUT", HttpStatus.movedTemporarily);
+  test("PUT", HttpStatus.seeOther);
+  test("PUT", HttpStatus.temporaryRedirect);
 
-  test("POST", HttpStatus.MOVED_PERMANENTLY);
-  test("POST", HttpStatus.FOUND);
-  test("POST", HttpStatus.MOVED_TEMPORARILY);
-  test("POST", HttpStatus.TEMPORARY_REDIRECT);
+  test("POST", HttpStatus.movedPermanently);
+  test("POST", HttpStatus.found);
+  test("POST", HttpStatus.movedTemporarily);
+  test("POST", HttpStatus.temporaryRedirect);
 
-  test("PATCH", HttpStatus.MOVED_PERMANENTLY);
-  test("PATCH", HttpStatus.FOUND);
-  test("PATCH", HttpStatus.MOVED_TEMPORARILY);
-  test("PATCH", HttpStatus.SEE_OTHER);
-  test("PATCH", HttpStatus.TEMPORARY_REDIRECT);
+  test("PATCH", HttpStatus.movedPermanently);
+  test("PATCH", HttpStatus.found);
+  test("PATCH", HttpStatus.movedTemporarily);
+  test("PATCH", HttpStatus.seeOther);
+  test("PATCH", HttpStatus.temporaryRedirect);
 }

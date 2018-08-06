@@ -23,13 +23,13 @@ var localhost = InternetAddress.loopbackIPv4.address;
 test() async {
   HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
-    if (request.headers[HttpHeaders.AUTHORIZATION] == null) {
-      request.response.statusCode = HttpStatus.UNAUTHORIZED;
-      request.response.headers.set(HttpHeaders.WWW_AUTHENTICATE,
+    if (request.headers[HttpHeaders.authorizationHeader] == null) {
+      request.response.statusCode = HttpStatus.unauthorized;
+      request.response.headers.set(HttpHeaders.wwwAuthenticateHeader,
           'Digest, realm="server-realm", nonce=1');
       request.response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.AUTHORIZATION][0];
+      var authorization = request.headers[HttpHeaders.authorizationHeader][0];
       Expect.isTrue(authorization.contains('realm="client-realm"'));
       request.response.close();
       server.close();

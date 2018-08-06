@@ -44,6 +44,6 @@ main() {
   check([], 0, 0);
   check([i32x4(1)], 0, 1);
   check(list, 0, 10);
-  check(list, 2 * Int32x4List.BYTES_PER_ELEMENT, 8);
-  check(list, 3 * Int32x4List.BYTES_PER_ELEMENT, 6);
+  check(list, 2 * Int32x4List.bytesPerElement, 8);
+  check(list, 3 * Int32x4List.bytesPerElement, 6);
 }

@@ -29,7 +29,7 @@ void check(ByteBuffer buffer) {
   Float64List res = buffer.asFloat64List(0);
   int viewSizeInBytes = res.lengthInBytes;
   int viewLength = res.length;
-  int shift = (Float64List.BYTES_PER_ELEMENT == 8) ? 3 : 0;
+  int shift = (Float64List.bytesPerElement == 8) ? 3 : 0;
   int offset1 = 8;
   int length1 = ((viewSizeInBytes - offset1) >> shift) - 1;
   int offset2 = 16;
