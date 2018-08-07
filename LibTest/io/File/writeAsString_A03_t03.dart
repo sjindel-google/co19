@@ -6,8 +6,8 @@
 /**
  * @assertion Future<File> writeAsString(
  *  String contents, {
- *  FileMode mode: FileMode.WRITE,
- *  Encoding encoding: UTF8,
+ *  FileMode mode: FileMode.write,
+ *  Encoding encoding: utf8,
  *  bool flush: false
  *  })
  * Write a string to a file.
@@ -18,11 +18,11 @@
  *
  * By default writeAsString creates the file for writing and truncates the file
  * if it already exists. In order to append the bytes to an existing file, pass
- * FileMode.APPEND as the optional mode parameter.
+ * FileMode.append as the optional mode parameter.
  *
  * If the argument flush is set to true, the data written will be flushed to the
  * file system before the returned future completes.
- * @description Checks that in a FileMode.APPEND string is appended to an
+ * @description Checks that in a FileMode.append string is appended to an
  * existing file
  * @author sgrekhov@unipro.ru
  */
@@ -35,7 +35,7 @@ main() {
   file.writeAsStringSync("Old content");
   asyncStart();
   String toWrite = " New content";
-  file.writeAsString(toWrite, mode: FileMode.APPEND).then((f) {
+  file.writeAsString(toWrite, mode: FileMode.append).then((f) {
     Expect.equals("Old content New content", file.readAsStringSync());
     asyncEnd();
   }).whenComplete(() {

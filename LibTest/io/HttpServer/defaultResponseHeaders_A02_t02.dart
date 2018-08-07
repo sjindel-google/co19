@@ -24,7 +24,7 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 test() async {
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   asyncStart();
   server.defaultResponseHeaders.add("my-header", "my-value");
   server.listen((HttpRequest request) {
@@ -37,7 +37,7 @@ test() async {
   HttpClient client = new HttpClient();
   client
       .getUrl(Uri.parse(
-      "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}"))
+      "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
@@ -65,7 +65,7 @@ test() async {
       }
     });
     Expect.equals(5, counter);
-    Expect.equals(HttpStatus.OK, response.statusCode);
+    Expect.equals(HttpStatus.ok, response.statusCode);
     asyncEnd();
   });
   asyncEnd();

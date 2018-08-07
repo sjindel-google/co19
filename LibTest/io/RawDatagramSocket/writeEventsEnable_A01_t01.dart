@@ -5,7 +5,7 @@
  */
 /**
  * @assertion bool writeEventsEnabled
- * Set or get, if the RawDatagramSocket should listen for RawSocketEvent.WRITE
+ * Set or get, if the RawDatagramSocket should listen for RawSocketEvent.write
  * events. Default is true. This is a one-shot listener, and writeEventsEnabled
  * must be set to true again to receive another write event.
  *
@@ -29,8 +29,8 @@ check(InternetAddress address) {
 }
 
 main() {
-  check(InternetAddress.ANY_IP_V4);
-  check(InternetAddress.ANY_IP_V6);
-  check(InternetAddress.LOOPBACK_IP_V4);
-  check(InternetAddress.LOOPBACK_IP_V6);
+  check(InternetAddress.anyIPv4);
+  check(InternetAddress.anyIPv6);
+  check(InternetAddress.loopbackIPv4);
+  check(InternetAddress.loopbackIPv6);
 }

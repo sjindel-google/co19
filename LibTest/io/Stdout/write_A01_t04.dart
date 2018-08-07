@@ -8,7 +8,7 @@
  * Converts [obj] to a [String] by invoking [Object.toString] and adds the
  * encoding of the result to the target consumer.
  * @description Checks that [String] is correctly added to the consumer with
- * [UTF8] encoding.
+ * [utf8] encoding.
  * @author iarkh@unipro.ru
  */
 import "dart:convert";

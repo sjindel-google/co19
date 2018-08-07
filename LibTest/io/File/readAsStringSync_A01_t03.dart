@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion String readAsStringSync({Encoding encoding: UTF8})
+ * @assertion String readAsStringSync({Encoding encoding: utf8})
  * Synchronously read the entire file contents as a string using the given
  * Encoding.
  *

@@ -18,6 +18,6 @@ check(double arg) {
 }
 
 main() {
-  check(double.INFINITY);
-  check(double.NEGATIVE_INFINITY);
+  check(double.infinity);
+  check(double.negativeInfinity);
 }

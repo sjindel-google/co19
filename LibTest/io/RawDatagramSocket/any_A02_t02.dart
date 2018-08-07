@@ -11,7 +11,7 @@
  * future is completed with false.
  *
  * @description Checks that method any returns false when writeEventsEnabled is
- * true and RawSocketEvent.READ_CLOSED is searched. In this case the listening
+ * true and RawSocketEvent.readClosed is searched. In this case the listening
  * to the stream is stopped after the last received event.
  * @issue 31881
  * @author ngl@unipro.ru
@@ -21,9 +21,9 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var expectedEvent = RawSocketEvent.READ_CLOSED;
+  var expectedEvent = RawSocketEvent.readClosed;
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       receiver.writeEventsEnabled = true;

@@ -38,9 +38,9 @@ main() {
   ctx.fillStyle = '#0f0';
   ctx.fillRect(0, 0, 100, 50);
   ctx.scale(2, -4500000000);
-  ctx.arc(25, 50, 56, 0, 2*Math.PI, false);
+  ctx.arc(25, 50, 56, 0, 2*Math.pi, false);
   ctx.fill();
-  ctx.arc(105000000005, -105000000005, 105000000004, 0, 10500000000*Math.PI, false);
+  ctx.arc(105000000005, -105000000005, 105000000004, 0, 10500000000*Math.pi, false);
   ctx.fill();
   ctx.getImageData(50, 25, 1, 1);
 }

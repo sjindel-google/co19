@@ -5,9 +5,9 @@
  */
 /**
  * @assertion Future<bool> isLink(String path)
- * Checks if type(path, followLinks: false) returns FileSystemEntityType.LINK.
+ * Checks if type(path, followLinks: false) returns FileSystemEntityType.link.
  * @description Checks that this property returns true if
- * type(path, followLinks: false) returns FileSystemEntityType.LINK. Test File
+ * type(path, followLinks: false) returns FileSystemEntityType.link. Test File
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -20,7 +20,7 @@ main() {
   FileSystemEntity.isLink(file.path).then((result) {
     Expect.isFalse(result);
     FileSystemEntity.type(file.path, followLinks: false).then((t) {
-      Expect.equals(t, FileSystemEntityType.FILE);
+      Expect.equals(t, FileSystemEntityType.file);
       asyncEnd();
     }).whenComplete(() {
       file.delete();

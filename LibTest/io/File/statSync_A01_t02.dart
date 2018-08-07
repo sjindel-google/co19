@@ -11,7 +11,7 @@
  * Returns a FileStat object containing the data returned by stat().
  *
  * If the call fails, returns a FileStat object with .type set to
- * FileSystemEntityType.NOT_FOUND and the other fields invalid.
+ * FileSystemEntityType.notFound and the other fields invalid.
  * @description Checks that this method identical to
  * FileStat.statSync(this.path)
  * @author sgrekhov@unipro.ru

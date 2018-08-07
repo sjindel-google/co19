@@ -45,7 +45,7 @@ class LocalStreamConsumer<T> implements StreamConsumer<T> {
 
 main() {
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
@@ -70,7 +70,7 @@ main() {
       }).whenComplete(() {
         Expect.equals(1, sc.closeCallCount);
         Expect.equals(1, sc.addStreamFutureCompleted);
-        Expect.listEquals([RawSocketEvent.CLOSED], list);
+        Expect.listEquals([RawSocketEvent.closed], list);
         Expect.listEquals([11], errList);
         asyncEnd();
       });

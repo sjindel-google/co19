@@ -18,18 +18,18 @@ import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
-  MutableRectangle point = new MutableRectangle(0, double.NAN, 0, 0);
+  MutableRectangle point = new MutableRectangle(0, double.nan, 0, 0);
   Expect.isFalse(point == point);
-  point = new MutableRectangle(double.NAN, 0, 0, 0);
+  point = new MutableRectangle(double.nan, 0, 0, 0);
   Expect.isFalse(point == point);
-  point = new MutableRectangle(double.NAN, double.NAN, 0, 0);
+  point = new MutableRectangle(double.nan, double.nan, 0, 0);
   Expect.isFalse(point == point);
-  point = new MutableRectangle(double.INFINITY, 0, double.NEGATIVE_INFINITY, 0);
+  point = new MutableRectangle(double.infinity, 0, double.negativeInfinity, 0);
   Expect.isFalse(point == point);
-  point = new MutableRectangle(double.NEGATIVE_INFINITY, 0, double.INFINITY, 0);
+  point = new MutableRectangle(double.negativeInfinity, 0, double.infinity, 0);
   Expect.isFalse(point == point);
-  point = new MutableRectangle(0, double.INFINITY, 0, double.NEGATIVE_INFINITY);
+  point = new MutableRectangle(0, double.infinity, 0, double.negativeInfinity);
   Expect.isFalse(point == point);
-  point = new MutableRectangle(0, double.NEGATIVE_INFINITY, 0, double.INFINITY);
+  point = new MutableRectangle(0, double.negativeInfinity, 0, double.infinity);
   Expect.isFalse(point == point);
 }

@@ -44,8 +44,8 @@ test(Encoding enc) async {
 
 main() {
   test(null);
-  test(UTF8);
-  test(ASCII);
-  test(LATIN1);
-  test(SYSTEM_ENCODING);
+  test(utf8);
+  test(ascii);
+  test(latin1);
+  test(systemEncoding);
 }

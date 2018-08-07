@@ -6,9 +6,9 @@
 /**
  * @assertion Future<List<InternetAddress>> lookup(String host,
  *   { InternetAddressType type: InternetAddressType.ANY })
- * If type is either [InternetAddressType.IP_V4] or [InternetAddressType.IP_V6]
+ * If type is either [InternetAddressType.IPv4] or [InternetAddressType.IPv6]
  * it will only lookup addresses of the specified type.
- * @description Checks that if type is set to [InternetAddressType.IP_V6] result
+ * @description Checks that if type is set to [InternetAddressType.IPv6] result
  * [Future] list contains IPv6 addresses only.
  * @author iarkh@unipro.ru
  */
@@ -19,11 +19,11 @@ import "dart:async";
 
 main() {
   Future<List<InternetAddress>> list =
-    InternetAddress.lookup("localhost", type: InternetAddressType.IP_V6);
+    InternetAddress.lookup("localhost", type: InternetAddressType.IPv6);
 
   list.then((addresses) {
     addresses.forEach((InternetAddress addr) {
-      Expect.equals(InternetAddressType.IP_V6, addr.type);
+      Expect.equals(InternetAddressType.IPv6, addr.type);
     });
   }, onError: (e) { Expect.fail("Unexpected error appeared: " + e); });
 }

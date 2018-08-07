@@ -55,7 +55,7 @@ final List<double> values = const [
    3.273390607896142E150,
    1.7976931348623157e308,
    1/0,
-   double.NAN
+   double.nan
 ];
 
 checkNaN(d) {
@@ -65,7 +65,7 @@ checkNaN(d) {
 
 main() {
   values.forEach((d) {
-    checkNaN(d / double.NAN);
-    checkNaN(double.NAN / d);
+    checkNaN(d / double.nan);
+    checkNaN(double.nan / d);
   });
 }

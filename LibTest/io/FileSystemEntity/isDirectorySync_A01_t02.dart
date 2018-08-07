@@ -6,10 +6,10 @@
 /**
  * @assertion bool isDirectorySync(String path)
  * Synchronously checks if typeSync(path) returns
- * FileSystemEntityType.DIRECTORY.
+ * FileSystemEntityType.directory.
  *
  * @description Checks that this property Synchronously checks if typeSync(path)
- * returns FileSystemEntityType.DIRECTORY. Test Directory
+ * returns FileSystemEntityType.directory. Test Directory
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -21,7 +21,7 @@ main() {
   try {
     Expect.isTrue(FileSystemEntity.isDirectorySync(dir.path));
     Expect.equals(
-        FileSystemEntity.typeSync(dir.path), FileSystemEntityType.DIRECTORY);
+        FileSystemEntity.typeSync(dir.path), FileSystemEntityType.directory);
   } finally {
     dir.delete();
   }

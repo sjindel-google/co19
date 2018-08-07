@@ -37,7 +37,7 @@ run_main(String mode) async {
   String eScript = Platform.script.toString();
   bool called = false;
   await Process.run(executable, [eScript, mode],
-      stdoutEncoding: UTF8, stderrEncoding: UTF8).then((ProcessResult results) {
+      stdoutEncoding: utf8, stderrEncoding: utf8).then((ProcessResult results) {
     Expect.equals(expected, mode == "err" ? results.stderr : results.stdout);
     called = true;
   });

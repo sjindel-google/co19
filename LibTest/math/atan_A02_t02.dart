@@ -18,7 +18,7 @@ main() {
   var a;
   for (var d = -10.0; d <= 10.0; d += 0.5) {
     a = Math.atan(d);
-    Expect.isTrue(a >= -Math.PI / 2);
-    Expect.isTrue(a <= Math.PI / 2);
+    Expect.isTrue(a >= -Math.pi / 2);
+    Expect.isTrue(a <= Math.pi / 2);
   }
 }

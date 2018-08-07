@@ -8,7 +8,7 @@
  * void setFloat64(
  *     int byteOffset,
  *     double value, [
- *     Endianness endian = Endianness.BIG_ENDIAN
+ *     Endian endian = Endian.big
  * ])
  * ...
  * Throws [RangeError] if [byteOffset] is negative, or `byteOffset + 8` is

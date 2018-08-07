@@ -11,7 +11,7 @@
 import "../../../Utils/expect.dart";
 
 final List<double> sample_doubles = const [
-  double.NEGATIVE_INFINITY,
+  double.negativeInfinity,
   -1.7976931348623157e308,
   -3.273390607896142E150,
   -4.503599627370497E15,
@@ -55,13 +55,13 @@ final List<double> sample_doubles = const [
   4.503599627370497E15,
   3.273390607896142E150,
   1.7976931348623157e308,
-  double.INFINITY,
-  double.NAN
+  double.infinity,
+  double.nan
 ];
 
 main() {
   sample_doubles.forEach((double d) {
-    Expect.isFalse(d > double.NAN);
-    Expect.isFalse(double.NAN > d);
+    Expect.isFalse(d > double.nan);
+    Expect.isFalse(double.nan > d);
   });
 }

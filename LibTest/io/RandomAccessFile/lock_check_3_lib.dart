@@ -18,18 +18,18 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
   var expected = locked ? 'LOCK FAILED' : 'LOCK SUCCEEDED';
   var loc_mode;
   switch (mode) {
-    case FileLock.SHARED:
+    case FileLock.shared:
       loc_mode = 'SHARED';
       expected = 'LOCK FAILED';
       break;
-    case FileLock.EXCLUSIVE:
+    case FileLock.exclusive:
       loc_mode = 'EXCLUSIVE';
       expected = 'LOCK FAILED';
       break;
-    case FileLock.BLOCKING_SHARED:
+    case FileLock.blockingShared:
       loc_mode = 'BLOCKING_SHARED';
       break;
-    case FileLock.BLOCKING_EXCLUSIVE:
+    case FileLock.blockingExclusive:
       loc_mode = 'BLOCKING_EXCLUSIVE';
   }
   var arguments = new List<String>()
@@ -55,11 +55,11 @@ checkLock(String path, int start, int end, FileLock mode, {bool locked}) {
 }
 
 checkLocked(String path,
-    [int start = 0, int end = -1, FileLock mode = FileLock.EXCLUSIVE]) =>
+    [int start = 0, int end = -1, FileLock mode = FileLock.exclusive]) =>
     checkLock(path, start, end, mode, locked: true);
 
 checkUnlocked(String path,
-    [int start = 0, int end = -1, FileLock mode = FileLock.EXCLUSIVE]) =>
+    [int start = 0, int end = -1, FileLock mode = FileLock.exclusive]) =>
     checkLock(path, start, end, mode, locked: false);
 
 main(List<String> args) {
@@ -69,11 +69,11 @@ main(List<String> args) {
   File file = new File(args[0]);
   int start = null;
   int end = null;
-  var mode = FileLock.EXCLUSIVE;
+  var mode = FileLock.exclusive;
   switch (args[1]) {
-    case 'SHARED' : mode = FileLock.SHARED; break;
-    case 'BLOCKING_SHARED' : mode = FileLock.BLOCKING_SHARED; break;
-    case 'BLOCKING_EXCLUSIVE' : mode = FileLock.BLOCKING_EXCLUSIVE;
+    case 'SHARED' : mode = FileLock.shared; break;
+    case 'BLOCKING_SHARED' : mode = FileLock.blockingShared; break;
+    case 'BLOCKING_EXCLUSIVE' : mode = FileLock.blockingExclusive;
   }
   if (args[2] != 'null') {
     start = int.parse(args[2]);

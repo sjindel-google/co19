@@ -16,6 +16,6 @@ import "dart:io";
 main() {
   dynamic address = new InternetAddress("192.168.16.23");
   Expect.throws(() {
-    address.type = InternetAddressType.IP_V6;
+    address.type = InternetAddressType.IPv6;
   }, (e) => e is NoSuchMethodError);
 }

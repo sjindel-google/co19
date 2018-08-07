@@ -50,7 +50,7 @@ test() async {
     }
   }
   // clean up
-  isolate.kill(priority:Isolate.IMMEDIATE);
+  isolate.kill(priority:Isolate.immediate);
   await onExit.first;
   asyncEnd();
 }

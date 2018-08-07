@@ -8,7 +8,7 @@
  * void setInt32(
  *     int byteOffset,
  *     int value, [
- *     Endianness endian = Endianness.BIG_ENDIAN
+ *     Endian endian = Endian.big
  * ])
  * Sets the four bytes starting at the specified [byteOffset] in this object to
  * the two's complement binary representation of the specified [value], which
@@ -33,12 +33,12 @@ main() {
     -318767105, -134217729, 16777216, -129, 128, -402653185, -1140850689,
     -855638017, -2080374785, 520093696
   ];
-  int bytesInElement = Int32List.BYTES_PER_ELEMENT;
+  int bytesInElement = Int32List.bytesPerElement;
 
   var byteDataFromI32 = new ByteData.view(i32.buffer);
   for (int i = 0; i < byteDataFromI32.lengthInBytes / bytesInElement; ++i) {
     byteDataFromI32.setInt32(i * bytesInElement, valuesToBeSet[i],
-        Endianness.LITTLE_ENDIAN);
+        Endian.little);
   }
   Expect.listEquals(valuesToBeSet, i32);
 

@@ -20,5 +20,5 @@ main() {
   Expect.equals(.0, Math.pow(.0, 111));
   Expect.equals(.0, Math.pow(.0, 111.0));
   Expect.equals(.0, Math.pow(.0, 922337203685477580));
-  Expect.equals(.0, Math.pow(.0, double.INFINITY));
+  Expect.equals(.0, Math.pow(.0, double.infinity));
 }

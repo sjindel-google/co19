@@ -48,7 +48,7 @@ check(InternetAddress address, int clNumber) {
       client.writeEventsEnabled = false;
       client.listen((event) {
         switch (event) {
-          case RawSocketEvent.READ:
+          case RawSocketEvent.read:
             Expect.isTrue(client.available() > 0);
             var buffer = client.read();
             if (buffer != null) {
@@ -61,7 +61,7 @@ check(InternetAddress address, int clNumber) {
               client.writeEventsEnabled = true;
             }
             break;
-          case RawSocketEvent.WRITE:
+          case RawSocketEvent.write:
             Expect.listEquals(expected, data);
             bytesWritten +=
                 client.write(data, bytesWritten, data.length - bytesWritten);
@@ -69,10 +69,10 @@ check(InternetAddress address, int clNumber) {
               client.writeEventsEnabled = true;
             }
             if (bytesWritten == data.length) {
-              client.shutdown(SocketDirection.SEND);
+              client.shutdown(SocketDirection.send);
             }
             break;
-          case RawSocketEvent.READ_CLOSED:
+          case RawSocketEvent.readClosed:
             closed++;
             break;
           default:
@@ -95,7 +95,7 @@ check(InternetAddress address, int clNumber) {
           List<int> dataReceived = new List<int>(dataSent.length);
           client.listen((event) {
             switch (event) {
-              case RawSocketEvent.READ:
+              case RawSocketEvent.read:
                 Expect.isTrue(client.available() > 0);
                 var buffer = client.read();
                 if (buffer != null) {
@@ -104,13 +104,13 @@ check(InternetAddress address, int clNumber) {
                   bytesRead += buffer.length;
                 }
                 break;
-              case RawSocketEvent.WRITE:
+              case RawSocketEvent.write:
                 Expect.isTrue(bytesRead == 0);
                 bytesWritten += client.write(
                     dataSent, bytesWritten, dataSent.length - bytesWritten);
                 if (bytesWritten < dataSent.length) {}
                 break;
-              case RawSocketEvent.READ_CLOSED:
+              case RawSocketEvent.readClosed:
                 Expect.listEquals(expected, dataReceived);
                 completer.complete(client);
                 break;
@@ -128,8 +128,8 @@ check(InternetAddress address, int clNumber) {
 }
 
 main() {
-  check(InternetAddress.LOOPBACK_IP_V4, 1);
-  check(InternetAddress.LOOPBACK_IP_V4, 2);
-  check(InternetAddress.LOOPBACK_IP_V6, 1);
-  check(InternetAddress.LOOPBACK_IP_V6, 2);
+  check(InternetAddress.loopbackIPv4, 1);
+  check(InternetAddress.loopbackIPv4, 2);
+  check(InternetAddress.loopbackIPv6, 1);
+  check(InternetAddress.loopbackIPv6, 2);
 }

@@ -7,7 +7,7 @@
  * @assertion num clamp(num lowerLimit, num upperLimit)
  * Returns this num clamped to be in the range lowerLimit-upperLimit.
  * The comparison is done using compareTo and therefore takes -0.0 into account.
- * This also implies that double.NAN is treated as the maximal double value.
+ * This also implies that double.nan is treated as the maximal double value.
  * @description Checks that returns num clamped to be in the range
  * lowerLimit-upperLimit.
  * @author sgrekhov@unipro.ru

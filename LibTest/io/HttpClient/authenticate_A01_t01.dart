@@ -32,19 +32,19 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 test() async {
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
-    if (request.headers[HttpHeaders.AUTHORIZATION] == null) {
-      request.response.statusCode = HttpStatus.UNAUTHORIZED;
+    if (request.headers[HttpHeaders.authorizationHeader] == null) {
+      request.response.statusCode = HttpStatus.unauthorized;
       StringBuffer authHeader = new StringBuffer();
       authHeader.write('Digest');
       authHeader.write(', realm="realm"');
       authHeader.write(', nonce="123"');
       authHeader.write(', domain="/xxxt/"');
-      request.response.headers.set(HttpHeaders.WWW_AUTHENTICATE, authHeader);
+      request.response.headers.set(HttpHeaders.wwwAuthenticateHeader, authHeader);
       request.response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.AUTHORIZATION][0];
+      var authorization = request.headers[HttpHeaders.authorizationHeader][0];
       Expect.isTrue(authorization.contains('Digest'));
       Expect.isTrue(authorization.contains('username="co19-test"'));
       Expect.isTrue(authorization.contains('realm="realm"'));
@@ -63,7 +63,7 @@ test() async {
     Completer completer = new Completer();
     client.addCredentials(
         Uri.parse(
-            "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}/xxx"),
+            "http://${InternetAddress.loopbackIPv4.address}:${server.port}/xxx"),
         "realm",
         new HttpClientDigestCredentials("co19-test", "password"));
     completer.complete(true);
@@ -73,10 +73,10 @@ test() async {
 
   client
       .getUrl(Uri.parse(
-          "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}/xxx"))
+          "http://${InternetAddress.loopbackIPv4.address}:${server.port}/xxx"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {});
+    response.transform(utf8.decoder).listen((content) {});
   });
 }
 

@@ -47,7 +47,7 @@ class C {
 
 check(JsonUtf8Encoder encoder, var object, var expected) {
   var encoded = encoder.convert(object);
-  Expect.listEquals(UTF8.encode(expected.toString()), encoded);
+  Expect.listEquals(utf8.encode(expected.toString()), encoded);
 }
 
 main() {

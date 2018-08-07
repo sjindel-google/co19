@@ -23,11 +23,11 @@ main() {
   list.then((addresses) {
     addresses.forEach((InternetAddress addr) {
       if(addr.address == "::1") {
-        Expect.equals(InternetAddressType.IP_V6, addr.type);
+        Expect.equals(InternetAddressType.IPv6, addr.type);
         Expect.isFalse(contains6);
         contains6 = true;
       } else if (addr.address == "127.0.0.1") {
-        Expect.equals(InternetAddressType.IP_V4, addr.type);
+        Expect.equals(InternetAddressType.IPv4, addr.type);
         Expect.isFalse(contains4);
         contains4 = true;
       }

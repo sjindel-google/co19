@@ -20,7 +20,7 @@ main() {
   Expect.isTrue(Math.acos(1.0000000000001).isNaN);
   Expect.isTrue(Math.acos(-1.0000000000001).isNaN);
 
-  Expect.isTrue(Math.acos(double.NAN).isNaN);
-  Expect.isTrue(Math.acos(double.INFINITY).isNaN);
-  Expect.isTrue(Math.acos(double.NEGATIVE_INFINITY).isNaN);
+  Expect.isTrue(Math.acos(double.nan).isNaN);
+  Expect.isTrue(Math.acos(double.infinity).isNaN);
+  Expect.isTrue(Math.acos(double.negativeInfinity).isNaN);
 }

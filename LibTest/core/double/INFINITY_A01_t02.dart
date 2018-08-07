@@ -11,6 +11,6 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isTrue(double.INFINITY == double.INFINITY);
-  Expect.isFalse(double.INFINITY != double.INFINITY);
+  Expect.isTrue(double.infinity == double.infinity);
+  Expect.isFalse(double.infinity != double.infinity);
 }

@@ -18,17 +18,17 @@ import "dart:io";
 main() {
   IOSink sink = new IOSink(new StreamController());
 
-  sink.encoding = UTF8;
-  Expect.equals(UTF8, sink.encoding);
+  sink.encoding = utf8;
+  Expect.equals(utf8, sink.encoding);
 
-  sink.encoding = ASCII;
-  Expect.equals(ASCII, sink.encoding);
+  sink.encoding = ascii;
+  Expect.equals(ascii, sink.encoding);
 
-  sink.encoding = LATIN1;
-  Expect.equals(LATIN1, sink.encoding);
+  sink.encoding = latin1;
+  Expect.equals(latin1, sink.encoding);
 
-  sink.encoding = SYSTEM_ENCODING;
-  Expect.equals(SYSTEM_ENCODING, sink.encoding);
+  sink.encoding = systemEncoding;
+  Expect.equals(systemEncoding, sink.encoding);
 
   sink.encoding = null;
   Expect.isNull(sink.encoding);

@@ -18,7 +18,7 @@ import "dart:io";
 run_process(IOSink sink) { sink.write("I am here"); }
 
 run_main(String mode) {
-  List encodings = [UTF8, ASCII, LATIN1, SYSTEM_ENCODING];
+  List encodings = [utf8, ascii, latin1, systemEncoding];
 
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();

@@ -17,14 +17,14 @@ import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test(String method) async {
   asyncStart();
   String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    Expect.isNull(request.headers.value(HttpHeaders.AGE));
+    Expect.isNull(request.headers.value(HttpHeaders.ageHeader));
     request.response.write(helloWorld);
     request.response.close();
     server.close();
@@ -36,10 +36,10 @@ test(String method) async {
         String body = "Lily was here";
         request.headers.contentLength = body.length;
         request.write(body);
-        Expect.throws(() {request.headers.set(HttpHeaders.AGE, 21);});
+        Expect.throws(() {request.headers.set(HttpHeaders.ageHeader, 21);});
         return request.close();
   }).then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {});
+    response.transform(utf8.decoder).listen((content) {});
     asyncEnd();
   });
 }

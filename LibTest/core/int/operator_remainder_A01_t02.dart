@@ -34,19 +34,19 @@ main() {
   check(0, 0, NEG_MAX_DOUBLE);
   check(1, 1, MAX_DOUBLE);
   check(1, 1, NEG_MAX_DOUBLE);
-  check(1, 1, double.INFINITY);
-  check(double.INFINITY, -1, double.INFINITY);
-  check(1, 1, double.NEGATIVE_INFINITY);
-  check(double.INFINITY, -1, double.NEGATIVE_INFINITY);
-  check(0x1000000000000000, 0x1000000000000000, double.INFINITY);
-  check(double.INFINITY, -0x1000000000000000, double.INFINITY);
+  check(1, 1, double.infinity);
+  check(double.infinity, -1, double.infinity);
+  check(1, 1, double.negativeInfinity);
+  check(double.infinity, -1, double.negativeInfinity);
+  check(0x1000000000000000, 0x1000000000000000, double.infinity);
+  check(double.infinity, -0x1000000000000000, double.infinity);
   check(0x1000000000000000, 0x1000000000000000,
-      double.NEGATIVE_INFINITY);
-  check(double.INFINITY, -0x1000000000000000, double.NEGATIVE_INFINITY);
+      double.negativeInfinity);
+  check(double.infinity, -0x1000000000000000, double.negativeInfinity);
   
-  Expect.isTrue((1 % double.NAN).isNaN);
-  Expect.isTrue((0x1000000000000000 % double.NAN).isNaN);
-  Expect.isTrue(((-0x1000000000000000) % double.NAN).isNaN);
+  Expect.isTrue((1 % double.nan).isNaN);
+  Expect.isTrue((0x1000000000000000 % double.nan).isNaN);
+  Expect.isTrue(((-0x1000000000000000) % double.nan).isNaN);
 }
 
 void check(num ex, int a, double b) {

@@ -19,20 +19,20 @@ import "dart:io";
 import 'dart:async';
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test() async {
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
     var response = request.response;
-    if (request.headers[HttpHeaders.PROXY_AUTHORIZATION] == null) {
-      response.statusCode = HttpStatus.UNAUTHORIZED;
-      response.headers.set(HttpHeaders.PROXY_AUTHENTICATE,
+    if (request.headers[HttpHeaders.proxyAuthorizationHeader] == null) {
+      response.statusCode = HttpStatus.unauthorized;
+      response.headers.set(HttpHeaders.proxyAuthenticateHeader,
           'Digest, realm="server-realm", nonce=123');
-      response.statusCode = HttpStatus.PROXY_AUTHENTICATION_REQUIRED;
+      response.statusCode = HttpStatus.proxyAuthenticationRequired;
       response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.PROXY_AUTHORIZATION][0];
+      var authorization = request.headers[HttpHeaders.proxyAuthorizationHeader][0];
       Expect.isTrue(authorization.contains('Digest'));
       Expect.isTrue(authorization.contains('realm="client-realm"'));
       response.close();
@@ -52,7 +52,7 @@ test() async {
     Expect.equals("Digest", scheme);
     Expect.equals("server-realm", realm);
     Completer completer = new Completer();
-    client.addProxyCredentials(InternetAddress.LOOPBACK_IP_V4.address, port,
+    client.addProxyCredentials(InternetAddress.loopbackIPv4.address, port,
         "client-realm",
         new HttpClientDigestCredentials("co19-test", "password"));
     completer.complete(true);

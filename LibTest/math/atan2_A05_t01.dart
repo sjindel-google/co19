@@ -26,5 +26,5 @@ main() {
   checkNPE(null, 1);
   checkNPE(1, null);
   checkNPE(null, null);
-  checkNPE(double.NAN, null);
+  checkNPE(double.nan, null);
 }

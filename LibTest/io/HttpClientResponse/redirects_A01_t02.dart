@@ -16,7 +16,7 @@ import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test(String method, int statusCode) async {
   asyncStart();
@@ -48,20 +48,20 @@ test(String method, int statusCode) async {
   }).then((HttpClientResponse response) {
     Expect.equals(1, response.redirects.length);
     Expect.equals("/yyy", response.redirects[0].location.path);
-    response.transform(UTF8.decoder).listen((content) {});
+    response.transform(utf8.decoder).listen((content) {});
   });
 }
 
 main() {
-  test("get", HttpStatus.MOVED_PERMANENTLY);
-  test("get", HttpStatus.FOUND);
-  test("get", HttpStatus.MOVED_TEMPORARILY);
-  test("get", HttpStatus.SEE_OTHER);
-  test("get", HttpStatus.TEMPORARY_REDIRECT);
+  test("get", HttpStatus.movedPermanently);
+  test("get", HttpStatus.found);
+  test("get", HttpStatus.movedTemporarily);
+  test("get", HttpStatus.seeOther);
+  test("get", HttpStatus.temporaryRedirect);
 
-  test("head", HttpStatus.MOVED_PERMANENTLY);
-  test("head", HttpStatus.FOUND);
-  test("head", HttpStatus.MOVED_TEMPORARILY);
-  test("head", HttpStatus.SEE_OTHER);
-  test("head", HttpStatus.TEMPORARY_REDIRECT);
+  test("head", HttpStatus.movedPermanently);
+  test("head", HttpStatus.found);
+  test("head", HttpStatus.movedTemporarily);
+  test("head", HttpStatus.seeOther);
+  test("head", HttpStatus.temporaryRedirect);
 }

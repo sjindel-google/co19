@@ -5,10 +5,10 @@
  */
 /**
  * @assertion Future<bool> isDirectory(String path)
- * Checks if type(path) returns FileSystemEntityType.DIRECTORY.
+ * Checks if type(path) returns FileSystemEntityType.directory.
  *
  * @description Checks that this property returns true if type(path) returns
- * FileSystemEntityType.DIRECTORY. Test Link
+ * FileSystemEntityType.directory. Test Link
  * @issue 30410
  * @author sgrekhov@unipro.ru
  */
@@ -22,7 +22,7 @@ main() {
   FileSystemEntity.isDirectory(link.path).then((result) {
     Expect.isFalse(result);
     FileSystemEntity.type(link.path).then((t) {
-      Expect.equals(t, FileSystemEntityType.LINK);
+      Expect.equals(t, FileSystemEntityType.link);
       asyncEnd();
     }).whenComplete(() {
       link.delete();

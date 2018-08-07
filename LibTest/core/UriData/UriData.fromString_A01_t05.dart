@@ -25,11 +25,11 @@ import "../Uri/UriDataEncoder.lib.dart";
 check(String content) {
   UriData uriData = new UriData.fromString(content,
       encoding: Encoding.getByName("utf-8"), base64: true);
-  Expect.equals(BASE64.encode(UTF8.encode(content)), uriData.contentText);
+  Expect.equals(base64.encode(utf8.encode(content)), uriData.contentText);
   Expect.equals("text/plain", uriData.mimeType);
   Expect.mapEquals({"charset": "utf-8"}, uriData.parameters);
   Expect.equals("data:;charset=utf-8;base64," +
-      BASE64.encode(UTF8.encode(content)), uriData.toString());
+      base64.encode(utf8.encode(content)), uriData.toString());
 }
 
 main() {

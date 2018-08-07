@@ -12,7 +12,7 @@ import "../../../Utils/expect.dart";
 
 
 class Constants {
-  static const INF = double.INFINITY;
+  static const INF = double.infinity;
 
   static const List VALUES = const [
      .0,

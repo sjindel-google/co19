@@ -22,16 +22,16 @@ import "../../../Utils/expect.dart";
 
 check(nReceived) {
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
       int counter = 0;
       RawSocketEvent combine(previous, element) {
-        if (element == RawSocketEvent.CLOSED) {
+        if (element == RawSocketEvent.closed) {
           return previous;
         }
-        if (element == RawSocketEvent.READ) {
+        if (element == RawSocketEvent.read) {
           return element;
         }
         return previous;
@@ -47,7 +47,7 @@ check(nReceived) {
       Future future = bcs.reduce(combine);
       future.then((event) {
         Expect.equals(
-            nReceived == 1 ? RawSocketEvent.WRITE : RawSocketEvent.READ, event);
+            nReceived == 1 ? RawSocketEvent.write : RawSocketEvent.read, event);
       }).whenComplete(() {
         asyncEnd();
       });

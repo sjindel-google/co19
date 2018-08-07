@@ -7,7 +7,7 @@
  * @assertion Datagram receive()
  * Receive a datagram. If there are no datagrams available null is returned.
  *
- * @description Checks that RawSocketEvent.CLOSED event does not have datagram
+ * @description Checks that RawSocketEvent.closed event does not have datagram
  * and method receive returns null in this case.
  * @author ngl@unipro.ru
  */
@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 
 check([bool no_write_events = false]) {
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       if (no_write_events) {
@@ -41,7 +41,7 @@ check([bool no_write_events = false]) {
 
       receiver.listen((event) {
         var datagram = receiver.receive();
-        if (event == RawSocketEvent.CLOSED) {
+        if (event == RawSocketEvent.closed) {
           Expect.equals(null, datagram);
         }
         if (timer2 != null) timer2.cancel();

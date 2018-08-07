@@ -7,7 +7,7 @@
  * @assertion void height=(T height)
  * The height must be non-negative. If a negative height is supplied, it is
  * clamped to zero.
- * @description Checks that if the height is double.NEGATIVE_INFINITY , it is
+ * @description Checks that if the height is double.negativeInfinity , it is
  * clamped to zero.
  * @issue 30186
  * @author ngl@unipro.ru
@@ -19,6 +19,6 @@ import "../../../Utils/expect.dart";
 main() {
   MutableRectangle r = new MutableRectangle(2, 1, 20, 15);
   Expect.equals(15, r.height);
-  r.height = double.NEGATIVE_INFINITY;
+  r.height = double.negativeInfinity;
   Expect.equals(0, r.height, "height = ${r.height}");
 }

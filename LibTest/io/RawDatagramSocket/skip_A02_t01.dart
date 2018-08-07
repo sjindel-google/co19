@@ -17,7 +17,7 @@ import "dart:async";
 import "../../../Utils/expect.dart";
 
 main() {
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((socket) {
     Stream stream1 = socket.skip(0);
     Expect.isFalse(stream1.isBroadcast);

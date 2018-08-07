@@ -44,8 +44,8 @@ main() {
   shouldBeNaN(input.valueAsNumber);
   shouldBeEqualToString(input.value, '');
 
-  shouldThrow(() => input.valueAsNumber = double.INFINITY);
-  shouldThrow(() => input.valueAsNumber = double.NEGATIVE_INFINITY);
+  shouldThrow(() => input.valueAsNumber = double.infinity);
+  shouldThrow(() => input.valueAsNumber = double.negativeInfinity);
 
   /*
   shouldBeNaN('input.valueAsNumber = new DateTime.utc(275760, 9, 14); input.valueAsNumber');

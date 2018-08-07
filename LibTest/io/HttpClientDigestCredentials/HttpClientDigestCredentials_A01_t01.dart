@@ -16,22 +16,22 @@ import 'dart:async';
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test() async {
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    if (request.headers[HttpHeaders.AUTHORIZATION] == null) {
-      request.response.statusCode = HttpStatus.UNAUTHORIZED;
+    if (request.headers[HttpHeaders.authorizationHeader] == null) {
+      request.response.statusCode = HttpStatus.unauthorized;
       StringBuffer authHeader = new StringBuffer();
       authHeader.write('Digest');
       authHeader.write(', realm="realm"');
       authHeader.write(', nonce="123"');
       authHeader.write(', domain="/xxxt/"');
-      request.response.headers.set(HttpHeaders.WWW_AUTHENTICATE, authHeader);
+      request.response.headers.set(HttpHeaders.wwwAuthenticateHeader, authHeader);
       request.response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.AUTHORIZATION][0];
+      var authorization = request.headers[HttpHeaders.authorizationHeader][0];
       Expect.isTrue(authorization.contains('Digest'));
       Expect.isTrue(authorization.contains('username="co19-test"'));
       Expect.isTrue(authorization.contains('realm="realm"'));
@@ -60,7 +60,7 @@ test() async {
       .getUrl(Uri.parse("http://${localhost}:${server.port}/xxx"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {});
+    response.transform(utf8.decoder).listen((content) {});
   });
 }
 

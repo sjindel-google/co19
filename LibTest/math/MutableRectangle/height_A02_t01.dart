@@ -20,10 +20,10 @@ main() {
   Expect.equals(11, r.height);
   r.height = 1.5;
   Expect.equals(1.5, r.height);
-  r.height = double.INFINITY;
-  Expect.equals(double.INFINITY, r.height);
-  r.height = double.MAX_FINITE;
-  Expect.equals(double.MAX_FINITE, r.height);
-  r.height = double.MIN_POSITIVE;
-  Expect.equals(double.MIN_POSITIVE, r.height);
+  r.height = double.infinity;
+  Expect.equals(double.infinity, r.height);
+  r.height = double.maxFinite;
+  Expect.equals(double.maxFinite, r.height);
+  r.height = double.minPositive;
+  Expect.equals(double.minPositive, r.height);
 }

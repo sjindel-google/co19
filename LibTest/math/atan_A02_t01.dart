@@ -14,5 +14,5 @@ import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
-  Expect.isTrue(Math.atan(double.NAN).isNaN);
+  Expect.isTrue(Math.atan(double.nan).isNaN);
 }

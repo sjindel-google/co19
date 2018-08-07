@@ -20,10 +20,10 @@ main() {
   Expect.equals(30, r.width);
   r.width = 3.5;
   Expect.equals(3.5, r.width);
-  r.width = double.INFINITY;
-  Expect.equals(double.INFINITY, r.width);
-  r.width = double.MAX_FINITE;
-  Expect.equals(double.MAX_FINITE, r.width);
-  r.width = double.MIN_POSITIVE;
-  Expect.equals(double.MIN_POSITIVE, r.width);
+  r.width = double.infinity;
+  Expect.equals(double.infinity, r.width);
+  r.width = double.maxFinite;
+  Expect.equals(double.maxFinite, r.width);
+  r.width = double.minPositive;
+  Expect.equals(double.minPositive, r.width);
 }

@@ -28,11 +28,11 @@ import "../../../Utils/expect.dart";
 main() {
   var data = [0, 1, 2];
   Uri uri = new Uri.dataFromBytes(data, mimeType: " image / gif ");
-  Expect.equals("data:%20image%20/%20gif%20;base64," + BASE64.encode(data),
+  Expect.equals("data:%20image%20/%20gif%20;base64," + base64.encode(data),
       uri.data.toString());
 
   uri = new Uri.dataFromBytes(data, mimeType: " абра / кадабра ");
   Expect.equals("data:%20%D0%B0%D0%B1%D1%80%D0%B0%20/%20%D0%BA%D0%B0%D0%B4%D0"
-      "%B0%D0%B1%D1%80%D0%B0%20;base64," + BASE64.encode(data),
+      "%B0%D0%B1%D1%80%D0%B0%20;base64," + base64.encode(data),
       uri.data.toString());
 }

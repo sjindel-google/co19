@@ -37,7 +37,7 @@ import "../../../Utils/expect.dart";
 
 test() async {
   String helloWorld = 'Hello, test world!';
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.autoCompress = true;
 
   asyncStart();
@@ -54,11 +54,11 @@ test() async {
   client.autoUncompress = false;
   client
       .getUrl(Uri.parse(
-      "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}"))
+      "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
-    response.transform(GZIP.decoder).transform(UTF8.decoder).listen((content) {
+    response.transform(gzip.decoder).transform(utf8.decoder).listen((content) {
       Expect.equals(helloWorld, content);
       asyncEnd();
     });

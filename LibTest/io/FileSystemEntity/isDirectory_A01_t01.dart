@@ -5,10 +5,10 @@
  */
 /**
  * @assertion Future<bool> isDirectory(String path)
- * Checks if type(path) returns FileSystemEntityType.DIRECTORY.
+ * Checks if type(path) returns FileSystemEntityType.directory.
  *
  * @description Checks that this property returns true if type(path) returns
- * FileSystemEntityType.DIRECTORY. Test File
+ * FileSystemEntityType.directory. Test File
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -21,7 +21,7 @@ main() {
   FileSystemEntity.isDirectory(file.path).then((result) {
     Expect.isFalse(result);
     FileSystemEntity.type(file.path).then((t) {
-      Expect.equals(t, FileSystemEntityType.FILE);
+      Expect.equals(t, FileSystemEntityType.file);
       asyncEnd();
     }).whenComplete(() {
       file.delete();

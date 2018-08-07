@@ -4,17 +4,17 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion Future<RandomAccessFile> open({FileMode mode: FileMode.READ})
+ * @assertion Future<RandomAccessFile> open({FileMode mode: FileMode.read})
  * Open the file for random access operations. Returns a
  * Future<RandomAccessFile> that completes with the opened random access file.
  * RandomAccessFiles must be closed using the RandomAccessFile.close method.
  *
  * Files can be opened in three modes:
- * FileMode.READ: open the file for reading.
- * FileMode.WRITE: open the file for both reading and writing and truncate the
+ * FileMode.read: open the file for reading.
+ * FileMode.write: open the file for both reading and writing and truncate the
  * file to length zero. If the file does not exist the file is created.
  *
- * FileMode.APPEND: same as FileMode.WRITE except that the file is not
+ * FileMode.append: same as FileMode.write except that the file is not
  * truncated.
  * @description Checks that if file path is wrong then this operation fails
  * @author sgrekhov@unipro.ru
@@ -29,7 +29,7 @@ main() {
   String path = "/" + f.absolute.path; // wrong file path
   File file = new File(path);
 
-  file.open(mode: FileMode.READ).then((RandomAccessFile raf) {
+  file.open(mode: FileMode.read).then((RandomAccessFile raf) {
     raf.closeSync();
     f.delete();
     Expect.fail("Error expected");

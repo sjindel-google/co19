@@ -17,10 +17,10 @@ import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
-  Point point = new Point(0, double.NAN);
+  Point point = new Point(0, double.nan);
   Expect.isFalse(point == point);
-  point = new Point(double.NAN, 0);
+  point = new Point(double.nan, 0);
   Expect.isFalse(point == point);
-  point = new Point(double.NAN, double.NAN);
+  point = new Point(double.nan, double.nan);
   Expect.isFalse(point == point);
 }

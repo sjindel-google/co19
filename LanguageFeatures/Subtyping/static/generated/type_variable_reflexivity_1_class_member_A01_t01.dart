@@ -82,8 +82,6 @@ class ClassMember1_t01 {
 
 main() {
   X0 t0Instance = new S0();
-  X0 t1Instance = new X0();
-
   if (t0Instance is S0) {
     
   ClassMember1_t01 c1 = new ClassMember1_t01();

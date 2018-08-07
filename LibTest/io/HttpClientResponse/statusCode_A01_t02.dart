@@ -16,14 +16,14 @@ import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test(String method) async {
   asyncStart();
   String helloWorld = "Hello test world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    request.response.statusCode = HttpStatus.ACCEPTED;
+    request.response.statusCode = HttpStatus.accepted;
     request.response.write(helloWorld);
     request.response.close();
     server.close();
@@ -34,8 +34,8 @@ test(String method) async {
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
-    Expect.equals(HttpStatus.ACCEPTED, response.statusCode);
-    response.transform(UTF8.decoder).listen((content) {});
+    Expect.equals(HttpStatus.accepted, response.statusCode);
+    response.transform(utf8.decoder).listen((content) {});
     asyncEnd();
   });
 }

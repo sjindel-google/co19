@@ -6,7 +6,7 @@
 /**
  * @assertion
  * Future<RandomAccessFile> lock([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  * ])
@@ -38,13 +38,13 @@ main() {
   int fLen = 10;
   File file = getTempFileSync();
   asyncStart();
-  var rf1 = file.openSync(mode: FileMode.WRITE);
-  var rf2 = file.openSync(mode: FileMode.WRITE);
+  var rf1 = file.openSync(mode: FileMode.write);
+  var rf2 = file.openSync(mode: FileMode.write);
   for (int i = 0; i < fLen; i++) {
     rf1.writeByteSync((i + 1) & 0xff);
   }
-  var rfLock = rf1.lock(FileLock.EXCLUSIVE, 4, 6);
-  rf2.lock(FileLock.EXCLUSIVE, 7, 8);
+  var rfLock = rf1.lock(FileLock.exclusive, 4, 6);
+  rf2.lock(FileLock.exclusive, 7, 8);
   rfLock.then((RandomAccessFile f) {
     var tests = [
       () => checkLocked(f.path, 4),

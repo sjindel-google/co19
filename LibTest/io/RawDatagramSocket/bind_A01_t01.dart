@@ -22,7 +22,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       Expect.equals(address, producer.address);
@@ -39,7 +39,7 @@ main() {
       var received = 0;
       var timer;
       receiver.listen((event) {
-        if (event != RawSocketEvent.READ) return;
+        if (event != RawSocketEvent.read) return;
         var datagram = receiver.receive();
         Expect.listEquals([received++], datagram.data);
         if (timer != null) timer.cancel();

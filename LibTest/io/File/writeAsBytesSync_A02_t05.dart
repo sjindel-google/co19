@@ -6,7 +6,7 @@
 /**
  * @assertion void writeAsBytesSync(
  * List<int> bytes, {
- * FileMode mode: FileMode.WRITE,
+ * FileMode mode: FileMode.write,
  * bool flush: false
  * })
  * Synchronously write a list of bytes to a file.
@@ -15,13 +15,13 @@
  *
  * By default writeAsBytesSync creates the file for writing and truncates the
  * file if it already exists. In order to append the bytes to an existing file,
- * pass FileMode.APPEND as the optional mode parameter.
+ * pass FileMode.append as the optional mode parameter.
  *
  * If the flush argument is set to true data written will be flushed to the file
  * system before returning.
  *
  * Throws a FileSystemException if the operation fails.
- * @description Checks that in a FileMode.READ a FileSystemException is thrown.
+ * @description Checks that in a FileMode.read a FileSystemException is thrown.
  * Test an existing file
  * @author sgrekhov@unipro.ru
  */
@@ -34,7 +34,7 @@ main() {
 
   try {
     file.writeAsBytesSync([1, 1, 1, 1, 1]);
-    Expect.throws(() {file.writeAsBytesSync([3, 1, 4], mode: FileMode.READ);},
+    Expect.throws(() {file.writeAsBytesSync([3, 1, 4], mode: FileMode.read);},
         (e) => e is FileSystemException);
   } finally {
     file.delete();

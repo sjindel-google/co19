@@ -19,43 +19,43 @@ import "../../Utils/expect.dart";
 
 main() {
   Expect.equals(
-      Math.pow(double.INFINITY, 2), Math.pow(double.NEGATIVE_INFINITY, 2));
+      Math.pow(double.infinity, 2), Math.pow(double.negativeInfinity, 2));
   Expect.equals(
-      Math.pow(double.INFINITY, 2.0), Math.pow(double.NEGATIVE_INFINITY, 2.0));
+      Math.pow(double.infinity, 2.0), Math.pow(double.negativeInfinity, 2.0));
   Expect.equals(
-      Math.pow(double.INFINITY, 22), Math.pow(double.NEGATIVE_INFINITY, 22));
-  Expect.equals(Math.pow(double.INFINITY, 22.0),
-      Math.pow(double.NEGATIVE_INFINITY, 22.0));
+      Math.pow(double.infinity, 22), Math.pow(double.negativeInfinity, 22));
+  Expect.equals(Math.pow(double.infinity, 22.0),
+      Math.pow(double.negativeInfinity, 22.0));
   Expect.equals(
-      Math.pow(double.INFINITY, 0.2), Math.pow(double.NEGATIVE_INFINITY, 0.2));
-  Expect.equals(Math.pow(double.INFINITY, double.INFINITY),
-      Math.pow(double.NEGATIVE_INFINITY, double.INFINITY));
+      Math.pow(double.infinity, 0.2), Math.pow(double.negativeInfinity, 0.2));
+  Expect.equals(Math.pow(double.infinity, double.infinity),
+      Math.pow(double.negativeInfinity, double.infinity));
 
   Expect.equals(
-      Math.pow(double.INFINITY, -2), Math.pow(double.NEGATIVE_INFINITY, -2));
-  Expect.equals(Math.pow(double.INFINITY, -2.0),
-      Math.pow(double.NEGATIVE_INFINITY, -2.0));
+      Math.pow(double.infinity, -2), Math.pow(double.negativeInfinity, -2));
+  Expect.equals(Math.pow(double.infinity, -2.0),
+      Math.pow(double.negativeInfinity, -2.0));
   Expect.equals(
-      Math.pow(double.INFINITY, -22), Math.pow(double.NEGATIVE_INFINITY, -22));
-  Expect.equals(Math.pow(double.INFINITY, -22.0),
-      Math.pow(double.NEGATIVE_INFINITY, -22.0));
-  Expect.equals(Math.pow(double.INFINITY, -0.2),
-      Math.pow(double.NEGATIVE_INFINITY, -0.2));
-  Expect.equals(Math.pow(double.INFINITY, double.NEGATIVE_INFINITY),
-      Math.pow(double.NEGATIVE_INFINITY, double.NEGATIVE_INFINITY));
+      Math.pow(double.infinity, -22), Math.pow(double.negativeInfinity, -22));
+  Expect.equals(Math.pow(double.infinity, -22.0),
+      Math.pow(double.negativeInfinity, -22.0));
+  Expect.equals(Math.pow(double.infinity, -0.2),
+      Math.pow(double.negativeInfinity, -0.2));
+  Expect.equals(Math.pow(double.infinity, double.negativeInfinity),
+      Math.pow(double.negativeInfinity, double.negativeInfinity));
 
   Expect.equals(Math.pow(.0, 2), Math.pow(-.0, 2));
   Expect.equals(Math.pow(.0, 2.0), Math.pow(-.0, 2.0));
   Expect.equals(Math.pow(.0, 22), Math.pow(-.0, 22));
   Expect.equals(Math.pow(.0, 22.0), Math.pow(-.0, 22.0));
   Expect.equals(Math.pow(.0, 0.2), Math.pow(-.0, 0.2));
-  Expect.equals(Math.pow(.0, double.INFINITY), Math.pow(-.0, double.INFINITY));
+  Expect.equals(Math.pow(.0, double.infinity), Math.pow(-.0, double.infinity));
 
   Expect.equals(Math.pow(.0, -2), Math.pow(-.0, -2));
   Expect.equals(Math.pow(.0, -2.0), Math.pow(-.0, -2.0));
   Expect.equals(Math.pow(.0, -22), Math.pow(-.0, -22));
   Expect.equals(Math.pow(.0, -22.0), Math.pow(-.0, -22.0));
   Expect.equals(Math.pow(.0, -0.2), Math.pow(-.0, -0.2));
-  Expect.equals(Math.pow(.0, double.NEGATIVE_INFINITY),
-      Math.pow(-.0, double.NEGATIVE_INFINITY));
+  Expect.equals(Math.pow(.0, double.negativeInfinity),
+      Math.pow(-.0, double.negativeInfinity));
 }

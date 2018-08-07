@@ -5,7 +5,7 @@
  */
 /**
  * @assertion String readLineSync({
- *   Encoding encoding: SYSTEM_ENCODING,
+ *   Encoding encoding: systemEncoding,
  *   bool retainNewlines: false
  *   })
  * The argument [encoding] can be used to changed how the input should be
@@ -24,7 +24,10 @@ run_process(String filename) {
   } catch (error) { exit(99); };
 }
 
-run(Process process) { process.stdin.writeln("test"); }
+String run(Process process) {
+  process.stdin.writeln("test");
+  return "test";
+}
 
 main(List<String> args) {
   args.length > 0 ? run_process(args[0]) : run_main_invalid(run);

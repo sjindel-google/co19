@@ -28,7 +28,7 @@ main() {
 
   strokePath(x, y) {
     ctx.beginPath();
-    ctx.arc(x, y, 75, 0, Math.PI*2, true);
+    ctx.arc(x, y, 75, 0, Math.pi*2, true);
     ctx.stroke();
   }
 
@@ -40,7 +40,7 @@ main() {
   ctx.shadowBlur = 10;
   strokePath(150, 400);
 
-  ctx.rotate(Math.PI/2);
+  ctx.rotate(Math.pi/2);
 
   // Rotated alpha shadow.
   ctx.shadowBlur = 0;

@@ -17,7 +17,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 check(String str) {
-  List<int> data = UTF8.encode(str);
+  List<int> data = utf8.encode(str);
   Utf8Decoder decoder = new Utf8Decoder();
   bool called = false;
 

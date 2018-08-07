@@ -19,8 +19,8 @@ void check(list) {
   var l = new Int32x4List.fromList(list);
   var buffer = l.buffer;
   for (int i = 0; i < l.length; ++i) {
-    var view = new Int32x4List.view(buffer, i * Int32x4List.BYTES_PER_ELEMENT);
-    Expect.equals(i * Int32x4List.BYTES_PER_ELEMENT, view.offsetInBytes);
+    var view = new Int32x4List.view(buffer, i * Int32x4List.bytesPerElement);
+    Expect.equals(i * Int32x4List.bytesPerElement, view.offsetInBytes);
   }
 }
 

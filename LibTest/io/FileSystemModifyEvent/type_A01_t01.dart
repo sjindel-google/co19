@@ -21,7 +21,7 @@ main() {
   asyncStart();
   StreamSubscription s = dir.watch().listen((FileSystemEvent event) {
     if (event is FileSystemModifyEvent) {
-      Expect.equals(FileSystemEvent.MODIFY, event.type);
+      Expect.equals(FileSystemEvent.modify, event.type);
       asyncEnd();
     }
   });

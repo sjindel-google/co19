@@ -8,9 +8,9 @@
  */
 import "../../testcommon.dart";
 
-var NaN = double.NAN;
-var Infinity = double.INFINITY;
-var NegInfinity = double.NEGATIVE_INFINITY;
+var NaN = double.nan;
+var Infinity = double.infinity;
+var NegInfinity = double.negativeInfinity;
 
 main() {
   dynamic ctx = createContext2d("canvas");

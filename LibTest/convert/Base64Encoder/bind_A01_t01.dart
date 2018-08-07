@@ -25,7 +25,7 @@ Future check(List<int> codeUnits) async {
   int counter = 0;
 
   await for (String event in encoder.bind(new Stream.fromIterable([codeUnits]))) {
-    String data = BASE64.encode(codeUnits);
+    String data = base64.encode(codeUnits);
     Expect.equals(data, event);
     counter++;
   }

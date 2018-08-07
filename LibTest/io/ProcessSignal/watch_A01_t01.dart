@@ -7,12 +7,12 @@
  * @assertion Stream<ProcessSignal> watch()
  * Watch for process signals.
  * The following ProcessSignals can be listened to:
- * - ProcessSignal.SIGHUP.
- * - ProcessSignal.SIGINT. Signal sent by e.g. CTRL-C.
- * - ProcessSignal.SIGTERM. Not available on Windows.
- * - ProcessSignal.SIGUSR1. Not available on Windows.
- * - ProcessSignal.SIGUSR2. Not available on Windows.
- * - ProcessSignal.SIGWINCH. Not available on Windows.
+ * - ProcessSignal.sighup.
+ * - ProcessSignal.sigint. Signal sent by e.g. CTRL-C.
+ * - ProcessSignal.sigterm. Not available on Windows.
+ * - ProcessSignal.sigusr1. Not available on Windows.
+ * - ProcessSignal.sigusr2. Not available on Windows.
+ * - ProcessSignal.sigwinch. Not available on Windows.
  *
  * Other signals are disallowed, as they may be used by the VM.
  *
@@ -35,7 +35,7 @@ check(ProcessSignal signal) {
     process.stdin.close();
     process.stderr.drain();
     var output = "";
-    process.stdout.transform(UTF8.decoder).listen((str) {
+    process.stdout.transform(utf8.decoder).listen((str) {
       output += str;
       if (output == 'done\n') {
         process.kill(signal);
@@ -52,11 +52,11 @@ check(ProcessSignal signal) {
 
 main() {
   if (!Platform.isWindows) {
-    check(ProcessSignal.SIGHUP);
-    check(ProcessSignal.SIGINT);
-    check(ProcessSignal.SIGTERM);
-    check(ProcessSignal.SIGUSR1);
-    check(ProcessSignal.SIGUSR2);
-    check(ProcessSignal.SIGWINCH);
+    check(ProcessSignal.sighup);
+    check(ProcessSignal.sigint);
+    check(ProcessSignal.sigterm);
+    check(ProcessSignal.sigusr1);
+    check(ProcessSignal.sigusr2);
+    check(ProcessSignal.sigwinch);
   }
 }

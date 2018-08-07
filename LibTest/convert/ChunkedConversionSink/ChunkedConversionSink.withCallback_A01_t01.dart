@@ -21,10 +21,10 @@ main() {
     Expect.listEquals(["Кириллица", "прекрасна"], accumulated);
   });
 
-  ByteConversionSink inSink = UTF8.decoder.startChunkedConversion(outSink);
-  var list = UTF8.encode("Кириллица");
+  ByteConversionSink inSink = utf8.decoder.startChunkedConversion(outSink);
+  var list = utf8.encode("Кириллица");
   inSink.add(list);
-  list = UTF8.encode("прекрасна");
+  list = utf8.encode("прекрасна");
   inSink.add(list);
   inSink.close();
   Expect.isTrue(called);

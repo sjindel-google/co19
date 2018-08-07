@@ -19,10 +19,10 @@ main() {
   asyncStart();
   HttpServer server = null;
   ServerSocket socket = null;
-  ServerSocket.bind(InternetAddress.LOOPBACK_IP_V4, 0).then((ServerSocket s) {
+  ServerSocket.bind(InternetAddress.loopbackIPv4, 0).then((ServerSocket s) {
     socket = s;
     server = new HttpServer.listenOn(socket);
-    Expect.equals(InternetAddress.LOOPBACK_IP_V4, server.address);
+    Expect.equals(InternetAddress.loopbackIPv4, server.address);
     asyncEnd();
   }).whenComplete(() {
     if (server != null) {

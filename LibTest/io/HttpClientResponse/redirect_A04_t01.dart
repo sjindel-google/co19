@@ -11,7 +11,7 @@
  *  ])
  * Redirects this connection to a new URL. The default value for method is the
  * method for the current request. The default value for url is the value of the
- * HttpHeaders.LOCATION header of the current response. All body data must have
+ * HttpHeaders.locationHeader header of the current response. All body data must have
  * been read from the current response before calling redirect.
  *
  * All headers added to the request will be added to the redirection request.
@@ -31,7 +31,7 @@ import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 var lily = "Lily was here";
 
 test(String method) async {

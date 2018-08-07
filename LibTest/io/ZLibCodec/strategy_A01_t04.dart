@@ -5,10 +5,10 @@
  */
 /**
  * @assertion int strategy
- * Tunes the compression algorithm. Use the value ZLibOption.STRATEGY_DEFAULT
- * for normal data, ZLibOption.STRATEGY_FILTERED for data produced by a filter
- * (or predictor), ZLibOption.STRATEGY_HUFFMAN_ONLY to force Huffman encoding
- * only (no string match), or ZLibOption.STRATEGY_RLE to limit match distances
+ * Tunes the compression algorithm. Use the value ZLibOption.strategyDefault
+ * for normal data, ZLibOption.strategyFiltered for data produced by a filter
+ * (or predictor), ZLibOption.strategyHuffmanOnly to force Huffman encoding
+ * only (no string match), or ZLibOption.strategyRle to limit match distances
  * to one (run-length encoding).
  * @description Checks that [strategy] is set correctly when the value
  * ZLibOption.STRATEGY_STRATEGY_RLE is used.
@@ -18,6 +18,6 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  ZLibCodec codec = new ZLibCodec(strategy: ZLibOption.STRATEGY_RLE);
+  ZLibCodec codec = new ZLibCodec(strategy: ZLibOption.strategyRle);
   Expect.equals(3, codec.strategy);
 }

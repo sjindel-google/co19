@@ -5,10 +5,10 @@
  */
 /**
  * @assertion String readLineSync({
- *   Encoding encoding: SYSTEM_ENCODING,
+ *   Encoding encoding: systemEncoding,
  *   bool retainNewlines: false
  *   })
- *  Default is [SYSTEM_ENCODING].
+ *  Default is [systemEncoding].
  * @description Checks that default encoding is system encoding
  * @author iarkh@unipro.ru
  */
@@ -18,7 +18,7 @@ import "test.lib.dart";
 import "../file_utils.dart";
 
 List<int> expected = [1, 2, 3, 50, 60, 100, 124, 125, 126, 127];
-String str = SYSTEM_ENCODING.decode(expected);
+String str = systemEncoding.decode(expected);
 
 run_process(String filename) {
   String res = stdin.readLineSync();
@@ -27,7 +27,10 @@ run_process(String filename) {
   fl.writeAsString(res);
 }
 
-run(Process process) { process.stdin.writeln(str); }
+String run(Process process) {
+  process.stdin.writeln(str);
+  return str;
+}
 
 main(List<String> args) {
   String filename = Directory.systemTemp.path + Platform.pathSeparator +

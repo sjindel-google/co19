@@ -17,7 +17,7 @@ Float32x4 O() => new Float32x4.zero();
 
 void check(List<Float32x4> list) {
   var l = new Float32x4List.fromList(list);
-  Expect.equals(list.length * Float32x4List.BYTES_PER_ELEMENT, l.lengthInBytes);
+  Expect.equals(list.length * Float32x4List.bytesPerElement, l.lengthInBytes);
 }
 
 main() {

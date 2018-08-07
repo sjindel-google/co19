@@ -35,7 +35,7 @@ main() {
   ctx.save();
   ctx.beginPath();
   ctx.moveTo(20, 0);
-  ctx.ellipse(80, 0, 10, 20, Math.PI / 6, -Math.PI / 2, -Math.PI / 2 + zero, false);
+  ctx.ellipse(80, 0, 10, 20, Math.pi / 6, -Math.pi / 2, -Math.pi / 2 + zero, false);
   ctx.stroke();
   ctx.restore();
 
@@ -49,7 +49,7 @@ main() {
   ctx.save();
   ctx.beginPath();
   ctx.moveTo(20, 0);
-  ctx.ellipse(80, 0, zero, 20, Math.PI / 6, -Math.PI / 2, Math.PI / 2, false);
+  ctx.ellipse(80, 0, zero, 20, Math.pi / 6, -Math.pi / 2, Math.pi / 2, false);
   ctx.stroke();
   ctx.restore();
 
@@ -65,7 +65,7 @@ main() {
   ctx.save();
   ctx.beginPath();
   ctx.moveTo(20, 0);
-  ctx.ellipse(80, 0, 10, zero, Math.PI / 6, -Math.PI / 2, Math.PI / 2, false);
+  ctx.ellipse(80, 0, 10, zero, Math.pi / 6, -Math.pi / 2, Math.pi / 2, false);
   ctx.stroke();
   ctx.restore();
 
@@ -80,7 +80,7 @@ main() {
   ctx.translate(0, 30);
   ctx.save();
   ctx.beginPath();
-  ctx.ellipse(20, 0, 10, 20, Math.PI / 6, -Math.PI / 2, -Math.PI / 2 + zero, false);
+  ctx.ellipse(20, 0, 10, 20, Math.pi / 6, -Math.pi / 2, -Math.pi / 2 + zero, false);
   ctx.lineTo(80, 0);
   ctx.stroke();
   ctx.restore();
@@ -96,7 +96,7 @@ main() {
   ctx.translate(0, 30);
   ctx.save();
   ctx.beginPath();
-  ctx.ellipse(20, 0, zero, 20, Math.PI / 6, -Math.PI / 2, Math.PI / 2, false);
+  ctx.ellipse(20, 0, zero, 20, Math.pi / 6, -Math.pi / 2, Math.pi / 2, false);
   ctx.lineTo(80, 0);
   ctx.stroke();
   ctx.restore();
@@ -112,7 +112,7 @@ main() {
   ctx.translate(0, 30);
   ctx.save();
   ctx.beginPath();
-  ctx.ellipse(20, 0, 10, zero, Math.PI / 6, -Math.PI / 2, Math.PI / 2, false);
+  ctx.ellipse(20, 0, 10, zero, Math.pi / 6, -Math.pi / 2, Math.pi / 2, false);
   ctx.lineTo(80, 0);
   ctx.stroke();
   ctx.restore();
@@ -134,7 +134,7 @@ main() {
   ctx.save();
   ctx.beginPath();
   ctx.lineTo(10, 0);
-  ctx.ellipse(20, 0, zero, 20, Math.PI / 6, -Math.PI / 4, Math.PI / 4, false);
+  ctx.ellipse(20, 0, zero, 20, Math.pi / 6, -Math.pi / 4, Math.pi / 4, false);
   ctx.lineTo(80, 0);
   ctx.stroke();
   ctx.restore();
@@ -153,7 +153,7 @@ main() {
   ctx.save();
   ctx.beginPath();
   ctx.lineTo(10, 0);
-  ctx.ellipse(20, 0, zero, 20, Math.PI / 6, -Math.PI / 4, Math.PI / 2, false);
+  ctx.ellipse(20, 0, zero, 20, Math.pi / 6, -Math.pi / 4, Math.pi / 2, false);
   ctx.lineTo(80, 0);
   ctx.stroke();
   ctx.restore();
@@ -170,7 +170,7 @@ main() {
   ctx.save();
   ctx.beginPath();
   ctx.lineTo(10, 0);
-  ctx.ellipse(20, 0, zero, 20, Math.PI / 6, -Math.PI / 4, Math.PI * 3 / 2, false);
+  ctx.ellipse(20, 0, zero, 20, Math.pi / 6, -Math.pi / 4, Math.pi * 3 / 2, false);
   ctx.lineTo(80, 0);
   ctx.stroke();
   ctx.restore();
@@ -187,7 +187,7 @@ main() {
   ctx.save();
   ctx.beginPath();
   ctx.lineTo(10, 0);
-  ctx.ellipse(20, 0, zero, 20, Math.PI / 6, -Math.PI / 4, Math.PI * 2, false);
+  ctx.ellipse(20, 0, zero, 20, Math.pi / 6, -Math.pi / 4, Math.pi * 2, false);
   ctx.lineTo(80, 0);
   ctx.stroke();
   ctx.restore();
@@ -206,7 +206,7 @@ main() {
   ctx.save();
   ctx.beginPath();
   ctx.lineTo(10, 0);
-  ctx.ellipse(20, 0, zero, 20, Math.PI / 6, -Math.PI / 4, Math.PI * 16, false);
+  ctx.ellipse(20, 0, zero, 20, Math.pi / 6, -Math.pi / 4, Math.pi * 16, false);
   ctx.lineTo(80, 0);
   ctx.stroke();
   ctx.restore();
@@ -230,7 +230,7 @@ main() {
   ctx.save();
   ctx.beginPath();
   ctx.lineTo(10, 0);
-  ctx.ellipse(20, 0, 20, zero, Math.PI / 6, -Math.PI / 4, Math.PI / 4, false);
+  ctx.ellipse(20, 0, 20, zero, Math.pi / 6, -Math.pi / 4, Math.pi / 4, false);
   ctx.lineTo(80, 0);
   ctx.stroke();
   ctx.restore();
@@ -247,7 +247,7 @@ main() {
   ctx.save();
   ctx.beginPath();
   ctx.lineTo(10, 0);
-  ctx.ellipse(20, 0, 20, zero, Math.PI / 6, -Math.PI / 4, Math.PI / 2, false);
+  ctx.ellipse(20, 0, 20, zero, Math.pi / 6, -Math.pi / 4, Math.pi / 2, false);
   ctx.lineTo(80, 0);
   ctx.stroke();
   ctx.restore();
@@ -266,7 +266,7 @@ main() {
   ctx.save();
   ctx.beginPath();
   ctx.lineTo(10, 0);
-  ctx.ellipse(20, 0, 20, zero, Math.PI / 6, -Math.PI / 4, Math.PI * 3 / 2, false);
+  ctx.ellipse(20, 0, 20, zero, Math.pi / 6, -Math.pi / 4, Math.pi * 3 / 2, false);
   ctx.lineTo(80, 0);
   ctx.stroke();
   ctx.restore();
@@ -285,7 +285,7 @@ main() {
   ctx.save();
   ctx.beginPath();
   ctx.lineTo(10, 0);
-  ctx.ellipse(20, 0, 20, zero, Math.PI / 6, -Math.PI / 4, Math.PI * 2, false);
+  ctx.ellipse(20, 0, 20, zero, Math.pi / 6, -Math.pi / 4, Math.pi * 2, false);
   ctx.lineTo(80, 0);
   ctx.stroke();
   ctx.restore();
@@ -304,7 +304,7 @@ main() {
   ctx.save();
   ctx.beginPath();
   ctx.lineTo(10, 0);
-  ctx.ellipse(20, 0, 20, zero, Math.PI / 6, -Math.PI / 4, Math.PI * 16, false);
+  ctx.ellipse(20, 0, 20, zero, Math.pi / 6, -Math.pi / 4, Math.pi * 16, false);
   ctx.lineTo(80, 0);
   ctx.stroke();
   ctx.restore();

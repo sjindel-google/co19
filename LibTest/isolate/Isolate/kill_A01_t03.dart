@@ -39,7 +39,7 @@ test() async {
       errorsAreFatal:true
   );
 
-  server.isolate.kill(priority:Isolate.BEFORE_NEXT_EVENT);
+  server.isolate.kill(priority:Isolate.beforeNextEvent);
   await onExit.first;
   asyncEnd();
 }

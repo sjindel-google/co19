@@ -5,7 +5,7 @@
  */
 /**
  * @assertion bool readEventsEnabled
- * Set or get, if the RawDatagramSocket should listen for RawSocketEvent.READ
+ * Set or get, if the RawDatagramSocket should listen for RawSocketEvent.read
  * events. Default is true.
  *
  * @description Checks that readEventsEnabled property may be get and set for
@@ -27,8 +27,8 @@ check(InternetAddress address) {
 }
 
 main() {
-  check(InternetAddress.ANY_IP_V4);
-  check(InternetAddress.ANY_IP_V6);
-  check(InternetAddress.LOOPBACK_IP_V4);
-  check(InternetAddress.LOOPBACK_IP_V6);
+  check(InternetAddress.anyIPv4);
+  check(InternetAddress.anyIPv6);
+  check(InternetAddress.loopbackIPv4);
+  check(InternetAddress.loopbackIPv6);
 }

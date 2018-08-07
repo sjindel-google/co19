@@ -20,7 +20,7 @@ main() {
   HttpServer server = null;
   HttpServer.bind("127.0.0.1", 0).then((HttpServer s) {
     server = s;
-    Expect.equals(InternetAddress.LOOPBACK_IP_V4, server.address);
+    Expect.equals(InternetAddress.loopbackIPv4, server.address);
     asyncEnd();
   }).whenComplete(() {
     if (server != null) {

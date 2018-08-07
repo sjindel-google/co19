@@ -47,7 +47,7 @@ test() async {
       onExit:onExit.sendPort,
       errorsAreFatal:true
   );
-  isolate.kill(priority:Isolate.IMMEDIATE);
+  isolate.kill(priority:Isolate.immediate);
   await onExit.first;
   asyncEnd();
 }

@@ -16,7 +16,7 @@ import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
-  Expect.isTrue(Math.tan(double.NAN).isNaN);
-  Expect.isTrue(Math.tan(double.INFINITY).isNaN);
-  Expect.isTrue(Math.tan(double.NEGATIVE_INFINITY).isNaN);
+  Expect.isTrue(Math.tan(double.nan).isNaN);
+  Expect.isTrue(Math.tan(double.infinity).isNaN);
+  Expect.isTrue(Math.tan(double.negativeInfinity).isNaN);
 }

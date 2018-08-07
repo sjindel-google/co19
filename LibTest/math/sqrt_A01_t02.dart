@@ -15,6 +15,6 @@ import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
-  Expect.equals(double.INFINITY, Math.sqrt(double.INFINITY));
+  Expect.equals(double.infinity, Math.sqrt(double.infinity));
   Expect.equals(.0, Math.sqrt(0.0));
 }

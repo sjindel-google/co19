@@ -38,13 +38,13 @@ import "../../../Utils/expect.dart";
 
 test() async {
   String helloWorld = 'Hello, test world!';
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.autoCompress = false;
 
   asyncStart();
   server.listen((HttpRequest request) {
     request.response
-      ..headers.set(HttpHeaders.CONTENT_ENCODING, "gzip")
+      ..headers.set(HttpHeaders.contentEncodingHeader, "gzip")
       ..write(helloWorld)
       ..close();
     server.close();
@@ -56,14 +56,14 @@ test() async {
   client.autoUncompress = true;
   client
       .getUrl(Uri.parse(
-      "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}"))
+      "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
     // Server sends uncompressed data but on client autoUncompress sets to true
     // and Content-Encoding header value is gzip so we are trying to uncompress
     // not compressed data
-    response.transform(UTF8.decoder).listen((content) {
+    response.transform(utf8.decoder).listen((content) {
     }, onError: (_) {
       asyncEnd();
     });

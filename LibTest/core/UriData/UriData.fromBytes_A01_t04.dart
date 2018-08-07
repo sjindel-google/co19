@@ -24,7 +24,7 @@ import "../../../Utils/expect.dart";
 check(List<int> bytes, Map<String, String> parameters) {
   UriData uriData = new UriData.fromBytes(bytes, parameters: parameters);
 
-  Expect.equals(BASE64.encode(bytes), uriData.contentText);
+  Expect.equals(base64.encode(bytes), uriData.contentText);
   Expect.equals("application/octet-stream", uriData.mimeType);
   Expect.mapEquals(parameters, uriData.parameters);
 }

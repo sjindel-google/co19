@@ -42,7 +42,7 @@ void main() {
 		 whitespace,
 		 [ "-47", ".1", "0.35", "1e-10", "+32", "+17E-1", "17e+2" ], // valid
 		 [], // invalid (split out the next line to whitespace-length-invalid.html because trybots were too slow )
-		     // [ double.NAN, double.INFINITY, double.NEGATIVE_INFINITY, "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ],
+		     // [ double.nan, double.infinity, double.negativeInfinity, "fnord", "E", "e", "e+", "E-", "-", "+", "-.", ".-", ".", "+.", ".E0", "e1" ],
 		 validunits,
 		 garbage,
 		 (elm, value) { assert_approx_equals(elm.x.baseVal.valueInSpecifiedUnits, double.parse(value), EPSILON); },

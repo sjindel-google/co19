@@ -18,16 +18,16 @@ import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test() async {
   String helloWorld = "Hello test world!";
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
-    Expect.isNotNull(request.headers[HttpHeaders.AUTHORIZATION]);
-    Expect.isNotNull(request.headers[HttpHeaders.AUTHORIZATION].length > 0);
-    var authorization = request.headers[HttpHeaders.AUTHORIZATION][0];
-    String encoded = BASE64.encode(UTF8.encode("co19-test:password"));
+    Expect.isNotNull(request.headers[HttpHeaders.authorizationHeader]);
+    Expect.isNotNull(request.headers[HttpHeaders.authorizationHeader].length > 0);
+    var authorization = request.headers[HttpHeaders.authorizationHeader][0];
+    String encoded = base64.encode(utf8.encode("co19-test:password"));
     Expect.equals("Basic ${encoded}", authorization);
     request.response.write(helloWorld);
     request.response.close();
@@ -43,7 +43,7 @@ test() async {
     .then((HttpClientRequest request) {
       return request.close();
     }).then((HttpClientResponse response) {
-      response.transform(UTF8.decoder).listen((content) {
+      response.transform(utf8.decoder).listen((content) {
         Expect.equals(helloWorld, content);
       });
     });

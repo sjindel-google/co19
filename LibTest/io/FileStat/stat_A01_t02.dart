@@ -8,7 +8,7 @@
  * Asynchronously calls the operating system's stat() function on path. Returns
  * a Future which completes with a FileStat object containing the data returned
  * by stat(). If the call fails, completes the future with a FileStat object
- * with .type set to FileSystemEntityType.NOT_FOUND and the other fields invalid.
+ * with .type set to FileSystemEntityType.notFound and the other fields invalid.
  * @description Checks that this method calls the operating system's stat()
  * function on path. Returns a Future which completes with a FileStat object
  * containing the data returned by stat(). Test not empty file
@@ -23,7 +23,7 @@ main() {
   file.writeAsBytesSync([3, 1, 4, 1, 5, 9, 2, 6]);
   asyncStart();
   FileStat.stat(file.path).then((FileStat fs) {
-    Expect.equals(FileSystemEntityType.FILE, fs.type);
+    Expect.equals(FileSystemEntityType.file, fs.type);
     Expect.equals(8, fs.size);
     Expect.equals(file.statSync().mode, fs.mode);
     Expect.equals(file.statSync().accessed, fs.accessed);

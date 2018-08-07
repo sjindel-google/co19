@@ -36,14 +36,14 @@ import "../../../Utils/expect.dart";
 
 test() async {
   String helloWorld = 'Hello, test world!';
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.autoCompress = true;
 
   asyncStart();
   server.listen((HttpRequest request) {
     request.response
-      ..headers.set(HttpHeaders.CONTENT_LENGTH, helloWorld.length)
-      ..headers.set(HttpHeaders.CONTENT_ENCODING, "utf-8")
+      ..headers.set(HttpHeaders.contentLengthHeader, helloWorld.length)
+      ..headers.set(HttpHeaders.contentEncodingHeader, "utf-8")
       ..write(helloWorld)
       ..close();
     server.close();
@@ -55,14 +55,14 @@ test() async {
   client.autoUncompress = true;
   client
       .getUrl(Uri.parse(
-      "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}"))
+      "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
     Expect.listEquals([helloWorld.length.toString()],
-        response.headers[HttpHeaders.CONTENT_LENGTH]);
-    Expect.listEquals(["utf-8"], response.headers[HttpHeaders.CONTENT_ENCODING]);
-    response.transform(UTF8.decoder).listen((content) {
+        response.headers[HttpHeaders.contentLengthHeader]);
+    Expect.listEquals(["utf-8"], response.headers[HttpHeaders.contentEncodingHeader]);
+    response.transform(utf8.decoder).listen((content) {
       Expect.equals(helloWorld, content);
       asyncEnd();
     });

@@ -6,7 +6,7 @@
 /**
  * @assertion
  * void lockSync([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  *     ])
@@ -31,11 +31,11 @@ import "lock_check_1_lib.dart";
 void check(int fLen) {
   File file = getTempFileSync();
   asyncStart();
-  var rf = file.openSync(mode: FileMode.WRITE);
+  var rf = file.openSync(mode: FileMode.write);
   rf.writeFromSync(new List.filled(fLen, 1));
   var start = fLen >> 1;
   var end = fLen - 2;
-  rf.lockSync(FileLock.EXCLUSIVE, start, end);
+  rf.lockSync(FileLock.exclusive, start, end);
   var tests = [
     () => checkLocked(rf.path, start, end),
     () => checkUnlocked(rf.path, 0, start),

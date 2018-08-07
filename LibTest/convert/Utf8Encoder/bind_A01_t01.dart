@@ -22,7 +22,7 @@ import "../../../Utils/expect.dart";
 
 Future check(String str) async {
   Utf8Encoder encoder = new Utf8Encoder();
-  List<int> data = UTF8.encode(str);
+  List<int> data = utf8.encode(str);
 
   await for (List<int> event in encoder.bind(new Stream.fromIterable([str]))) {
     Expect.listEquals(encoder.convert(str), event);

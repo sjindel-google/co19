@@ -17,24 +17,24 @@ import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
-  Expect.equals(double.INFINITY, Math.pow(.0, -4.9406564584124654e-324));
-  Expect.equals(double.INFINITY, Math.pow(0, -4.9406564584124654e-324));
+  Expect.equals(double.infinity, Math.pow(.0, -4.9406564584124654e-324));
+  Expect.equals(double.infinity, Math.pow(0, -4.9406564584124654e-324));
 
-  Expect.equals(double.INFINITY, Math.pow(.0, -0.123));
-  Expect.equals(double.INFINITY, Math.pow(0, -0.123));
+  Expect.equals(double.infinity, Math.pow(.0, -0.123));
+  Expect.equals(double.infinity, Math.pow(0, -0.123));
 
-  Expect.equals(double.INFINITY, Math.pow(.0, -111.11));
-  Expect.equals(double.INFINITY, Math.pow(0, -111.11));
+  Expect.equals(double.infinity, Math.pow(.0, -111.11));
+  Expect.equals(double.infinity, Math.pow(0, -111.11));
 
-  Expect.equals(double.INFINITY, Math.pow(.0, -1.7976931348623157e308));
-  Expect.equals(double.INFINITY, Math.pow(0, -1.7976931348623157e308));
+  Expect.equals(double.infinity, Math.pow(.0, -1.7976931348623157e308));
+  Expect.equals(double.infinity, Math.pow(0, -1.7976931348623157e308));
 
-  Expect.equals(double.INFINITY, Math.pow(.0, double.NEGATIVE_INFINITY));
-  Expect.equals(double.INFINITY, Math.pow(0, double.NEGATIVE_INFINITY));
+  Expect.equals(double.infinity, Math.pow(.0, double.negativeInfinity));
+  Expect.equals(double.infinity, Math.pow(0, double.negativeInfinity));
 
-  Expect.equals(double.INFINITY, Math.pow(.0, -100));
-  Expect.equals(double.INFINITY, Math.pow(0, -100));
+  Expect.equals(double.infinity, Math.pow(.0, -100));
+  Expect.equals(double.infinity, Math.pow(0, -100));
 
-  Expect.equals(double.INFINITY, Math.pow(.0, -9223372036854775808));
-  Expect.equals(double.INFINITY, Math.pow(0, -9223372036854775808));
+  Expect.equals(double.infinity, Math.pow(.0, -9223372036854775808));
+  Expect.equals(double.infinity, Math.pow(0, -9223372036854775808));
 }

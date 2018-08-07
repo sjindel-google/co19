@@ -19,7 +19,7 @@ import "../../../Utils/expect.dart";
 test() async {
   String helloWorld = 'Hello, test world!';
   ServerSocket serverSocket =
-      await ServerSocket.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+      await ServerSocket.bind(InternetAddress.loopbackIPv4, 0);
   HttpServer server = new HttpServer.listenOn(serverSocket);
 
   asyncStart();
@@ -32,11 +32,11 @@ test() async {
 
   var client = new HttpClient();
   var request = await client.getUrl(Uri.parse(
-      "http://${InternetAddress.LOOPBACK_IP_V4.address}:${serverSocket.port}"));
+      "http://${InternetAddress.loopbackIPv4.address}:${serverSocket.port}"));
   var response = await request.close();
-  Expect.equals(HttpStatus.OK, response.statusCode);
+  Expect.equals(HttpStatus.ok, response.statusCode);
 
-  response.transform(UTF8.decoder).listen((content) {
+  response.transform(utf8.decoder).listen((content) {
     Expect.equals(helloWorld, content);
     serverSocket.close();
   });

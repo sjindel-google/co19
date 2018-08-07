@@ -25,5 +25,5 @@ main() {
   check(-1.0, 0);
   check(0, -1);
   check(1.0, 1);
-  check(E, -PI);
+  check(e, -pi);
 }

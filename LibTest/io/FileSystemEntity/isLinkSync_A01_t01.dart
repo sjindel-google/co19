@@ -6,10 +6,10 @@
 /**
  * @assertion bool isLinkSync(String path)
  * Synchronously checks if typeSync(path, followLinks: false) returns
- * FileSystemEntityType.LINK.
+ * FileSystemEntityType.link.
  *
  * @description Checks that this property Synchronously checks if
- * typeSync(path, followLinks: false) returns FileSystemEntityType.LINK.
+ * typeSync(path, followLinks: false) returns FileSystemEntityType.link.
  * Test Link
  * @author sgrekhov@unipro.ru
  */
@@ -23,7 +23,7 @@ main() {
     Expect.isTrue(FileSystemEntity.isLinkSync(link.path));
     Expect.equals(
         FileSystemEntity.typeSync(link.path, followLinks: false),
-        FileSystemEntityType.LINK);
+        FileSystemEntityType.link);
   } finally {
     deleteLinkWithTarget(link);
   }

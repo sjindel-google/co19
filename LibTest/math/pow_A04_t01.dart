@@ -17,9 +17,9 @@ import "dart:math" as Math;
 import "../../Utils/expect.dart";
 
 main() {
-  Expect.equals(1.0, Math.pow(1.0, double.NAN));
-  Expect.equals(1.0, Math.pow(1.0, double.INFINITY));
-  Expect.equals(1.0, Math.pow(1.0, double.NEGATIVE_INFINITY));
+  Expect.equals(1.0, Math.pow(1.0, double.nan));
+  Expect.equals(1.0, Math.pow(1.0, double.infinity));
+  Expect.equals(1.0, Math.pow(1.0, double.negativeInfinity));
 
   Expect.equals(1.0, Math.pow(1.0, .0));
   Expect.equals(1.0, Math.pow(1.0, -.0));

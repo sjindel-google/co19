@@ -58,7 +58,7 @@ final List<double> values = const [
 
 main() {
   values.forEach((d) {
-    Expect.equals(.0, d / double.INFINITY);
-    Expect.equals(.0, d / double.NEGATIVE_INFINITY);
+    Expect.equals(.0, d / double.infinity);
+    Expect.equals(.0, d / double.negativeInfinity);
   });
 }

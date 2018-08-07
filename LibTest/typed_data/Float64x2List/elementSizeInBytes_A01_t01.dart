@@ -8,7 +8,7 @@
  * Returns the number of bytes in the representation of each element in this
  * list.
  * @description Checks that the number of bytes for each element in a
- * [Float64x2List] is equal to 16 or Float64x2List.BYTES_PER_ELEMENT.
+ * [Float64x2List] is equal to 16 or Float64x2List.bytesPerElement.
  * @author ngl@unipro.ru
  */
 
@@ -18,5 +18,5 @@ import "../../../Utils/expect.dart";
 main() {
   var l = new Float64x2List(0);
   Expect.equals(16, l.elementSizeInBytes);
-  Expect.equals(Float64x2List.BYTES_PER_ELEMENT, l.elementSizeInBytes);
+  Expect.equals(Float64x2List.bytesPerElement, l.elementSizeInBytes);
 }

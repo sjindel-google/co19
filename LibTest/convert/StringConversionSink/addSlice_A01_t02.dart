@@ -22,10 +22,10 @@ main() {
   
   var outSink = new ByteConversionSink.withCallback((accumulated) {
     called = true;
-    Expect.listEquals(UTF8.encode("abcde1"), accumulated);
+    Expect.listEquals(utf8.encode("abcde1"), accumulated);
   });
 
-  StringConversionSink inSink = UTF8.encoder.startChunkedConversion(outSink);
+  StringConversionSink inSink = utf8.encoder.startChunkedConversion(outSink);
 
   inSink.addSlice("12345abcde", 5, 10, false);
   Expect.isFalse(called);

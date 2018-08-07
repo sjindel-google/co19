@@ -27,7 +27,7 @@ manuallyEncode(String s) => s.runes
   .map((x) =>
       unreserved.runes.contains(x)
       ? new String.fromCharCode(x)
-      : UTF8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
+      : utf8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
   .join('');
 
 main() {

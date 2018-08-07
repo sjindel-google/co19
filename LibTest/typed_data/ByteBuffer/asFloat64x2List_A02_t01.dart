@@ -30,7 +30,7 @@ void check(ByteBuffer buffer) {
   Float64x2List res = buffer.asFloat64x2List(0);
   int viewSizeInBytes = res.lengthInBytes;
   int viewLength = res.length;
-  int shift = (Float64x2List.BYTES_PER_ELEMENT == 16) ? 4 : 0;
+  int shift = (Float64x2List.bytesPerElement == 16) ? 4 : 0;
   int offset1 = 16;
   int length1 = (viewSizeInBytes - offset1) >> shift;
   int offset2 = 32;

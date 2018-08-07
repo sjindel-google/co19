@@ -10,7 +10,7 @@
  * Calls test on each element of the stream. If the call returns true, the
  * returned future is completed with true and processing stops.
  *
- * @description Checks that method any returns true when RawSocketEvent.CLOSED
+ * @description Checks that method any returns true when RawSocketEvent.closed
  * is searched and writeEventsEnabled is true. In this case the listening to the
  * stream is stopped after the last received event.
  * @issue 31881
@@ -21,9 +21,9 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 main() {
-  var expectedEvent = RawSocketEvent.CLOSED;
+  var expectedEvent = RawSocketEvent.closed;
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       receiver.writeEventsEnabled = true;

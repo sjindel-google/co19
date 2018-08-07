@@ -20,7 +20,7 @@ import "../../../Utils/expect.dart";
 
 check(test(e), dataExpected) {
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
@@ -53,18 +53,18 @@ check(test(e), dataExpected) {
 
 main() {
   List expected = [
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED
+    RawSocketEvent.write,
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.closed
   ];
-  check((e) => e != RawSocketEvent.CLOSED, expected.sublist(0, 3));
-  check((e) => e != RawSocketEvent.READ,
-      [RawSocketEvent.WRITE, RawSocketEvent.CLOSED]);
-  check((e) => e != RawSocketEvent.WRITE, expected.sublist(1));
-  check((e) => e == RawSocketEvent.CLOSED, expected.sublist(3));
-  check((e) => e == RawSocketEvent.READ, expected.sublist(1, 3));
-  check((e) => e == RawSocketEvent.WRITE, expected.sublist(0, 1));
+  check((e) => e != RawSocketEvent.closed, expected.sublist(0, 3));
+  check((e) => e != RawSocketEvent.read,
+      [RawSocketEvent.write, RawSocketEvent.closed]);
+  check((e) => e != RawSocketEvent.write, expected.sublist(1));
+  check((e) => e == RawSocketEvent.closed, expected.sublist(3));
+  check((e) => e == RawSocketEvent.read, expected.sublist(1, 3));
+  check((e) => e == RawSocketEvent.write, expected.sublist(0, 1));
   check((e) => true, expected);
   check((e) => false, []);
 }

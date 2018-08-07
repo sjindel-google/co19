@@ -17,7 +17,7 @@ import "../../../Utils/expect.dart";
 main() {
   var tmp = new Int16List.fromList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   var byteBuffer = tmp.buffer;
-  var elemSize = Int16List.BYTES_PER_ELEMENT;
+  var elemSize = Int16List.bytesPerElement;
 
   for (int i = 0; i <= 10; ++i) {
     var l = new Int16List.view(byteBuffer, i * elemSize, 10 - i) ;

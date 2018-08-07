@@ -25,18 +25,18 @@ StreamTransformer<RawSocketEvent, RawSocketEvent> transformWithoutChange =
 
 StreamTransformer<RawSocketEvent, int> transformToInt =
     new StreamTransformer.fromHandlers(handleData: (x, sink) {
-  sink.add(x == RawSocketEvent.WRITE ? 1 : x == RawSocketEvent.READ ? 2 : 3);
+  sink.add(x == RawSocketEvent.write ? 1 : x == RawSocketEvent.read ? 2 : 3);
 });
 
 StreamTransformer<RawSocketEvent, int> transformWithError =
     new StreamTransformer.fromHandlers(handleData: (x, sink) {
   sink.add(
-      x == RawSocketEvent.WRITE ? 1 : x == RawSocketEvent.READ ? 2 : throw 11);
+      x == RawSocketEvent.write ? 1 : x == RawSocketEvent.read ? 2 : throw 11);
 });
 
 check(transformer, dataExpected) {
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
@@ -78,10 +78,10 @@ check(transformer, dataExpected) {
 
 main() {
   check(transformWithoutChange, [
-    RawSocketEvent.WRITE,
-    RawSocketEvent.READ,
-    RawSocketEvent.READ,
-    RawSocketEvent.CLOSED
+    RawSocketEvent.write,
+    RawSocketEvent.read,
+    RawSocketEvent.read,
+    RawSocketEvent.closed
   ]);
   check(transformToInt, [1, 2, 2, 3]);
   check(transformWithError, [1, 2, 2, 11]);

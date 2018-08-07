@@ -32,7 +32,7 @@ void check(List<Float64x2> list, int offset, int length) {
 }
 
 main() {
-  var el_size = Float64x2List.BYTES_PER_ELEMENT;
+  var el_size = Float64x2List.bytesPerElement;
   check([], 0, 0);
   check([f64x2V(100.0), f64x2V(200.0), f64x2V(300.0)], 0, 3);
   check([

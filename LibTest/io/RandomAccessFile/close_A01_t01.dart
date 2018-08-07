@@ -19,7 +19,7 @@ import "../file_utils.dart";
 main() {
   File file = getTempFileSync();
   asyncStart();
-  Future<RandomAccessFile> raFile = file.open(mode: FileMode.READ);
+  Future<RandomAccessFile> raFile = file.open(mode: FileMode.read);
   raFile.then((RandomAccessFile rf) {
     Expect.isNotNull(rf);
     var clf = rf.close();

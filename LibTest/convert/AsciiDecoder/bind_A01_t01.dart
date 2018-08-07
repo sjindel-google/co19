@@ -22,7 +22,7 @@ import "../../../Utils/expect.dart";
 
 Future check(String str) async {
   AsciiDecoder decoder = new AsciiDecoder();
-  List<int> data = ASCII.encode(str);
+  List<int> data = ascii.encode(str);
 
   await for (String event in decoder.bind(new Stream.fromIterable([data]))) {
     Expect.equals(str, event);

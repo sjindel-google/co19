@@ -8,9 +8,9 @@
  * Asynchronously calls the operating system's stat() function on path. Returns
  * a Future which completes with a FileStat object containing the data returned
  * by stat(). If the call fails, completes the future with a FileStat object
- * with .type set to FileSystemEntityType.NOT_FOUND and the other fields invalid.
+ * with .type set to FileSystemEntityType.notFound and the other fields invalid.
  * @description Checks that if the call fails, completes the future with a
- * FileStat object with .type set to FileSystemEntityType.NOT_FOUND and the
+ * FileStat object with .type set to FileSystemEntityType.notFound and the
  * other fields invalid.
  * @author sgrekhov@unipro.ru
  */
@@ -22,7 +22,7 @@ main() {
   File file = new File(getTempFilePath());
   asyncStart();
   FileStat.stat(file.path).then((FileStat fs) {
-    Expect.equals(FileSystemEntityType.NOT_FOUND, fs.type);
+    Expect.equals(FileSystemEntityType.notFound, fs.type);
     Expect.equals(-1, fs.size);
     Expect.equals(0, fs.mode);
     Expect.isNull(fs.accessed);

@@ -6,7 +6,7 @@
 /**
  * @assertion
  * Future<RandomAccessFile> lock([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  * ])
@@ -29,11 +29,11 @@ import "lock_check_1_lib.dart";
 
 void check(int fLen) {
   File file = getTempFileSync();
-  var rf = file.openSync(mode: FileMode.WRITE);
+  var rf = file.openSync(mode: FileMode.write);
   rf.writeFromSync(new List.filled(fLen, 1));
   var start = fLen >> 1;
   asyncStart();
-  var rfLock = rf.lock(FileLock.EXCLUSIVE, start);
+  var rfLock = rf.lock(FileLock.exclusive, start);
   rfLock.then((RandomAccessFile f) {
     rf.writeFromSync([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
     var rfLen = f.lengthSync();

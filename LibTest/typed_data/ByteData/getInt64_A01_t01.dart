@@ -7,7 +7,7 @@
  * @assertion
  * int getInt64(
  *     int byteOffset, [
- *     Endianness endian = Endianness.BIG_ENDIAN
+ *     Endian endian = Endian.big
  * ])
  * Returns the (possibly negative) integer represented by the eight bytes at
  * the specified [byteOffset] in this object, in two's complement binary form.
@@ -26,12 +26,12 @@ main() {
   ]);
   var u32 = new Uint32List.fromList(
       [0x62e7a17b, 0xf7ec7100, 0xe7180101, 0x1f83ccbb]);
-  int bytesInElement = Int64List.BYTES_PER_ELEMENT;
+  int bytesInElement = Int64List.bytesPerElement;
 
   var byteDataFromI64 = new ByteData.view(i64.buffer);
   for (int i = 0; i < byteDataFromI64.lengthInBytes / bytesInElement; ++i) {
     Expect.equals(i64[i],
-        byteDataFromI64.getInt64(i * bytesInElement, Endianness.LITTLE_ENDIAN));
+        byteDataFromI64.getInt64(i * bytesInElement, Endian.little));
   }
 
   var byteDataFromU32 = new ByteData.view(u32.buffer);
@@ -39,8 +39,8 @@ main() {
   var expectedLittleEndian = [-581966005364350597, 2270883744532922625];
   for (int i = 0; i < byteDataFromU32.lengthInBytes / bytesInElement; ++i) {
     Expect.equals(expectedBigEndian[i],
-        byteDataFromU32.getInt64(i * bytesInElement, Endianness.BIG_ENDIAN));
+        byteDataFromU32.getInt64(i * bytesInElement, Endian.big));
     Expect.equals(expectedLittleEndian[i],
-        byteDataFromU32.getInt64(i * bytesInElement, Endianness.LITTLE_ENDIAN));
+        byteDataFromU32.getInt64(i * bytesInElement, Endian.little));
   }
 }

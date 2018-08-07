@@ -19,7 +19,7 @@ import "../../../Utils/expect.dart";
 
 check([bool no_write_events = false]) {
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       if (no_write_events) {
@@ -53,7 +53,7 @@ check([bool no_write_events = false]) {
         }
         if (timer2 != null) timer2.cancel();
         timer2 = new Timer(const Duration(milliseconds: 200), () {
-          if (event != RawSocketEvent.CLOSED) {
+          if (event != RawSocketEvent.closed) {
             Expect.equals(received, sent - 2);
           }
           receiver.close();

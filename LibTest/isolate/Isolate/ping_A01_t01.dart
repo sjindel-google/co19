@@ -43,7 +43,7 @@ test() async {
   isolate.ping(pingPort.sendPort);
   Expect.isNull(await pingPort.first);
   // clean up
-  isolate.kill(priority:Isolate.IMMEDIATE);
+  isolate.kill(priority:Isolate.immediate);
   await onExit.first;
   asyncEnd();
 }

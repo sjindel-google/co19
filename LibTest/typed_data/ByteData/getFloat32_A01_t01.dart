@@ -7,7 +7,7 @@
  * @assertion
  * double getFloat32(
  *     int byteOffset, [
- *     Endianness endian = Endianness.BIG_ENDIAN
+ *     Endian endian = Endian.big
  * ])
  * Returns the floating point number represented by the four bytes at the
  * specified [byteOffset] in this object, in IEEE 754 single-precision binary
@@ -26,12 +26,12 @@ main() {
   ]);
   var u32 = new Uint32List.fromList(
       [0x62e7a17b, 0xf7ec7100, 0xe7180101, 0x1f83ccbb]);
-  var sizeInBytes =  Float32List.BYTES_PER_ELEMENT;
+  var sizeInBytes =  Float32List.bytesPerElement;
 
   var byteDataFromF32 = new ByteData.view(f32.buffer);
   for (int i = 0; i < byteDataFromF32.lengthInBytes / sizeInBytes; ++i) {
     Expect.approxEquals(f32[i], byteDataFromF32.getFloat32(i * sizeInBytes,
-        Endianness.LITTLE_ENDIAN),(f32[i] / 1e7).abs());
+        Endian.little),(f32[i] / 1e7).abs());
   }
 
   var byteDataFromU32 = new ByteData.view(u32.buffer);
@@ -45,10 +45,10 @@ main() {
   ];
   for (int i = 0; i < byteDataFromU32.lengthInBytes / sizeInBytes; ++i) {
     Expect.approxEquals(expectedBigEndian[i],
-        byteDataFromU32.getFloat32(i * sizeInBytes, Endianness.BIG_ENDIAN),
+        byteDataFromU32.getFloat32(i * sizeInBytes, Endian.big),
         (expectedBigEndian[i] / 1e7).abs());
     Expect.approxEquals(expectedLittleEndian[i],
-        byteDataFromU32.getFloat32(i * sizeInBytes, Endianness.LITTLE_ENDIAN),
+        byteDataFromU32.getFloat32(i * sizeInBytes, Endian.little),
         (expectedLittleEndian[i] / 1e7).abs());
   }
 }

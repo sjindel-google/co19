@@ -10,10 +10,10 @@
  * redirects. The default is true.
  *
  * Automatic redirect will only happen for "GET" and "HEAD" requests and only
- * for the status codes HttpHeaders.MOVED_PERMANENTLY (301), HttpStatus.FOUND
- * (302), HttpStatus.MOVED_TEMPORARILY (302, alias for HttpStatus.FOUND),
- * HttpStatus.SEE_OTHER (303) and HttpStatus.TEMPORARY_REDIRECT (307). For
- * HttpStatus.SEE_OTHER (303) automatic redirect will also happen for "POST"
+ * for the status codes HttpHeaders.MOVED_PERMANENTLY (301), HttpStatus.found
+ * (302), HttpStatus.movedTemporarily (302, alias for HttpStatus.found),
+ * HttpStatus.seeOther (303) and HttpStatus.temporaryRedirect (307). For
+ * HttpStatus.seeOther (303) automatic redirect will also happen for "POST"
  * requests with the method changed to "GET" when following the redirect.
  *
  * All headers added to the request will be added to the redirection request(s).
@@ -27,7 +27,7 @@ import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test(String method, int statusCode) async {
   asyncStart();
@@ -57,20 +57,20 @@ test(String method, int statusCode) async {
         Expect.isTrue(request.followRedirects);
         return request.close();
   }).then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {});
+    response.transform(utf8.decoder).listen((content) {});
   });
 }
 
 main() {
-  test("get", HttpStatus.MOVED_PERMANENTLY);
-  test("get", HttpStatus.FOUND);
-  test("get", HttpStatus.MOVED_TEMPORARILY);
-  test("get", HttpStatus.SEE_OTHER);
-  test("get", HttpStatus.TEMPORARY_REDIRECT);
+  test("get", HttpStatus.movedPermanently);
+  test("get", HttpStatus.found);
+  test("get", HttpStatus.movedTemporarily);
+  test("get", HttpStatus.seeOther);
+  test("get", HttpStatus.temporaryRedirect);
 
-  test("head", HttpStatus.MOVED_PERMANENTLY);
-  test("head", HttpStatus.FOUND);
-  test("head", HttpStatus.MOVED_TEMPORARILY);
-  test("head", HttpStatus.SEE_OTHER);
-  test("head", HttpStatus.TEMPORARY_REDIRECT);
+  test("head", HttpStatus.movedPermanently);
+  test("head", HttpStatus.found);
+  test("head", HttpStatus.movedTemporarily);
+  test("head", HttpStatus.seeOther);
+  test("head", HttpStatus.temporaryRedirect);
 }

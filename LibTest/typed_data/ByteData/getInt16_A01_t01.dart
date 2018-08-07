@@ -7,7 +7,7 @@
  * @assertion
  * int getInt16(
  *     int byteOffset, [
- *     Endianness endian = Endianness.BIG_ENDIAN
+ *     Endian endian = Endian.big
  * ])
  * Returns the (possibly negative) integer represented by the two bytes at
  * the specified [byteOffset] in this object, in two's complement binary form.
@@ -24,12 +24,12 @@ main() {
       [0, -1, 32767, -32768, 12, 54, 100, -23, 98, 23, 43, -15, -3]);
   var u32 = new Uint32List.fromList(
       [0x62e7a17b, 0xf7ec7100, 0xe7180101, 0x1f83ccbb]);
-  int bytesInElement = Int16List.BYTES_PER_ELEMENT;
+  int bytesInElement = Int16List.bytesPerElement;
 
   var byteDataFromI16 = new ByteData.view(i16.buffer);
   for (int i = 0; i < byteDataFromI16.lengthInBytes / bytesInElement; ++i) {
     Expect.equals(i16[i], byteDataFromI16.getInt16(i * bytesInElement,
-        Endianness.LITTLE_ENDIAN));
+        Endian.little));
   }
 
   var byteDataFromU32 = new ByteData.view(u32.buffer);
@@ -39,8 +39,8 @@ main() {
   ];
   for (int i = 0; i < byteDataFromU32.lengthInBytes / bytesInElement; ++i) {
     Expect.equals(expectedBigEndian[i],
-        byteDataFromU32.getInt16(i * bytesInElement, Endianness.BIG_ENDIAN));
+        byteDataFromU32.getInt16(i * bytesInElement, Endian.big));
     Expect.equals(expectedLittleEndian[i],
-        byteDataFromU32.getInt16(i * bytesInElement, Endianness.LITTLE_ENDIAN));
+        byteDataFromU32.getInt16(i * bytesInElement, Endian.little));
   }
 }

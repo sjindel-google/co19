@@ -21,7 +21,7 @@ int sentLength = 65504;
 
 main() {
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       Timer timer;
@@ -36,7 +36,7 @@ main() {
       List<int> rList;
       int longDataLength = 0;
       receiver.listen((event) {
-        if (event == RawSocketEvent.CLOSED) {
+        if (event == RawSocketEvent.closed) {
           if (longDataLength == sentLength) {
             Expect.fail('Long datagram was received: length $longDataLength');
           }

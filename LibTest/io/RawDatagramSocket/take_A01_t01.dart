@@ -30,7 +30,7 @@ import "../../../Utils/expect.dart";
 
 check(int n, List expected) {
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
@@ -52,9 +52,9 @@ check(int n, List expected) {
 
 main() {
   check(0, []);
-  check(1, [RawSocketEvent.CLOSED]);
-  check(2, [RawSocketEvent.CLOSED]);
-  check(3, [RawSocketEvent.CLOSED]);
-  check(4, [RawSocketEvent.CLOSED]);
-  check(5, [RawSocketEvent.CLOSED]);
+  check(1, [RawSocketEvent.closed]);
+  check(2, [RawSocketEvent.closed]);
+  check(3, [RawSocketEvent.closed]);
+  check(4, [RawSocketEvent.closed]);
+  check(5, [RawSocketEvent.closed]);
 }

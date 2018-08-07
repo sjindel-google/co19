@@ -11,7 +11,7 @@
 import "../../../Utils/expect.dart";
 
 
-final nan = double.NAN;
+final nan = double.nan;
 
 final List values = const [
    .0,

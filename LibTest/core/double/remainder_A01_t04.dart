@@ -11,7 +11,7 @@
  */
 import "../../../Utils/expect.dart";
 
-final inf = double.INFINITY;
+final inf = double.infinity;
 
 final List values = const [
    .0,

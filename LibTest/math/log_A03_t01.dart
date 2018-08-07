@@ -17,6 +17,6 @@ import "../../Utils/expect.dart";
 main() {
   Expect.isTrue(Math.log(-1).isNaN);
   Expect.isTrue(Math.log(-0.5).isNaN);
-  Expect.isTrue(Math.log(double.NAN).isNaN);
-  Expect.isTrue(Math.log(double.NEGATIVE_INFINITY).isNaN);
+  Expect.isTrue(Math.log(double.nan).isNaN);
+  Expect.isTrue(Math.log(double.negativeInfinity).isNaN);
 }

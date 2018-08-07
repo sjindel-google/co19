@@ -24,11 +24,11 @@ main() {
   canvas.height = 100;
   ctx = canvas.getContext("2d");
   ctx.moveTo(25,25);
-  ctx.arc(25, 25, 25, Math.PI, 500*Math.PI, false);
+  ctx.arc(25, 25, 25, Math.pi, 500*Math.pi, false);
   ctx.closePath();
 
   ctx.moveTo(75, 75);
-  ctx.arc(75, 75, 25, 500*Math.PI, Math.PI, true);
+  ctx.arc(75, 75, 25, 500*Math.pi, Math.pi, true);
   ctx.fillStyle = '#0f0';
   ctx.fill();
 

@@ -6,10 +6,10 @@
 /**
  * @assertion bool isDirectorySync(String path)
  * Synchronously checks if typeSync(path) returns
- * FileSystemEntityType.DIRECTORY.
+ * FileSystemEntityType.directory.
  *
  * @description Checks that this property Synchronously checks if typeSync(path)
- * returns FileSystemEntityType.DIRECTORY. Test Directory
+ * returns FileSystemEntityType.directory. Test Directory
  * @issue 30410
  * @author sgrekhov@unipro.ru
  */
@@ -22,7 +22,7 @@ main() {
   try {
     Expect.isFalse(FileSystemEntity.isDirectorySync(link.path));
     Expect.equals(
-        FileSystemEntity.typeSync(link.path), FileSystemEntityType.LINK);
+        FileSystemEntity.typeSync(link.path), FileSystemEntityType.link);
   } finally {
     deleteLinkWithTarget(link);
   }

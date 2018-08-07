@@ -13,6 +13,6 @@ import "../../../Utils/expect.dart";
 
 main() {
   for(int i = 1; i < 22; i++) {
-    Expect.equals('NaN', double.NAN.toStringAsPrecision(i));
+    Expect.equals('NaN', double.nan.toStringAsPrecision(i));
   }
 }

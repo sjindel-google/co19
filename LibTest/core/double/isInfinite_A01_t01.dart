@@ -15,6 +15,6 @@ main() {
   Expect.isTrue(inf.isInfinite);
   Expect.isTrue((-inf).isInfinite);
 
-  Expect.isTrue((double.INFINITY).isInfinite);
-  Expect.isTrue((double.NEGATIVE_INFINITY).isInfinite);
+  Expect.isTrue((double.infinity).isInfinite);
+  Expect.isTrue((double.negativeInfinity).isInfinite);
 }

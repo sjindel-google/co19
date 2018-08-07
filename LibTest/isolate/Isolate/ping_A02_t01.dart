@@ -52,10 +52,10 @@ test() async {
   );
   // check
   ReceivePort pingPort = new ReceivePort();
-  isolate.ping(pingPort.sendPort, priority:Isolate.IMMEDIATE);
+  isolate.ping(pingPort.sendPort, priority:Isolate.immediate);
   Expect.isNull(await pingPort.first);
   // clean up
-  isolate.kill(priority:Isolate.IMMEDIATE);
+  isolate.kill(priority:Isolate.immediate);
   await onExit.first;
   asyncEnd();
 }

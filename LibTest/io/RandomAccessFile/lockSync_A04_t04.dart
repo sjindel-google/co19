@@ -6,18 +6,18 @@
 /**
  * @assertion
  * void lockSync([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  *     ])
  * Synchronously locks the file or part of the file.
  * . . .
- * If mode is FileLock.EXCLUSIVE or FileLock.SHARED, an exception is thrown if
- * the lock cannot be obtained. If mode is FileLock.BLOCKING_EXCLUSIVE or
- * FileLock.BLOCKING_SHARED, the call returns only after the lock has been
+ * If mode is FileLock.exclusive or FileLock.shared, an exception is thrown if
+ * the lock cannot be obtained. If mode is FileLock.blockingExclusive or
+ * FileLock.blockingShared, the call returns only after the lock has been
  * obtained.
  *
- * @description Checks that if mode is FileLock.BLOCKING_EXCLUSIVE, the returned
+ * @description Checks that if mode is FileLock.blockingExclusive, the returned
  * Future is resolved only when the lock has been obtained.
  * @author ngl@unipro.ru
  */
@@ -30,11 +30,11 @@ import "lock_check_3_lib.dart";
 void check(int fLen) {
   File file = getTempFileSync();
   asyncStart();
-  var rf = file.openSync(mode: FileMode.WRITE);
+  var rf = file.openSync(mode: FileMode.write);
   rf.writeFromSync(new List.filled(fLen, 1));
-  rf.lockSync(FileLock.EXCLUSIVE);
+  rf.lockSync(FileLock.exclusive);
   var tests = [
-    () => checkUnlocked(rf.path, 0, -1, FileLock.BLOCKING_EXCLUSIVE)
+    () => checkUnlocked(rf.path, 0, -1, FileLock.blockingExclusive)
   ];
   Future.forEach(tests, (f) => f()).whenComplete(() {
     asyncEnd();

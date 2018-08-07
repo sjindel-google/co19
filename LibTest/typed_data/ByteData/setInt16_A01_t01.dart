@@ -8,7 +8,7 @@
  * void setInt16(
  *     int byteOffset,
  *     int value, [
- *     Endianness endian = Endianness.BIG_ENDIAN
+ *     Endian endian = Endian.big
  * ])
  * Sets the two bytes starting at the specified [byteOffset] in this object to
  * the two's complement binary representation of the specified [value], which
@@ -31,12 +31,12 @@ main() {
     31488, -24065, -6145, 25088, 0, 28928, -4865, -2049, 256, 256, 6144,
     -6145, -17409, -13057, -31745, 7936
   ];
-  int bytesInElement = Int16List.BYTES_PER_ELEMENT;
+  int bytesInElement = Int16List.bytesPerElement;
 
   var byteDataFromI16 = new ByteData.view(i16.buffer);
   for (int i = 0; i < byteDataFromI16.lengthInBytes / bytesInElement; ++i) {
     byteDataFromI16.setInt16(i * bytesInElement, valuesToBeSet[i],
-        Endianness.LITTLE_ENDIAN);
+        Endian.little);
   }
   Expect.listEquals(valuesToBeSet, i16);
 

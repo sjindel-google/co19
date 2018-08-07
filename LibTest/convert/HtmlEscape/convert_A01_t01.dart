@@ -24,5 +24,5 @@ check(HtmlEscape converter) {
 
 main() {
   check(new HtmlEscape());
-  check(new HtmlEscape(HtmlEscapeMode.UNKNOWN));
+  check(new HtmlEscape(HtmlEscapeMode.unknown));
 }

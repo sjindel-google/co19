@@ -22,7 +22,7 @@ main() {
       WebSocketTransformer
           .upgrade(request)
           .then((websocket) {
-        websocket.close(WebSocketStatus.NORMAL_CLOSURE);
+        websocket.close(WebSocketStatus.normalClosure);
       });
     });
 
@@ -30,7 +30,7 @@ main() {
     webs.then((client) {
       Expect.isTrue(client.closeCode == null);
       client.close().then((_) {
-        Expect.isTrue(client.closeCode == WebSocketStatus.NORMAL_CLOSURE);
+        Expect.isTrue(client.closeCode == WebSocketStatus.normalClosure);
       });
       server.close();
     });

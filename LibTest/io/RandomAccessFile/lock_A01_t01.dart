@@ -6,7 +6,7 @@
 /**
  * @assertion
  * Future<RandomAccessFile> lock([
- *     FileLock mode = FileLock.EXCLUSIVE,
+ *     FileLock mode = FileLock.exclusive,
  *     int start = 0,
  *     int end = -1
  * ])
@@ -26,7 +26,7 @@ import "../file_utils.dart";
 
 check(FileLock lock) {
   File file = getTempFileSync();
-  var rf = file.openSync(mode: FileMode.WRITE);
+  var rf = file.openSync(mode: FileMode.write);
   file.writeAsBytesSync(new List.filled(10, 0));
   asyncStart();
   var rfLock = rf.lock(lock);
@@ -42,8 +42,8 @@ check(FileLock lock) {
 }
 
 main() {
-  check(FileLock.SHARED);
-  check(FileLock.EXCLUSIVE);
-  check(FileLock.BLOCKING_SHARED);
-  check(FileLock.BLOCKING_EXCLUSIVE);
+  check(FileLock.shared);
+  check(FileLock.exclusive);
+  check(FileLock.blockingShared);
+  check(FileLock.blockingExclusive);
 }

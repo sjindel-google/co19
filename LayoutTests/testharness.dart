@@ -7,8 +7,8 @@ export "../Utils/expect.dart";
 export "resources/testharness.dart";
 
 const String testSuiteRoot="/root_dart/tests/co19/src/LayoutTests";
-const NaN=double.NAN;
-const Infinity=double.INFINITY;
+const NaN=double.nan;
+const Infinity=double.infinity;
 var HtmlNamespace = 'http://www.w3.org/1999/xhtml';
 var SvgNamespace = "http://www.w3.org/2000/svg";
 var XlinkNamespace = "http://www.w3.org/1999/xlink";

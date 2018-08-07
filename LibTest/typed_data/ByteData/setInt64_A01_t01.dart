@@ -8,7 +8,7 @@
  * void setInt64(
  *     int byteOffset,
  *     int value, [
- *     Endianness endian = Endianness.BIG_ENDIAN
+ *     Endian endian = Endian.big
  * ])
  * Sets the eight bytes starting at the specified [byteOffset] in this object to
  * the two's complement binary representation of the specified [value], which
@@ -35,12 +35,12 @@ main() {
     -4899916394579099649, -3674937295934324737, -8935141660703064065,
     2233785415175766016
   ];
-  int bytesInElement = Int64List.BYTES_PER_ELEMENT;
+  int bytesInElement = Int64List.bytesPerElement;
 
   var byteDataFromI64 = new ByteData.view(i64.buffer);
   for (int i = 0; i < byteDataFromI64.lengthInBytes / bytesInElement; ++i) {
     byteDataFromI64.setInt64(i * bytesInElement, valuesToBeSet[i],
-        Endianness.LITTLE_ENDIAN);
+        Endian.little);
   }
   Expect.listEquals(valuesToBeSet, i64);
 

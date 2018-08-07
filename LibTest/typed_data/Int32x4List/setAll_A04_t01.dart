@@ -32,7 +32,7 @@ main() {
   var list = [i32x4(0), i32x4(1), i32x4(2), i32x4(3), i32x4(4), i32x4(5)];
   var l = new Int32x4List.fromList(list);
   var buffer = l.buffer;
-  var view = new Int32x4List.view(buffer, Int32x4List.BYTES_PER_ELEMENT * 2, 3);
+  var view = new Int32x4List.view(buffer, Int32x4List.bytesPerElement * 2, 3);
 
   listEquals([i32x4(2), i32x4(3), i32x4(4)], view);
   l.setAll(1, view);

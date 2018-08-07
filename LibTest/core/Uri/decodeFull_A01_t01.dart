@@ -18,7 +18,7 @@ encodeOctet(int x) =>
 
 manuallyEncodeFull(String s) => s.runes
   .map((x) =>
-      UTF8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
+      utf8.encode(new String.fromCharCode(x)).map(encodeOctet).join(''))
   .join('');
 
 main() {

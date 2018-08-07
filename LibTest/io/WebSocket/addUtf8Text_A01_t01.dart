@@ -18,7 +18,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 import "../http_utils.dart";
 
-const Utf8Codec UTF8 = const Utf8Codec();
+const Utf8Codec utf8 = const Utf8Codec();
 
 main() {
   asyncTest<HttpServer>(
@@ -29,7 +29,7 @@ main() {
       ),
     setup: () => spawnWebSocketServer(
       (WebSocket ws) {
-        ws.addUtf8Text(UTF8.encode("Hello"));
+        ws.addUtf8Text(utf8.encode("Hello"));
         ws.close();
       }
     ),

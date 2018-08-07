@@ -38,19 +38,19 @@ final List<double> values = const [
 main() {
   values.forEach((d) {
     Expect.throws(() {
-      double.INFINITY ~/ d;
+      double.infinity ~/ d;
     });
 
     Expect.throws(() {
-      double.NEGATIVE_INFINITY ~/ d;
+      double.negativeInfinity ~/ d;
     });
 
     Expect.throws(() {
-      double.INFINITY ~/ (-d);
+      double.infinity ~/ (-d);
     });
 
     Expect.throws(() {
-      double.NEGATIVE_INFINITY ~/ (-d);
+      double.negativeInfinity ~/ (-d);
     });
   });
 }

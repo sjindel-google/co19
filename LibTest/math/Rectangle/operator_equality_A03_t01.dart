@@ -18,10 +18,10 @@ import "dart:math";
 import "../../../Utils/expect.dart";
 
 main() {
-  Rectangle point = new Rectangle(0, double.NAN, 0, 0);
+  Rectangle point = new Rectangle(0, double.nan, 0, 0);
   Expect.isFalse(point == point);
-  point = new Rectangle(double.NAN, 0, 0, 0);
+  point = new Rectangle(double.nan, 0, 0, 0);
   Expect.isFalse(point == point);
-  point = new Rectangle(double.NAN, double.NAN, 0, 0);
+  point = new Rectangle(double.nan, double.nan, 0, 0);
   Expect.isFalse(point == point);
 }

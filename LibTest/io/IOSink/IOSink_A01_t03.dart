@@ -5,7 +5,7 @@
  */
 /**
  * @assertion IOSink(StreamConsumer<List<int>> target,
- *   { Encoding encoding: UTF8 })
+ *   { Encoding encoding: utf8 })
  * Create an [IOSink] that outputs to a target [StreamConsumer] of bytes.
  * @description Checks that new [IOSink] object with correct encoding is created
  * @author iarkh@unipro.ru
@@ -17,20 +17,20 @@ import "dart:io";
 import "dart:convert";
 
 main() {
-  IOSink sink = new IOSink(new StreamController(), encoding: UTF8);
-  Expect.equals(UTF8, sink.encoding);
+  IOSink sink = new IOSink(new StreamController(), encoding: utf8);
+  Expect.equals(utf8, sink.encoding);
   sink.close();
 
-  sink = new IOSink(new StreamController(), encoding: ASCII);
-  Expect.equals(ASCII, sink.encoding);
+  sink = new IOSink(new StreamController(), encoding: ascii);
+  Expect.equals(ascii, sink.encoding);
   sink.close();
 
-  sink = new IOSink(new StreamController(), encoding: LATIN1);
-  Expect.equals(LATIN1, sink.encoding);
+  sink = new IOSink(new StreamController(), encoding: latin1);
+  Expect.equals(latin1, sink.encoding);
   sink.close();
 
-  sink = new IOSink(new StreamController(), encoding: SYSTEM_ENCODING);
-  Expect.equals(SYSTEM_ENCODING, sink.encoding);
+  sink = new IOSink(new StreamController(), encoding: systemEncoding);
+  Expect.equals(systemEncoding, sink.encoding);
   sink.close();
 
   sink = new IOSink(new StreamController(), encoding: null);

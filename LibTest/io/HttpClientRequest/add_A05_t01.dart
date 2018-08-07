@@ -25,7 +25,7 @@ import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test(String method) async {
   List<int> list = [3, 1, 4, 1, 5];
@@ -51,7 +51,7 @@ test(String method) async {
     list[0] = 0;
     return request.close();
   }).then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {});
+    response.transform(utf8.decoder).listen((content) {});
     asyncEnd();
   });
 }

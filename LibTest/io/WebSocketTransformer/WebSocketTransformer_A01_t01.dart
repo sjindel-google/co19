@@ -7,7 +7,7 @@
  * @assertion
  * WebSocketTransformer({
  *     dynamic protocolSelector(List<String> protocols),
- *     CompressionOptions compression: CompressionOptions.DEFAULT
+ *     CompressionOptions compression: CompressionOptions.compressionDefault
  * })
  * Create a new WebSocketTransformer.
  * @description Checks that this constructor without parameters creates a new

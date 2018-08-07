@@ -11,7 +11,7 @@
  * Returns a FileStat object containing the data returned by stat().
  *
  * If the call fails, returns a FileStat object with .type set to
- * FileSystemEntityType.NOT_FOUND and the other fields invalid.
+ * FileSystemEntityType.notFound and the other fields invalid.
  * @description Checks that this method synchronously calls the operating
  * system's stat() function
  * @author sgrekhov@unipro.ru
@@ -23,7 +23,7 @@ import "../file_utils.dart";
 main() {
   File file = getTempFileSync();
   try {
-    Expect.equals(FileSystemEntityType.FILE, file.statSync().type);
+    Expect.equals(FileSystemEntityType.file, file.statSync().type);
   } finally {
     file.delete(recursive: true);
   }

@@ -43,14 +43,14 @@ test() async {
   bool authenticateProxyCalled = false;
   int requestCounter = 0;
 
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
-    Expect.isNull(request.headers[HttpHeaders.PROXY_AUTHORIZATION]);
+    Expect.isNull(request.headers[HttpHeaders.proxyAuthorizationHeader]);
     if (requestCounter++ == 0) {
-      request.response.statusCode = HttpStatus.UNAUTHORIZED;
+      request.response.statusCode = HttpStatus.unauthorized;
       request.response.headers
-          .set(HttpHeaders.PROXY_AUTHENTICATE, 'Digest, realm=realm, nonce=12');
-      request.response.statusCode = HttpStatus.PROXY_AUTHENTICATION_REQUIRED;
+          .set(HttpHeaders.proxyAuthenticateHeader, 'Digest, realm=realm, nonce=12');
+      request.response.statusCode = HttpStatus.proxyAuthenticationRequired;
       request.response.close();
     } else  {
       Expect.isTrue(authenticateProxyCalled);
@@ -76,10 +76,10 @@ test() async {
 
   client
       .getUrl(Uri.parse(
-          "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}"))
+          "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {});
+    response.transform(utf8.decoder).listen((content) {});
   });
 }
 

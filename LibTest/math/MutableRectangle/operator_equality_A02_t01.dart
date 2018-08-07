@@ -19,13 +19,13 @@ import "../../../Utils/expect.dart";
 
 const List<num> values = const [
   0, -1, 1, 10, -10, 0.0, -1.0, 1.0, 10.0, -10.0,
-  double.INFINITY, double.MAX_FINITE, double.MIN_POSITIVE, -double.MAX_FINITE,
-  -double.MIN_POSITIVE, double.NAN, double.NEGATIVE_INFINITY
+  double.infinity, double.maxFinite, double.minPositive, -double.maxFinite,
+  -double.minPositive, double.nan, double.negativeInfinity
 ];
  
 main() {
   MutableRectangle r1 =
-      new MutableRectangle(0, double.MAX_FINITE, double.INFINITY, double.NAN);
+      new MutableRectangle(0, double.maxFinite, double.infinity, double.nan);
   for (int i = 0; i < values.length; i++) {
     for (int j = 0; j < values.length; j++) {
       for (int k = 0; k < values.length; k++) {

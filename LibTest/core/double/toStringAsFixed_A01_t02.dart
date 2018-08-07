@@ -14,7 +14,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   for(int i = 0; i < 10; i++) {
-    Expect.equals('Infinity', double.INFINITY.toStringAsFixed(i));
-    Expect.equals('-Infinity', double.NEGATIVE_INFINITY.toStringAsFixed(i));
+    Expect.equals('Infinity', double.infinity.toStringAsFixed(i));
+    Expect.equals('-Infinity', double.negativeInfinity.toStringAsFixed(i));
   }
 }

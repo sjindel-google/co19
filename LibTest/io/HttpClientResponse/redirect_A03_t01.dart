@@ -11,7 +11,7 @@
  *  ])
  * Redirects this connection to a new URL. The default value for method is the
  * method for the current request. The default value for url is the value of the
- * HttpHeaders.LOCATION header of the current response. All body data must have
+ * HttpHeaders.locationHeader header of the current response. All body data must have
  * been read from the current response before calling redirect.
  *
  * All headers added to the request will be added to the redirection request.
@@ -31,7 +31,7 @@ import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test(String method) async {
   asyncStart();
@@ -43,9 +43,9 @@ test(String method) async {
     } else if (request.uri.path == "/yyy") {
       request.response.write("yyy");
       request.response.close();
-      Expect.equals("23", request.headers.value(HttpHeaders.AGE));
+      Expect.equals("23", request.headers.value(HttpHeaders.ageHeader));
       Expect.equals(
-          "From Dart with Love", request.headers.value(HttpHeaders.FROM));
+          "From Dart with Love", request.headers.value(HttpHeaders.fromHeader));
       server.close();
     } else {
       server.close();
@@ -57,8 +57,8 @@ test(String method) async {
   client
       .open(method, localhost, server.port, "/xxx")
       .then((HttpClientRequest request) {
-    request.headers.set(HttpHeaders.AGE, 23);
-    request.headers.set(HttpHeaders.FROM, "From Dart with Love");
+    request.headers.set(HttpHeaders.ageHeader, 23);
+    request.headers.set(HttpHeaders.fromHeader, "From Dart with Love");
     return request.close();
   }).then((HttpClientResponse response) {
     response.transform(utf8.decoder).listen((content) {

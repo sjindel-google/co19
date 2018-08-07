@@ -15,14 +15,14 @@ import "../../../Utils/expect.dart";
 
 main() {
   HtmlEscape converter = new HtmlEscape();
-  Expect.equals(HtmlEscapeMode.UNKNOWN, converter.mode);
+  Expect.equals(HtmlEscapeMode.unknown, converter.mode);
 
-  converter = new HtmlEscape(HtmlEscapeMode.ELEMENT);
-  Expect.equals(HtmlEscapeMode.ELEMENT, converter.mode);
+  converter = new HtmlEscape(HtmlEscapeMode.element);
+  Expect.equals(HtmlEscapeMode.element, converter.mode);
 
-  converter = new HtmlEscape(HtmlEscapeMode.ATTRIBUTE);
-  Expect.equals(HtmlEscapeMode.ATTRIBUTE, converter.mode);
+  converter = new HtmlEscape(HtmlEscapeMode.attribute);
+  Expect.equals(HtmlEscapeMode.attribute, converter.mode);
 
-  converter = new HtmlEscape(HtmlEscapeMode.SQ_ATTRIBUTE);
-  Expect.equals(HtmlEscapeMode.SQ_ATTRIBUTE, converter.mode);
+  converter = new HtmlEscape(HtmlEscapeMode.sqAttribute);
+  Expect.equals(HtmlEscapeMode.sqAttribute, converter.mode);
 }

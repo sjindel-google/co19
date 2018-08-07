@@ -5,12 +5,12 @@
  */
 /**
  * @assertion String readLineSync({
- *   Encoding encoding: SYSTEM_ENCODING,
+ *   Encoding encoding: systemEncoding,
  *   bool retainNewlines: false
  *   })
  * The argument [encoding] can be used to changed how the input should be
  * decoded.
- * @description Checks that input string with UTF8 encoding is correctly passed.
+ * @description Checks that input string with utf8 encoding is correctly passed.
  * @author iarkh@unipro.ru
  */
 import "dart:convert";
@@ -18,8 +18,8 @@ import "dart:io";
 import "test.lib.dart";
 import "../file_utils.dart";
 
-List<int> expected = UTF8.encode("TESTME Тест для проверки 1âã");
-String str = UTF8.decode(expected);
+List<int> expected = utf8.encode("TESTME Тест для проверки 1âã");
+String str = utf8.decode(expected);
 
 void run_process(String filename, Encoding enc) {
   String res = stdin.readLineSync(encoding : enc);
@@ -33,5 +33,5 @@ void run(Process process) { process.stdin.writeln(str); }
 main(List<String> args) {
   String filename = Directory.systemTemp.path + Platform.pathSeparator +
       getTempFileName();
-  args.length > 0 ? run_process(args[0], UTF8) : run_main(filename, run, str);
+  args.length > 0 ? run_process(args[0], utf8) : run_main(filename, run, str);
 }

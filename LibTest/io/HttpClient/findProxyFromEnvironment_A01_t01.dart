@@ -57,13 +57,13 @@ import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test() async {
   String hello = "Hello world!";
   HttpServer server = await HttpServer.bind(localhost, 0);
   server.listen((HttpRequest request) {
-    Expect.isNull(request.headers[HttpHeaders.PROXY_AUTHORIZATION]);
+    Expect.isNull(request.headers[HttpHeaders.proxyAuthorizationHeader]);
     request.response.close();
     server.close();
     asyncEnd();
@@ -75,7 +75,7 @@ test() async {
   client.get(localhost, server.port, "")
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {
+    response.transform(utf8.decoder).listen((content) {
       Expect.equals(hello, content);
     });
   });

@@ -22,11 +22,11 @@ import "../../../Utils/expect.dart";
 
 StreamTransformer<RawSocketEvent, int> transformer =
     new StreamTransformer.fromHandlers(handleData: (x, sink) {
-  sink.add(x == RawSocketEvent.WRITE ? 1 : x == RawSocketEvent.READ ? 2 : 3);
+  sink.add(x == RawSocketEvent.write ? 1 : x == RawSocketEvent.read ? 2 : 3);
 });
 
 main() {
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((socket) {
     Stream s1 = socket.transform(transformer);
     Expect.isFalse(s1.isBroadcast);

@@ -24,7 +24,7 @@ main() {
 
   var l = new Int32x4List.fromList(list);
   var byteBuffer = l.buffer;
-  var elemSize = Int32x4List.BYTES_PER_ELEMENT;
+  var elemSize = Int32x4List.bytesPerElement;
 
   for (int i = 0; i <= 8; ++i) {
     var l = new Int32x4List.view(byteBuffer, i * elemSize, 1) ;

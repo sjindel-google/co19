@@ -26,7 +26,7 @@ import "../../../Utils/expect.dart";
 test() async {
   String helloWorld = 'Hello, test world!';
   HttpServer server =
-      await HttpServer.bind(InternetAddress.LOOPBACK_IP_V6, 0, v6Only: true);
+      await HttpServer.bind(InternetAddress.loopbackIPv6, 0, v6Only: true);
 
   asyncStart();
   server.listen((HttpRequest request) {
@@ -40,11 +40,11 @@ test() async {
   HttpClient client = new HttpClient();
   client
       .getUrl(Uri.parse(
-          "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}"))
+          "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) {
     return request.close();
   }).then((HttpClientResponse response) {
-    Expect.equals(HttpStatus.HTTP_VERSION_NOT_SUPPORTED, response.statusCode);
+    Expect.equals(HttpStatus.httpVersionNotSupported, response.statusCode);
     asyncEnd();
   });
   asyncEnd();

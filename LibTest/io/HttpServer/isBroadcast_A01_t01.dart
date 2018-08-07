@@ -13,14 +13,14 @@ import "dart:io";
 import "../../../Utils/expect.dart";
 
 test() async {
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   try {
     Expect.isFalse(server.isBroadcast);
   } finally {
     server.close();
   }
 
-  server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 1, shared: true);
+  server = await HttpServer.bind(InternetAddress.loopbackIPv4, 1, shared: true);
   try {
     Expect.isFalse(server.isBroadcast);
   } finally {

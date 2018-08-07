@@ -12,6 +12,6 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.throws(() {double.NAN.truncate();}, (e) => e is UnsupportedError);
-  Expect.throws(() {(-double.NAN).truncate();}, (e) => e is UnsupportedError);
+  Expect.throws(() {double.nan.truncate();}, (e) => e is UnsupportedError);
+  Expect.throws(() {(-double.nan).truncate();}, (e) => e is UnsupportedError);
 }

@@ -29,9 +29,9 @@ main() {
   var data = [0, 1, 2];
   Uri uri = new Uri.dataFromBytes(data, parameters: {"a": " "});
   Expect.equals("data:application/octet-stream;a=%20;base64," +
-      BASE64.encode(data), uri.data.toString());
+      base64.encode(data), uri.data.toString());
 
   uri = new Uri.dataFromBytes(data, parameters: {"й": " ф "});
   Expect.equals("data:application/octet-stream;%D0%B9=%20%D1%84%20;base64," +
-      BASE64.encode(data), uri.data.toString());
+      base64.encode(data), uri.data.toString());
 }

@@ -8,7 +8,7 @@
  * void setUint64(
  *     int byteOffset,
  *     int value, [
- *     Endianness endian = Endianness.BIG_ENDIAN
+ *     Endian endian = Endian.big
  * ])
  * Sets the eight bytes starting at the specified [byteOffset] in this object to
  * the unsigned binary representation of the specified [value], which must fit
@@ -34,12 +34,12 @@ main() {
     -7378697629483820775, 1801439850948198400, 4971973988617027584,
     3746994889972252672, 9007199254740992000, 2233785415175766016
   ];
-  int bytesInElement = Int64List.BYTES_PER_ELEMENT;
+  int bytesInElement = Int64List.bytesPerElement;
 
   var byteDataFromU64 = new ByteData.view(u64.buffer);
   for (int i = 0; i < byteDataFromU64.lengthInBytes / bytesInElement; ++i) {
     byteDataFromU64.setUint64(
-        i * bytesInElement, valuesToBeSet[i], Endianness.LITTLE_ENDIAN);
+        i * bytesInElement, valuesToBeSet[i], Endian.little);
   }
   Expect.listEquals(valuesToBeSet, u64);
 

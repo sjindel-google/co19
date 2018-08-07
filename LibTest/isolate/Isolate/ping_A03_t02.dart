@@ -58,7 +58,7 @@ Future test(List<Object> values) async {
     isolate.ping(
         pingPort.sendPort,
         response:value,
-        priority:Isolate.BEFORE_NEXT_EVENT
+        priority:Isolate.beforeNextEvent
     );
     Future pingResponse = pingPort.first.timeout(TWO_SECONDS, onTimeout: () {
       pingPort.close();
@@ -70,7 +70,7 @@ Future test(List<Object> values) async {
     Expect.equals("timeout",response);
   }
   // clean up
-  isolate.kill(priority:Isolate.IMMEDIATE);
+  isolate.kill(priority:Isolate.immediate);
   await onExit.first;
   asyncEnd();
 }
@@ -82,6 +82,6 @@ main() {
     0, 1, -1,
     true, false,
     "", "string",
-    1.1, double.NAN, double.INFINITY, 0.0
+    1.1, double.nan, double.infinity, 0.0
   ]);
 }

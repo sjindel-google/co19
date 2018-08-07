@@ -3,7 +3,7 @@ library xpath_test_pre;
 import "dart:html";
 import "../../../Utils/expect.dart";
 
-const NaN=double.NAN;
+const NaN=double.nan;
 
 int passcnt=0;
 int failcnt=0;

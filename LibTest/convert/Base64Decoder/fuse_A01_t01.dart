@@ -25,7 +25,7 @@ main() {
   Converter fused = decoder.fuse(new Base64Codec().encoder);
 
   for (int i = 0; i < 128; i++) {
-    check(fused, BASE64.encode([i]));
+    check(fused, base64.encode([i]));
   }
   check(fused, "");
   check(fused, "U29tZSBzdHJpbmc=");

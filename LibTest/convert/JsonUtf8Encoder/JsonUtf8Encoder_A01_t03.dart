@@ -57,7 +57,7 @@ import "../../../Utils/expect.dart";
 
  check(JsonUtf8Encoder encoder, var object, var expected) {
    List<int> encoded = encoder.convert(object);
-   Expect.listEquals(UTF8.encode(expected), encoded);
+   Expect.listEquals(utf8.encode(expected), encoded);
  }
 
  main() {

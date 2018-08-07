@@ -11,7 +11,7 @@
  * Returns a Future<FileStat> object containing the data returned by stat().
  *
  * If the call fails, completes the future with a FileStat object with .type set
- * to FileSystemEntityType.NOT_FOUND and the other fields invalid.
+ * to FileSystemEntityType.notFound and the other fields invalid.
  * @description Checks that this method identical to FileStat.stat(this.path)
  * @author sgrekhov@unipro.ru
  */

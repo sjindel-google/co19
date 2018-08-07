@@ -11,7 +11,7 @@
  * Returns a FileStat object containing the data returned by stat().
  *
  * If the call fails, returns a FileStat object with .type set to
- * FileSystemEntityType.NOT_FOUND and the other fields invalid.
+ * FileSystemEntityType.notFound and the other fields invalid.
  * @description Checks that this method calls the operating system's stat()
  * function. Test file
  * @author sgrekhov@unipro.ru
@@ -24,7 +24,7 @@ main() {
   File file = getTempFileSync();
   try {
     Link link = new Link(file.path);
-    Expect.equals(FileSystemEntityType.FILE, link.statSync().type);
+    Expect.equals(FileSystemEntityType.file, link.statSync().type);
   } finally {
     file.delete();
   }

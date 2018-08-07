@@ -20,22 +20,22 @@ import "../../Utils/expect.dart";
 
 main() {
   Expect.equals(
-      double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 1));
+      double.negativeInfinity, Math.pow(double.negativeInfinity, 1));
   Expect.equals(
-      double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 1.0));
+      double.negativeInfinity, Math.pow(double.negativeInfinity, 1.0));
   Expect.equals(
-      double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 11));
+      double.negativeInfinity, Math.pow(double.negativeInfinity, 11));
   Expect.equals(
-      double.NEGATIVE_INFINITY, Math.pow(double.NEGATIVE_INFINITY, 11.0));
+      double.negativeInfinity, Math.pow(double.negativeInfinity, 11.0));
 
-  Expect.equals(.0, Math.pow(double.NEGATIVE_INFINITY, -1));
-  Expect.isTrue(Math.pow(double.NEGATIVE_INFINITY, -1).isNegative);
-  Expect.equals(.0, Math.pow(double.NEGATIVE_INFINITY, -1.0));
-  Expect.isTrue(Math.pow(double.NEGATIVE_INFINITY, -1.0).isNegative);
-  Expect.equals(.0, Math.pow(double.NEGATIVE_INFINITY, -11));
-  Expect.isTrue(Math.pow(double.NEGATIVE_INFINITY, -11).isNegative);
-  Expect.equals(.0, Math.pow(double.NEGATIVE_INFINITY, -11.0));
-  Expect.isTrue(Math.pow(double.NEGATIVE_INFINITY, -11.0).isNegative);
+  Expect.equals(.0, Math.pow(double.negativeInfinity, -1));
+  Expect.isTrue(Math.pow(double.negativeInfinity, -1).isNegative);
+  Expect.equals(.0, Math.pow(double.negativeInfinity, -1.0));
+  Expect.isTrue(Math.pow(double.negativeInfinity, -1.0).isNegative);
+  Expect.equals(.0, Math.pow(double.negativeInfinity, -11));
+  Expect.isTrue(Math.pow(double.negativeInfinity, -11).isNegative);
+  Expect.equals(.0, Math.pow(double.negativeInfinity, -11.0));
+  Expect.isTrue(Math.pow(double.negativeInfinity, -11.0).isNegative);
 
   Expect.equals(.0, Math.pow(-.0, 1));
   Expect.isTrue(Math.pow(-.0, 1).isNegative);
@@ -46,8 +46,8 @@ main() {
   Expect.equals(.0, Math.pow(-.0, 11.0));
   Expect.isTrue(Math.pow(-.0, 11.0).isNegative);
 
-  Expect.equals(double.NEGATIVE_INFINITY, Math.pow(-.0, -1));
-  Expect.equals(double.NEGATIVE_INFINITY, Math.pow(-.0, -1.0));
-  Expect.equals(double.NEGATIVE_INFINITY, Math.pow(-.0, -11));
-  Expect.equals(double.NEGATIVE_INFINITY, Math.pow(-.0, -11.0));
+  Expect.equals(double.negativeInfinity, Math.pow(-.0, -1));
+  Expect.equals(double.negativeInfinity, Math.pow(-.0, -1.0));
+  Expect.equals(double.negativeInfinity, Math.pow(-.0, -11));
+  Expect.equals(double.negativeInfinity, Math.pow(-.0, -11.0));
 }

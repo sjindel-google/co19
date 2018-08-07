@@ -38,7 +38,7 @@ test() async {
   ErrorServer server = await ErrorServer.spawn(onExit:onExit.sendPort);
 
   Future pingFuture = ping(server.isolate, "ping", TWO_SECONDS);
-  server.isolate.kill(priority:Isolate.IMMEDIATE);
+  server.isolate.kill(priority:Isolate.immediate);
   Expect.equals("ping", await pingFuture);
   await onExit.first;
   asyncEnd();

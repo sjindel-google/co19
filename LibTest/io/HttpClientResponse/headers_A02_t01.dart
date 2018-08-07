@@ -13,7 +13,7 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test(String method) async {
   asyncStart();
@@ -31,10 +31,10 @@ test(String method) async {
     Expect.equals("text/plain; charset=utf-8",
         response.headers.value("content-type"));
     Expect.throws(() {
-      response.headers.add(HttpHeaders.AGE, 21);
+      response.headers.add(HttpHeaders.ageHeader, 21);
     });
     Expect.throws(() {
-      response.headers.set(HttpHeaders.AGE, 22);
+      response.headers.set(HttpHeaders.ageHeader, 22);
     });
     asyncEnd();
   });

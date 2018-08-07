@@ -12,13 +12,13 @@
  * })
  * Query the system for NetworkInterfaces.
  * ...
- * If type is either InternetAddressType.IP_V4 or InternetAddressType.IP_V6 it
+ * If type is either InternetAddressType.IPv4 or InternetAddressType.IPv6 it
  * will only lookup addresses of the specified type. Default is
  * InternetAddressType.ANY.
  *
  * @description Checks that if parameter 'type' of static method [list] is
- * InternetAddressType.ANY, addresses of InternetAddressType.IP_V4 type and
- * InternetAddressType.IP_V6 type are lookup.
+ * InternetAddressType.ANY, addresses of InternetAddressType.IPv4 type and
+ * InternetAddressType.IPv6 type are lookup.
  * @author ngl@unipro.ru
  */
 import "dart:async";

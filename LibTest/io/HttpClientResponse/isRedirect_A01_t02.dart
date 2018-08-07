@@ -6,8 +6,8 @@
 /**
  * @assertion bool isRedirect
  * Returns whether the status code is one of the normal redirect codes
- * HttpStatus.MOVED_PERMANENTLY, HttpStatus.FOUND, HttpStatus.MOVED_TEMPORARILY,
- * HttpStatus.SEE_OTHER and HttpStatus.TEMPORARY_REDIRECT.
+ * HttpStatus.movedPermanently, HttpStatus.found, HttpStatus.movedTemporarily,
+ * HttpStatus.seeOther and HttpStatus.temporaryRedirect.
  * @description Checks that this getter returns whether the status code is one
  * of the normal redirect codes
  * @author sgrekhov@unipro.ru
@@ -17,7 +17,7 @@ import "dart:io";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test(String method, int statusCode) async {
   asyncStart();
@@ -49,22 +49,22 @@ test(String method, int statusCode) async {
   }).then((HttpClientResponse response) {
     Expect.isTrue(response.isRedirect);
     asyncEnd();
-    response.transform(UTF8.decoder).listen((content) {
+    response.transform(utf8.decoder).listen((content) {
 
     });
   });
 }
 
 main() {
-  test("get", HttpStatus.MOVED_PERMANENTLY);
-  test("get", HttpStatus.FOUND);
-  test("get", HttpStatus.MOVED_TEMPORARILY);
-  test("get", HttpStatus.SEE_OTHER);
-  test("get", HttpStatus.TEMPORARY_REDIRECT);
+  test("get", HttpStatus.movedPermanently);
+  test("get", HttpStatus.found);
+  test("get", HttpStatus.movedTemporarily);
+  test("get", HttpStatus.seeOther);
+  test("get", HttpStatus.temporaryRedirect);
 
-  test("head", HttpStatus.MOVED_PERMANENTLY);
-  test("head", HttpStatus.FOUND);
-  test("head", HttpStatus.MOVED_TEMPORARILY);
-  test("head", HttpStatus.SEE_OTHER);
-  test("head", HttpStatus.TEMPORARY_REDIRECT);
+  test("head", HttpStatus.movedPermanently);
+  test("head", HttpStatus.found);
+  test("head", HttpStatus.movedTemporarily);
+  test("head", HttpStatus.seeOther);
+  test("head", HttpStatus.temporaryRedirect);
 }

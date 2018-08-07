@@ -16,7 +16,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 check(List<int> codeUnits) {
-  String data = BASE64.encode(codeUnits);
+  String data = base64.encode(codeUnits);
   Base64Decoder decoder = new Base64Decoder();
   bool called = false;
 

@@ -32,16 +32,16 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 test() async {
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
-    if (request.headers[HttpHeaders.AUTHORIZATION] == null) {
-      request.response.statusCode = HttpStatus.UNAUTHORIZED;
-      request.response.headers.set(HttpHeaders.WWW_AUTHENTICATE,
+    if (request.headers[HttpHeaders.authorizationHeader] == null) {
+      request.response.statusCode = HttpStatus.unauthorized;
+      request.response.headers.set(HttpHeaders.wwwAuthenticateHeader,
           'Basic, realm="realm", domain="/xxxt/"');
       request.response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.AUTHORIZATION][0];
-      String encoded = BASE64.encode(UTF8.encode("co19-test:password"));
+      var authorization = request.headers[HttpHeaders.authorizationHeader][0];
+      String encoded = base64.encode(utf8.encode("co19-test:password"));
       Expect.equals("Basic ${encoded}", authorization);
       request.response.close();
       server.close();
@@ -56,7 +56,7 @@ test() async {
     Completer completer = new Completer();
     client.addCredentials(
         Uri.parse(
-            "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}/xxx"),
+            "http://${InternetAddress.loopbackIPv4.address}:${server.port}/xxx"),
         "realm",
         new HttpClientBasicCredentials("co19-test", "password"));
     completer.complete(true);
@@ -66,10 +66,10 @@ test() async {
 
   client
       .getUrl(Uri.parse(
-          "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}/xxx"))
+          "http://${InternetAddress.loopbackIPv4.address}:${server.port}/xxx"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {});
+    response.transform(utf8.decoder).listen((content) {});
   });
 }
 

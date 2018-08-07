@@ -5,9 +5,9 @@
  */
 /**
  * @assertion Future<bool> isFile(String path)
- * Checks if type(path) returns FileSystemEntityType.FILE.
+ * Checks if type(path) returns FileSystemEntityType.file.
  * @description Checks that this property returns true if type(path) returns
- * FileSystemEntityType.FILE. Test File
+ * FileSystemEntityType.file. Test File
  * @author sgrekhov@unipro.ru
  */
 import "dart:io";
@@ -20,7 +20,7 @@ main() {
   FileSystemEntity.isFile(file.path).then((result) {
     Expect.isFalse(result);
     FileSystemEntity.type(file.path).then((t) {
-      Expect.equals(t, FileSystemEntityType.FILE);
+      Expect.equals(t, FileSystemEntityType.file);
       asyncEnd();
     }).whenComplete(() {
       file.delete();

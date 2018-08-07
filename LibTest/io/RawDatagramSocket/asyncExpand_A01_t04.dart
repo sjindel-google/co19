@@ -30,7 +30,7 @@ import "../../../Utils/expect.dart";
 
 check(convert, expected) {
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
@@ -66,13 +66,13 @@ check(convert, expected) {
 main() {
   check(
       (e) =>
-          new Stream.fromIterable([e == RawSocketEvent.WRITE ? throw 11 : e]),
-      [11, RawSocketEvent.READ, RawSocketEvent.READ, RawSocketEvent.CLOSED]);
+          new Stream.fromIterable([e == RawSocketEvent.write ? throw 11 : e]),
+      [11, RawSocketEvent.read, RawSocketEvent.read, RawSocketEvent.closed]);
   check(
-      (e) => new Stream.fromIterable([e == RawSocketEvent.READ ? throw 12 : e]),
-      [RawSocketEvent.WRITE, 12, 12, RawSocketEvent.CLOSED]);
+      (e) => new Stream.fromIterable([e == RawSocketEvent.read ? throw 12 : e]),
+      [RawSocketEvent.write, 12, 12, RawSocketEvent.closed]);
   check(
       (e) =>
-          new Stream.fromIterable([e == RawSocketEvent.CLOSED ? throw 13 : e]),
-      [RawSocketEvent.WRITE, RawSocketEvent.READ, RawSocketEvent.READ, 13]);
+          new Stream.fromIterable([e == RawSocketEvent.closed ? throw 13 : e]),
+      [RawSocketEvent.write, RawSocketEvent.read, RawSocketEvent.read, 13]);
 }

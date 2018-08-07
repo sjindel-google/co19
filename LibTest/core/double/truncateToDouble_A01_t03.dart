@@ -12,6 +12,6 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  Expect.isTrue(double.NAN.truncateToDouble().isNaN);
-  Expect.isTrue((-double.NAN).truncateToDouble().isNaN);
+  Expect.isTrue(double.nan.truncateToDouble().isNaN);
+  Expect.isTrue((-double.nan).truncateToDouble().isNaN);
 }

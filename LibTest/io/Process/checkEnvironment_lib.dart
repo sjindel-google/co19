@@ -12,7 +12,7 @@
  *     Map<String, String> environment,
  *     bool includeParentEnvironment: true,
  *     bool runInShell: false,
- *     ProcessStartMode mode: ProcessStartMode.NORMAL
+ *     ProcessStartMode mode: ProcessStartMode.normal
  * })
  *
  * @description Checks that static method [start] starts this file.

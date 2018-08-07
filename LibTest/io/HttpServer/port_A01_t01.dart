@@ -18,7 +18,7 @@ import "../../../Utils/expect.dart";
 main() {
   asyncStart();
   HttpServer server = null;
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4813).then((HttpServer s) {
+  HttpServer.bind(InternetAddress.loopbackIPv4, 4813).then((HttpServer s) {
     server = s;
     Expect.equals(4813, server.port);
     asyncEnd();

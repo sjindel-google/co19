@@ -21,13 +21,13 @@ import "../../../Utils/expect.dart";
 
 check(variant, expected) {
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
       List list = [];
       void action1(e) => list.add(e);
-      void action2(e) => e == RawSocketEvent.CLOSED ? list.add(3) : list.add(0);
+      void action2(e) => e == RawSocketEvent.closed ? list.add(3) : list.add(0);
       var action = variant == 1 ? action1 : action2;
       producer.send([sent++], address, receiver.port);
       producer.send([sent++], address, receiver.port);
@@ -45,6 +45,6 @@ check(variant, expected) {
 }
 
 main() {
-  check(1, [RawSocketEvent.CLOSED]);
+  check(1, [RawSocketEvent.closed]);
   check(2, [3]);
 }

@@ -19,7 +19,7 @@ import "../../../Utils/expect.dart";
 
 check(Stream convert(event)) {
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((socket) {
     Stream stream1 = socket.asyncExpand(convert);
     Expect.isFalse(stream1.isBroadcast);

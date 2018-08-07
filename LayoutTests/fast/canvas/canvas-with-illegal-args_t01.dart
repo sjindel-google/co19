@@ -9,9 +9,9 @@
  */
 import "../../testcommon.dart";
 
-var NaN = double.NAN;
-var Inf = double.INFINITY;
-var NegInf = double.NEGATIVE_INFINITY;
+var NaN = double.nan;
+var Inf = double.infinity;
+var NegInf = double.negativeInfinity;
 
 main() {
   debug("Test scale.");

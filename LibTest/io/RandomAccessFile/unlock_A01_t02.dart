@@ -24,12 +24,12 @@ import "lock_check_1_lib.dart";
 
 main() {
   File file = getTempFileSync();
-  var rf1 = file.openSync(mode: FileMode.WRITE);
-  var rf2 = file.openSync(mode: FileMode.WRITE);
+  var rf1 = file.openSync(mode: FileMode.write);
+  var rf2 = file.openSync(mode: FileMode.write);
   rf1.writeFromSync(new List.filled(30, 0));
   asyncStart();
-  rf1.lockSync(FileLock.EXCLUSIVE, 10, 15);
-  rf2.lockSync(FileLock.EXCLUSIVE, 20, 25);
+  rf1.lockSync(FileLock.exclusive, 10, 15);
+  rf2.lockSync(FileLock.exclusive, 20, 25);
   var tests = [
     () => checkLocked(rf1.path, 10, 15),
     () => checkLocked(rf1.path, 20, 25),

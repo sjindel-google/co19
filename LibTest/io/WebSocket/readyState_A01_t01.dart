@@ -25,9 +25,9 @@ main() {
 
     var webs = WebSocket.connect("ws://127.0.0.1:${server.port}/");
     webs.then((client) {
-      Expect.isTrue(client.readyState == WebSocket.OPEN);
+      Expect.isTrue(client.readyState == WebSocket.open);
       client.close().then((_) {
-        Expect.isTrue(client.readyState == WebSocket.CLOSED);
+        Expect.isTrue(client.readyState == WebSocket.closed);
         server.close();
       });
     });

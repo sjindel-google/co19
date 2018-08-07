@@ -23,6 +23,6 @@ main() {
   check(-0.2, 1);
   check(2.0, .0);
   check(.0, 1e20);
-  check(double.NEGATIVE_INFINITY, 0);
-  check(double.INFINITY, 0);
+  check(double.negativeInfinity, 0);
+  check(double.infinity, 0);
 }

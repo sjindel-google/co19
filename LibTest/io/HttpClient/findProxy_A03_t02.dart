@@ -42,16 +42,16 @@ test() async {
   bool findProxyCalled = false;
   bool authenticateProxyCalled = false;
 
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
-    if (request.headers[HttpHeaders.PROXY_AUTHORIZATION] == null) {
-      request.response.statusCode = HttpStatus.UNAUTHORIZED;
+    if (request.headers[HttpHeaders.proxyAuthorizationHeader] == null) {
+      request.response.statusCode = HttpStatus.unauthorized;
       request.response.headers
-          .set(HttpHeaders.PROXY_AUTHENTICATE, 'Digest, realm=realm, nonce=123');
-      request.response.statusCode = HttpStatus.PROXY_AUTHENTICATION_REQUIRED;
+          .set(HttpHeaders.proxyAuthenticateHeader, 'Digest, realm=realm, nonce=123');
+      request.response.statusCode = HttpStatus.proxyAuthenticationRequired;
       request.response.close();
     } else {
-      var authorization = request.headers[HttpHeaders.PROXY_AUTHORIZATION][0];
+      var authorization = request.headers[HttpHeaders.proxyAuthorizationHeader][0];
       Expect.isTrue(authorization.contains('Digest'));
       Expect.isTrue(authorization.contains('username="co19-test"'));
       Expect.isTrue(authorization.contains('realm="realm"'));
@@ -69,18 +69,18 @@ test() async {
   HttpClient client = new HttpClient();
   client.findProxy = (Uri uri) {
     findProxyCalled = true;
-    return "PROXY ${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}";
+    return "PROXY ${InternetAddress.loopbackIPv4.address}:${server.port}";
   };
 
   client.authenticateProxy =
       (String host, int port, String scheme, String realm) {
         authenticateProxyCalled = true;
-        Expect.equals(InternetAddress.LOOPBACK_IP_V4.address, host);
+        Expect.equals(InternetAddress.loopbackIPv4.address, host);
         Expect.equals(server.port, port);
         Expect.equals("Digest", scheme);
         Expect.equals("realm", realm);
         Completer completer = new Completer();
-        client.addProxyCredentials(InternetAddress.LOOPBACK_IP_V4.address, port,
+        client.addProxyCredentials(InternetAddress.loopbackIPv4.address, port,
             "realm", new HttpClientDigestCredentials("co19-test", "password"));
         completer.complete(true);
         return completer.future;
@@ -88,10 +88,10 @@ test() async {
 
   client
       .getUrl(Uri.parse(
-      "http://${InternetAddress.LOOPBACK_IP_V4.address}:${server.port}"))
+      "http://${InternetAddress.loopbackIPv4.address}:${server.port}"))
       .then((HttpClientRequest request) => request.close())
       .then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {});
+    response.transform(utf8.decoder).listen((content) {});
   });
 }
 

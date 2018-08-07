@@ -16,7 +16,7 @@ import "dart:async";
  * Spawns a HttpServer instance
  */
 Future<HttpServer> spawnHttpServer(void requestHandler(HttpRequest request)) async {
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen(requestHandler);
   return server;
 }

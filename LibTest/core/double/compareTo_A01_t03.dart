@@ -15,12 +15,12 @@ import "../../../Utils/expect.dart";
 
 
 main() {
-  double nan = double.NAN;
+  double nan = double.nan;
 
   List values = [
     0.0,
-    double.INFINITY,
-    double.MAX_FINITE,
+    double.infinity,
+    double.maxFinite,
     2.2250738585072014e-308, // min normal
     4.9406564584124654e-324 // min
   ];

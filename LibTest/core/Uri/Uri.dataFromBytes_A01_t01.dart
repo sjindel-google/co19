@@ -33,16 +33,16 @@ import "../../../Utils/expect.dart";
 check(List<int> data) {
   Uri uri = new Uri.dataFromBytes(data);
 
-  Expect.equals(BASE64.encode(data), uri.data.contentText);
+  Expect.equals(base64.encode(data), uri.data.contentText);
   Expect.equals("application/octet-stream", uri.data.mimeType);
   Expect.mapEquals({}, uri.data.parameters);
-  Expect.equals("data:application/octet-stream;base64," + BASE64.encode(data),
+  Expect.equals("data:application/octet-stream;base64," + base64.encode(data),
       uri.data.toString());
   Expect.equals("data", uri.scheme);
   Expect.equals("", uri.userInfo);
   Expect.equals("", uri.host);
   Expect.equals(0, uri.port);
-  Expect.equals("application/octet-stream;base64," + BASE64.encode(data),
+  Expect.equals("application/octet-stream;base64," + base64.encode(data),
       uri.path);
   Expect.equals("", uri.query);
   Expect.equals("", uri.fragment);

@@ -19,7 +19,7 @@ import "../../../Utils/expect.dart";
 main() {
   Base64Decoder decoder = new Base64Decoder();
   for (int i = 0; i < 256; i++) {
-    String encoded = BASE64.encode([i]);
+    String encoded = base64.encode([i]);
     Expect.listEquals([i], decoder.convert(encoded));
   }
 

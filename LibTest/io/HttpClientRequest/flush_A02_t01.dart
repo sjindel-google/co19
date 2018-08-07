@@ -21,7 +21,7 @@ import "dart:async";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test(String method) async {
   Stream<List> stream = new Stream<List>.fromIterable(
@@ -46,7 +46,7 @@ test(String method) async {
     request.addStream(stream).then((var request) {
       return request.close();
     }).then((var response) {
-      response.transform(UTF8.decoder).listen((content) {});
+      response.transform(utf8.decoder).listen((content) {});
       asyncEnd();
     });
     Expect.throws(() {request.flush();});

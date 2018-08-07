@@ -8,7 +8,7 @@
  * ...
  * The width and height should be non-negative. If width or height are negative,
  * they are clamped to zero.
- * @description Checks that if width or height are double.NEGATIVE_INFINITY,
+ * @description Checks that if width or height are double.negativeInfinity,
  * they are clamped to zero.
  * @issue 30186
  * @author ngl@unipro.ru
@@ -19,9 +19,9 @@ import "../../../Utils/expect.dart";
 
 main() {
   Rectangle r =
-      new Rectangle(2, 1, double.NEGATIVE_INFINITY, double.NEGATIVE_INFINITY);
+      new Rectangle(2, 1, double.negativeInfinity, double.negativeInfinity);
 
-  Expect.isTrue(double.NEGATIVE_INFINITY.isNegative);
+  Expect.isTrue(double.negativeInfinity.isNegative);
   Expect.isTrue((r.width == 0) && (r.height == 0),
       "width = ${r.width} height = ${r.height}");
 }

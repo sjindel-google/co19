@@ -7,7 +7,7 @@
  * @assertion
  * int getUint64(
  *     int byteOffset, [
- *     Endianness endian = Endianness.BIG_ENDIAN
+ *     Endian endian = Endian.big
  * ])
  * Returns the positive integer represented by the eight bytes starting at the
  * specified [byteOffset] in this object, in unsigned binary form.
@@ -26,12 +26,12 @@ main() {
   ]);
   var u32 = new Uint32List.fromList(
       [0x62e7a17b, 0xf7ec7100, 0xe7180101, 0x1f83ccbb]);
-  int bytesInElement = Uint64List.BYTES_PER_ELEMENT;
+  int bytesInElement = Uint64List.bytesPerElement;
 
   var byteDataFromU64 = new ByteData.view(u64.buffer);
   for (int i = 0; i < byteDataFromU64.lengthInBytes / bytesInElement; ++i) {
     Expect.equals(u64[i],
-        byteDataFromU64.getUint64(i*bytesInElement, Endianness.LITTLE_ENDIAN));
+        byteDataFromU64.getUint64(i*bytesInElement, Endian.little));
   }
 
   var byteDataFromU32 = new ByteData.view(u32.buffer);
@@ -39,9 +39,9 @@ main() {
   var expectedLittleEndian = [-581966005364350597, 2270883744532922625];
   for (int i = 0; i < byteDataFromU32.lengthInBytes / bytesInElement; ++i) {
     Expect.equals(expectedBigEndian[i],
-        byteDataFromU32.getUint64(i * bytesInElement, Endianness.BIG_ENDIAN));
+        byteDataFromU32.getUint64(i * bytesInElement, Endian.big));
     Expect.equals(expectedLittleEndian[i],
         byteDataFromU32.getUint64(
-            i * bytesInElement, Endianness.LITTLE_ENDIAN));
+            i * bytesInElement, Endian.little));
   }
 }

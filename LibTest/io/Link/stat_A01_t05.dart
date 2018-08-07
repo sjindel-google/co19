@@ -11,7 +11,7 @@
  * Returns a Future<FileStat> object containing the data returned by stat().
  *
  * If the call fails, completes the future with a FileStat object with .type set
- * to FileSystemEntityType.NOT_FOUND and the other fields invalid.
+ * to FileSystemEntityType.notFound and the other fields invalid.
  * @description Checks that this method calls the operating system's stat()
  * function. Test file
  * @author sgrekhov@unipro.ru
@@ -25,7 +25,7 @@ main() {
   Link link = new Link(file.path);
   asyncStart();
   link.stat().then((FileStat fs) {
-    Expect.equals(FileSystemEntityType.FILE, fs.type);
+    Expect.equals(FileSystemEntityType.file, fs.type);
     asyncEnd();
   }).whenComplete(() {
     file.delete(recursive: true);

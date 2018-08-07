@@ -27,7 +27,7 @@ import "../../../Utils/expect.dart";
 
 check(test, rValue, expected) {
   asyncStart();
-  var address = InternetAddress.LOOPBACK_IP_V4;
+  var address = InternetAddress.loopbackIPv4;
   RawDatagramSocket.bind(address, 0).then((producer) {
     RawDatagramSocket.bind(address, 0).then((receiver) {
       int sent = 0;
@@ -48,12 +48,12 @@ check(test, rValue, expected) {
 }
 
 main() {
-  check((e) => e == RawSocketEvent.WRITE, () => RawSocketEvent.READ,
-      RawSocketEvent.READ);
-  check((e) => e == RawSocketEvent.READ, () => RawSocketEvent.READ_CLOSED,
-      RawSocketEvent.READ_CLOSED);
-  check((e) => e == RawSocketEvent.READ_CLOSED, () => RawSocketEvent.WRITE,
-      RawSocketEvent.WRITE);
-  check((e) => false, () => RawSocketEvent.READ_CLOSED,
-      RawSocketEvent.READ_CLOSED);
+  check((e) => e == RawSocketEvent.write, () => RawSocketEvent.read,
+      RawSocketEvent.read);
+  check((e) => e == RawSocketEvent.read, () => RawSocketEvent.readClosed,
+      RawSocketEvent.readClosed);
+  check((e) => e == RawSocketEvent.readClosed, () => RawSocketEvent.write,
+      RawSocketEvent.write);
+  check((e) => false, () => RawSocketEvent.readClosed,
+      RawSocketEvent.readClosed);
 }

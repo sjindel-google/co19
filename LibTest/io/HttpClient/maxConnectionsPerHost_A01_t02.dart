@@ -21,7 +21,7 @@
 import "dart:io";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 void test(int maxConnections, int max) {
   asyncStart();

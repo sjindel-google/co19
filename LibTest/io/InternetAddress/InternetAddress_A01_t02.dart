@@ -19,5 +19,5 @@ main() {
   InternetAddress address =
     new InternetAddress("2001:0db8:0000:0042:0000:8a2e:0370:7334");
   Expect.equals("2001:0db8:0000:0042:0000:8a2e:0370:7334", address.address);
-  Expect.equals(InternetAddressType.IP_V6, address.type);
+  Expect.equals(InternetAddressType.IPv6, address.type);
 }

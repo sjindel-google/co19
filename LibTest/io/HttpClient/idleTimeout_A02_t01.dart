@@ -16,13 +16,13 @@ import "dart:async";
 import "dart:convert";
 import "../../../Utils/expect.dart";
 
-var localhost = InternetAddress.LOOPBACK_IP_V4.address;
+var localhost = InternetAddress.loopbackIPv4.address;
 
 test() async {
   String helloWorld = "Hello test world!";
-  HttpServer server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 0);
+  HttpServer server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
   server.listen((HttpRequest request) {
-    Expect.listEquals(["keep-alive"], request.headers[HttpHeaders.CONNECTION]);
+    Expect.listEquals(["keep-alive"], request.headers[HttpHeaders.connectionHeader]);
     request.response.persistentConnection = true;
     request.response.contentLength = helloWorld.length * 2;
     request.response.write(helloWorld);
@@ -38,10 +38,10 @@ test() async {
   client.idleTimeout = new Duration(seconds: 1);
   client.getUrl(Uri.parse("http://${localhost}:${server.port}"))
       .then((HttpClientRequest request) {
-    request.headers.set(HttpHeaders.CONNECTION, "keep-alive");
+    request.headers.set(HttpHeaders.connectionHeader, "keep-alive");
     return request.close();
   }).then((HttpClientResponse response) {
-    response.transform(UTF8.decoder).listen((content) {
+    response.transform(utf8.decoder).listen((content) {
       Expect.equals(helloWorld + helloWorld, content);
     });
   });

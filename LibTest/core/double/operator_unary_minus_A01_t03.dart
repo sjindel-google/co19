@@ -11,7 +11,7 @@
 import "../../../Utils/expect.dart";
 
 main() {
-  double inf = double.INFINITY;
+  double inf = double.infinity;
   double negativeInf = -inf;
   Expect.isTrue(negativeInf.isNegative);
   Expect.isFalse((-negativeInf).isNegative);
