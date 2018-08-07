@@ -45,7 +45,7 @@
  * @description Checks that parameter type is checked correctly for function
  *  return value.
  * @compile-error
- * @Issue 33597
+ * @Issue 33863
  * @author iarkh@unipro.ru
  */
 

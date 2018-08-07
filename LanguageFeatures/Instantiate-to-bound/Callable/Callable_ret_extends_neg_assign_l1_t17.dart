@@ -42,32 +42,19 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds passes if dependency tree has
- *  a loop for callable functions.
+ * @description Checks that instantiate-to-bounds works as expected.
+ * @compile-error
+ * @Issue 34087
  * @author iarkh@unipro.ru
  */
-class A<X extends A<X>> {}
+class A<X> {}
 
-class testme {
-  A call() { return null; }
-}
-
-class testme1 {
-  A<Null> call() { return null; }
+class F {
+  X call<X extends A<X>>() { return null; }
 }
 
 main() {
-  testme x = new testme();
-  A a1 = x();
-  A<Null> a2 = x();
-  A<A<Null>> a3 = x();
-  A<A<A<Null>>> a4 = x();
-  A<A<A<A<Null>>>> a5 = x();
-
-  testme1 y = new testme1();
-  A a6 = y();
-  A<Null> a7 = y();
-  A<A<Null>> a8 = y();
+  F testme = new F();
+  A<A<A<dynamic>>> a = testme();
 }
-
 
