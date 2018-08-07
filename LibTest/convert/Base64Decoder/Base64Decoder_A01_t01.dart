@@ -13,7 +13,7 @@ import "dart:convert";
 import "../../../Utils/expect.dart";
 
 check(Base64Decoder decoder, List<int> toEncode) {
-  String encoded = BASE64.encode(toEncode);
+  String encoded = base64.encode(toEncode);
   Expect.listEquals(toEncode, decoder.convert(encoded));
 }
 

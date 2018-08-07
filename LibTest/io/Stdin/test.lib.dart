@@ -29,7 +29,7 @@ run_main(String filename, void run(Process _), String expected) async {
   Expect.equals(1, called);
 }
 
-run_main_invalid(void run(Process process)) async {
+run_main_invalid(String run(Process process)) async {
   String executable = Platform.resolvedExecutable;
   String eScript = Platform.script.toString();
   int called = 0;
@@ -44,4 +44,3 @@ run_main_invalid(void run(Process process)) async {
   });
   Expect.equals(1, called);
 }
-

@@ -45,7 +45,7 @@ test() async {
       response.close();
     } else {
       var authorization = request.headers[HttpHeaders.proxyAuthorizationHeader][0];
-      String encoded = BASE64.encode(utf8.encode("co19-test:password"));
+      String encoded = base64.encode(utf8.encode("co19-test:password"));
       Expect.equals("Basic ${encoded}", authorization);
       response.close();
       server.close();

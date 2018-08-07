@@ -29,7 +29,10 @@ run_process(String filename) {
   fl.writeAsString(res);
 }
 
-run(Process process) { process.stdin.writeln(str); }
+String run(Process process) {
+  process.stdin.writeln(str);
+  return str;
+}
 
 main(List<String> args) {
   String filename = Directory.systemTemp.path + Platform.pathSeparator +

@@ -49,7 +49,7 @@ String base64Encode(String str, Encoding encoding) {
       bytes.add(i);
     }
   }
-  return BASE64.encode(bytes);
+  return base64.encode(bytes);
 }
 
 main() {

@@ -15,9 +15,9 @@ import "../../../Utils/expect.dart";
 import "dart:collection";
 import "dart:math";
 main() {
-  DoubleLinkedQueueEntry d = new DoubleLinkedQueueEntry(PI);
+  DoubleLinkedQueueEntry d = new DoubleLinkedQueueEntry(pi);
   int hashCode = d.hashCode;
-  for (Object o in [E, double.nan, -1, "hello", d]){
+  for (Object o in [e, double.nan, -1, "hello", d]){
     d.element = o;
     Expect.equals(hashCode, d.hashCode);
   }

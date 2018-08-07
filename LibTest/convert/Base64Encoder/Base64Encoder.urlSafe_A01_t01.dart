@@ -16,7 +16,7 @@ RegExp alphabet = new RegExp("[A-Za-z0-9_=-]");
 
 check(Base64Encoder encoder, List<int> toEncode) {
   String encoded = encoder.convert(toEncode);
-  Expect.listEquals(toEncode, BASE64.decode(encoded));
+  Expect.listEquals(toEncode, base64.decode(encoded));
 
   for (int i = 0; i < encoded.length - 1; i++) {
     String char = encoded.substring(i, i + 1);

@@ -24,7 +24,10 @@ run_process(String filename) {
   } catch (error) { exit(99); };
 }
 
-run(Process process) { process.stdin.writeln("test"); }
+String run(Process process) {
+  process.stdin.writeln("test");
+  return "test";
+}
 
 main(List<String> args) {
   args.length > 0 ? run_process(args[0]) : run_main_invalid(run);

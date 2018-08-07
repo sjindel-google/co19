@@ -22,7 +22,7 @@ import "../../../Utils/expect.dart";
 
 Future check(String str) async {
   Base64Decoder decoder = new Base64Decoder();
-  String encoded = BASE64.encode(str.codeUnits);
+  String encoded = base64.encode(str.codeUnits);
 
   await for (List<int> event in decoder.bind(new Stream.fromIterable([encoded]))) {
     Expect.listEquals(str.codeUnits, event);
