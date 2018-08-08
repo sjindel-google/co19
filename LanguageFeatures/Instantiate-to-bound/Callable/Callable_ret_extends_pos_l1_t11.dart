@@ -55,40 +55,39 @@ class F <X extends A<X>> {
 
 main() {
   F testme = new F<A<Null>>();
-  A a1 = testme.call();
-  A a2 = testme();
+  A a1 = testme();
+  A<A> a2 = testme();
   A<Null> a3 = testme();
 
   F<A<Null>> testme1 = new F();
-  a1 = testme1.call();
+  a1 = testme1();
   a2 = testme1();
   a3 = testme1();
 
   F testme2 = new F<A<A<Null>>>();
-  a1 = testme2.call();
+  a1 = testme2();
   a2 = testme2();
   a3 = testme2();
   A<A<Null>> a4 = testme2();
 
   F<A<A<Null>>> testme3 = new F();
-  a1 = testme3.call();
+  a1 = testme3();
   a2 = testme3();
   a3 = testme3();
   a4 = testme3();
 
   F testme4 = new F<A<A<A<Null>>>>();
-  a1 = testme4.call();
+  a1 = testme4();
   a2 = testme4();
   a3 = testme4();
   a4 = testme4();
   A<A<A<Null>>> a5 = testme4();
 
   F<A<A<A<Null>>>> testme5 = new F();
-  a1 = testme5.call();
+  a1 = testme5();
   a2 = testme5();
   a3 = testme5();
   a4 = testme5();
   a5 = testme5();
   A<A<A<A<Null>>>> a6 = testme5();
 }
-

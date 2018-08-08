@@ -42,17 +42,18 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that class parameter affect its function return value
+ * @description Checks that class parameter affect [Callable] function return
+ *  value.
  * @compile-error
- * @Issue 83380
  * @author iarkh@unipro.ru
  */
+class A<X> {}
 
-class C<X> {
+class F<X extends A<X>> {
   X call() { return null; }
 }
 
 main() {
-  C c = new C<String>();
-  int i1 = c.call();
+  F f = new F<A<Null>>();
+  int i1 = f();
 }
