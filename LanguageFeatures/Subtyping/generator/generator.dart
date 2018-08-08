@@ -84,7 +84,9 @@ void generateTests(Directory testCasesDir, Directory testTypesDir,
     if (replacement.length == 0) {
       continue;
     }
-    testTypeTextStrings = addImport(testTypeTextStrings, isFailTest);
+    if (testsType != "static") {
+      testTypeTextStrings = addImport(testTypeTextStrings, isFailTest);
+    }
     for (int j = 0; j < testCases.length; j++) {
       File testCase = testCases[j];
       if (isFailTest) {
