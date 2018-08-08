@@ -44,8 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works correctly for function
  *  with optional named parameter.
- * @Issue 33805
- * @ciompile-error
+ * @compile-error
  * @Issue 33805
  * @author iarkh@unipro.ru
  */
