@@ -56,7 +56,7 @@ class F {
 
 main() {
   F testme = new F();
-  A<A> aa = testme.call();
+  A<A> a = testme();
 }
 
 
