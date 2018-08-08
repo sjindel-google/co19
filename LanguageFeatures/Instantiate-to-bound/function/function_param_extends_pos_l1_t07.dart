@@ -45,7 +45,7 @@
  * @description Checks that class parameter affect its function arguments (see
  *  also issue 33880)
  * @compile-error
-  * @author iarkh@unipro.ru
+ * @author iarkh@unipro.ru
  */
 import "../../../Utils/expect.dart";
 
