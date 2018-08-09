@@ -43,7 +43,7 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Checks that class cannot be a mixin with [Null].
- *  @compile-error
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 class M {}

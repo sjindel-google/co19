@@ -43,7 +43,6 @@
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
  * @description Check that class [O<X]] can be a mixin of [B<O<X>>].
- * @compile-error
  * @author iarkh@unipro.ru
  */
 

@@ -42,7 +42,9 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that class can take itself as its mixin parameter.
+ * @description Checks that compile error appears when declare a class as a
+ *  mixin with incorrect type.
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 
