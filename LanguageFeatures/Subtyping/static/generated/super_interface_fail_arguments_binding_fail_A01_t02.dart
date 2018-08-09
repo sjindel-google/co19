@@ -14,7 +14,8 @@
  */
 /**
  * @description Check that if type T0 not a subtype of a type T1, then it cannot
- * be used as an argument of type T1. Global function named argument is tested.
+ * be used as an argument of type T1. Global function required argument is
+ * tested.
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
@@ -26,8 +27,6 @@
  */
 
 
-import '../../utils/common.dart';
-import '../../../../Utils/expect.dart';
 
 class T1 {}
 
@@ -46,8 +45,14 @@ T1 t1Instance = new T1();
 
 
 
-namedArgumentsFunc1(T1 t1, {T1 t2}) {}
+class ArgumentsBindingClassSuper {
+    ArgumentsBindingClassSuper(T1 t1) {}
+}
+
+class ArgumentsBindingDesc extends ArgumentsBindingClassSuper {
+    ArgumentsBindingDesc(T0 t0) : super (t0) {}
+}
 
 main() {
-    namedArgumentsFunc1(t1Instance, t2: t0Instance);
+  new ArgumentsBindingDesc(t0Instance);
 }
