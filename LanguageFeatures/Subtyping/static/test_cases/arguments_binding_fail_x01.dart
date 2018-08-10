@@ -36,6 +36,14 @@ class ArgumentsBindingClass {
     set testSetter(@T1 val) {}
 }
 
+class ArgumentsBindingClassSuper {          //# 23: compile-time error
+  ArgumentsBindingClassSuper(@T1 t1) {}     //# 23: compile-time error
+}                                           //# 23: compile-time error
+
+class ArgumentsBindingDesc extends ArgumentsBindingClassSuper { //# 23: compile-time error
+  ArgumentsBindingDesc(@T0 t0) : super (t0) {}                  //# 23: compile-time error
+}                                                               //# 23: compile-time error
+
 main() {
   namedArgumentsFunc1(t0Instance); //# 01: compile-time error
   namedArgumentsFunc1(t1Instance, t2: t0Instance); //# 02: compile-time error
@@ -59,4 +67,5 @@ main() {
   new ArgumentsBindingClass.fNamed(t1Instance, t2: t0Instance); //# 20: compile-time error
   new ArgumentsBindingClass.fPositional(t0Instance); //# 21: compile-time error
   new ArgumentsBindingClass.fPositional(t1Instance, t0Instance); //# 22: compile-time error
+  new ArgumentsBindingDesc(t0Instance); //# 23: compile-time error
 }

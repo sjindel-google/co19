@@ -16,28 +16,11 @@
  *  and U0[Z0/X0, ..., Zk/Xk] <: U1[Z0/Y0, ..., Zk/Yk]
  *  and B0i[Z0/X0, ..., Zk/Xk] === B1i[Z0/Y0, ..., Zk/Yk] for i in 0...k
  *  where the Zi are fresh type variables with bounds B0i[Z0/X0, ..., Zk/Xk]
- *
- * @description Check that if T0 isn't a subtype of T1 if Si[Z0/Y0, ..., Zk/Yk]
- * isn't a subtype of Vi[Z0/X0, ..., Zk/Xk] for any i in 0...q. Test generic
- * types.
- * @author sgrekhov@unipro.ru
- * @author ngl@unipro.ru
- */
-/**
- * @description Check that if type T0 not a subtype of a type T1, then it cannot
- * be used as an argument of type T1. Global function required argument is
- * tested.
- * @compile-error
+ * @description Check that if T0 and T1 satisfies the rules above, then T0 is
+ * subtype of T1. Test generic types with high-level types and the case when
+ * p == n and m == q.
  * @author sgrekhov@unipro.ru
  */
-/*
- * This test is generated from positional_function_types_fail_A12.dart and 
- * arguments_binding_fail_x02.dart.
- * Don't modify it. If you want to change this file, change one of the files 
- * above and then run generator.dart to regenerate the tests.
- */
-
-
 
 class A {}
 
@@ -59,45 +42,42 @@ class V2<X, Y, Z> {}
 
 class V3<X, Y, Z> {}
 
+class V4<X, Y, Z> {}
+
 class S0<X, Y, Z> extends V0<X, Y, Z> {}
 
 class S1<X, Y, Z> extends V1<X, Y, Z> {}
 
 class S2<X, Y, Z> extends V2<X, Y, Z> {}
 
-class S3<X, Y, Z> {}
+class S3<X, Y, Z> extends V3<X, Y, Z> {}
+
+class X0<X, Y, Z> extends B0<X, Y, Z> {}
+
+class X1<X, Y, Z> extends B1<X, Y, Z> {}
+
+class Y0<X, Y, Z> extends B0<X, Y, Z> {}
+
+class Y1<X, Y, Z> extends B1<X, Y, Z> {}
 
 typedef T0 = U0<C, List<String>, int> Function<X extends B0, Y extends B1>(
-    V0<A, List, num> x0, V1<A, List, num> x1,
-    [V2<A, List, num> x2, V3<A, List, num> x3]);
-typedef T1 = U1<A, List, num> Function<X extends B0, Y extends B1>(
+    V0<dynamic, void, Object> x0, V1<dynamic, void, Object> x1,
+    [V2<dynamic, void, Object> x2, V3<dynamic, void, Object> x3]);
+typedef T1 = U1<dynamic, void, Object> Function<X extends B0, Y extends B1>(
     S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
-    [S2<C, List<String>, int> y2, S3<C, List<String>, int> y3]);
+    [S2<C, List<String>, int> x2, S3<C, List<String>, int> x3]);
 
 U0<C, List<String>, int> t0Func<X extends B0, Y extends B1>(
-    V0<A, List, num> x0, V1<A, List, num> x1,
-    [V2<A, List, num> x2, V3<A, List, num> x3]) =>
+        V0<dynamic, void, Object> x0, V1<dynamic, void, Object> x1,
+        [V2<dynamic, void, Object> x2, V3<dynamic, void, Object> x3]) =>
     null;
-U1<A, List, num> t1Func<X extends B0, Y extends B1>(
-    S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
-    [S2<C, List<String>, int> y2, S3<C, List<String>, int> y3]) =>
+U1<dynamic, void, Object> t1Func<X extends B0, Y extends B1>(
+        S0<C, List<String>, int> y0, S1<C, List<String>, int> y1,
+        [S2<C, List<String>, int> x2, S3<C, List<String>, int> x3]) =>
     null;
 
 T0 t0Instance = t0Func;
 T1 t1Instance = t1Func;
-bool isGenericFunctionType = true;
-
-
-
-class ArgumentsBindingClassSuper {
-    ArgumentsBindingClassSuper(T1 t1) {}
-}
-
-class ArgumentsBindingDesc extends ArgumentsBindingClassSuper {
-    ArgumentsBindingDesc(T0 t0) : super (t0) {}
-}
-
-main() {
-  new ArgumentsBindingDesc(t0Instance);
-}
-
+//# @T0 = T0
+//# @T1 = T1
+//# @GenericFunctionType

@@ -71,11 +71,19 @@ class ArgumentsBindingClass {
     set testSetter(C0<U0, U1, U2> val) {}
 }
 
+class ArgumentsBindingClassSuper {          //# 23: compile-time error
+  ArgumentsBindingClassSuper(C0<U0, U1, U2> t1) {}     //# 23: compile-time error
+}                                           //# 23: compile-time error
+
+class ArgumentsBindingDesc extends ArgumentsBindingClassSuper { //# 23: compile-time error
+  ArgumentsBindingDesc(C0<S0, S1, S2> t0) : super (t0) {}                  //# 23: compile-time error
+}                                                               //# 23: compile-time error
+
 main() {
   namedArgumentsFunc1(t0Instance); //# 01: compile-time error
   namedArgumentsFunc1(t1Instance, t2: t0Instance); //# 02: compile-time error
   positionalArgumentsFunc1(t0Instance); //# 03: compile-time error
-  positionalArgumentsFunc1(t1Instance, t0Instance); //# 014: compile-time error
+  positionalArgumentsFunc1(t1Instance, t0Instance); //# 04: compile-time error
   new ArgumentsBindingClass(t0Instance); //# 05: compile-time error
   new ArgumentsBindingClass(t1Instance).namedArgumentsMethod(t0Instance); //# 06: compile-time error
   new ArgumentsBindingClass(t1Instance).namedArgumentsMethod(t1Instance, t2: t0Instance); //# 07: compile-time error
@@ -94,4 +102,5 @@ main() {
   new ArgumentsBindingClass.fNamed(t1Instance, t2: t0Instance); //# 20: compile-time error
   new ArgumentsBindingClass.fPositional(t0Instance); //# 21: compile-time error
   new ArgumentsBindingClass.fPositional(t1Instance, t0Instance); //# 22: compile-time error
+  new ArgumentsBindingDesc(t0Instance); //# 23: compile-time error
 }
