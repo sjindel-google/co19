@@ -15,8 +15,7 @@
  */
 /**
  * @description Check that if type T0 not a subtype of a type T1, then instance
- * of T0 cannot be be used as a return value of type T1. Return value of global
- * function is tested.
+ * of T0 cannot be be used as a return value of type T1. Return value is tested.
  * @compile-error
  * @author sgrekhov@unipro.ru
  * @author ngl@unipro.ru
@@ -47,8 +46,21 @@ C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
 
 
 
-C0<U0, U1, U2> returnValueFunc() => t0Instance;
+C0<U0, U1, U2> returnValueFunc() => t0Instance; //# 01: compile-time error
+
+class ReturnValueTest {
+  static C0<U0, U1, U2> staticTestMethod() => t0Instance; //# 03: compile-time error
+  C0<U0, U1, U2> testMethod() => t0Instance; //# 04: compile-time error
+  C0<U0, U1, U2> get testGetter => t0Instance; //# 05: compile-time error
+}
 
 main() {
-  returnValueFunc();
+  returnValueFunc(); //# 01: compile-time error
+
+  C0<U0, U1, U2> returnValueLocalFunc() => t0Instance; //# 02: compile-time error
+  returnValueLocalFunc(); //# 02: compile-time error
+
+  ReturnValueTest.staticTestMethod(); //# 03: compile-time error
+  new ReturnValueTest().testMethod(); //# 04: compile-time error
+  new ReturnValueTest().testGetter; //# 05: compile-time error
 }
