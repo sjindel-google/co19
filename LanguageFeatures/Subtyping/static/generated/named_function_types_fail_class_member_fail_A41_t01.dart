@@ -60,15 +60,7 @@ T1 t1Instance = t1Func;
 
 
 
-/*
-class ClassMemberTestStatic {
-  static T1 s;
 
-  ClassMemberTestStatic() {
-    s = t0Instance;
-  }
-}
-*/
 class ClassMemberTestStatic {
   static T1 s;
 

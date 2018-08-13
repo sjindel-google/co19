@@ -38,15 +38,7 @@ T1 t1Instance = new T1();
 
 
 
-/*
-class ClassMemberTestStatic {
-  static T1 s;
 
-  ClassMemberTestStatic() {
-    s = t0Instance;
-  }
-}
-*/
 class ClassMemberTestStatic {
   static T1 s;
 

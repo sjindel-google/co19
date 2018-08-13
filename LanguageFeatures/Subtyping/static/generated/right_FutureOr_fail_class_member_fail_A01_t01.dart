@@ -43,15 +43,7 @@ FutureOr<S1> t1Instance = new Future.value(new S1());
 
 
 
-/*
-class ClassMemberTestStatic {
-  static FutureOr<S1> s;
 
-  ClassMemberTestStatic() {
-    s = t0Instance;
-  }
-}
-*/
 class ClassMemberTestStatic {
   static FutureOr<S1> s;
 

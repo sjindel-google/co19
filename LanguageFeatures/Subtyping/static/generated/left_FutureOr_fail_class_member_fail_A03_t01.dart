@@ -48,15 +48,7 @@ Future<C1> t1Instance = new Future.value(new C1());
 
 
 
-/*
-class ClassMemberTestStatic {
-  static Future<C1> s;
 
-  ClassMemberTestStatic() {
-    s = t0Instance;
-  }
-}
-*/
 class ClassMemberTestStatic {
   static Future<C1> s;
 

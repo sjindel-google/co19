@@ -46,15 +46,7 @@ C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
 
 
 
-/*
-class ClassMemberTestStatic {
-  static C0<U0, U1, U2> s;
 
-  ClassMemberTestStatic() {
-    s = t0Instance;
-  }
-}
-*/
 class ClassMemberTestStatic {
   static C0<U0, U1, U2> s;
 
