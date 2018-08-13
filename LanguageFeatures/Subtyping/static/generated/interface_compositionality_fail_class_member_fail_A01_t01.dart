@@ -15,8 +15,8 @@
  */
 /**
  * @description Check that if type T0 not a subtype of a type T1, then it cannot
- * be used as a class member of type T1. Assignment to static class variable in
- * constructor is tested.
+ * be used as a class member of type T1. Assignment to static and instance class
+ * variables is tested.
  * @compile-error
  * @author sgrekhov@unipro.ru
  * @author ngl@unipro.ru
@@ -46,7 +46,7 @@ C0<U0, U1, U2> t1Instance = new C0<U0, U1, U2>();
 
 
 
-
+/*
 class ClassMemberTestStatic {
   static C0<U0, U1, U2> s;
 
@@ -54,7 +54,87 @@ class ClassMemberTestStatic {
     s = t0Instance;
   }
 }
+*/
+class ClassMemberTestStatic {
+  static C0<U0, U1, U2> s;
+
+  ClassMemberTestStatic(C0<S0, S1, S2> val) {
+    s = val; //# 01: compile-time error
+  }
+
+  static staticTest() {
+    s = t0Instance; //# 04: compile-time error
+  }
+
+  static set staticSetter(C0<S0, S1, S2> val) {
+    s = val; //# 02: compile-time error
+  }
+
+  static C0<U0, U1, U2> get staticGetter => t0Instance; //# 03: compile-time error
+}
+
+class ClassMemberTestPublic {
+  C0<U0, U1, U2> m;
+
+  ClassMemberTestPublic(C0<S0, S1, S2> val) {
+    m = val; //# 05: compile-time error
+  }
+
+  ClassMemberTestPublic.short(this.m);
+
+  ClassMemberTestPublic.validConstructor() {}
+
+  test(C0<S0, S1, S2> val) {
+    m = val; //# 08: compile-time error
+  }
+
+  set setter(C0<S0, S1, S2> val) {
+    m = val; //# 07: compile-time error
+  }
+
+  C0<U0, U1, U2> get getter => t0Instance; //# 09: compile-time error
+}
+
+class ClassMemberTestPrivate {
+  C0<U0, U1, U2> _m;
+
+  ClassMemberTestPrivate(C0<S0, S1, S2> val) {
+    _m = val; //# 10: compile-time error
+  }
+
+  ClassMemberTestPrivate.short(this._m);
+
+  ClassMemberTestPrivate.validConstructor() {}
+
+  test(C0<S0, S1, S2> val) {
+    _m = val; //# 12: compile-time error
+  }
+
+  set setter(C0<S0, S1, S2> val) {
+    _m = val; //# 11: compile-time error
+  }
+}
+
+class ClassMemberTestInitFail {
+  static C0<U0, U1, U2> s = t0Instance; //# 13: compile-time error
+  C0<U0, U1, U2> m = t0Instance; //# 14: compile-time error
+}
+
 
 main() {
-  new ClassMemberTestStatic();
+  new ClassMemberTestStatic(t0Instance); //# 01: compile-time error
+  ClassMemberTestStatic.staticSetter = t0Instance; //# 02: compile-time error
+  ClassMemberTestStatic.staticGetter; //# 03: compile-time error
+  ClassMemberTestStatic.staticTest(); //# 04: compile-time error
+  new ClassMemberTestPublic(t0Instance); //# 05: compile-time error
+  new ClassMemberTestPublic.validConstructor().m = t0Instance; //# 06: compile-time error
+  new ClassMemberTestPublic.validConstructor().setter = t0Instance; //# 07: compile-time error
+  new ClassMemberTestPublic.validConstructor().test(t0Instance); //# 08: compile-time error
+  new ClassMemberTestPublic.validConstructor().getter; //# 09: compile-time error
+  new ClassMemberTestPrivate(t0Instance); //# 10: compile-time error
+  new ClassMemberTestPrivate.validConstructor().setter = t0Instance; //# 11: compile-time error
+  new ClassMemberTestPrivate.validConstructor().test(t0Instance); //# 12: compile-time error
+  ClassMemberTestInitFail.s; //# 13: compile-time error
+  new ClassMemberTestInitFail(); //# 14: compile-time error
 }
+
