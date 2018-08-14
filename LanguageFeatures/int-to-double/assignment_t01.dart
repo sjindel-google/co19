@@ -47,6 +47,9 @@ main() {
   const double d3 = -42;
   final double d4 = 23;
 
+  g1 = -42;
+  g2 = 42;
+
   C.c = 23;
   C.staticSetter = -23;
 
@@ -55,4 +58,13 @@ main() {
   c.instanceSetter = -23;
 
   foo();
+
+  void bar() {
+    double b1 = 42;
+    double b2 = (3 > 2 ? 2 : 3);
+    const double b3 = -42;
+    final double b4 = 23;
+  }
+
+  bar();
 }
