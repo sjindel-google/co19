@@ -6,30 +6,15 @@
 /**
  * @assertion The static type of a double valued integer literal is [double]
  * @description Checks that the static type of a double valued integer literal
- * is [double]. Test return value and hexadecimal integer literals
+ * is [double]. Test global variable assignment
  * @author sgrekhov@unipro.ru
  */
-
-class C {
-
-  double get instanceGetter => 0x42;
-  static double get staticGetter => -0x42;
-
-  double instanceMethod() => 0x42;
-  static double staticMethod() => -0x42;
-}
-
-double foo() => 0x42;
+double g1 = 42;
+double g2 = (3 > 2 ? 2 : 3);
+const double g3 = -42;
+final double g4 = 23;
 
 main() {
-  double bar() => 0x42;
-
-  foo();
-  bar();
-  C.staticGetter;
-  C.staticMethod();
-
-  C c = C();
-  c.instanceGetter;
-  c.instanceMethod();
+  g1 = -42;
+  g2 = 42;
 }

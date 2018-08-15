@@ -10,7 +10,6 @@
  * @author sgrekhov@unipro.ru
  */
 
-
 class C {
 
   double get instanceGetter => 42;

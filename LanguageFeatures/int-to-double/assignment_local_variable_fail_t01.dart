@@ -6,30 +6,35 @@
 /**
  * @assertion The static type of a double valued integer literal is [double]
  * @description Checks that the static type of a double valued integer literal
- * is [double]. Test return value and hexadecimal integer literals
+ * is [double]. Test local variable assignment
  * @author sgrekhov@unipro.ru
  */
+int init() => 2;
 
 class C {
 
-  double get instanceGetter => 0x42;
-  static double get staticGetter => -0x42;
+  static void staticMethod() {
+    double s1 = init();     //# 01: compile-time error
+  }
 
-  double instanceMethod() => 0x42;
-  static double staticMethod() => -0x42;
+  void instanceMethod() {
+    double m1 = init();     //# 02: compile-time error
+  }
 }
 
-double foo() => 0x42;
+void foo() {
+  double l1 = init();       //# 03: compile-time error
+}
 
 main() {
-  double bar() => 0x42;
+  double d1 = init();       //# 04: compile-time error
+
+  void bar() {
+    double b1 = init();     //# 05: compile-time error
+  }
 
   foo();
   bar();
-  C.staticGetter;
   C.staticMethod();
-
-  C c = C();
-  c.instanceGetter;
-  c.instanceMethod();
+  new C().instanceMethod();
 }
