@@ -6,20 +6,29 @@
 /**
  * @assertion The static type of a double valued integer literal is [double]
  * @description Checks that the static type of a double valued integer literal
- * is [double]. Test global variable assignment and hexadecimal values
- * @compile-error
+ * is [double]. Test this assignment expression and hexadecimal values
  * @author sgrekhov@unipro.ru
  */
-double g1 = 0x42;
-double g2 = (3 > 2 ? 0x2 : 0x3);
-const double g3 = -0x42;
-final double g4 = 0x23;
+
+class C {
+  double m1;
+
+  void set instanceSetter(double val) {
+    m1 = val;
+  }
+
+  test() {
+    this.m1 = 0x42;
+    this?.m1 = -0x42;
+    this.m1 ??= 0x42;
+    this?.m1 ??= -0x42;
+
+    this.instanceSetter = 0x42;
+    this?.instanceSetter = -0x42;
+  }
+}
 
 main() {
-  g1 = -0x42;
-  g2 = 0x42;
-
-  g1 = null;
-  g1 ??= 0x42;
-  g1 ??= -0x42;
+  C c = C();
+  c.test();
 }

@@ -17,4 +17,8 @@ final double g4 = 23;
 main() {
   g1 = -42;
   g2 = 42;
+
+  g1 = null;
+  g1 ??= 42;
+  g1 ??= -42;
 }

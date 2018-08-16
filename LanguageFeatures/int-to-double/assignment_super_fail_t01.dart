@@ -6,15 +6,28 @@
 /**
  * @assertion The static type of a double valued integer literal is [double]
  * @description Checks that it is a compile error if integer but not a literal
- * is assigned to double global variable
- * @compile-error
+ * is assigned to class member via super expression
  * @author sgrekhov@unipro.ru
  */
 int foo() => 42;
 
-double d1 = foo();    //# 01: compile-time error
-double d2 = null;
+class A {
+  double m1;
+
+  void set instanceSetter(double val) {
+    m1 = val;
+  }
+}
+
+class C extends A {
+  test() {
+    super.m1 = foo();                  //# 01: compile-time error
+    super.m1 ??= foo();                //# 02: compile-time error
+    super.instanceSetter = foo();      //# 03: compile-time error
+  }
+}
 
 main() {
-  d2 ??= foo();     //# 02: compile-time error
+  C c = C();
+  c.test();
 }

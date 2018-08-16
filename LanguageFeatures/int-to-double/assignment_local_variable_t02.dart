@@ -20,6 +20,10 @@ class C {
 
     s1 = -0x42;
     s2 = 0x42;
+
+    s1 = null;
+    s1 ??= 0x42;
+    s1 ??= -0x42;
   }
 
   void instanceMethod() {
@@ -30,6 +34,10 @@ class C {
 
     m1 = -0x42;
     m2 = 0x42;
+
+    m1 = null;
+    m1 ??= 0x42;
+    m1 ??= -0x42;
   }
 }
 
@@ -41,6 +49,10 @@ void foo() {
 
   l1 = -0x42;
   l2 = 0x42;
+
+  l1 = null;
+  l1 ??= 0x42;
+  l1 ??= -0x42;
 }
 
 main() {
@@ -51,6 +63,10 @@ main() {
 
   d1 = -0x42;
   d2 = 0x42;
+
+  d1 = null;
+  d1 ??= 0x42;
+  d1 ??= -0x42;
 
   foo();
   C.staticMethod();
@@ -64,6 +80,10 @@ main() {
 
     b1 = -0x42;
     b2 = 0x42;
+
+    b1 = null;
+    b1 ??= 0x42;
+    b1 ??= -0x42;
   }
   bar();
 }
