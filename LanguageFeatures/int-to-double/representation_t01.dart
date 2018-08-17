@@ -9,25 +9,23 @@
  * double-precision value, assuming that the mantissa is extended with zeros
  * until the precision is sufficiently high to unambiguously specify a single
  * integer value.
- * @description Checks that it is a compile-time error if the unbounded integer
- * value of a double valued integer literal cannot be represented exactly as an
+ * @description Checks that it is no compile-time error if the unbounded integer
+ * value of a double valued integer literal can be represented exactly as an
  * IEEE 754 double-precision value. The unbounded integer 18446744073709551614
- * has the exact double value represented as 0x43F0000000000000, and the integer
- * 18446744073709551615 hasn't the exact double value representation.
- * @compile-error
+ * has the exact double value represented as 0x43F0000000000000.
  * @author ngl@unipro.ru
  */
 
-double d1 = 18446744073709551615; //# 01: compile-time error
+double d1 = 18446744073709551614;
 
 class C {
-  static double d2 = 18446744073709551615; //# 02: compile-time error
+  static double d2 = 18446744073709551614;
 
-  double d3 = 18446744073709551615; //# 03: compile-time error
+  double d3 = 18446744073709551614;
 }
 
 main() {
-  double d4 = 18446744073709551615; //# 04: compile-time error
+  double d4 = 18446744073709551614;
 
   new C();
 }
