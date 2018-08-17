@@ -20,6 +20,8 @@ class A {
 class C extends A {
   test() {
     super.m1 = 42;
+    super.m1 = (1 > 0 ? 42 : 3.14);
+    super.m1 = (null ?? 42);
     super.m1 ??= 42;
     super.instanceSetter = 42;
   }

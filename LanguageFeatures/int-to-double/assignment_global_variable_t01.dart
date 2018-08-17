@@ -10,13 +10,14 @@
  * @author sgrekhov@unipro.ru
  */
 double g1 = 42;
-double g2 = (3 > 2 ? 2 : 3);
-const double g3 = -42;
-final double g4 = 23;
+double g2 = (1 > 0 ? 42 : 3.14);
+double g3 = (null ?? 42);
+const double g4 = -42;
+final double g5 = 23;
 
 main() {
   g1 = -42;
-  g2 = 42;
+  g1 = -42;
 
   g1 = null;
   g1 ??= 42;

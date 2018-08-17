@@ -19,6 +19,8 @@ class C {
 
   test() {
     this.m1 = 42;
+    this.m1 = (1 > 0 ? 42 : 3.14);
+    this.m1 = (null ?? 42);
     this?.m1 = -42;
     this.m1 ??= 42;
     this?.m1 ??= -42;

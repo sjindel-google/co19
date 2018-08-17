@@ -14,13 +14,12 @@ class C {
 
   static void staticMethod() {
     double s1 = 0x42;
-    double s2 = (3 > 2 ? 0x2 : 0x3);
-    const double s3 = -0x42;
-    final double s4 = 0x23;
+    double s2 = (1 > 0 ? 0x42 : 3.14);
+    double s3 = (null ?? 0x42);
+    const double s4 = -0x42;
+    final double s5 = 0x23;
 
     s1 = -0x42;
-    s2 = 0x42;
-
     s1 = null;
     s1 ??= 0x42;
     s1 ??= -0x42;
@@ -28,13 +27,12 @@ class C {
 
   void instanceMethod() {
     double m1 = 0x42;
-    double m2 = (3 > 2 ? 0x2 : 0x3);
-    const double m3 = -0x42;
-    final double m4 = 0x23;
+    double m2 = (1 > 0 ? 0x42 : 3.14);
+    double m3 = (null ?? 0x42);
+    const double m4 = -0x42;
+    final double m5 = 0x23;
 
     m1 = -0x42;
-    m2 = 0x42;
-
     m1 = null;
     m1 ??= 0x42;
     m1 ??= -0x42;
@@ -43,27 +41,26 @@ class C {
 
 void foo() {
   double l1 = 0x42;
-  double l2 = (3 > 2 ? 0x2 : 0x3);
-  const double l3 = -0x42;
-  final double l4 = 0x23;
+  double l2 = (1 > 0 ? 0x42 : 3.14);
+  double l3 = (null ?? 0x42);
+  const double l4 = -0x42;
+  final double l5 = 0x23;
 
   l1 = -0x42;
-  l2 = 0x42;
-
   l1 = null;
   l1 ??= 0x42;
   l1 ??= -0x42;
+
 }
 
 main() {
   double d1 = 0x42;
-  double d2 = (3 > 2 ? 0x2 : 0x3);
-  const double d3 = -0x42;
-  final double d4 = 0x23;
+  double d2 = (1 > 0 ? 0x42 : 3.14);
+  double d3 = (null ?? 0x42);
+  const double d4 = -0x42;
+  final double d5 = 0x23;
 
   d1 = -0x42;
-  d2 = 0x42;
-
   d1 = null;
   d1 ??= 0x42;
   d1 ??= -0x42;
@@ -74,13 +71,12 @@ main() {
 
   void bar() {
     double b1 = 0x42;
-    double b2 = (3 > 2 ? 0x2 : 0x3);
-    const double b3 = -0x42;
-    final double b4 = 0x23;
+    double b2 = (1 > 0 ? 0x42 : 3.14);
+    double b3 = (null ?? 0x42);
+    const double b4 = -0x42;
+    final double b5 = 0x23;
 
     b1 = -0x42;
-    b2 = 0x42;
-
     b1 = null;
     b1 ??= 0x42;
     b1 ??= -0x42;

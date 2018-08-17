@@ -7,17 +7,16 @@
  * @assertion The static type of a double valued integer literal is [double]
  * @description Checks that the static type of a double valued integer literal
  * is [double]. Test global variable assignment and hexadecimal values
- * @compile-error
  * @author sgrekhov@unipro.ru
  */
 double g1 = 0x42;
-double g2 = (3 > 2 ? 0x2 : 0x3);
-const double g3 = -0x42;
-final double g4 = 0x23;
+double g2 = (1 > 0 ? 0x42 : 3.14);
+double g3 = (null ?? 0x42);
+const double g4 = -0x42;
+final double g5 = 0x23;
 
 main() {
   g1 = -0x42;
-  g2 = 0x42;
 
   g1 = null;
   g1 ??= 0x42;

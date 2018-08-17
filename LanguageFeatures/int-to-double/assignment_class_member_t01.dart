@@ -13,9 +13,10 @@
 
 class C {
   double m1 = 42;
-  double m2 = (3 > 2 ? 2 : 3);
-  static const double m3 = -42;
-  final double m4 = 23;
+  double m2 = (1 > 0 ? 42 : 3.14);
+  double m3 = (null ?? 42);
+  static const double m4 = -42;
+  final double m5 = 23;
 
   static double s = -42;
 
