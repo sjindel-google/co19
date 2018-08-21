@@ -24,7 +24,6 @@
  */
 
 
-import '../../utils/common.dart';
 
 dynamic t0Instance = "";
 Object t1Instance = new Object();

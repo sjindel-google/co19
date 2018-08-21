@@ -17,7 +17,7 @@
 /**
  * @description Check that if type T0 is not a subtype of a type T1, then
  * instance of T0 cannot be be assigned to the to local variable of type T1.
- * Assignment to local variable of main method is tested.
+ * Assignment to local variable is tested.
  * @compile-error
  * @author sgrekhov@unipro.ru
  * @author ngl@unipro.ru
@@ -30,8 +30,6 @@
  */
 
 
-import '../../utils/common.dart';
-import '../../../../Utils/expect.dart';
 
 import "dart:async";
 
@@ -51,7 +49,36 @@ Future<C1> t1Instance = new Future.value(new C1());
 
 
 
+class LocalVariableTest {
+  LocalVariableTest() {
+    Future<C1> t1 = null;
+    t1 = t0Instance; //# 03: compile-time error
+  }
+
+  LocalVariableTest.valid() {}
+
+  test() {
+    Future<C1> t1 = null;
+    t1 = t0Instance; //# 04: compile-time error
+  }
+
+  static staticTest() {
+    Future<C1> t1 = null;
+    t1 = t0Instance; //# 05: compile-time error
+  }
+}
+
 main() {
   Future<C1> t1 = null;
-  t1 = t0Instance;
+  t1 = t0Instance; //# 01: compile-time error
+
+  bar () {
+    Future<C1> t1 = null;
+    t1 = t0Instance; //# 02: compile-time error
+  }
+  bar(); //# 02: compile-time error
+
+  new LocalVariableTest(); //# 03: compile-time error
+  new LocalVariableTest.valid().test(); //# 04: compile-time error
+  LocalVariableTest.staticTest(); //# 05: compile-time error
 }

@@ -18,8 +18,8 @@
  */
 /**
  * @description Check that if type T0 not a subtype of a type T1, then it cannot
- * be used as a class member of type T1. Assignment to static class variable in
- * constructor is tested.
+ * be used as a class member of type T1. Assignment to static and instance class
+ * variables is tested.
  * @compile-error
  * @author sgrekhov@unipro.ru
  * @author ngl@unipro.ru
@@ -32,8 +32,6 @@
  */
 
 
-import '../../utils/common.dart';
-import '../../../../Utils/expect.dart';
 
 import "dart:async";
 
@@ -51,11 +49,83 @@ FutureOr<S1> t1Instance = new Future.value(new S1());
 class ClassMemberTestStatic {
   static FutureOr<S1> s;
 
-  ClassMemberTestStatic() {
-    s = t0Instance;
+  ClassMemberTestStatic(X0 val) {
+    s = val; //# 01: compile-time error
+  }
+
+  static staticTest() {
+    s = t0Instance; //# 04: compile-time error
+  }
+
+  static set staticSetter(X0 val) {
+    s = val; //# 02: compile-time error
+  }
+
+  static FutureOr<S1> get staticGetter => t0Instance; //# 03: compile-time error
+}
+
+class ClassMemberTestPublic {
+  FutureOr<S1> m;
+
+  ClassMemberTestPublic(X0 val) {
+    m = val; //# 05: compile-time error
+  }
+
+  ClassMemberTestPublic.short(this.m);
+
+  ClassMemberTestPublic.validConstructor() {}
+
+  test(X0 val) {
+    m = val; //# 08: compile-time error
+  }
+
+  set setter(X0 val) {
+    m = val; //# 07: compile-time error
+  }
+
+  FutureOr<S1> get getter => t0Instance; //# 09: compile-time error
+}
+
+class ClassMemberTestPrivate {
+  FutureOr<S1> _m;
+
+  ClassMemberTestPrivate(X0 val) {
+    _m = val; //# 10: compile-time error
+  }
+
+  ClassMemberTestPrivate.short(this._m);
+
+  ClassMemberTestPrivate.validConstructor() {}
+
+  test(X0 val) {
+    _m = val; //# 12: compile-time error
+  }
+
+  set setter(X0 val) {
+    _m = val; //# 11: compile-time error
   }
 }
 
-main() {
-  new ClassMemberTestStatic();
+class ClassMemberTestInitFail {
+  static FutureOr<S1> s = t0Instance; //# 13: compile-time error
+  FutureOr<S1> m = t0Instance; //# 14: compile-time error
 }
+
+
+main() {
+  new ClassMemberTestStatic(t0Instance); //# 01: compile-time error
+  ClassMemberTestStatic.staticSetter = t0Instance; //# 02: compile-time error
+  ClassMemberTestStatic.staticGetter; //# 03: compile-time error
+  ClassMemberTestStatic.staticTest(); //# 04: compile-time error
+  new ClassMemberTestPublic(t0Instance); //# 05: compile-time error
+  new ClassMemberTestPublic.validConstructor().m = t0Instance; //# 06: compile-time error
+  new ClassMemberTestPublic.validConstructor().setter = t0Instance; //# 07: compile-time error
+  new ClassMemberTestPublic.validConstructor().test(t0Instance); //# 08: compile-time error
+  new ClassMemberTestPublic.validConstructor().getter; //# 09: compile-time error
+  new ClassMemberTestPrivate(t0Instance); //# 10: compile-time error
+  new ClassMemberTestPrivate.validConstructor().setter = t0Instance; //# 11: compile-time error
+  new ClassMemberTestPrivate.validConstructor().test(t0Instance); //# 12: compile-time error
+  ClassMemberTestInitFail.s; //# 13: compile-time error
+  new ClassMemberTestInitFail(); //# 14: compile-time error
+}
+

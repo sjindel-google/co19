@@ -28,8 +28,6 @@
  */
 
 
-import '../../utils/common.dart';
-import '../../../../Utils/expect.dart';
 
 class T1 {}
 
@@ -50,11 +48,21 @@ T1 t1Instance = new T1();
 
 class ClassMemberSuper1_t03 {
   T1 m;
+  void set superSetter(T1 val) {} //# 02: compile-time error
 }
 
 class ClassMember1_t03 extends Object with ClassMemberSuper1_t03 {
+  test1() {
+    m = t0Instance; //# 03: compile-time error
+  }
+  test2() {
+    superSetter = t0Instance; //# 04: compile-time error
+  }
 }
 
 main() {
-  new ClassMember1_t03().m = t0Instance;
+  new ClassMember1_t03().m = t0Instance; //# 01: compile-time error
+  new ClassMember1_t03().superSetter = t0Instance;  //# 02: compile-time error
+  new ClassMember1_t03().test1();  //# 03: compile-time error
+  new ClassMember1_t03().test2();  //# 04: compile-time error
 }
