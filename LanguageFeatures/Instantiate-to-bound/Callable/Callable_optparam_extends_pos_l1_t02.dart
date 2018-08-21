@@ -42,18 +42,33 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that parameter type is checked correctly for function
- *  return value.
- * @compile-error
- * @Issue 33308
+ * @description Checks that callable functions work OK for [dynamic] and
+ *  [Object] callable class parameters.
  * @author iarkh@unipro.ru
  */
 
-class F {
-  X call<X extends int>() { return null; }
+class F1<X> {
+  call([X x]) {}
+}
+
+class F2<X extends dynamic> {
+  call([X x]) {}
+}
+
+class F3<X extends Object> {
+  call([X x]) {}
 }
 
 main() {
-  F testme = new F();
-  List a = testme();
+  dynamic x;
+
+  F1 funct1 = new F1();
+  funct1(x);
+
+  F2 funct2 = new F2();
+  funct2(x);
+
+  F3 funct3 = new F3();
+  funct3(x);
 }
+

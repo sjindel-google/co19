@@ -42,18 +42,17 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that parameter type is checked correctly for function
- *  return value.
- * @compile-error
- * @Issue 33308
+ * @description Checks that callable function can have raw optional parameter.
  * @author iarkh@unipro.ru
  */
 
 class F {
-  X call<X extends int>() { return null; }
+  call<X>([X x]) { }
 }
 
 main() {
-  F testme = new F();
-  List a = testme();
+  F function = new F();
+  function<int>(12345);
+  function(12345);
 }
+

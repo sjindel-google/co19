@@ -42,18 +42,18 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that parameter type is checked correctly for function
- *  return value.
+ * @description Checks that parameter type is checked correctly for callable
+ *  function optional parameter.
  * @compile-error
- * @Issue 33308
  * @author iarkh@unipro.ru
  */
 
+
 class F {
-  X call<X extends int>() { return null; }
+  X call<X extends int>([X x]) {}
 }
 
 main() {
   F testme = new F();
-  List a = testme();
+  testme("String");
 }

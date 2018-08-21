@@ -42,18 +42,21 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that parameter type is checked correctly for function
- *  return value.
- * @compile-error
- * @Issue 33308
+ * @description Checks that instantiate-to-bounds works correctly for callable
+ *  function with optional parameter.
  * @author iarkh@unipro.ru
  */
+class A<X> {}
 
 class F {
-  X call<X extends int>() { return null; }
+  call<X extends A<X>>([X x]) {}
 }
 
 main() {
   F testme = new F();
-  List a = testme();
+  testme(A<Null>());
+  testme(A<A<Null>>());
+  testme(A<A<A<Null>>>());
+  testme(A<A<A<A<Null>>>>());
 }
+

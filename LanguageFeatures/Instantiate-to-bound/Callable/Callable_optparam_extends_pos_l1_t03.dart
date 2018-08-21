@@ -42,18 +42,23 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that parameter type is checked correctly for function
- *  return value.
- * @compile-error
- * @Issue 33308
+ * @description Checks that callable function can have optional parameter which
+ *  extends [dynamic].
  * @author iarkh@unipro.ru
  */
 
 class F {
-  X call<X extends int>() { return null; }
+  call<X extends dynamic>([X x]) {}
 }
 
+dynamic x;
+
 main() {
-  F testme = new F();
-  List a = testme();
+  F funct = new F();
+  funct(x);
+  funct<dynamic>(x);
+  funct<dynamic>(12345);
+  funct(12345);
+  funct<int>(12345);
+  funct<int>(x);
 }

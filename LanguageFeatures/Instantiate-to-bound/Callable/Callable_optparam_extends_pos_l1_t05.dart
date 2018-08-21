@@ -42,18 +42,40 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that parameter type is checked correctly for function
- *  return value.
- * @compile-error
- * @Issue 33308
+ * @description Checks that callable function can have optional parametrized
+ *  parameter
  * @author iarkh@unipro.ru
  */
 
-class F {
-  X call<X extends int>() { return null; }
+class F1<X> {
+  call([X x]) {}
+}
+
+class F2<X extends dynamic> {
+  call([X x]) {}
+}
+
+class F3<X extends Object> {
+  call([X x]) {}
 }
 
 main() {
-  F testme = new F();
-  List a = testme();
+  F1 funct1 = new F1<int>();
+  funct1(12345);
+
+  F2 funct2 = new F2<int>();
+  funct2(12345);
+
+  F3 funct3 = new F3<int>();
+  funct2(12345);
+
+  funct1 = new F1();
+  funct3(12345);
+
+  funct2 = new F2();
+  funct3(12345);
+
+  funct3 = new F3();
+  funct3(12345);
 }
+
