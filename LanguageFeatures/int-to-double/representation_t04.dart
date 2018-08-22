@@ -9,23 +9,16 @@
  * double-precision value, assuming that the mantissa is extended with zeros
  * until the precision is sufficiently high to unambiguously specify a single
  * integer value.
- * @description Checks that it is a compile-time error if the unbounded integer
- * value of a double valued integer literal cannot be represented exactly as an
- * IEEE 754 double-precision value.
- * @compile-error
+ * @description Checks that it is not a compile-time error if the unbounded
+ * integer value of a double valued integer literal with binary representation
+ * of 55 bit length can be represented exactly as an IEEE 754 double-precision
+ * value (the most significant bit is 1 and two low bits are 0).
  * @author ngl@unipro.ru
  */
 
-double d1 = 0x2fffffffffffff; //# 01: compile-time error
-
-class C {
-  static double d2 = 0x2fffffffffffff; //# 02: compile-time error
-
-  double d3 = 0x2fffffffffffff; //# 03: compile-time error
-}
-
 main() {
-  double d4 = 0x2fffffffffffff; //# 04: compile-time error
-
-  new C();
+  double d1 = 0x40000000000000;
+  double d2 = 0x40000000000004;
+  double d3 = 0x40000000000008;
+  double d4 = 0x4000000000000C;
 }
