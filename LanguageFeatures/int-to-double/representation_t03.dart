@@ -11,14 +11,14 @@
  * integer value.
  * @description Checks that it is not a compile-time error if the unbounded
  * integer value of a double valued integer literal with binary representation
- * of 55 bit length can be represented exactly as an IEEE 754 double-precision
- * value (the most significant bit is 1 and two low bits are 0).
+ * of 54 bit length can be represented exactly as an IEEE 754 double-precision
+ * value (if the most significant bit is 1 and the low bit is 0).
  * @author ngl@unipro.ru
  */
 
 main() {
-  double d1 = 0x40000000000000;
-  double d2 = 0x40000000000004;
-  double d3 = 0x40000000000008;
-  double d4 = 0x4000000000000C;
+  double d1 = 0x20000000000000;
+  double d2 = 0x20000000000002;
+  double d3 = 0x20000000000004;
+  double d4 = 0x20000000000006;
 }
