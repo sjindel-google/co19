@@ -42,17 +42,22 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that class parameter can extend [dynamic] and [Object].
+ * @description Checks that class parameter can be [dynamic], [Object], [Null]
+ *  and [void].
  * @author iarkh@unipro.ru
  */
+import "dart:async";
+
 class A<X> {}
 
 main() {
   A a = new A<dynamic>();
+  a = new A<Object>();
   a = new A<void>();
   a = new A<Null>();
 
-  A<dynamic> b = new A();
-  A<void> b1= new A();
-  A<Null> b2 = new A();
+  A<dynamic> b1 = new A();
+  A<Object> b2 = new A();
+  A<void> b3= new A();
+  A<Null> b4 = new A();
 }

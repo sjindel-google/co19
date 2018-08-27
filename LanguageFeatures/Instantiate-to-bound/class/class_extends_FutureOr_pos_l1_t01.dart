@@ -42,20 +42,25 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [Future] parameter can be [dynamic], [Object],
- *  [Void] and [Null]
+ * @description Checks rule for custom class [A] with parameter which extends
+ *  [Future<A>]
+ * @Issue #34264
  * @author iarkh@unipro.ru
  */
 import "dart:async";
 
-main() {
-  Future f = new Future<dynamic>(() => 12345);
-  f = new Future<Object>(() => 12345);
-  f = new Future<void>(() => 12345);
-  f = new Future<Null>(() => null);
+class A<X extends FutureOr<A<X>>> {}
 
-  Future<dynamic> f1 = new Future(() => 12345);
-  Future<void> f2 = new Future(() => 12345);
-  Future<Null> f3 = new Future(() => null);
-  Future<Null> f4 = new Future(() => null);
+main() {
+  A<Null> a1 = new A();
+  A a2 = new A<Null>();
+
+  A<Future<Null>> a3 = new A();
+  A a4 = new A<Future<Null>>();
+
+  A<Future<A<Null>>> a5 = new A();
+  A a6 = new A<Future<A<Null>>>();
+
+  A<Future<A<Future<Null>>>> a7 = new A();
+  A a8 = new A<Future<A<Future<Null>>>>();
 }

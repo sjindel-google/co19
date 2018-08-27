@@ -42,20 +42,14 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [Future] parameter can be [dynamic], [Object],
- *  [Void] and [Null]
+ * @description Checks that [FutureOr] cannot be parameter for [A<Future>].
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 import "dart:async";
 
-main() {
-  Future f = new Future<dynamic>(() => 12345);
-  f = new Future<Object>(() => 12345);
-  f = new Future<void>(() => 12345);
-  f = new Future<Null>(() => null);
+class A<X> {}
 
-  Future<dynamic> f1 = new Future(() => 12345);
-  Future<void> f2 = new Future(() => 12345);
-  Future<Null> f3 = new Future(() => null);
-  Future<Null> f4 = new Future(() => null);
+main() {
+  A<Future> c = new A<FutureOr>();
 }
