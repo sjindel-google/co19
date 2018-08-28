@@ -8,16 +8,17 @@
  * setterSignature:
  *   returnType? set identifier formalParameterList
  * ;
- * @description Checks if static setter returns value other than void, then
- * compile-time error occurs
+ * @description Checks if setter returns value other than void,
+ * then compile-time error occurs
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
 class C {
-  static int set s2(int value) {return 2;} /// static type warning
+  String set s1(int value) {return "1";}
 }
 
 main() {
-  C.s2 = 0;
+  C c = new C();
+  c.s1 = 0;
 }
