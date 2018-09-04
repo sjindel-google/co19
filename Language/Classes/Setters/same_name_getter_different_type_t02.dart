@@ -4,7 +4,7 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion  It is a static warning if a class has a setter named 'v=' with
+ * @assertion  It is a compile error if a class has a setter named 'v=' with
  * argument type T and a getter named 'v' with return type S, and T may not be
  * assigned to S.
  * @description Checks that it is a compile error if class defines a setter
@@ -16,12 +16,12 @@
  */
 
 class C {
-  set foo(double d) { /// static type warning Setter type must be assignable to getter type
+  set foo(double d) {
   }
   String get foo => "";
 }
 
 main() {
-  new C().foo = new C().foo; /// static type warning 'String' is not assignable to 'double'
+  new C().foo = new C().foo;
 }
 
