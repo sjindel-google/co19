@@ -11,9 +11,8 @@
  * integer value.
  * @description Checks that it is no compile-time error if the unbounded integer
  * value of a double valued integer literal can be represented exactly as an
- * IEEE 754 double-precision value. The unbounded integer 18446744073709551614
+ * IEEE 754 double-precision value. The unbounded integer 18446744073709551616
  * has the exact double value represented as 0x43F0000000000000.
- * (Incorrect number is specified in tested documentation.)
  * @author ngl@unipro.ru
  */
 
