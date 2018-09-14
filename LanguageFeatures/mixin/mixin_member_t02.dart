@@ -32,7 +32,7 @@ mixin M<X extends num, Y extends num> on B, C implements I, J {
 }
 
 class MA<X extends num, Y extends num> with M<X, Y> {
-  Y i1 = 2 as Y;
+  Y i1 = 2.0 as Y;
   Y get gi => i1;
   set si(Y v) {
     i1 = v;
@@ -41,5 +41,5 @@ class MA<X extends num, Y extends num> with M<X, Y> {
 }
 
 main() {
-  new MA();
+  new MA<int, double>();
 }
