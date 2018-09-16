@@ -8,8 +8,8 @@
  * classDefinition:
  *   metadata abstract? class mixinApplicationClass
  * ;
- * mixinClassApplication:
- *   identifer typeParameters? `=' mixinApplication `;'
+ * mixinApplicationClass:
+ *   identifier typeParameters? `=' mixinApplication `;'
  *
  * mixinApplication:
  *   type mixins interfaces?
@@ -21,9 +21,10 @@
  * superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
  * In both cases above, C declares the same instance members as M (respec-
  * tively, Mk).
- * @description Check that if two members have the same name then it is a
+ * @description Checks that if two members have the same name then it is a
  * compile error
  * @issue 26409
+ * compile-error
  * @author sgrekhov@unipro.ru
  */
 

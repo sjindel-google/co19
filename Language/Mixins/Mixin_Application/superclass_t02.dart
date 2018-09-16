@@ -7,10 +7,10 @@
  * @assertion Let MA be a mixin derived from a class M with direct superclass
  * Sstatic. Let A be an application of MA. It is a static warning if the
  * superclass of A is not a subtype of Sstatic.
- * @description Checks that it is a compile error if superclass of A is not
- * a subtype of Sstatic
+ * @description Checks that it is a compile error to derive a mixin from a
+ * class which has a superclass other than Object, even if a superclass of A is
+ * subtype of Sstatic
  * @issue 26409
- * @issue 27531
  * @compile-error
  * @author sgrekhov@unipro.ru
  */
@@ -21,7 +21,7 @@ class Sstatic {
 class M extends Sstatic {
 }
 
-class SuperA {
+class SuperA extends Sstatic {
 }
 
 class A = SuperA with M;

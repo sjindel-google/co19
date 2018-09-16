@@ -7,18 +7,19 @@
  * @assertion  It is a compile error if a class has a setter named 'v=' with
  * argument type T and a getter named 'v' with return type S, and T may not be
  * assigned to S.
- * @description Checks that it is a compile error if class defines a setter
+ * @description Checks that it is no compile error if class defines a setter
  * named 'foo=' and a getter named 'foo' with argument/return types that are
- * not mutually assignable. Types in getter/setter signatures provided
- * explicitly (String and double).
- * @compile-error
- * @author iefremov
+ * mutually assignable. Types in getter/setter signatures provided
+ * explicitly
+ * @author sgrekhov@unipro.ru
  */
+class A {}
+class B extends A {}
 
 class C {
-  set foo(double d) {
-  }
-  String get foo => "";
+  set foo(A d) { }
+  
+  B get foo => new B();
 }
 
 main() {
