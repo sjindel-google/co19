@@ -42,10 +42,22 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Check that class can extend illegal recursive class.
- * @Issue 33786
+ * @description Checks that [FutureOr] variable can be assigned to the variable
+ *  of another type (see issue #34276 for more details)
  * @author iarkh@unipro.ru
  */
-class M<X> {}
-class O<X extends O<X>> extends M<O<O<X>>> {}
-main() {}
+import "dart:async";
+
+main() {
+  FutureOr f1;
+  int i = f1;
+
+  FutureOr<int> f2;
+  i = f2;
+
+  FutureOr<FutureOr> f3;
+  String s = f3;
+
+  FutureOr<List<String>> f4;
+  List<String> l = f4;
+}

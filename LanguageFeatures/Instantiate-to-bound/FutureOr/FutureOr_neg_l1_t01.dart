@@ -42,14 +42,14 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [Future] variable cannot be assigned to [int]
+ * @description Checks that [FutureOr<List>] variable cannot be assigned to
+ *  [int]
  * @compile-error
- * @Issue #34276
  * @author iarkh@unipro.ru
  */
 import "dart:async";
 
 main() {
-  FutureOr fff;
+  Future<List> fff;
   int i = fff;
 }

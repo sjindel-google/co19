@@ -42,14 +42,15 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [FutureOr] cannot be parameter for [A<Future>].
+ * @description Checks rule for custom class [A] with parameter which extends
+ *  [Future<A>]
  * @compile-error
  * @author iarkh@unipro.ru
  */
 import "dart:async";
 
-class A<X> {}
+class A<X extends Future<A<X>>> {}
 
 main() {
-  A<Future> c = new A<FutureOr>();
+  A a1 = new A<Future<A>>();
 }

@@ -42,10 +42,15 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that class parameter can extend [dynamic] and [Object].
+ * @description Checks rule for custom class [A] with parameter which extends
+ *  [Future<A>]
+ * @compile-error
  * @author iarkh@unipro.ru
  */
-class A<X extends dynamic> {}
-class B<X extends Object> {}
+import "dart:async";
 
-main() {}
+class A<X extends Future<A<X>>> {}
+
+main() {
+  A<Future<A>> a1 = new A();
+}

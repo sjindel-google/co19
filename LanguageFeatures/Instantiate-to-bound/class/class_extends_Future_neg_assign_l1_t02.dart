@@ -42,13 +42,15 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [Future<List>] variable cannot be assigned to [int]
+ * @description Checks rule for custom class [A] with parameter which extends
+ *  [Future<A>]
  * @compile-error
  * @author iarkh@unipro.ru
  */
 import "dart:async";
 
+class A<X extends Future<A<X>>> {}
+
 main() {
-  Future<List> fff;
-  int i = fff;
+  A a1 = new A<Future>();
 }

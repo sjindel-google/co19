@@ -55,9 +55,13 @@ main() {
   a = new A<Object>();
   a = new A<void>();
   a = new A<Null>();
+  a = new A<Future>();
+  a = new A<FutureOr>();
 
   A<dynamic> b1 = new A();
   A<Object> b2 = new A();
   A<void> b3= new A();
   A<Null> b4 = new A();
+  A<Future> b5 = new A();
+  A<FutureOr> b6 = new A();
 }

@@ -42,23 +42,22 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that if [FutureOr] variable is set to some [Future]
- *  object, it cannot be assigned to the variable of another type.
+ * @description Checks that [FutureOr] variable can be assigned to the variable
+ *  of another type (see issue #34276 for more details)
  * @author iarkh@unipro.ru
  */
 import "dart:async";
-import "../../../Utils/expect.dart";
 
 main() {
-  FutureOr f1 = new Future(() => 12345);
-  Expect.throws(() { int i = f1; }, (e) => e is TypeError );
+  FutureOr f1 = 1;
+  int i = f1;
 
-  FutureOr<int> f2 = new Future(() => 12345);
-  Expect.throws(() { int i = f2; }, (e) => e is TypeError );
+  FutureOr<int> f2 = 2;
+  i = f2;
 
-  FutureOr<FutureOr> f3 = new Future(() => "test");
-  Expect.throws(() { String i = f3; }, (e) => e is TypeError );
+  FutureOr<FutureOr> f3 = "testme";
+  String s = f3;
 
-  FutureOr<List<String>> f4 = new Future(() => ["testme"]);
-  Expect.throws(() { List<String> l = f4; }, (e) => e is TypeError );
+  FutureOr<List<String>> f4 = ["testme"];
+  List<String> l = f4;
 }
