@@ -42,14 +42,29 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [FutureOr<List>] variable cannot be assigned to
- *  [int]
- * @compile-error
+ * @description Checks that [Future] variable type parameter can be nested
  * @author iarkh@unipro.ru
  */
 import "dart:async";
 
 main() {
-  FutureOr<List> fff;
-  int i = fff;
+  Future f = new Future(() => 12345);
+
+  Future<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<
+      FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<
+          FutureOr<FutureOr<FutureOr>>>>>>>>>>>>>>>> fff = f;
+
+  f = fff;
+
+  fff = null;
+  f = fff;
+
+  Future<dynamic> fd = fff;
+  Future<Object> fo = fff;
+
+  FutureOr<dynamic> fd1 = fff;
+  FutureOr<Object> fo1 = fff;
+
+  fff= fd;
+  fff = fo;
 }

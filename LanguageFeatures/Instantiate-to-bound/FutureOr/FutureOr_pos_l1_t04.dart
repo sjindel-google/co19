@@ -42,14 +42,26 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [FutureOr<List>] variable cannot be assigned to
- *  [int]
- * @compile-error
+ * @description Checks that [FutureOr] object can be assigned to
+ *  [FutureOr<FutureOr>] variable
  * @author iarkh@unipro.ru
  */
 import "dart:async";
 
 main() {
-  FutureOr<List> fff;
-  int i = fff;
+  FutureOr f = new Future(() => 12345);
+  FutureOr<FutureOr> f1 = f;
+
+  f = 12345;
+  f1 = f;
+
+  f = null;
+  f1 = f;
+
+  f1 = "testme";
+
+  f1 = null;
+
+  Future f2 = f;
+  f1 = f2;
 }
