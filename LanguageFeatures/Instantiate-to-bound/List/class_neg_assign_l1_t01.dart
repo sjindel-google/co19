@@ -42,26 +42,15 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that class parameter can be [dynamic], [Object], [Null]
- *  [void], [Future] and [FutureOr].
+ * @description Checks that [List<List>] object cannot be assigned to
+ *  [List<List<int>>] variable. It causes type error in tuntime, but analyzer
+ *  does not throw compile error here. See also issue #34486
  * @author iarkh@unipro.ru
  */
-import "dart:async";
-
-class A<X> {}
+import "../../../Utils/expect.dart";
 
 main() {
-  A a = new A<dynamic>();
-  a = new A<Object>();
-  a = new A<void>();
-  a = new A<Null>();
-  a = new A<Future>();
-  a = new A<FutureOr>();
-
-  A<dynamic> b1 = new A();
-  A<Object> b2 = new A();
-  A<void> b3= new A();
-  A<Null> b4 = new A();
-  A<Future> b5 = new A();
-  A<FutureOr> b6 = new A();
+  Expect.throws(() {
+    List<List<int>> a = new List<List>();
+  }, (e) => e is TypeError );
 }

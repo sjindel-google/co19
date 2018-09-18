@@ -42,26 +42,13 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that class parameter can be [dynamic], [Object], [Null]
- *  [void], [Future] and [FutureOr].
+ * @description Checks that [A<A<int>>] object cannot be assigned to A<A>
+ *  variable.
  * @author iarkh@unipro.ru
  */
-import "dart:async";
-
 class A<X> {}
 
 main() {
-  A a = new A<dynamic>();
-  a = new A<Object>();
-  a = new A<void>();
-  a = new A<Null>();
-  a = new A<Future>();
-  a = new A<FutureOr>();
-
-  A<dynamic> b1 = new A();
-  A<Object> b2 = new A();
-  A<void> b3= new A();
-  A<Null> b4 = new A();
-  A<Future> b5 = new A();
-  A<FutureOr> b6 = new A();
+  A<A> a1 = new A<A<int>>();
+  A<List> a2 = new A<List<int>>();
 }
