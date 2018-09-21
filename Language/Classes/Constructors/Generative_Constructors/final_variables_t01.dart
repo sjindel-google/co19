@@ -10,11 +10,12 @@
  * initialized by one of the following means:
  *  - Initialization at the declaration of f.
  *  - Initialization by means of an initializing formal of k.
- * or a static warning occurs.
- * @description Checks that static warning is produced if a final variable is
- * not initialized in one of the specified ways.
- * @static-warning
+ * or a compile-time error occurs.
+ * @description Checks that it is a compile error if a final variable is not
+ * initialized in one of the specified ways.
+ * @compile-error
  * @author vasya
+ * @author sgrekhov@unipro.ru
  */
 
 class C {
@@ -23,7 +24,5 @@ class C {
 }
 
 main() {
-  try {
-    C c = new C();
-  } catch (x) {}
+  new C();
 }
