@@ -6,11 +6,11 @@
 /**
  * @assertion void shuffle([Random random])
  * Shuffles the elements of this list randomly.
- * @description Checks that [this] is shuffled randomly.
- * @author ngl@unipro.ru
+ * @description Checks that [this] is shuffled randomly. Use a Random seed
  * @author sgrekhov@unipro.ru
  */
 import "dart:typed_data";
+import "dart:math";
 import "../../../Utils/expect.dart";
 
 bool isOrderChanged(List<int> list, Uint8ClampedList sl) {
@@ -35,7 +35,7 @@ main() {
   var counter = 0;
   for (int i = 0; i < 10; i++) {
     var sl = new Uint8ClampedList.fromList(list);
-    sl.shuffle();
+    sl.shuffle(new Random());
     if (!isOrderChanged(list, sl)) {
       counter++;
     }
