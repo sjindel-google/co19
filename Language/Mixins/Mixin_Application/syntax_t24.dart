@@ -21,10 +21,9 @@
  * superclass is the application of the mixin composition Mk−1∗...∗M1 to S.
  * In both cases above, C declares the same instance members as M (respec-
  * tively, Mk).
- * @description Checks that it is a compile error to derive a mixin from a
+ * @description Checks that it is no compile error to derive a mixin from a
  * class which has a superclass other than Object.
  * @issue 26409
- * compile-error
  * @author sgrekhov@unipro.ru
  */
 import '../../../Utils/expect.dart';

@@ -24,7 +24,7 @@
  * @description Checks that if two members have the same name then it is a
  * compile error
  * @issue 26409
- * compile-error
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
