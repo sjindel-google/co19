@@ -18,30 +18,26 @@
  */
 import "../../Utils/expect.dart";
 
-class X {}
-class Y {}
+class I {}
+class J {}
 
-abstract class I<X> {
-  X f1();
+class B<X extends num> {
+  X f1(X p) => p;
 }
 
-class J<X> {}
+class C<Y extends num> {}
 
-class B<Y> {}
-
-class C<Y> {}
-
-mixin M<X, Y> on B<Y>, C<Y> implements I<X>, J<X> {
+mixin M<X, Y> on B, C implements I, J {
   test() {
-    Expect.isTrue(M$super.f1() is num);
+    Expect.isTrue(super.f1(3) is num);
   }
 }
 
 class MA<X, Y> with M {
-  X i = 1 as X;
-  X f1() => i;
+  num f1(num p) => p;
+
 }
 
 main() {
-  new MA<int, double>();
+  new MA<int, int>();
 }

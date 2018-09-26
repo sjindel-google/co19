@@ -19,22 +19,19 @@
  */
 import "../../Utils/expect.dart";
 
-class X {}
-class Y {}
-
-abstract class I {
-  num f1();
-}
+class I {}
 
 class J {}
 
-abstract class B<X> {}
+abstract class B<X, Y> {}
 
-abstract class C<Y> {}
+abstract class C<X, Y> {
+  Y f1();
+}
 
 mixin M<X, Y> on B, C implements I, J {
   test() {
-    Expect.isTrue(M$super.f1() is num);
+    Expect.isTrue(super.f1() is num);
   }
 }
 
