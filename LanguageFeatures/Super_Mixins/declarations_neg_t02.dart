@@ -14,7 +14,6 @@
  * @compile-error
  * @author ngl@unipro.ru
  */
-import "../../Utils/expect.dart";
 
 class I {
   static int i1 = 1;
@@ -35,10 +34,10 @@ mixin M on B, C implements I, J {
 
 class MA with M {
   test() {
-    Expect.isTrue(i1 == 1); //# 01: compile-time error
-    Expect.isTrue(j1 == 2); //# 02: compile-time error
-    Expect.isTrue(b1 == 3); //# 03: compile-time error
-    Expect.isTrue(c1 == 4); //# 04: compile-time error
+    i1 == 1; //# 01: compile-time error
+    j1 == 2; //# 02: compile-time error
+    b1 == 3; //# 03: compile-time error
+    c1 == 4; //# 04: compile-time error
   }
 }
 
