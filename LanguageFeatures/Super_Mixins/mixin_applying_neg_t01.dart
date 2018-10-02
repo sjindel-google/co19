@@ -9,6 +9,7 @@
  *
  * @description Checks that mixin declaration can only be applied to classes
  * that implement both B and C.
+ * @compile-error
  * @author ngl@unipro.ru
  */
 
@@ -21,11 +22,12 @@ abstract class C {
 
 mixin M on B, C {}
 
-class MA with M {
-  int get gb1 => 1;
+class MA1 with M {  //# 01: compile-time error
   int get gc1 => 2;
 }
 
+class MA2 with M {  //# 02: compile-time error
+  int get gb1 => 1;
+}
 main() {
-  new MA();
 }

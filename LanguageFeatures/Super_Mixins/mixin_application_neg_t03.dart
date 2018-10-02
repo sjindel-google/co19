@@ -18,20 +18,17 @@
  * @author ngl@unipro.ru
  */
 
-class X {}
-class Y {}
-
 class I {}
 
 class J {}
 
-abstract class B<X> {
+abstract class B<X extends num, Y extends num> {
   X get gi;
   set si(X p);
   X f();
 }
 
-abstract class C<Y> {
+abstract class C<X extends num, Y extends num> {
   Y get gj;
   set sj(Y p);
   Y g();
@@ -42,77 +39,77 @@ mixin M<X, Y> on B, C implements I, J {}
 class MA1<X, Y> with M {}   //# 01: compile-time error
 
 class MA2<X, Y> with M {    //# 02: compile-time error
-  X i = 1 as X;
-  X get gi => i;
-  set si(X p) => i = p;
-  X f() => i;
+  num i = 1;
+  num get gi => i;
+  set si(num p) => i = p;
+  num f() => i;
 }
 
 class MA3<X, Y> with M {    //# 03: compile-time error
-  Y j = 2 as Y;
-  Y get gj => j;
-  set sj(Y p) => j = p;
-  Y g() => j;
+  num j = 2;
+  num get gj => j;
+  set sj(num p) => j = p;
+  num g() => j;
 }
 
 class MA4<X, Y> with M {    //# 04: compile-time error
-  X i = 1 as X;
-  Y j = 2 as Y;
-  set si(X p) => i = p;
-  X f() => i;
-  Y get gj => j;
-  set sj(Y p) => j = p;
-  Y g() => j;
+  num i = 1;
+  num j = 2;
+  set si(num p) => i = p;
+  num f() => i;
+  num get gj => j;
+  set sj(num p) => j = p;
+  num g() => j;
 }
 
 class MA5<X, Y> with M {    //# 05: compile-time error
-  X i = 1 as X;
-  Y j = 2 as Y;
-  X get gi => i;
-  X f() => i;
-  Y get gj => j;
-  set sj(Y p) => j = p;
-  Y g() => j;
+  num i = 1;
+  num j = 2;
+  num get gi => i;
+  num f() => i;
+  num get gj => j;
+  set sj(num p) => j = p;
+  num g() => j;
 }
 
 class MA6<X, Y> with M {    //# 06: compile-time error
-  X i = 1 as X;
-  Y j = 2 as Y;
-  X get gi => i;
-  set si(X p) => i = p;
-  Y get gj => j;
-  set sj(Y p) => j = p;
-  Y g() => j;
+  num i = 1;
+  num j = 2;
+  num get gi => i;
+  set si(num p) => i = p;
+  num get gj => j;
+  set sj(num p) => j = p;
+  num g() => j;
 }
 
 class MA7<X, Y> with M {    //# 07: compile-time error
-  X i = 1 as X;
-  Y j = 2 as Y;
-  X get gi => i;
-  set si(X p) => i = p;
-  X f() => i;
-  set sj(Y p) => j = p;
-  Y g() => j;
+  num i = 1;
+  num j = 2;
+  num get gi => i;
+  set si(num p) => i = p;
+  num f() => i;
+  set sj(num p) => j = p;
+  num g() => j;
 }
 
 class MA8<X, Y> with M {    //# 08: compile-time error
-  X i = 1 as X;
-  Y j = 2 as Y;
-  X get gi => i;
-  set si(X p) => i = p;
-  X f() => i;
-  Y get gj => j;
-  Y g() => j;
+  num i = 1;
+  num j = 2;
+  num get gi => i;
+  set si(num p) => i = p;
+  num f() => i;
+  num get gj => j;
+  num g() => j;
 }
 
 class MA9<X, Y> with M {    //# 09: compile-time error
-  X i = 1 as X;
-  Y j = 2 as Y;
-  X get gi => i;
-  set si(X p) => i = p;
-  X f() => i;
-  Y get gj => j;
-  set sj(Y p) => j = p;
+  num i = 1;
+  num j = 2;
+  num get gi => i;
+  set si(num p) => i = p;
+  num f() => i;
+  num get gj => j;
+  set sj(num p) => j = p;
 }
 
 main() {

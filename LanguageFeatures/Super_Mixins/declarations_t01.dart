@@ -9,7 +9,8 @@
  * class declaration currently does.
  *
  * @description Checks that a mixin declaration doesn't contain the static
- * members declared in super interfaces.
+ * members declared in super interfaces. Static members from supertypes must be
+ * qualified by the name of the defined type.
  * @author ngl@unipro.ru
  */
 import "../../Utils/expect.dart";

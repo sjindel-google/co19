@@ -16,7 +16,6 @@
  * @compile_error
  * @author ngl@unipro.ru
  */
-import "../../Utils/expect.dart";
 
 class I {
   int i1 = 1;
@@ -35,9 +34,9 @@ class C {
 
 mixin M on B, C implements I, J {
   test() {
-    Expect.isTrue(super.i1 == 1);   //# 01: compile-time error
-    Expect.isTrue(super.gi == 2);   //# 02: compile-time error
-    Expect.isTrue(super.f() == 3);  //# 03: compile-time error
+    super.i1 == 1;   //# 01: compile-time error
+    super.gi == 2;   //# 02: compile-time error
+    super.f() == 3;  //# 03: compile-time error
     super.si(4);  //# 04: compile-time error
   }
 }

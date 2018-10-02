@@ -4,15 +4,13 @@
  * BSD-style license that can be found in the LICENSE file.
  */
 /**
- * @assertion The mixinMember production allows the same instance or static
- * members that a class would allow, but no constructors (for now).
+ * @assertion The on word is not reserved in any way, it is a context-specific
+ * keyword that has a specific meaning when occuring after the type name of a
+ * mixin declaration.
  *
- * @description Checks that mixin declaration doesn't allow constructors.
+ * @description Checks that the 'on' word can be used as a name of mixin.
  * @author ngl@unipro.ru
  */
-
-class S {}
-class T {}
 
 class I {}
 class J {}
@@ -20,11 +18,10 @@ class J {}
 class B {}
 class C {}
 
-mixin M<X extends S, Y extends T> on B, C implements I, J {
-  M() {}
-}
+mixin on on B, C implements I, J {}
 
-class MA with M {}
+class MA with on {
+}
 
 main() {
   new MA();

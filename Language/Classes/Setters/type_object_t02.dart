@@ -10,7 +10,6 @@
  * @description Check that the instance setter, added to the Type object by
  * static setter declaration, is not added to Type object of this class
  * and not added to the Type of the ancestor
- * @static-warning
  * @author sgrekhov@unipro.ru
  * @issue 23721
  */

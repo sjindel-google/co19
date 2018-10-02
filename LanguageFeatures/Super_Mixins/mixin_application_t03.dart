@@ -17,37 +17,34 @@
  * @author ngl@unipro.ru
  */
 
-class X {}
-class Y {}
-
 class I {}
 class J {}
 
-abstract class B<X> {
+abstract class B<X extends num> {
   X get gi;
   set si(X p);
   X f();
 }
 
-abstract class C<Y> {
+abstract class C<Y extends num> {
   Y get gj;
   set sj(Y p);
   Y g();
 }
 
-mixin M<X extends num, Y extends num> on B<X>, C<Y> implements I, J {
+mixin M<X, Y> on B, C implements I, J {
   int f1();
 }
 
 class MA<X, Y> with M {
-  X i = 1 as X;
-  Y j = 2 as Y;
-  X get gi => i;
-  set si(X p) => i = p;
-  X f() => 11 as X;
-  Y get gj => j;
-  set sj(Y p) => j = p;
-  Y g() => 12 as Y;
+  num i = 1;
+  num j = 2;
+  num get gi => i;
+  set si(num p) => i = p;
+  num f() => 11;
+  num get gj => j;
+  set sj(num p) => j = p;
+  num g() => 12;
   int f1() => 3;
 }
 

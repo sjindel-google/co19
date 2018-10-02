@@ -27,11 +27,7 @@ class C {
   int get b1 => 4;
 }
 
-mixin M on B, C implements I, J {
-  void test() {
-    Expect.isTrue(M$super.b1 is int);
-  }
-}
+mixin M on B, C implements I, J {}
 
 class MA with M {
   int get b1 => 6;
@@ -39,5 +35,5 @@ class MA with M {
 
 main() {
   MA ma = new MA();
-  ma.test();
+  Expect.isTrue(ma.b1 is int);
 }

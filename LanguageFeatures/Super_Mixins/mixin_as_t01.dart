@@ -7,10 +7,10 @@
  * @assertion A mixin declaration introduces a mixin and an interface, but not
  * a class.
  *
- * @description Checks that mixin declaration cannot be instantiated.
- * @compile-error
+ * @description Checks that mixin declaration introduces an interface.
  * @author ngl@unipro.ru
  */
+import "../../Utils/expect.dart";
 
 class I {}
 class J {}
@@ -18,8 +18,14 @@ class J {}
 class B {}
 class C {}
 
-mixin M on B, C implements I, J {}
+mixin M on B, C implements I, J {
+  int f() => 1;
+}
+
+class D implements M {
+  int f() => 2;
+}
 
 main() {
-  new M();
+  Expect.equals(2, new D().f());
 }
