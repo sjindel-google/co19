@@ -53,7 +53,6 @@ class M<X> {}
 class O<X extends M<O<X>>> {}
 
 main() {
-  print(typeOf<O>());
   Expect.equals(
     typeOf<O>(),
     typeOf<O<M<O<dynamic>>>>(),

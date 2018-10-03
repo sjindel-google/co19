@@ -22,6 +22,7 @@ import "../../../Utils/expect.dart";
 
 main() {
   var x;
-  new Future(() => x = 1);
+  Future<Future<Future<int>>> i = new Future(() => 123);
+  //FutureOr<Future<int>> ii = 11;
   Expect.isNull(x);
 }

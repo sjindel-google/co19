@@ -42,15 +42,33 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks rule for custom class [A] with parameter which extends
- *  [Future<A>]
+ * @description Checks that instantiate-to-bounds works as expected for the
+ *  classes [A<X extends B>], [B<X extends C>], [C<X extends A<B>>]
+ * @Issue 34560,34623
  * @compile-error
  * @author iarkh@unipro.ru
  */
-import "dart:async";
+import "../../../../Utils/expect.dart";
 
-class A<X extends Future<A<X>>> {}
+class A<X extends B> {}
+class B<X extends C> {}
+class C<X extends A<B>> {}
+
 
 main() {
-  A a1 = new A<Future>();
+  A sourceA;
+  B sourceB;
+  C sourceC;
+
+  var fsourceA = toF(sourceA);
+  var fsourceB = toF(sourceB);
+  var fsourceC = toF(sourceC);
+
+  F<A<B<dynamic>>> targetA = fsourceA;
+  F<B<C<A<B<dynamic>>>>> targetB = fsourceB;
+  F<C<A<B<dynamic>>>> targetC = fsourceC;
+
+  A(); //# 01: compile-time error
+  B(); //# 02: compile-time error
+  C(); //# 03: compile-time error
 }
