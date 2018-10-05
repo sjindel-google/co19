@@ -12,26 +12,39 @@
  * @description Checks that it is a compile error if an instance method in a
  * mixin body has a super-access (super.foo, super.foo(), super + bar, etc.)
  * which would not be a valid invocation if super was replaced by an expression
- * with static type A$super.
+ * with static type A$super. Test that noSuchMethod has no effect in this case
  * @compile_error
  * @author sgrekhov@unipro.ru
  */
 
 class B {
-  void foo(int x) {}
+  int foo(int x) => x;
+  noSuchMethod(Invocation i) {
+    return 0;
+  }
 }
 
 mixin M on B {
   void bar() {
     super.foo("test");
   }
+
+  noSuchMethod(Invocation i) {
+    return 0;
+  }
 }
 
 class C {
-  void foo(int x) {}
+  int foo(int x) {}
+  noSuchMethod(Invocation i) {
+    return 0;
+  }
 }
 
 class MA extends C with M {
+  noSuchMethod(Invocation i) {
+    return 0;
+  }
 }
 
 main() {

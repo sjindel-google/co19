@@ -18,6 +18,12 @@ import "../../Utils/expect.dart";
 
 String console;
 
+class A {
+  void set a1(String s) {
+    console = "A:$s";
+  }
+}
+
 class B {
   void set b1(String s) {
     console = "B:$s";
@@ -25,49 +31,52 @@ class B {
 }
 
 class C {
-  void set c1(String s) {
+  void set a1(String s) {
+    console = "C:$s";
+  }
+  void set b1(String s) {
     console = "C:$s";
   }
 }
 
-mixin M on B, C {
-  void set b1(String s) {
+mixin M on A, B {
+  void set a1(String s) {
     console = "M:$s";
   }
-  void set c1(String s) {
+  void set b1(String s) {
     console = "M:$s";
   }
 
   testM() {
+    super.a1 = "a1";
+    Expect.equals("C:a1", console);
     super.b1 = "b1";
-    Expect.equals("B:b1", console);
-    super.c1 = "c1";
-    Expect.equals("C:c1", console);
+    Expect.equals("C:b1", console);
   }
 }
 
-class MA with M {
-  void set b1(String s) {
+class MA extends C with M {
+  void set a1(String s) {
     console = "MA:$s";
   }
-  void set c1(String s) {
+  void set b1(String s) {
     console = "MA:$s";
   }
 
   testMA() {
+    super.a1 = "a1";
+    Expect.equals("M:a1", console);
     super.b1 = "b1";
     Expect.equals("M:b1", console);
-    super.c1 = "c1";
-    Expect.equals("M:c1", console);
   }
 }
 
 main() {
   MA ma = new MA();
+  ma.a1 = "a1";
+  Expect.equals("MA:a1", console);
   ma.b1 = "b1";
   Expect.equals("MA:b1", console);
-  ma.c1 = "c1";
-  Expect.equals("MA:c1", console);
 
   ma.testM();
   ma.testMA();
