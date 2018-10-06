@@ -42,18 +42,18 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works correctly for function
- *  with optional parameter.
- * @compile-error
- * @Issue 33805
+ * @description Checks that instantiate-to-bounds works correctly for [typedef
+ *  G<X extends List<X>> = Function(X)]
+ * @Issue 34689
  * @author iarkh@unipro.ru
  */
-class A<X> {}
-testme<X extends A<X>>([X x]) {}
+import "../../../../Utils/expect.dart";
 
-A a;
+typedef G<X extends List<X>> = Function(X);
 
 main() {
-  testme(a);
+  Expect.equals(
+    typeOf<G<List<Null>>>(),
+    typeOf<G>()
+  );
 }
-

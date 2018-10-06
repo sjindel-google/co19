@@ -48,6 +48,6 @@
  * @author iarkh@unipro.ru
  */
 
-typedef F<X extends int> = Function(X);
+typedef F<X extends int> = X Function();
 F<List>  myvariable;
 main() {}

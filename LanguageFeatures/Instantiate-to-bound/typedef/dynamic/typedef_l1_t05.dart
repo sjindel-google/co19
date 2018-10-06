@@ -42,15 +42,17 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works correctly for function
- *  with parametrized option named parameter.
- * @Issue #33864
+ * @description Checks that instantiate-to-bounds works correctly for [typedef
+ *  G<X extends List<X>> = X Function()]
  * @author iarkh@unipro.ru
  */
-class A<X> {}
-testme<X extends A<X>>({X x}) {}
+import "../../../../Utils/expect.dart";
+
+typedef G<X extends List<X>> = X Function();
 
 main() {
-  testme();
+  Expect.equals(
+    typeOf<G<List<dynamic>>>(),
+    typeOf<G>()
+  );
 }
-

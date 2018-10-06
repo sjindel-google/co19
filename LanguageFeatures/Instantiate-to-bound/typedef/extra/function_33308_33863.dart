@@ -42,18 +42,14 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works correctly for function
- *  with optional named parameter.
+ * @description Checks that parameter type is checked correctly for functions.
+ * @Issue 33308
  * @compile-error
- * @Issue 33805
  * @author iarkh@unipro.ru
  */
-class A<X> {}
-testme<X extends A<X>>({X x}) {}
 
-A a;
+testme<X extends int>(X x) {}
 
 main() {
-  testme(x: a);
+  testme("incorrect param");
 }
-

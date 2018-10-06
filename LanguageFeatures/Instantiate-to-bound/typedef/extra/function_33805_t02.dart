@@ -42,22 +42,22 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds passes in correct cases if
- *  [typedef] function [F] is declared with [F<F>] argument.
+ * @description Checks that error appears if row variable is passed to the
+ *  function parameter
+ * @compile-error
+ * @Issue 33805
  * @author iarkh@unipro.ru
  */
-
 class A<X> {}
-typedef F<X extends A<X>> = Function(X);
-class B extends A<F> {}
+testme<X extends A<X>>(X) {}
 
-testme(F<F> f) {}
+A a;
+A<A> a1;
+A<A<A>> a2;
 
 main() {
-  F<Null> f1 = testme;
-  F<F<dynamic>> f2 = testme;
-  F<F<void>> f3 = testme;
-  F<F<Object>> f4 = testme;
-  F<F<F>> f5 = testme;
-  F<F<F<Null>>> f6 = testme;
+  testme(a);  //# 01: compile-time error
+  testme(a1); //# 02: compile-time error
+  testme(a2); //# 03: compile-time error
 }
+

@@ -42,16 +42,18 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that instantiate-to-bounds works correctly for function
- *  with parametrized parameter.
- * @Issue #33864
+ * @description Checks that error when trying to assign a function result to a
+ *  row variable
+ * @compile-error
+ * @Issue 33805
  * @author iarkh@unipro.ru
  */
-testme1<X extends List<X>>() {}
-testme2<X extends List<int>>() {}
+class A<X> {}
+X testme<X extends A<X>>() {}
 
 main() {
-  testme1();
-  testme2();
+  A a = testme();        //# 01: compile-time error
+  A<A> a1 = testme();    //# 02: compile-time error
+  A<A<A>> a2 = testme(); //# 03: compile-time error
 }
 
