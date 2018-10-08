@@ -42,18 +42,16 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [class A<X extends A<X>> extends M<A<A<A<A<X>>>>>]
- *  can be declared in runtime.
- * See also test LanguageFeatures/class/static/class_l2_t05.dart
- * @Issue #33786
+ * @description Checks that [Future] object can be assigned to
+ *  [Future] variable with different type parameters.
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
-
-class M<X> {}
-class A<X extends A<X>> extends M<A<A<A<A<X>>>>> {}
+import "dart:async";
 
 main() {
-  A source;
-  var fsource = toF(source);
+  Future f = new Future(() => 12345);
+  Future<dynamic>  f1 = f;
+  Future<Object>   f2 = f;
+  Future<void>     f3 = f;
+  Future<FutureOr> f4 = f;
 }

@@ -42,18 +42,15 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [class A<X extends A<X>> extends M<A<A<A<A<X>>>>>]
- *  can be declared in runtime.
- * See also test LanguageFeatures/class/static/class_l2_t05.dart
- * @Issue #33786
+ * @description Checks that function can have parameter which extends [dynamic]
+ *  or [Object].
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
+import "dart:async";
 
-class M<X> {}
-class A<X extends A<X>> extends M<A<A<A<A<X>>>>> {}
+X function1<X extends Future>() { return null; }
 
 main() {
-  A source;
-  var fsource = toF(source);
+  Future i = function1();
+  var i1 = function1<Future<int>>();
 }

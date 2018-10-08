@@ -42,18 +42,30 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [class A<X extends A<X>> extends M<A<A<A<A<X>>>>>]
- *  can be declared in runtime.
- * See also test LanguageFeatures/class/static/class_l2_t05.dart
- * @Issue #33786
+ * @description Checks that instantiate-to-bounds works as expected for the
+ *  classes [A<X>], [B<X>], [G<X extends A<X1>, X1 extends B<X>>]
+ * @Issue 34560,34623
+ * @compile-error
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
-class M<X> {}
-class A<X extends A<X>> extends M<A<A<A<A<X>>>>> {}
+class A<X> {}
+class B<X> {}
+
+class G<X extends A<X1>, X1 extends B<X>> {}
 
 main() {
-  A source;
+  G source;
   var fsource = toF(source);
+
+  F<G<A<dynamic>, B<dynamic>>> target = fsource;
+
+  F<G<A<B>, B<A<B>>>> target1 = fsource;                         //# 01: compile-time error
+  F<G<A<B<dynamic>>, B<A<dynamic>>>> target2 = fsource;          //# 02: compile-time error
+  F<G<A<B<dynamic>>, B<A<B<A<dynamic>>>>>> target3 = fsource;    //# 03: compile-time error
+  F<G<A<B<A<dynamic>>>, B<A<B<A<dynamic>>>>>> target4 = fsource; //# 04: compile-time error
+  F<G<A<B>, B<A<B<dynamic>>>>> target5 = fsource;                //# 05: compile-time error
+
+  G(); //# 06: compile-time error
 }

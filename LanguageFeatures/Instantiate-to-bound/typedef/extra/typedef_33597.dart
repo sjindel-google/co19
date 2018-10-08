@@ -42,18 +42,12 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [class A<X extends A<X>> extends M<A<A<A<A<X>>>>>]
- *  can be declared in runtime.
- * See also test LanguageFeatures/class/static/class_l2_t05.dart
- * @Issue #33786
+ * @description Checks that parameter type is checked correctly for functions.
+ * @Issue 33597
+ * @compile-error
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
 
-class M<X> {}
-class A<X extends A<X>> extends M<A<A<A<A<X>>>>> {}
-
-main() {
-  A source;
-  var fsource = toF(source);
-}
+typedef F<X extends int> = X Function();
+F<List>  myvariable;
+main() {}

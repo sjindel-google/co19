@@ -42,18 +42,50 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [class A<X extends A<X>> extends M<A<A<A<A<X>>>>>]
- *  can be declared in runtime.
- * See also test LanguageFeatures/class/static/class_l2_t05.dart
- * @Issue #33786
+ * @description Checks that [Future] variable type parameter can be nested
+ * @Issue 34482
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
-
-class M<X> {}
-class A<X extends A<X>> extends M<A<A<A<A<X>>>>> {}
+import "dart:async";
+import "../../../Utils/expect.dart";
 
 main() {
-  A source;
-  var fsource = toF(source);
+  Future f = new Future(() => 12345);
+  Future f1 = new Future(() => "12345");
+  Future<int> fi = new Future<int>(() => 12345);
+  Future<String> fs = new Future<String>(() => "string");
+
+  FutureOr fo = new Future(() => 12345);
+  FutureOr fo1 = new Future(() => "incorrect");
+  FutureOr fo2 = 10;
+  FutureOr fo3 = "testagain";
+  FutureOr<int> foi = new Future<int>(() => 12345);
+  FutureOr<int> foi1 = 0;
+  FutureOr<String> fos = new Future<String>(() => "test");
+  FutureOr<String> fos1 = "test";
+
+  Future<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<
+      FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<FutureOr<
+          FutureOr<FutureOr<FutureOr<int>>>>>>>>>>>>>>>>> fff;
+
+  // fff = f;
+
+  Expect.throws(() { fff = f1; }, (e) => e is TypeError );
+
+  fff = fi;
+
+  // fff = fo;
+
+  Expect.throws(() { fff = fo1; }, (e) => e is TypeError );
+  Expect.throws(() { fff = fo2; }, (e) => e is TypeError );
+  Expect.throws(() { fff = fo3; }, (e) => e is TypeError );
+
+  //fff = foi;
+  //fff = foi1;
+  //fff = fos;
+  //fff = fos1;
+
+
+  //fff = fs;
+
 }

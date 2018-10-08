@@ -42,18 +42,22 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [class A<X extends A<X>> extends M<A<A<A<A<X>>>>>]
- *  can be declared in runtime.
- * See also test LanguageFeatures/class/static/class_l2_t05.dart
- * @Issue #33786
+ * @description Checks that error appears if row variable is passed to the
+ *  function parameter
+ * @compile-error
+ * @Issue 33805
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
+class A<X> {}
+testme<X extends A<X>>(X) {}
 
-class M<X> {}
-class A<X extends A<X>> extends M<A<A<A<A<X>>>>> {}
+A a;
+A<A> a1;
+A<A<A>> a2;
 
 main() {
-  A source;
-  var fsource = toF(source);
+  testme(a);  //# 01: compile-time error
+  testme(a1); //# 02: compile-time error
+  testme(a2); //# 03: compile-time error
 }
+

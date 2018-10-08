@@ -42,18 +42,18 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [class A<X extends A<X>> extends M<A<A<A<A<X>>>>>]
- *  can be declared in runtime.
- * See also test LanguageFeatures/class/static/class_l2_t05.dart
- * @Issue #33786
+ * @description Checks that instantiate-to-bounds works correctly for function
+ *  with parametrized return value.
+ * @compile-error
+ * @Issue 33805
  * @author iarkh@unipro.ru
  */
-import "../../../../Utils/expect.dart";
+import "dart:async";
 
-class M<X> {}
-class A<X extends A<X>> extends M<A<A<A<A<X>>>>> {}
+X testme<X extends Future<X>>() { return null; }
+
 
 main() {
-  A source;
-  var fsource = toF(source);
+  Future a = testme();
 }
+

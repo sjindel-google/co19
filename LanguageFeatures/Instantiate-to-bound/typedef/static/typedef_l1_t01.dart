@@ -42,18 +42,21 @@
  *
  *   3. Otherwise, (when no dependencies exist) terminate with the result
  *   [<U1,m ..., Uk,m>].
- * @description Checks that [class A<X extends A<X>> extends M<A<A<A<A<X>>>>>]
- *  can be declared in runtime.
- * See also test LanguageFeatures/class/static/class_l2_t05.dart
- * @Issue #33786
+ * @description Checks that instantiate-to-bounds works correctly for [typedef
+ *  G<X extends num>]
  * @author iarkh@unipro.ru
  */
 import "../../../../Utils/expect.dart";
 
-class M<X> {}
-class A<X extends A<X>> extends M<A<A<A<A<X>>>>> {}
+typedef F_ret<X extends num> = X Function();
+typedef F_param<X extends num> = Function(X);
 
 main() {
-  A source;
-  var fsource = toF(source);
+  F_ret source1;
+  var fsource1 = toF(source1);
+  F<F_ret<num>> target1 = fsource1;
+
+  F_param source2;
+  var fsource2 = toF(source2);
+  F<F_param<num>> target2 = fsource2;
 }

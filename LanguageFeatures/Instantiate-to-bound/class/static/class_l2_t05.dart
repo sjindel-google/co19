@@ -44,7 +44,8 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works for the class [A<X
  *  extends A<X>> extends M<A<A<A<A<X>>>>>]
- * @Issue #33786
+ * @Issue #34560, #34623
+ * See also issue 33786 and test LanguageFeatures/class/extra/class_33786.dart
  * @compile-error
  * @author iarkh@unipro.ru
  */

@@ -44,7 +44,7 @@
  *   [<U1,m ..., Uk,m>].
  * @description Checks that instantiate-to-bounds works as expected for the
  *  classes [A<X extends B>], [B<X extends C>], [C<X extends A<B>>]
- * @Issue 34560,34623
+ * @Issue 34623, 34636
  * @compile-error
  * @author iarkh@unipro.ru
  */
