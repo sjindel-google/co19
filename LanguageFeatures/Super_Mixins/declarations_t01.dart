@@ -42,7 +42,7 @@ abstract class B {
   void set bSetter(String);
 }
 
-class C {
+class C implements A, B {
   String iProperty = "C I property";
   String iMethod() => "C I method";
   String get iGetter => "C I getter";

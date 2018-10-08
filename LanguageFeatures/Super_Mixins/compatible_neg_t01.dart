@@ -13,12 +13,11 @@
  *
  * @description Checks that it is a compile-time error for the mixin declaration
  * if the interfaces B and C are not compatible.
+ * @issue 34713
  * @compile-error
  * @author ngl@unipro.ru
+ * @author sgrekhov@unipro.ru
  */
-
-class I {}
-class J {}
 
 class B {
   int get n => 1;
@@ -27,11 +26,8 @@ class C {
   double get n => 2.0;
 }
 
-mixin M on B, C implements I, J {
+mixin M on B, C {
 }
 
-class MA with M {}
-
 main() {
-  new MA();
 }
