@@ -13,12 +13,12 @@
  * mixin body has a super-access (super.foo, super.foo(), super + bar, etc.)
  * which would not be a valid invocation if super was replaced by an expression
  * with static type A$super.
- * @compile_error
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
-class B {
-  void foo(int x) {}
+abstract class B {
+  void foo(int x);
 }
 
 mixin M on B {
@@ -27,7 +27,7 @@ mixin M on B {
   }
 }
 
-class C {
+class C implements B {
   void foo(int x) {}
 }
 

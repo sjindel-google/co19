@@ -11,7 +11,7 @@
  * (like super.foo()) if they are allowed by a class implementing both B and C.
  *
  * @description Checks that a mixin declaration can perform super-invocations.
- * Test methods and "extends" implementation of "on" clause interfaces
+ * Test getters and "mixin" implementation of "on" clause interfaces
  * @author sgrekhov@unipro.ru
  */
 import "../../Utils/expect.dart";
@@ -37,15 +37,7 @@ class B extends A {
   }
 }
 
-class C extends B {
-  String a1() => "C.a1";
-  String a2() {
-    return "C.a2";
-  }
-  String a3(String arg) {
-    return "C.a3:$arg";
-  }
-}
+class C = B with A;
 
 mixin M on A, B {
   String a1() => "M.a1";
@@ -64,9 +56,9 @@ mixin M on A, B {
   }
 
   testM() {
-    Expect.equals("C.a1", super.a1());
-    Expect.equals("C.a2", super.a2());
-    Expect.equals("C.a3:M", super.a3("M"));
+    Expect.equals("A.a1", super.a1());
+    Expect.equals("A.a2", super.a2());
+    Expect.equals("A.a3:M", super.a3("M"));
     Expect.equals("A._a4", super._a4());
     Expect.equals("B.b1", super.b1());
     Expect.equals("B.b2", super.b2());

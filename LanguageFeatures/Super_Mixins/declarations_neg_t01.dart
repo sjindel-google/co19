@@ -14,7 +14,7 @@
  * not implemented in mixin application.
  * @compile-error
  * @author ngl@unipro.ru
- */
+ *
 
 abstract class I {
   int get i;
@@ -75,4 +75,34 @@ class MA5 with M { //# 05: compile-time error
 }
 
 main() {
+}
+*/
+
+class A {
+  String get g => "g";
+}
+
+class C {
+  noSuchMethod(Invocation i) {
+    print("C.noSuchMethod ivocked");
+
+  }
+}
+
+mixin M on A {
+  test() {
+    super.g;
+  }
+
+  noSuchMethod(Invocation i) {
+    print("M.noSuchMethod ivocked");
+  }
+}
+
+class MA extends C with M {
+}
+
+main() {
+  print(new MA().g);
+  print(new MA().test());
 }

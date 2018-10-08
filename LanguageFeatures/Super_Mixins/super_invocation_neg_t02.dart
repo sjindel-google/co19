@@ -13,14 +13,14 @@
  * mixin body has a super-access (super.foo, super.foo(), super + bar, etc.)
  * which would not be a valid invocation if super was replaced by an expression
  * with static type A$super. Test that noSuchMethod has no effect in this case
- * @compile_error
+ * @compile-error
  * @author sgrekhov@unipro.ru
  */
 
-class B {
-  int foo(int x) => x;
+abstract class B {
+  int foo(int x);
   noSuchMethod(Invocation i) {
-    return 0;
+    return "";
   }
 }
 
@@ -30,20 +30,20 @@ mixin M on B {
   }
 
   noSuchMethod(Invocation i) {
-    return 0;
+    return "";
   }
 }
 
-class C {
-  int foo(int x) {}
+class C implements B {
+  int foo(int x) => x;
   noSuchMethod(Invocation i) {
-    return 0;
+    return "";
   }
 }
 
 class MA extends C with M {
   noSuchMethod(Invocation i) {
-    return 0;
+    return "";
   }
 }
 

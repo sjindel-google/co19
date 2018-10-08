@@ -11,45 +11,65 @@
  * (like super.foo()) if they are allowed by a class implementing both B and C.
  *
  * @description Checks that a mixin declaration can perform super-invocations.
- * Test getters and "mixin" implementation of "on" clause interfaces
+ * Test setters and "mixin" implementation of "on" clause interfaces
  * @author sgrekhov@unipro.ru
  */
 import "../../Utils/expect.dart";
 
+String console;
+
 class A {
-  String get a => "A.a";
+  void set a1(String s) {
+    console = "A:$s";
+  }
 }
 
 class B {
-  String get b => "B.b";
+  void set b1(String s) {
+    console = "B:$s";
+  }
 }
 
-class C = B with A;
+class C = A with B;
 
 mixin M on A, B {
-  String get a => "M.a";
-  String get b => "M.b";
+  void set a1(String s) {
+    console = "M:$s";
+  }
+  void set b1(String s) {
+    console = "M:$s";
+  }
 
   testM() {
-    Expect.equals("A.a", super.a);
-    Expect.equals("B.b", super.b);
+    super.a1 = "a1";
+    Expect.equals("A:a1", console);
+    super.b1 = "b1";
+    Expect.equals("B:b1", console);
   }
 }
 
 class MA extends C with M {
-  String get a => "MA.a";
-  String get b => "MA.b";
+  void set a1(String s) {
+    console = "MA:$s";
+  }
+  void set b1(String s) {
+    console = "MA:$s";
+  }
 
   testMA() {
-    Expect.equals("M.a", super.a);
-    Expect.equals("M.b", super.b);
+    super.a1 = "a1";
+    Expect.equals("M:a1", console);
+    super.b1 = "b1";
+    Expect.equals("M:b1", console);
   }
 }
 
 main() {
   MA ma = new MA();
-  Expect.equals("MA.a", ma.a);
-  Expect.equals("MA.b", ma.b);
+  ma.a1 = "a1";
+  Expect.equals("MA:a1", console);
+  ma.b1 = "b1";
+  Expect.equals("MA:b1", console);
 
   ma.testM();
   ma.testMA();
